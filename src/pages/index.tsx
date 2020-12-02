@@ -10,17 +10,19 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   location,
 }) => {
   const siteTitle = data.site?.siteMetadata?.title || `Title`
-
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <p>
         Hi!
         <br />
-        My name is K.Iwata
-        <br />
-        FrontEngineer.
-        <br />
+        My name is K.Iwata.
+      </p>
+      <p>
+        My job is FrontEngineer. Check{' '}
+        <a href="https://zenn.dev/k_logic24" target="_blank">
+          Tech Site
+        </a>
       </p>
     </Layout>
   )

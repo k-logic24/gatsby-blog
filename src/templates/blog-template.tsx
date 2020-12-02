@@ -30,7 +30,8 @@ const BlogIndex: React.FC<
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <ol style={{ listStyle: `none` }}>
+      <h1>Daily List</h1>
+      <ol className="posts-list" style={{ listStyle: `none` }}>
         {/*TODO*/}
         {posts.map((post: any) => {
           const title = post.frontmatter?.title || post.fields?.slug
