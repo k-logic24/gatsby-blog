@@ -2,7 +2,6 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { PageProps } from 'gatsby'
 
-import Bio from '../components/bio'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
@@ -15,7 +14,14 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <Bio />
+      <p>
+        Hi!
+        <br />
+        My name is K.Iwata
+        <br />
+        FrontEngineer.
+        <br />
+      </p>
     </Layout>
   )
 }

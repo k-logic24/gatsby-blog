@@ -1,15 +1,20 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { PageProps } from 'gatsby'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faChevronLeft,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons'
 
 import Bio from '../components/bio'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogPageQuery>> = ({
-  data,
-  location,
-}) => {
+// TODO
+const BlogIndex: React.FC<
+  PageProps<GatsbyTypes.BlogPageQuery> & { pageContext: any }
+> = ({ data, location, pageContext }) => {
   const siteTitle = data.site?.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
@@ -17,7 +22,6 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogPageQuery>> = ({
     return (
       <Layout location={location} title={siteTitle}>
         <SEO title="All posts" />
-        <Bio />
         <p>No posts...</p>
       </Layout>
     )
@@ -26,9 +30,9 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogPageQuery>> = ({
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <Bio />
       <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
+        {/*TODO*/}
+        {posts.map((post: any) => {
           const title = post.frontmatter?.title || post.fields?.slug
 
           return (
@@ -59,6 +63,33 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogPageQuery>> = ({
           )
         })}
       </ol>
+      <nav className="paginate">
+        <ul className="paginate-list">
+          {!pageContext.isFirst && (
+            <li className="prev">
+              <Link
+                to={
+                  pageContext.currentPage === 2
+                    ? `/blog/`
+                    : `/blog/${pageContext.currentPage - 1}`
+                }
+                rel="prev"
+              >
+                <FontAwesomeIcon icon={faChevronLeft} />
+                <span style={{ marginLeft: '0.5em' }}>Prev</span>
+              </Link>
+            </li>
+          )}
+          {!pageContext.isLast && (
+            <li className="next">
+              <Link to={`/blog/${pageContext.currentPage + 1}/`} rel="next">
+                <span style={{ marginRight: '0.5em' }}>Next</span>
+                <FontAwesomeIcon icon={faChevronRight} />
+              </Link>
+            </li>
+          )}
+        </ul>
+      </nav>
     </Layout>
   )
 }

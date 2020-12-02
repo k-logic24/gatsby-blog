@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/kohei/.nodebrew/node/v14.0.0/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js
+  /Users/kohei/.nodebrew/node/v14.0.0/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js add @fortawesome/free-light-svg-icons
 
 PATH: 
   /Users/kohei/development/flutter/bin:/Users/kohei/.nodebrew/current/bin:/Users/kohei/opt/anaconda3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/kohei/.composer/vendor/bin
@@ -14,12 +14,17 @@ Platform:
   darwin x64
 
 Trace: 
-  SyntaxError: /Users/kohei/Documents/portfolio-gatsby/gatsby-typescript-sample/package.json: Unexpected token } in JSON at position 1760
-      at JSON.parse (<anonymous>)
-      at /usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:1625:59
-      at Generator.next (<anonymous>)
-      at step (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:310:30)
-      at /usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:321:13
+  Error: https://registry.yarnpkg.com/@fortawesome%2ffree-light-svg-icons: Not found
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:66988:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:140749:22)
+      at Request.emit (events.js:315:20)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:141721:10)
+      at Request.emit (events.js:315:20)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:141643:12)
+      at Object.onceWrapper (events.js:421:28)
+      at IncomingMessage.emit (events.js:327:22)
+      at endReadableNT (_stream_readable.js:1218:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21)
 
 npm manifest: 
   {
@@ -28,10 +33,11 @@ npm manifest:
     "description": "A starter for a blog powered by Gatsby and Markdown",
     "version": "0.1.0",
     "author": "K.Iwata <iwater0715@gmail.com>",
-    "bugs": {
-      "url": "https://github.com/gatsbyjs/gatsby/issues"
-    },
     "dependencies": {
+      "@fortawesome/fontawesome-svg-core": "^1.2.32",
+      "@fortawesome/free-regular-svg-icons": "^5.15.1",
+      "@fortawesome/free-solid-svg-icons": "^5.15.1",
+      "@fortawesome/react-fontawesome": "^0.1.13",
       "gatsby": "^2.24.66",
       "gatsby-image": "^2.4.20",
       "gatsby-plugin-feed": "^2.5.13",
@@ -67,10 +73,6 @@ npm manifest:
     ],
     "license": "0BSD",
     "main": "n/a",
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
-    },
     "scripts": {
       "build": "gatsby build",
       "develop": "gatsby develop",
@@ -78,7 +80,7 @@ npm manifest:
       "start": "npm run develop",
       "serve": "gatsby serve",
       "clean": "gatsby clean",
-      "typecheck": "tsc",
+      "typecheck": "tsc"
     }
   }
 
@@ -1211,6 +1213,39 @@ Lockfile:
     version "0.2.5"
     resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
     integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
+  
+  "@fortawesome/fontawesome-common-types@^0.2.32":
+    version "0.2.32"
+    resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.32.tgz#3436795d5684f22742989bfa08f46f50f516f259"
+    integrity sha512-ux2EDjKMpcdHBVLi/eWZynnPxs0BtFVXJkgHIxXRl+9ZFaHPvYamAfCzeeQFqHRjuJtX90wVnMRaMQAAlctz3w==
+  
+  "@fortawesome/fontawesome-svg-core@^1.2.32":
+    version "1.2.32"
+    resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.32.tgz#da092bfc7266aa274be8604de610d7115f9ba6cf"
+    integrity sha512-XjqyeLCsR/c/usUpdWcOdVtWFVjPbDFBTQkn2fQRrWhhUoxriQohO2RWDxLyUM8XpD+Zzg5xwJ8gqTYGDLeGaQ==
+    dependencies:
+      "@fortawesome/fontawesome-common-types" "^0.2.32"
+  
+  "@fortawesome/free-regular-svg-icons@^5.15.1":
+    version "5.15.1"
+    resolved "https://registry.yarnpkg.com/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-5.15.1.tgz#a8897d0ce325352dbba0e943101323e0175ee2b2"
+    integrity sha512-eD9NWFy89e7SVVtrLedJUxIpCBGhd4x7s7dhesokjyo1Tw62daqN5UcuAGu1NrepLLq1IeAYUVfWwnOjZ/j3HA==
+    dependencies:
+      "@fortawesome/fontawesome-common-types" "^0.2.32"
+  
+  "@fortawesome/free-solid-svg-icons@^5.15.1":
+    version "5.15.1"
+    resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.15.1.tgz#e1432676ddd43108b41197fee9f86d910ad458ef"
+    integrity sha512-EFMuKtzRMNbvjab/SvJBaOOpaqJfdSap/Nl6hst7CgrJxwfORR1drdTV6q1Ib/JVzq4xObdTDcT6sqTaXMqfdg==
+    dependencies:
+      "@fortawesome/fontawesome-common-types" "^0.2.32"
+  
+  "@fortawesome/react-fontawesome@^0.1.13":
+    version "0.1.13"
+    resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.1.13.tgz#ce9654bf4e537108014ec022f2423dbe8114fd62"
+    integrity sha512-/HrLnIft5Ks2511Pz6TxHBIctC9QalVscAC64sufQ4sJH/sXaQlG3uR9LCu6VpEwkBemgcBLrz/QPNP/ddbjDg==
+    dependencies:
+      prop-types "^15.7.2"
   
   "@graphql-codegen/core@^1.16.3":
     version "1.17.8"

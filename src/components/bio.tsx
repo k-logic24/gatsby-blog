@@ -1,10 +1,3 @@
-/**
- * Bio component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
@@ -27,6 +20,7 @@ const Bio = () => {
           }
           social {
             twitter
+            github
           }
         }
       }
@@ -51,11 +45,14 @@ const Bio = () => {
         />
       )}
       {author?.name && (
-        <p>
-          Hello. This site is my daily.
-          <br />
-          <a href={`https://twitter.com/${social?.twitter || ``}`}>Twitter</a>
-        </p>
+        <ul className="bio-list">
+          <li>
+            <a href={`https://twitter.com/${social?.twitter || ``}`}>Twitter</a>
+          </li>
+          <li>
+            <a href={`https://github.com/${social?.github || ``}`}>GitHub</a>
+          </li>
+        </ul>
       )}
     </div>
   )

@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `K.Iwata's Diary`,
     author: {
       name: `K.Iwata`,
       summary: `K.Iwata's Gatsby Template`,
@@ -9,6 +9,7 @@ module.exports = {
     siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
     social: {
       twitter: `k-logic24`,
+      github: `k-logic24`,
     },
   },
   plugins: [

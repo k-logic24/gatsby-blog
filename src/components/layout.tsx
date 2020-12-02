@@ -3,6 +3,8 @@ import { Link } from 'gatsby'
 import { PageProps } from 'gatsby'
 import { WindowLocation } from '@reach/router'
 
+import Bio from '../components/bio'
+
 const Layout: React.FC<
   { title: string } & { location: WindowLocation<unknown> }
 > = ({ location, title, children }) => {
@@ -25,10 +27,20 @@ const Layout: React.FC<
   }
 
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
+    <div className="wrapper" data-is-root-path={isRootPath}>
+      <header className="header">{header}</header>
+      <nav className="nav">
+        <ul className="nav-list">
+          <li>
+            <Link to="/blog/">Dialy</Link>
+          </li>
+        </ul>
+      </nav>
       <main>{children}</main>
-      <footer>&copy; {new Date().getFullYear()} K.Iwata</footer>
+      <footer>
+        <Bio />
+        &copy; {new Date().getFullYear()} K.Iwata
+      </footer>
     </div>
   )
 }

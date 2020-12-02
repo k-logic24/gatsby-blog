@@ -1,5 +1,10 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faChevronLeft,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons'
 
 import Bio from '../components/bio'
 import Layout from '../components/layout'
@@ -30,32 +35,26 @@ const BlogPostTemplate: React.FC<any> = ({ data, pageContext, location }) => {
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
-        <hr />
-        <footer>
-          <Bio />
-        </footer>
       </article>
-      <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
+      <nav className="paginate">
+        <ul className="paginate-list">
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
+                <FontAwesomeIcon icon={faChevronLeft} />
+                <span style={{ marginLeft: '0.5em' }}>
+                  {previous.frontmatter.title}
+                </span>
               </Link>
             )}
           </li>
           <li>
             {next && (
               <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
+                <span style={{ marginRight: '0.5em' }}>
+                  {next.frontmatter.title}
+                </span>
+                <FontAwesomeIcon icon={faChevronRight} />
               </Link>
             )}
           </li>
