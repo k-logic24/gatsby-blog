@@ -1,5 +1,17 @@
 'use strict'
 
+const resolve = require('path').resolve
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        '@': resolve(__dirname, 'src'),
+      },
+      moduleExtensions: ['tsx', 'ts'],
+    },
+  })
+}
+
 require('ts-node').register({
   compilerOptions: {
     module: 'commonjs',

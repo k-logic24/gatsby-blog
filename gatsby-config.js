@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   siteMetadata: {
     title: `K.Iwata's Diary`,
@@ -13,6 +15,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

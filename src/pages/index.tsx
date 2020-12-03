@@ -2,8 +2,8 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { PageProps } from 'gatsby'
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
+import Layout from '@/layouts'
+import SEO from '@/components/seo'
 
 const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   data,
