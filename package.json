@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@types/react-helmet": "^6.1.0",
+    "@types/react-transition-group": "^4.4.0",
     "autoprefixer": "^10.0.4",
     "prettier": "2.1.2",
     "tailwindcss": "^2.0.1",

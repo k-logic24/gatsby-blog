@@ -13,9 +13,7 @@ const Index: React.FC<
   return (
     <div className="wrapper">
       <Header path={location.pathname} />
-      <main className="py-8 md:py-12 mx-auto max-w-screen-md">
-        <div className="container">{children}</div>
-      </main>
+      <main className="py-8 md:py-12 mx-auto max-w-screen-md">{children}</main>
       <Footer />
     </div>
   )
