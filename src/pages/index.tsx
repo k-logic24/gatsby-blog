@@ -12,16 +12,22 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   const siteTitle = data.site?.siteMetadata?.title || `Title`
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title="Home" />
+      <div className="mb-6">
+        <p className="font-bold text-2xl mb-2">Hi!</p>
+        <p>
+          My name is K.Iwata.
+          <br />
+          My job is FrontEngineer.
+        </p>
+      </div>
       <p>
-        Hi!
-        <br />
-        My name is K.Iwata.
-      </p>
-      <p>
-        My job is FrontEngineer. Check{' '}
-        <a href="https://zenn.dev/k_logic24" target="_blank">
-          Tech Site
+        <a
+          className="text-link anim-link"
+          href="https://zenn.dev/k_logic24"
+          target="_blank"
+        >
+          Check Tech Site
         </a>
       </p>
     </Layout>

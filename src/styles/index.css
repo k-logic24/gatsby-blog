@@ -1,0 +1,31 @@
+body {
+	@apply bg-gray-100;
+}
+@layer components {
+	.bio-list {
+		@apply ml-4 self-end flex gap-2;
+	}
+	.bio-list__link {
+		@apply text-white text-sm;
+	}
+	.anim-link {
+		position: relative;
+	}
+	.anim-link:after {
+		@apply absolute left-0 w-full inline-block h-px bg-current origin-bottom-right;
+		content: '';
+		bottom: -2px;
+		transform: scaleX(0);
+		transition: transform .3s;
+	}
+	.anim-link:hover:after {
+		@apply origin-bottom-left;
+		transform: scaleX(1);
+	}
+}
+
+@layer utilities {
+	.text-link {
+		color: #005b99;
+	}
+}

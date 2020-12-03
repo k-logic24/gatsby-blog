@@ -1,7 +1,8 @@
 import 'typeface-montserrat'
 
-// import '@/styles/normalize.css'
-import '@/styles/style.css'
+import '@/styles/tailwind.css'
+import '@/styles/index.css'
+import '@/styles/tailwind-utils.css'
 import 'prismjs/themes/prism.css'
 
 import '@fortawesome/fontawesome-svg-core/styles.css'
