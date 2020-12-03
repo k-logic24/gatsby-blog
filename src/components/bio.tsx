@@ -29,43 +29,40 @@ const Bio = () => {
 
   const author = data.site?.siteMetadata?.author
   const social = data.site?.siteMetadata?.social
-
   const avatar = data?.avatar?.childImageSharp?.fixed
 
   return (
-    <div className="bio">
+    <div className="flex">
       {avatar && (
         <Image
           fixed={avatar}
           alt={author?.name || ``}
-          className="bio-avatar"
           imgStyle={{
             borderRadius: `50%`,
           }}
         />
       )}
       {author?.name && (
-        <div>
-          Please check !
-          <ul className="bio-list">
-            <li>
-              <a
-                href={`https://twitter.com/${social?.twitter || ``}`}
-                target="_blank"
-              >
-                Twitter
-              </a>
-            </li>
-            <li>
-              <a
-                href={`https://github.com/${social?.github || ``}`}
-                target="_blank"
-              >
-                GitHub
-              </a>
-            </li>
-          </ul>
-        </div>
+        <ul className="bio-list">
+          <li>
+            <a
+              className="bio-list__link anim-link"
+              href={`https://twitter.com/${social?.twitter || ``}`}
+              target="_blank"
+            >
+              Twitter
+            </a>
+          </li>
+          <li>
+            <a
+              className="bio-list__link anim-link"
+              href={`https://github.com/${social?.github || ``}`}
+              target="_blank"
+            >
+              GitHub
+            </a>
+          </li>
+        </ul>
       )}
     </div>
   )

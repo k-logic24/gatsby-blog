@@ -2973,6 +2973,18 @@ declare namespace GatsbyTypes {
     }>
   }
 
+  type SeoQueryVariables = Exact<{ [key: string]: never }>
+
+  type SeoQuery = {
+    readonly site: Maybe<{
+      readonly siteMetadata: Maybe<
+        Pick<SiteSiteMetadata, 'title' | 'description'> & {
+          readonly social: Maybe<Pick<Social, 'twitter'>>
+        }
+      >
+    }>
+  }
+
   type GatsbyImageSharpFixedFragment = Pick<
     ImageSharpFixed,
     'base64' | 'width' | 'height' | 'src' | 'srcSet'
@@ -2991,18 +3003,6 @@ declare namespace GatsbyTypes {
         readonly author: Maybe<Pick<Author, 'name' | 'summary'>>
         readonly social: Maybe<Pick<Social, 'twitter' | 'github'>>
       }>
-    }>
-  }
-
-  type SeoQueryVariables = Exact<{ [key: string]: never }>
-
-  type SeoQuery = {
-    readonly site: Maybe<{
-      readonly siteMetadata: Maybe<
-        Pick<SiteSiteMetadata, 'title' | 'description'> & {
-          readonly social: Maybe<Pick<Social, 'twitter'>>
-        }
-      >
     }>
   }
 }

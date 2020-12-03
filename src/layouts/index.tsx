@@ -4,6 +4,7 @@ import { PageProps } from 'gatsby'
 import { WindowLocation } from '@reach/router'
 
 import Header from '@/layouts/Header'
+import Footer from '@/layouts/Footer'
 import Bio from '@/components/bio'
 
 const Index: React.FC<
@@ -12,13 +13,10 @@ const Index: React.FC<
   return (
     <div className="wrapper">
       <Header />
-      <main className="py-8">
+      <main className="py-8 md:py-12 mx-auto max-w-screen-md">
         <div className="container">{children}</div>
       </main>
-      <footer>
-        <Bio />
-        &copy; {new Date().getFullYear()} K.Iwata
-      </footer>
+      <Footer />
     </div>
   )
 }
