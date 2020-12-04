@@ -13,23 +13,25 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Home" />
-      <div className="mb-6">
-        <p className="font-bold text-2xl mb-2">Hi!</p>
+      <div className="home">
+        <div className="mb-6">
+          <p className="mb-4">Hi!</p>
+          <p>
+            My name is K.Iwata.
+            <br />
+            My job is FrontEngineer.
+          </p>
+        </div>
         <p>
-          My name is K.Iwata.
-          <br />
-          My job is FrontEngineer.
+          <a
+            className="text-link anim-link"
+            href="https://zenn.dev/k_logic24"
+            target="_blank"
+          >
+            Check Tech Site
+          </a>
         </p>
       </div>
-      <p>
-        <a
-          className="text-link anim-link"
-          href="https://zenn.dev/k_logic24"
-          target="_blank"
-        >
-          Check Tech Site
-        </a>
-      </p>
     </Layout>
   )
 }

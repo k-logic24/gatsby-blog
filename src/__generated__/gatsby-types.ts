@@ -684,6 +684,42 @@ declare namespace GatsbyTypes {
     childMarkdownRemark___frontmatter___title = 'childMarkdownRemark.frontmatter.title',
     childMarkdownRemark___frontmatter___description = 'childMarkdownRemark.frontmatter.description',
     childMarkdownRemark___frontmatter___date = 'childMarkdownRemark.frontmatter.date',
+    childMarkdownRemark___frontmatter___hero___sourceInstanceName = 'childMarkdownRemark.frontmatter.hero.sourceInstanceName',
+    childMarkdownRemark___frontmatter___hero___absolutePath = 'childMarkdownRemark.frontmatter.hero.absolutePath',
+    childMarkdownRemark___frontmatter___hero___relativePath = 'childMarkdownRemark.frontmatter.hero.relativePath',
+    childMarkdownRemark___frontmatter___hero___extension = 'childMarkdownRemark.frontmatter.hero.extension',
+    childMarkdownRemark___frontmatter___hero___size = 'childMarkdownRemark.frontmatter.hero.size',
+    childMarkdownRemark___frontmatter___hero___prettySize = 'childMarkdownRemark.frontmatter.hero.prettySize',
+    childMarkdownRemark___frontmatter___hero___modifiedTime = 'childMarkdownRemark.frontmatter.hero.modifiedTime',
+    childMarkdownRemark___frontmatter___hero___accessTime = 'childMarkdownRemark.frontmatter.hero.accessTime',
+    childMarkdownRemark___frontmatter___hero___changeTime = 'childMarkdownRemark.frontmatter.hero.changeTime',
+    childMarkdownRemark___frontmatter___hero___birthTime = 'childMarkdownRemark.frontmatter.hero.birthTime',
+    childMarkdownRemark___frontmatter___hero___root = 'childMarkdownRemark.frontmatter.hero.root',
+    childMarkdownRemark___frontmatter___hero___dir = 'childMarkdownRemark.frontmatter.hero.dir',
+    childMarkdownRemark___frontmatter___hero___base = 'childMarkdownRemark.frontmatter.hero.base',
+    childMarkdownRemark___frontmatter___hero___ext = 'childMarkdownRemark.frontmatter.hero.ext',
+    childMarkdownRemark___frontmatter___hero___name = 'childMarkdownRemark.frontmatter.hero.name',
+    childMarkdownRemark___frontmatter___hero___relativeDirectory = 'childMarkdownRemark.frontmatter.hero.relativeDirectory',
+    childMarkdownRemark___frontmatter___hero___dev = 'childMarkdownRemark.frontmatter.hero.dev',
+    childMarkdownRemark___frontmatter___hero___mode = 'childMarkdownRemark.frontmatter.hero.mode',
+    childMarkdownRemark___frontmatter___hero___nlink = 'childMarkdownRemark.frontmatter.hero.nlink',
+    childMarkdownRemark___frontmatter___hero___uid = 'childMarkdownRemark.frontmatter.hero.uid',
+    childMarkdownRemark___frontmatter___hero___gid = 'childMarkdownRemark.frontmatter.hero.gid',
+    childMarkdownRemark___frontmatter___hero___rdev = 'childMarkdownRemark.frontmatter.hero.rdev',
+    childMarkdownRemark___frontmatter___hero___ino = 'childMarkdownRemark.frontmatter.hero.ino',
+    childMarkdownRemark___frontmatter___hero___atimeMs = 'childMarkdownRemark.frontmatter.hero.atimeMs',
+    childMarkdownRemark___frontmatter___hero___mtimeMs = 'childMarkdownRemark.frontmatter.hero.mtimeMs',
+    childMarkdownRemark___frontmatter___hero___ctimeMs = 'childMarkdownRemark.frontmatter.hero.ctimeMs',
+    childMarkdownRemark___frontmatter___hero___atime = 'childMarkdownRemark.frontmatter.hero.atime',
+    childMarkdownRemark___frontmatter___hero___mtime = 'childMarkdownRemark.frontmatter.hero.mtime',
+    childMarkdownRemark___frontmatter___hero___ctime = 'childMarkdownRemark.frontmatter.hero.ctime',
+    childMarkdownRemark___frontmatter___hero___birthtime = 'childMarkdownRemark.frontmatter.hero.birthtime',
+    childMarkdownRemark___frontmatter___hero___birthtimeMs = 'childMarkdownRemark.frontmatter.hero.birthtimeMs',
+    childMarkdownRemark___frontmatter___hero___blksize = 'childMarkdownRemark.frontmatter.hero.blksize',
+    childMarkdownRemark___frontmatter___hero___blocks = 'childMarkdownRemark.frontmatter.hero.blocks',
+    childMarkdownRemark___frontmatter___hero___publicURL = 'childMarkdownRemark.frontmatter.hero.publicURL',
+    childMarkdownRemark___frontmatter___hero___id = 'childMarkdownRemark.frontmatter.hero.id',
+    childMarkdownRemark___frontmatter___hero___children = 'childMarkdownRemark.frontmatter.hero.children',
     childMarkdownRemark___fields___slug = 'childMarkdownRemark.fields.slug',
     childMarkdownRemark___excerpt = 'childMarkdownRemark.excerpt',
     childMarkdownRemark___rawMarkdownBody = 'childMarkdownRemark.rawMarkdownBody',
@@ -811,6 +847,7 @@ declare namespace GatsbyTypes {
     readonly title: Maybe<Scalars['String']>
     readonly description: Maybe<Scalars['String']>
     readonly date: Maybe<Scalars['Date']>
+    readonly hero: Maybe<File>
   }
 
   type Frontmatter_dateArgs = {
@@ -824,6 +861,7 @@ declare namespace GatsbyTypes {
     readonly title: Maybe<StringQueryOperatorInput>
     readonly description: Maybe<StringQueryOperatorInput>
     readonly date: Maybe<DateQueryOperatorInput>
+    readonly hero: Maybe<FileFilterInput>
   }
 
   enum ImageCropFocus {
@@ -1464,6 +1502,67 @@ declare namespace GatsbyTypes {
     frontmatter___title = 'frontmatter.title',
     frontmatter___description = 'frontmatter.description',
     frontmatter___date = 'frontmatter.date',
+    frontmatter___hero___sourceInstanceName = 'frontmatter.hero.sourceInstanceName',
+    frontmatter___hero___absolutePath = 'frontmatter.hero.absolutePath',
+    frontmatter___hero___relativePath = 'frontmatter.hero.relativePath',
+    frontmatter___hero___extension = 'frontmatter.hero.extension',
+    frontmatter___hero___size = 'frontmatter.hero.size',
+    frontmatter___hero___prettySize = 'frontmatter.hero.prettySize',
+    frontmatter___hero___modifiedTime = 'frontmatter.hero.modifiedTime',
+    frontmatter___hero___accessTime = 'frontmatter.hero.accessTime',
+    frontmatter___hero___changeTime = 'frontmatter.hero.changeTime',
+    frontmatter___hero___birthTime = 'frontmatter.hero.birthTime',
+    frontmatter___hero___root = 'frontmatter.hero.root',
+    frontmatter___hero___dir = 'frontmatter.hero.dir',
+    frontmatter___hero___base = 'frontmatter.hero.base',
+    frontmatter___hero___ext = 'frontmatter.hero.ext',
+    frontmatter___hero___name = 'frontmatter.hero.name',
+    frontmatter___hero___relativeDirectory = 'frontmatter.hero.relativeDirectory',
+    frontmatter___hero___dev = 'frontmatter.hero.dev',
+    frontmatter___hero___mode = 'frontmatter.hero.mode',
+    frontmatter___hero___nlink = 'frontmatter.hero.nlink',
+    frontmatter___hero___uid = 'frontmatter.hero.uid',
+    frontmatter___hero___gid = 'frontmatter.hero.gid',
+    frontmatter___hero___rdev = 'frontmatter.hero.rdev',
+    frontmatter___hero___ino = 'frontmatter.hero.ino',
+    frontmatter___hero___atimeMs = 'frontmatter.hero.atimeMs',
+    frontmatter___hero___mtimeMs = 'frontmatter.hero.mtimeMs',
+    frontmatter___hero___ctimeMs = 'frontmatter.hero.ctimeMs',
+    frontmatter___hero___atime = 'frontmatter.hero.atime',
+    frontmatter___hero___mtime = 'frontmatter.hero.mtime',
+    frontmatter___hero___ctime = 'frontmatter.hero.ctime',
+    frontmatter___hero___birthtime = 'frontmatter.hero.birthtime',
+    frontmatter___hero___birthtimeMs = 'frontmatter.hero.birthtimeMs',
+    frontmatter___hero___blksize = 'frontmatter.hero.blksize',
+    frontmatter___hero___blocks = 'frontmatter.hero.blocks',
+    frontmatter___hero___publicURL = 'frontmatter.hero.publicURL',
+    frontmatter___hero___childImageSharp___id = 'frontmatter.hero.childImageSharp.id',
+    frontmatter___hero___childImageSharp___children = 'frontmatter.hero.childImageSharp.children',
+    frontmatter___hero___id = 'frontmatter.hero.id',
+    frontmatter___hero___parent___id = 'frontmatter.hero.parent.id',
+    frontmatter___hero___parent___children = 'frontmatter.hero.parent.children',
+    frontmatter___hero___children = 'frontmatter.hero.children',
+    frontmatter___hero___children___id = 'frontmatter.hero.children.id',
+    frontmatter___hero___children___children = 'frontmatter.hero.children.children',
+    frontmatter___hero___internal___content = 'frontmatter.hero.internal.content',
+    frontmatter___hero___internal___contentDigest = 'frontmatter.hero.internal.contentDigest',
+    frontmatter___hero___internal___description = 'frontmatter.hero.internal.description',
+    frontmatter___hero___internal___fieldOwners = 'frontmatter.hero.internal.fieldOwners',
+    frontmatter___hero___internal___ignoreType = 'frontmatter.hero.internal.ignoreType',
+    frontmatter___hero___internal___mediaType = 'frontmatter.hero.internal.mediaType',
+    frontmatter___hero___internal___owner = 'frontmatter.hero.internal.owner',
+    frontmatter___hero___internal___type = 'frontmatter.hero.internal.type',
+    frontmatter___hero___childMarkdownRemark___id = 'frontmatter.hero.childMarkdownRemark.id',
+    frontmatter___hero___childMarkdownRemark___excerpt = 'frontmatter.hero.childMarkdownRemark.excerpt',
+    frontmatter___hero___childMarkdownRemark___rawMarkdownBody = 'frontmatter.hero.childMarkdownRemark.rawMarkdownBody',
+    frontmatter___hero___childMarkdownRemark___fileAbsolutePath = 'frontmatter.hero.childMarkdownRemark.fileAbsolutePath',
+    frontmatter___hero___childMarkdownRemark___html = 'frontmatter.hero.childMarkdownRemark.html',
+    frontmatter___hero___childMarkdownRemark___htmlAst = 'frontmatter.hero.childMarkdownRemark.htmlAst',
+    frontmatter___hero___childMarkdownRemark___excerptAst = 'frontmatter.hero.childMarkdownRemark.excerptAst',
+    frontmatter___hero___childMarkdownRemark___headings = 'frontmatter.hero.childMarkdownRemark.headings',
+    frontmatter___hero___childMarkdownRemark___timeToRead = 'frontmatter.hero.childMarkdownRemark.timeToRead',
+    frontmatter___hero___childMarkdownRemark___tableOfContents = 'frontmatter.hero.childMarkdownRemark.tableOfContents',
+    frontmatter___hero___childMarkdownRemark___children = 'frontmatter.hero.childMarkdownRemark.children',
     fields___slug = 'fields.slug',
     excerpt = 'excerpt',
     rawMarkdownBody = 'rawMarkdownBody',
@@ -1783,6 +1882,8 @@ declare namespace GatsbyTypes {
     siteMetadata: Maybe<SiteSiteMetadataFilterInput>
     port: Maybe<IntQueryOperatorInput>
     host: Maybe<StringQueryOperatorInput>
+    polyfill: Maybe<BooleanQueryOperatorInput>
+    pathPrefix: Maybe<StringQueryOperatorInput>
     id: Maybe<StringQueryOperatorInput>
     parent: Maybe<NodeFilterInput>
     children: Maybe<NodeFilterListInput>
@@ -1909,6 +2010,8 @@ declare namespace GatsbyTypes {
     readonly siteMetadata: Maybe<SiteSiteMetadata>
     readonly port: Maybe<Scalars['Int']>
     readonly host: Maybe<Scalars['String']>
+    readonly polyfill: Maybe<Scalars['Boolean']>
+    readonly pathPrefix: Maybe<Scalars['String']>
     readonly id: Scalars['ID']
     readonly parent: Maybe<Node>
     readonly children: ReadonlyArray<Node>
@@ -2110,6 +2213,8 @@ declare namespace GatsbyTypes {
     siteMetadata___social___github = 'siteMetadata.social.github',
     port = 'port',
     host = 'host',
+    polyfill = 'polyfill',
+    pathPrefix = 'pathPrefix',
     id = 'id',
     parent___id = 'parent.id',
     parent___parent___id = 'parent.parent.id',
@@ -2203,6 +2308,8 @@ declare namespace GatsbyTypes {
     readonly siteMetadata: Maybe<SiteSiteMetadataFilterInput>
     readonly port: Maybe<IntQueryOperatorInput>
     readonly host: Maybe<StringQueryOperatorInput>
+    readonly polyfill: Maybe<BooleanQueryOperatorInput>
+    readonly pathPrefix: Maybe<StringQueryOperatorInput>
     readonly id: Maybe<StringQueryOperatorInput>
     readonly parent: Maybe<NodeFilterInput>
     readonly children: Maybe<NodeFilterListInput>
@@ -2256,6 +2363,8 @@ declare namespace GatsbyTypes {
 
   type SitePageContext = {
     readonly slug: Maybe<Scalars['String']>
+    readonly previous: Maybe<SitePageContextPrevious>
+    readonly next: Maybe<SitePageContextNext>
     readonly skip: Maybe<Scalars['Int']>
     readonly limit: Maybe<Scalars['Int']>
     readonly currentPage: Maybe<Scalars['Int']>
@@ -2265,11 +2374,65 @@ declare namespace GatsbyTypes {
 
   type SitePageContextFilterInput = {
     readonly slug: Maybe<StringQueryOperatorInput>
+    readonly previous: Maybe<SitePageContextPreviousFilterInput>
+    readonly next: Maybe<SitePageContextNextFilterInput>
     readonly skip: Maybe<IntQueryOperatorInput>
     readonly limit: Maybe<IntQueryOperatorInput>
     readonly currentPage: Maybe<IntQueryOperatorInput>
     readonly isFirst: Maybe<BooleanQueryOperatorInput>
     readonly isLast: Maybe<BooleanQueryOperatorInput>
+  }
+
+  type SitePageContextNext = {
+    readonly fields: Maybe<SitePageContextNextFields>
+    readonly frontmatter: Maybe<SitePageContextNextFrontmatter>
+  }
+
+  type SitePageContextNextFields = {
+    readonly slug: Maybe<Scalars['String']>
+  }
+
+  type SitePageContextNextFieldsFilterInput = {
+    readonly slug: Maybe<StringQueryOperatorInput>
+  }
+
+  type SitePageContextNextFilterInput = {
+    readonly fields: Maybe<SitePageContextNextFieldsFilterInput>
+    readonly frontmatter: Maybe<SitePageContextNextFrontmatterFilterInput>
+  }
+
+  type SitePageContextNextFrontmatter = {
+    readonly title: Maybe<Scalars['String']>
+  }
+
+  type SitePageContextNextFrontmatterFilterInput = {
+    readonly title: Maybe<StringQueryOperatorInput>
+  }
+
+  type SitePageContextPrevious = {
+    readonly fields: Maybe<SitePageContextPreviousFields>
+    readonly frontmatter: Maybe<SitePageContextPreviousFrontmatter>
+  }
+
+  type SitePageContextPreviousFields = {
+    readonly slug: Maybe<Scalars['String']>
+  }
+
+  type SitePageContextPreviousFieldsFilterInput = {
+    readonly slug: Maybe<StringQueryOperatorInput>
+  }
+
+  type SitePageContextPreviousFilterInput = {
+    readonly fields: Maybe<SitePageContextPreviousFieldsFilterInput>
+    readonly frontmatter: Maybe<SitePageContextPreviousFrontmatterFilterInput>
+  }
+
+  type SitePageContextPreviousFrontmatter = {
+    readonly title: Maybe<Scalars['String']>
+  }
+
+  type SitePageContextPreviousFrontmatterFilterInput = {
+    readonly title: Maybe<StringQueryOperatorInput>
   }
 
   type SitePageEdge = {
@@ -2286,6 +2449,10 @@ declare namespace GatsbyTypes {
     matchPath = 'matchPath',
     isCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
     context___slug = 'context.slug',
+    context___previous___fields___slug = 'context.previous.fields.slug',
+    context___previous___frontmatter___title = 'context.previous.frontmatter.title',
+    context___next___fields___slug = 'context.next.fields.slug',
+    context___next___frontmatter___title = 'context.next.frontmatter.title',
     context___skip = 'context.skip',
     context___limit = 'context.limit',
     context___currentPage = 'context.currentPage',
@@ -2920,6 +3087,17 @@ declare namespace GatsbyTypes {
     >
   }
 
+  type GatsbyImageSharpFluid_withWebpFragment = Pick<
+    ImageSharpFluid,
+    | 'base64'
+    | 'aspectRatio'
+    | 'src'
+    | 'srcSet'
+    | 'srcWebp'
+    | 'srcSetWebp'
+    | 'sizes'
+  >
+
   type BlogPageQueryVariables = Exact<{
     limit: Scalars['Int']
     skip: Scalars['Int']
@@ -2934,18 +3112,16 @@ declare namespace GatsbyTypes {
         Pick<MarkdownRemark, 'excerpt'> & {
           readonly fields: Maybe<Pick<Fields, 'slug'>>
           readonly frontmatter: Maybe<
-            Pick<Frontmatter, 'date' | 'title' | 'description'>
+            Pick<Frontmatter, 'date' | 'title' | 'description'> & {
+              readonly hero: Maybe<{
+                readonly childImageSharp: Maybe<{
+                  readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment>
+                }>
+              }>
+            }
           >
         }
       >
-    }
-  }
-
-  type PagesQueryQueryVariables = Exact<{ [key: string]: never }>
-
-  type PagesQueryQuery = {
-    readonly allSitePage: {
-      readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>>
     }
   }
 
@@ -2965,36 +3141,11 @@ declare namespace GatsbyTypes {
     }>
   }
 
-  type SeoQueryVariables = Exact<{ [key: string]: never }>
+  type PagesQueryQueryVariables = Exact<{ [key: string]: never }>
 
-  type SeoQuery = {
-    readonly site: Maybe<{
-      readonly siteMetadata: Maybe<
-        Pick<SiteSiteMetadata, 'title' | 'description'> & {
-          readonly social: Maybe<Pick<Social, 'twitter'>>
-        }
-      >
-    }>
-  }
-
-  type GatsbyImageSharpFixedFragment = Pick<
-    ImageSharpFixed,
-    'base64' | 'width' | 'height' | 'src' | 'srcSet'
-  >
-
-  type BioQueryQueryVariables = Exact<{ [key: string]: never }>
-
-  type BioQueryQuery = {
-    readonly avatar: Maybe<{
-      readonly childImageSharp: Maybe<{
-        readonly fixed: Maybe<GatsbyImageSharpFixedFragment>
-      }>
-    }>
-    readonly site: Maybe<{
-      readonly siteMetadata: Maybe<{
-        readonly author: Maybe<Pick<Author, 'name' | 'summary'>>
-        readonly social: Maybe<Pick<Social, 'twitter' | 'github'>>
-      }>
-    }>
+  type PagesQueryQuery = {
+    readonly allSitePage: {
+      readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>>
+    }
   }
 }

@@ -5,7 +5,7 @@ import Bio from '@/components/bio'
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800">
+    <footer className="bg-blue-400">
       <div className="py-4 flex justify-between container">
         <Bio />
         <small className="self-end text-white">

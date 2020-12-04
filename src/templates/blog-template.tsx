@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
-import { PageProps } from 'gatsby'
+import { Link, graphql, PageProps } from 'gatsby'
+import Image from 'gatsby-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faChevronLeft,
@@ -30,67 +30,69 @@ const BlogIndex: React.FC<
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <h1>Daily List</h1>
-      <ol className="posts-list" style={{ listStyle: `none` }}>
-        {/*TODO*/}
-        {posts.map((post: any) => {
-          const title = post.frontmatter?.title || post.fields?.slug
+      <section className="section daily">
+        <div className="text-center">
+          <h1 className="pb-6 md:pb-12 mb-6 md:mb-8 section__ttl">
+            Daily List
+          </h1>
+        </div>
+        <ul className="daily-list">
+          {/*TODO*/}
+          {posts.map((post: any) => {
+            const title = post.frontmatter?.title || post.fields?.slug
 
-          return (
-            <li key={post.fields!.slug!}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
+            return (
+              <li key={post.fields!.slug!}>
+                <article itemScope itemType="http://schema.org/Article">
+                  <figure>
+                    <Link to={post.fields!.slug!} itemProp="url">
+                      <Image
+                        fluid={post.frontmatter.hero.childImageSharp.fluid}
+                        alt=""
+                      />
+                    </Link>
+                  </figure>
+                  <h2 className="daily__ttl">
                     <Link to={post.fields!.slug!} itemProp="url">
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
-                  <small>{post.frontmatter!.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter!.description || post.excerpt!,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          )
-        })}
-      </ol>
-      <nav className="paginate">
-        <ul className="paginate-list">
-          {!pageContext.isFirst && (
-            <li className="prev">
-              <Link
-                to={
-                  pageContext.currentPage === 2
-                    ? `/blog/`
-                    : `/blog/${pageContext.currentPage - 1}`
-                }
-                rel="prev"
-              >
-                <FontAwesomeIcon icon={faChevronLeft} />
-                <span style={{ marginLeft: '0.5em' }}>Prev</span>
-              </Link>
-            </li>
-          )}
-          {!pageContext.isLast && (
-            <li className="next">
-              <Link to={`/blog/${pageContext.currentPage + 1}/`} rel="next">
-                <span style={{ marginRight: '0.5em' }}>Next</span>
-                <FontAwesomeIcon icon={faChevronRight} />
-              </Link>
-            </li>
-          )}
+                  <span className="text-xs text-gray-400">
+                    {post.frontmatter!.date}
+                  </span>
+                </article>
+              </li>
+            )
+          })}
         </ul>
-      </nav>
+        <nav className="paginate">
+          <ul className="paginate-list">
+            {!pageContext.isFirst && (
+              <li className="prev">
+                <Link
+                  to={
+                    pageContext.currentPage === 2
+                      ? `/blog/`
+                      : `/blog/${pageContext.currentPage - 1}`
+                  }
+                  rel="prev"
+                >
+                  <FontAwesomeIcon icon={faChevronLeft} />
+                  <span style={{ marginLeft: '0.5em' }}>Prev</span>
+                </Link>
+              </li>
+            )}
+            {!pageContext.isLast && (
+              <li className="next">
+                <Link to={`/blog/${pageContext.currentPage + 1}/`} rel="next">
+                  <span style={{ marginRight: '0.5em' }}>Next</span>
+                  <FontAwesomeIcon icon={faChevronRight} />
+                </Link>
+              </li>
+            )}
+          </ul>
+        </nav>
+      </section>
     </Layout>
   )
 }
@@ -118,6 +120,13 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          hero {
+            childImageSharp {
+              fluid(maxWidth: 900) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
         }
       }
     }

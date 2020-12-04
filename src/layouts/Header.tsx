@@ -21,7 +21,7 @@ const Header: React.FC<{ path: string }> = memo(({ path }) => {
   }
 
   return (
-    <header className="bg-gray-800">
+    <header className="bg-blue-400">
       <div className="py-4 flex justify-between container">
         {header}
         <nav>

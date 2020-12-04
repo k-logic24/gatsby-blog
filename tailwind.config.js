@@ -9,7 +9,13 @@ module.exports = {
       center: true,
       padding: '1rem',
     },
-    extend: {},
+    extend: {
+      colors: {
+        base: {
+          DEFAULT: '#333',
+        },
+      },
+    },
   },
   variants: {
     extend: {},

@@ -1,7 +1,16 @@
 body {
-	@apply bg-gray-100;
+	@apply bg-gray-100 text-base;
 }
 @layer components {
+	.section__ttl {
+		@apply relative text-lg md:text-2xl font-bold tracking-wider inline-block;
+	}
+	.section__ttl:after {
+		@apply absolute w-4/6 h-px bg-base bottom-0;
+		content: '';
+		left: 50%;
+		transform: translateX(-50%);
+	}
 	.bio-list {
 		@apply ml-4 self-end flex gap-2;
 	}
@@ -21,6 +30,27 @@ body {
 	.anim-link:hover:after {
 		@apply origin-bottom-left;
 		transform: scaleX(1);
+	}
+	.daily-list {
+		@apply flex flex-wrap;
+		gap: 1rem;
+	}
+	.daily-list > li {
+		width: calc(50% - 1rem * 1 / 2);
+	}
+	@screen sm {
+		.daily-list > li {
+			width: calc(33.3333% - 1rem * 2 / 3);
+		}
+	}
+	@screen lg {
+		.daily-list > li {
+			width: calc(25% - 1rem * 3 / 4);
+		}
+	}
+	.daily__ttl {
+		@apply text-sm md:text-base;
+		margin: 1em 0;
 	}
 }
 
