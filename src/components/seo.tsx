@@ -7,7 +7,7 @@ type Props = {
   description?: string
   lang?: string
   meta?: HTMLMetaElement[]
-  title: string
+  title: string | undefined
 }
 
 const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {

@@ -8,19 +8,21 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 import Bio from '@/components/bio'
-import Layout from '@/layouts'
+import Layout from '@/layouts/default'
 import SEO from '@/components/seo'
 
 // TODO
 const BlogIndex: React.FC<
-  PageProps<GatsbyTypes.BlogPageQuery> & { pageContext: any }
-> = ({ data, location, pageContext }) => {
+  PageProps<GatsbyTypes.BlogPageQuery> & {
+    pageContext: GatsbyTypes.SitePageContext
+  }
+> = ({ data, pageContext }) => {
   const siteTitle = data.site?.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
   if (posts.length === 0) {
     return (
-      <Layout location={location} title={siteTitle}>
+      <Layout title={siteTitle}>
         <SEO title="All posts" />
         <p>No posts...</p>
       </Layout>
@@ -28,7 +30,7 @@ const BlogIndex: React.FC<
   }
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO title="All posts" />
       <section className="section daily">
         <div className="text-center">
@@ -37,8 +39,7 @@ const BlogIndex: React.FC<
           </h1>
         </div>
         <ul className="daily-list">
-          {/*TODO*/}
-          {posts.map((post: any) => {
+          {posts.map(post => {
             const title = post.frontmatter?.title || post.fields?.slug
 
             return (
@@ -47,7 +48,9 @@ const BlogIndex: React.FC<
                   <figure>
                     <Link to={post.fields!.slug!} itemProp="url">
                       <Image
-                        fluid={post.frontmatter.hero.childImageSharp.fluid}
+                        fluid={
+                          post?.frontmatter?.hero?.childImageSharp?.fluid as any
+                        }
                         alt=""
                       />
                     </Link>
@@ -73,7 +76,7 @@ const BlogIndex: React.FC<
                   to={
                     pageContext.currentPage === 2
                       ? `/blog/`
-                      : `/blog/${pageContext.currentPage - 1}`
+                      : `/blog/${pageContext.currentPage! - 1}`
                   }
                   rel="prev"
                 >
@@ -84,7 +87,7 @@ const BlogIndex: React.FC<
             )}
             {!pageContext.isLast && (
               <li className="next">
-                <Link to={`/blog/${pageContext.currentPage + 1}/`} rel="next">
+                <Link to={`/blog/${pageContext.currentPage! + 1}/`} rel="next">
                   <span style={{ marginRight: '0.5em' }}>Next</span>
                   <FontAwesomeIcon icon={faChevronRight} />
                 </Link>

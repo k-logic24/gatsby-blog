@@ -7,20 +7,27 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 import Bio from '@/components/bio'
-import Layout from '@/layouts'
+import Layout from '@/layouts/default'
 import SEO from '@/components/seo'
 
-// TODO
-const BlogPostTemplate: React.FC<any> = ({ data, pageContext, location }) => {
+interface BlogPostProps {
+  data: GatsbyTypes.BlogPostBySlugQuery
+  pageContext: {
+    previous: GatsbyTypes.MarkdownRemarkEdge['previous']
+    next: GatsbyTypes.MarkdownRemarkEdge['next']
+  }
+}
+
+const BlogPostTemplate: React.FC<BlogPostProps> = ({ data, pageContext }) => {
   const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const siteTitle = data.site?.siteMetadata?.title || `Title`
   const { previous, next } = pageContext
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        title={post?.frontmatter?.title}
+        description={post?.frontmatter?.description || post?.excerpt}
       />
       <article
         className="blog-post"
@@ -28,11 +35,11 @@ const BlogPostTemplate: React.FC<any> = ({ data, pageContext, location }) => {
         itemType="http://schema.org/Article"
       >
         <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <h1 itemProp="headline">{post?.frontmatter?.title}</h1>
+          <p>{post?.frontmatter?.date}</p>
         </header>
         <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
+          dangerouslySetInnerHTML={{ __html: post?.html as string }}
           itemProp="articleBody"
         />
       </article>
@@ -40,19 +47,19 @@ const BlogPostTemplate: React.FC<any> = ({ data, pageContext, location }) => {
         <ul className="paginate-list">
           <li>
             {previous && (
-              <Link to={previous.fields.slug} rel="prev">
+              <Link to={previous?.fields?.slug!} rel="prev">
                 <FontAwesomeIcon icon={faChevronLeft} />
                 <span style={{ marginLeft: '0.5em' }}>
-                  {previous.frontmatter.title}
+                  {previous?.frontmatter?.title}
                 </span>
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.fields.slug} rel="next">
+              <Link to={next?.fields?.slug!} rel="next">
                 <span style={{ marginRight: '0.5em' }}>
-                  {next.frontmatter.title}
+                  {next?.frontmatter?.title}
                 </span>
                 <FontAwesomeIcon icon={faChevronRight} />
               </Link>
