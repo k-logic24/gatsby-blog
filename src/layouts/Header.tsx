@@ -1,41 +1,25 @@
-import React, { useState, useEffect, memo } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 
-const Header: React.FC<{ path: string }> = memo(({ path }) => {
-  let header
-
-  if (path === '/') {
-    header = (
-      <h1>
-        <Link to="/" className="text-white">
+const Header: React.FC = () => {
+  return (
+    <header className="header">
+      <div className="relative h-full container">
+        <Link to="/" className="text-white pos-c-c">
           Iwata's Diary
         </Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <Link to="/" className="text-white">
-        Iwata's Diary
-      </Link>
-    )
-  }
-
-  return (
-    <header className="bg-blue-400">
-      <div className="py-4 flex justify-between container">
-        {header}
-        <nav>
+        <nav className="pos-c-r">
           <ul className="flex">
             <li>
-              <Link to="/blog" className="text-white anim-link">
-                diary
-              </Link>
+              <button type="button" className="text-white">
+                ボタンです
+              </button>
             </li>
           </ul>
         </nav>
       </div>
     </header>
   )
-})
+}
 
 export default Header

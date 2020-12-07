@@ -9,7 +9,7 @@ import {
 
 import Bio from '@/components/bio'
 import Layout from '@/layouts/default'
-import SEO from '@/components/seo'
+import Seo from '@/components/seo'
 
 // TODO
 const BlogIndex: React.FC<
@@ -23,7 +23,7 @@ const BlogIndex: React.FC<
   if (posts.length === 0) {
     return (
       <Layout title={siteTitle}>
-        <SEO title="All posts" />
+        <Seo title="All posts" />
         <p>No posts...</p>
       </Layout>
     )
@@ -31,7 +31,7 @@ const BlogIndex: React.FC<
 
   return (
     <Layout title={siteTitle}>
-      <SEO title="All posts" />
+      <Seo title="All posts" />
       <section className="section daily">
         <div className="text-center">
           <h1 className="pb-6 md:pb-12 mb-6 md:mb-8 section__ttl">

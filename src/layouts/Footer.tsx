@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import Bio from '@/components/bio'
+import Bio from '@/components/Bio'
 
 const Footer = () => {
   return (
-    <footer className="bg-blue-400">
+    <footer className="bg-base-light">
       <div className="py-4 flex justify-between container">
         <Bio />
         <small className="self-end text-white">

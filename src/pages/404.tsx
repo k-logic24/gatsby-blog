@@ -1,9 +1,8 @@
 import React from 'react'
-import { graphql } from 'gatsby'
-import { PageProps } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 
-import Layout from '@/layouts'
-import SEO from '@/components/seo'
+import Layout from '@/layouts/default'
+import Seo from '@/components/Seo'
 
 const NotFoundPage: React.FC<PageProps<GatsbyTypes.Page404Query>> = ({
   data,
@@ -12,8 +11,8 @@ const NotFoundPage: React.FC<PageProps<GatsbyTypes.Page404Query>> = ({
   const siteTitle = data.site!.siteMetadata!.title!
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <SEO title="404: Not Found" />
+    <Layout title={siteTitle}>
+      <Seo title="404: Not Found" />
       <h1>404: Not Found</h1>
       <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
     </Layout>

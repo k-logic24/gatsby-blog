@@ -1,6 +1,7 @@
 module.exports = {
   purge: ['src/**/*.tsx'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
+  important: true,
   theme: {
     fontFamily: {
       sans: ['Montserrat', 'system-ui', 'sans-serif'],
@@ -11,8 +12,13 @@ module.exports = {
     },
     extend: {
       colors: {
+        white: {
+          DEFAULT: '#fafafa',
+        },
         base: {
+          light: '#454545',
           DEFAULT: '#333',
+          dark: '#212121',
         },
       },
     },

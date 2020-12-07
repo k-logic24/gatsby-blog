@@ -8,7 +8,7 @@ import {
 
 import Bio from '@/components/bio'
 import Layout from '@/layouts/default'
-import SEO from '@/components/seo'
+import Seo from '@/components/seo'
 
 interface BlogPostProps {
   data: GatsbyTypes.BlogPostBySlugQuery
@@ -24,20 +24,16 @@ const BlogPostTemplate: React.FC<BlogPostProps> = ({ data, pageContext }) => {
   const { previous, next } = pageContext
 
   return (
-    <Layout title={siteTitle}>
-      <SEO
+    <Layout title={post?.frontmatter?.title} date={post?.frontmatter?.date}>
+      <Seo
         title={post?.frontmatter?.title}
         description={post?.frontmatter?.description || post?.excerpt}
       />
       <article
-        className="blog-post"
+        className="max-w-screen-sm mx-auto blog-post"
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
-          <h1 itemProp="headline">{post?.frontmatter?.title}</h1>
-          <p>{post?.frontmatter?.date}</p>
-        </header>
         <section
           dangerouslySetInnerHTML={{ __html: post?.html as string }}
           itemProp="articleBody"
