@@ -2363,6 +2363,8 @@ declare namespace GatsbyTypes {
 
   type SitePageContext = {
     readonly slug: Maybe<Scalars['String']>
+    readonly previous: Maybe<SitePageContextPrevious>
+    readonly next: Maybe<SitePageContextNext>
     readonly skip: Maybe<Scalars['Int']>
     readonly limit: Maybe<Scalars['Int']>
     readonly currentPage: Maybe<Scalars['Int']>
@@ -2372,11 +2374,65 @@ declare namespace GatsbyTypes {
 
   type SitePageContextFilterInput = {
     readonly slug: Maybe<StringQueryOperatorInput>
+    readonly previous: Maybe<SitePageContextPreviousFilterInput>
+    readonly next: Maybe<SitePageContextNextFilterInput>
     readonly skip: Maybe<IntQueryOperatorInput>
     readonly limit: Maybe<IntQueryOperatorInput>
     readonly currentPage: Maybe<IntQueryOperatorInput>
     readonly isFirst: Maybe<BooleanQueryOperatorInput>
     readonly isLast: Maybe<BooleanQueryOperatorInput>
+  }
+
+  type SitePageContextNext = {
+    readonly fields: Maybe<SitePageContextNextFields>
+    readonly frontmatter: Maybe<SitePageContextNextFrontmatter>
+  }
+
+  type SitePageContextNextFields = {
+    readonly slug: Maybe<Scalars['String']>
+  }
+
+  type SitePageContextNextFieldsFilterInput = {
+    readonly slug: Maybe<StringQueryOperatorInput>
+  }
+
+  type SitePageContextNextFilterInput = {
+    readonly fields: Maybe<SitePageContextNextFieldsFilterInput>
+    readonly frontmatter: Maybe<SitePageContextNextFrontmatterFilterInput>
+  }
+
+  type SitePageContextNextFrontmatter = {
+    readonly title: Maybe<Scalars['String']>
+  }
+
+  type SitePageContextNextFrontmatterFilterInput = {
+    readonly title: Maybe<StringQueryOperatorInput>
+  }
+
+  type SitePageContextPrevious = {
+    readonly fields: Maybe<SitePageContextPreviousFields>
+    readonly frontmatter: Maybe<SitePageContextPreviousFrontmatter>
+  }
+
+  type SitePageContextPreviousFields = {
+    readonly slug: Maybe<Scalars['String']>
+  }
+
+  type SitePageContextPreviousFieldsFilterInput = {
+    readonly slug: Maybe<StringQueryOperatorInput>
+  }
+
+  type SitePageContextPreviousFilterInput = {
+    readonly fields: Maybe<SitePageContextPreviousFieldsFilterInput>
+    readonly frontmatter: Maybe<SitePageContextPreviousFrontmatterFilterInput>
+  }
+
+  type SitePageContextPreviousFrontmatter = {
+    readonly title: Maybe<Scalars['String']>
+  }
+
+  type SitePageContextPreviousFrontmatterFilterInput = {
+    readonly title: Maybe<StringQueryOperatorInput>
   }
 
   type SitePageEdge = {
@@ -2479,6 +2535,10 @@ declare namespace GatsbyTypes {
     internal___type = 'internal.type',
     isCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
     context___slug = 'context.slug',
+    context___previous___fields___slug = 'context.previous.fields.slug',
+    context___previous___frontmatter___title = 'context.previous.frontmatter.title',
+    context___next___fields___slug = 'context.next.fields.slug',
+    context___next___frontmatter___title = 'context.next.frontmatter.title',
     context___skip = 'context.skip',
     context___limit = 'context.limit',
     context___currentPage = 'context.currentPage',
@@ -3065,14 +3125,6 @@ declare namespace GatsbyTypes {
     }
   }
 
-  type PagesQueryQueryVariables = Exact<{ [key: string]: never }>
-
-  type PagesQueryQuery = {
-    readonly allSitePage: {
-      readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>>
-    }
-  }
-
   type Page404QueryVariables = Exact<{ [key: string]: never }>
 
   type Page404Query = {
@@ -3102,6 +3154,14 @@ declare namespace GatsbyTypes {
           >
         }
       >
+    }
+  }
+
+  type PagesQueryQueryVariables = Exact<{ [key: string]: never }>
+
+  type PagesQueryQuery = {
+    readonly allSitePage: {
+      readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>>
     }
   }
 }

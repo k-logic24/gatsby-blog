@@ -4,7 +4,6 @@
 @import "object/components/_bio.css";
 @import "object/components/_list.css";
 @import "object/components/_post.css";
-@import "object/components/_toggle.css";
 
 body {
 	@apply bg-white text-gray dark:text-white dark:bg-gray;

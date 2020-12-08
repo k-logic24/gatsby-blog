@@ -38,31 +38,31 @@ const BlogPostTemplate: React.FC<BlogPostProps> = ({ data, pageContext }) => {
           dangerouslySetInnerHTML={{ __html: post?.html as string }}
           itemProp="articleBody"
         />
+        <nav className="hidden md:block pt-12 paginate">
+          <ul className="flex justify-between">
+            <li>
+              {previous && (
+                <Link to={previous?.fields?.slug!} rel="prev">
+                  <FontAwesomeIcon icon={faChevronLeft} />
+                  <span style={{ marginLeft: '0.5em' }}>
+                    {previous?.frontmatter?.title}
+                  </span>
+                </Link>
+              )}
+            </li>
+            <li>
+              {next && (
+                <Link to={next?.fields?.slug!} rel="next">
+                  <span style={{ marginRight: '0.5em' }}>
+                    {next?.frontmatter?.title}
+                  </span>
+                  <FontAwesomeIcon icon={faChevronRight} />
+                </Link>
+              )}
+            </li>
+          </ul>
+        </nav>
       </article>
-      <nav className="paginate">
-        <ul className="paginate-list">
-          <li>
-            {previous && (
-              <Link to={previous?.fields?.slug!} rel="prev">
-                <FontAwesomeIcon icon={faChevronLeft} />
-                <span style={{ marginLeft: '0.5em' }}>
-                  {previous?.frontmatter?.title}
-                </span>
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next?.fields?.slug!} rel="next">
-                <span style={{ marginRight: '0.5em' }}>
-                  {next?.frontmatter?.title}
-                </span>
-                <FontAwesomeIcon icon={faChevronRight} />
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
     </Layout>
   )
 }

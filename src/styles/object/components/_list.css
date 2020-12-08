@@ -3,6 +3,11 @@
 		@apply flex flex-wrap;
 		gap: 1rem;
 	}
+	@screen lg {
+		.daily-list {
+			gap: 2rem 3rem;
+		}
+	}
 	.daily-list > li {
 		width: calc(50% - 1rem * 1 / 2);
 	}
@@ -13,7 +18,7 @@
 	}
 	@screen lg {
 		.daily-list > li {
-			width: calc(25% - 1rem * 3 / 4);
+			width: calc(33.3333% - 3rem * 2 / 3);
 		}
 	}
 	.daily-list__link {

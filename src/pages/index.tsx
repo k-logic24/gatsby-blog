@@ -11,6 +11,8 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
 }) => {
   const siteTitle = data.site?.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
+  const limit = 6
+
   return (
     <Layout title={siteTitle}>
       <Seo title="Home" />
@@ -18,17 +20,28 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
         <div className="text-center">
           <h1 className="pb-6 md:pb-12 mb-6 md:mb-8 section__ttl">Recently</h1>
         </div>
-        <ul className="daily-list">
-          {posts.map(post => (
-            <Item
-              key={post.fields!.slug!}
-              title={post.frontmatter?.title || post.fields?.slug}
-              src={post?.frontmatter?.hero?.childImageSharp?.fluid}
-              slug={post.fields?.slug}
-              date={post.frontmatter!.date}
-            />
-          ))}
-        </ul>
+        {posts.length ? (
+          <>
+            <ul className="daily-list">
+              {posts.map(post => (
+                <Item
+                  key={post.fields!.slug!}
+                  title={post.frontmatter?.title || post.fields?.slug}
+                  src={post?.frontmatter?.hero?.childImageSharp?.fluid}
+                  slug={post.fields?.slug}
+                  date={post.frontmatter!.date}
+                />
+              ))}
+            </ul>
+            {posts.length >= limit && (
+              <div className="py-6 text-center">
+                <Link to="/blog">もっとみる</Link>
+              </div>
+            )}
+          </>
+        ) : (
+          <p>no posts...</p>
+        )}
       </section>
     </Layout>
   )
@@ -43,7 +56,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 6
+    ) {
       nodes {
         excerpt
         fields {

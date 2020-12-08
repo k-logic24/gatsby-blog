@@ -1,21 +1,22 @@
 import React, { useEffect } from 'react'
 import clsx from 'clsx'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSun, faMoon, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 
 import { AppProps } from '@/types'
 
 const Toggle: React.FC<AppProps['toggle']> = ({ theme, toggleTheme }) => {
-  const themeClass = clsx('toggle__label', theme === 'light' ? 'light' : 'dark')
+  const icon =
+    theme === 'light' ? (
+      <FontAwesomeIcon icon={faMoon} className="text-white" />
+    ) : (
+      <FontAwesomeIcon icon={faSun} className="text-white" />
+    )
 
   return (
-    <div className="toggle">
-      <input
-        id="theme-toggle"
-        type="checkbox"
-        className="toggle__input"
-        onChange={toggleTheme}
-      />
-      <label htmlFor="theme-toggle" className={themeClass}></label>
-    </div>
+    <button type="button" onClick={toggleTheme}>
+      {icon}
+    </button>
   )
 }
 
