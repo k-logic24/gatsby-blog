@@ -1,0 +1,8 @@
+@layer components {
+	.bio-list {
+		@apply ml-4 self-end flex gap-2;
+	}
+	.bio-list__link {
+		@apply text-white text-sm;
+	}
+}

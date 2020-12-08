@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, PageProps } from 'gatsby'
 
 import Layout from '@/layouts/default'
-import Seo from '@/components/Seo'
+import Seo from '@/components/seo'
 
 const NotFoundPage: React.FC<PageProps<GatsbyTypes.Page404Query>> = ({
   data,

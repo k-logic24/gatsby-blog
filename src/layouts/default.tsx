@@ -9,11 +9,6 @@ import Bio from '@/components/bio'
 import { AppProps } from '@/types'
 
 const Default: React.FC<AppProps['layouts']> = ({ title, children, date }) => {
-  // const [path, setPath] = useState<string>('')
-  // useEffect(() => {
-  //   setPath(location.pathname)
-  // }, [])
-
   return (
     <div className="wrapper">
       <Header />

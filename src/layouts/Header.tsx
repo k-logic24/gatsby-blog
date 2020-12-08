@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 
+import Toggle from '@/components/Toggle'
+import { useDarkMode } from '@/hooks/useDarkMode'
+import { AppProps } from '@/types'
+
 const Header: React.FC = () => {
+  const [theme, toggleTheme] = useDarkMode()
+
+  useEffect(() => {}, [])
   return (
     <header className="header">
       <div className="relative h-full container">
@@ -11,9 +18,10 @@ const Header: React.FC = () => {
         <nav className="pos-c-r">
           <ul className="flex">
             <li>
-              <button type="button" className="text-white">
-                ボタンです
-              </button>
+              <Toggle
+                theme={theme as AppProps['toggle']['theme']}
+                toggleTheme={toggleTheme as AppProps['toggle']['toggleTheme']}
+              />
             </li>
           </ul>
         </nav>

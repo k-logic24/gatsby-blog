@@ -1,0 +1,9 @@
+@layer components {
+	.blog-post {
+		@apply leading-loose;
+	}
+	.blog-post p {
+		@apply text-sm md:text-base;
+		margin-bottom: 1em;
+	}
+}
