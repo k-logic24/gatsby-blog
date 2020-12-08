@@ -18,7 +18,7 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
       <Seo title="Home" />
       <section className="section home">
         <div className="text-center">
-          <h1 className="pb-6 md:pb-12 mb-6 md:mb-8 section__ttl">Recently</h1>
+          <h1 className="pb-6 md:pb-12 mb-6 md:mb-8 section__ttl">Latest</h1>
         </div>
         {posts.length ? (
           <>
@@ -33,11 +33,22 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
                 />
               ))}
             </ul>
-            {posts.length >= limit && (
+            {posts.length > limit && (
               <div className="py-6 text-center">
                 <Link to="/blog">もっとみる</Link>
               </div>
             )}
+            <p className="mt-12 text-center leading-relaxed font-bold">
+              <span className="text-xl">Check!!</span>
+              <br />
+              <a
+                className="text-blue-400 py-1 px-2 anim-link"
+                href="https://zenn.dev/k-logic24"
+                target="_blank"
+              >
+                Tech-Blog Site.
+              </a>
+            </p>
           </>
         ) : (
           <p>no posts...</p>

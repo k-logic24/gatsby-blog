@@ -18,6 +18,11 @@ const Header: React.FC = () => {
         <nav className="pos-c-r">
           <ul className="flex">
             <li>
+              <Link to="/blog" className="text-white">
+                Diary
+              </Link>
+            </li>
+            <li className="ml-8">
               <Toggle
                 theme={theme as AppProps['toggle']['theme']}
                 toggleTheme={toggleTheme as AppProps['toggle']['toggleTheme']}

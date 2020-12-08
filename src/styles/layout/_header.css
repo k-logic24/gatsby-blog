@@ -1,6 +1,6 @@
 @layer components {
 	.header {
-		@apply fixed w-full top-0 left-0 z-50 bg-gray-light h-10;
+		@apply fixed w-full top-0 left-0 z-50 bg-gray-light h-12;
 		/*backdrop-filter: blur(5px);*/
 		/*-webkit-backdrop-filter: blur(5px);*/
 	}

@@ -10,6 +10,7 @@ import {
 import Bio from '@/components/bio'
 import Layout from '@/layouts/default'
 import Seo from '@/components/seo'
+import Item from '@/components/item'
 
 // TODO
 const BlogIndex: React.FC<
@@ -43,28 +44,13 @@ const BlogIndex: React.FC<
             const title = post.frontmatter?.title || post.fields?.slug
 
             return (
-              <li key={post.fields!.slug!}>
-                <article itemScope itemType="http://schema.org/Article">
-                  <figure>
-                    <Link to={post.fields!.slug!} itemProp="url">
-                      <Image
-                        fluid={
-                          post?.frontmatter?.hero?.childImageSharp?.fluid as any
-                        }
-                        alt=""
-                      />
-                    </Link>
-                  </figure>
-                  <h2 className="daily__ttl">
-                    <Link to={post.fields!.slug!} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <span className="text-xs text-gray-400">
-                    {post.frontmatter!.date}
-                  </span>
-                </article>
-              </li>
+              <Item
+                key={post.fields!.slug!}
+                title={title}
+                src={post?.frontmatter?.hero?.childImageSharp?.fluid}
+                slug={post.fields?.slug}
+                date={post.frontmatter!.date}
+              />
             )
           })}
         </ul>
