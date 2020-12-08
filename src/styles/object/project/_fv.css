@@ -8,6 +8,6 @@
 		transform: translate(-50%, -50%);
 	}
 	.fv__ttl {
-		@apply text-white text-lg md:text-xl tracking-wider;
+		@apply text-white text-xl md:text-3xl tracking-widest;
 	}
 }

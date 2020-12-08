@@ -8,13 +8,21 @@ const Item: React.FC<AppProps['item']> = ({ title, date, slug, src }) => {
   return (
     <li>
       <article itemScope itemType="http://schema.org/Article">
-        <figure className="daily-list__imgwrap">
-          <Link to={slug!} className="daily-list__link" itemProp="url">
+        <figure className="overflow-hidden daily-list__imgwrap">
+          <Link
+            to={slug!}
+            className="block transition-transform duration-700 ease-out"
+            itemProp="url"
+          >
             <Image fluid={src!} alt="" />
           </Link>
         </figure>
         <h2 className="daily-list__ttl">
-          <Link to={slug!} itemProp="url" className="daily-list__link">
+          <Link
+            to={slug!}
+            itemProp="url"
+            className="block hover:opacity-60 transition-opacity"
+          >
             <span itemProp="headline">{title}</span>
           </Link>
         </h2>

@@ -3,7 +3,7 @@
 		@apply relative text-lg md:text-2xl font-bold tracking-wider inline-block;
 	}
 	.section__ttl:after {
-		@apply absolute w-4/6 h-px bg-gray bottom-0 dark:bg-white;
+		@apply absolute w-4/6 h-1 bg-accent bottom-0 dark:bg-white;
 		content: '';
 		left: 50%;
 		transform: translateX(-50%);

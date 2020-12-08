@@ -21,11 +21,11 @@
 			width: calc(33.3333% - 3rem * 2 / 3);
 		}
 	}
-	.daily-list__link {
-		@apply block hover:opacity-60 transition-opacity;
+	.daily-list__imgwrap:hover > a {
+		transform: scale(1.05);
 	}
 	.daily-list__ttl {
 		@apply text-sm;
-		margin: 1em 0;
+		margin-top: 1em;
 	}
 }

@@ -13,12 +13,12 @@ const Header: React.FC = () => {
     <header className="header">
       <div className="relative h-full container">
         <Link to="/" className="text-white pos-c-c">
-          Iwata's Diary
+          Iwata's Dialy
         </Link>
         <nav className="pos-c-r">
           <ul className="flex">
             <li>
-              <Link to="/blog" className="text-white">
+              <Link to="/blog" className="text-white anim-link">
                 Diary
               </Link>
             </li>

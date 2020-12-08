@@ -18,12 +18,11 @@ const BlogIndex: React.FC<
     pageContext: GatsbyTypes.SitePageContext
   }
 > = ({ data, pageContext }) => {
-  const siteTitle = data.site?.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
   if (posts.length === 0) {
     return (
-      <Layout title={siteTitle}>
+      <Layout title="Daily">
         <Seo title="All posts" />
         <p>No posts...</p>
       </Layout>
@@ -31,14 +30,9 @@ const BlogIndex: React.FC<
   }
 
   return (
-    <Layout title={siteTitle}>
-      <Seo title="All posts" />
+    <Layout title="Dialy">
+      <Seo title="Daily" />
       <section className="section daily">
-        <div className="text-center">
-          <h1 className="pb-6 md:pb-12 mb-6 md:mb-8 section__ttl">
-            Daily List
-          </h1>
-        </div>
         <ul className="daily-list">
           {posts.map(post => {
             const title = post.frontmatter?.title || post.fields?.slug
