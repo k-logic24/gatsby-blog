@@ -14,44 +14,35 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   return (
     <Layout title="Hi!Dear">
       <Seo title="Home" />
-      <section className="section home">
-        <div className="text-center">
-          <h1 className="pb-4 mb-10 section__ttl">Latest</h1>
+      <div className="section home">
+        <div className="section-wrap">
+          <div className="text-center">
+            <h1 className="pb-4 mb-10 section__ttl">Latest</h1>
+          </div>
+          {posts.length ? (
+            <>
+              <ul className="blog-list">
+                {posts.map(post => (
+                  <Item
+                    key={post.fields!.slug!}
+                    title={post.frontmatter?.title || post.fields?.slug}
+                    src={post?.frontmatter?.hero?.childImageSharp?.fluid}
+                    slug={post.fields?.slug}
+                    date={post.frontmatter!.date}
+                  />
+                ))}
+              </ul>
+              <div className="pt-8 text-center">
+                <Link className="link link--more" to="/blog">
+                  もっとみる
+                </Link>
+              </div>
+            </>
+          ) : (
+            <p>no posts...</p>
+          )}
         </div>
-        {posts.length ? (
-          <>
-            <ul className="daily-list">
-              {posts.map(post => (
-                <Item
-                  key={post.fields!.slug!}
-                  title={post.frontmatter?.title || post.fields?.slug}
-                  src={post?.frontmatter?.hero?.childImageSharp?.fluid}
-                  slug={post.fields?.slug}
-                  date={post.frontmatter!.date}
-                />
-              ))}
-            </ul>
-            <div className="pt-8 text-center">
-              <Link className="link link--more" to="/blog">
-                もっとみる
-              </Link>
-            </div>
-            {/*<p className="mt-12 text-center leading-relaxed font-bold">*/}
-            {/*  <span className="text-xl">Check!!</span>*/}
-            {/*  <br />*/}
-            {/*  <a*/}
-            {/*    className="text-blue-400 py-1 px-2 anim-link"*/}
-            {/*    href="https://zenn.dev/k-logic24"*/}
-            {/*    target="_blank"*/}
-            {/*  >*/}
-            {/*    Tech-Blog Site.*/}
-            {/*  </a>*/}
-            {/*</p>*/}
-          </>
-        ) : (
-          <p>no posts...</p>
-        )}
-      </section>
+      </div>
     </Layout>
   )
 }

@@ -1,58 +1,13 @@
 @import "layout/_header.css";
 @import "layout/_section.css";
 @import "object/project/_fv.css";
+@import "object/components/_link.css";
 @import "object/components/_bio.css";
 @import "object/components/_list.css";
 @import "object/components/_post.css";
 
 body {
 	@apply bg-white text-gray dark:text-white dark:bg-gray;
-}
-@layer components {
-	.anim-link {
-		position: relative;
-	}
-	.anim-link:after {
-		@apply absolute left-0 w-full inline-block h-px bg-current origin-bottom-right;
-		content: '';
-		bottom: -2px;
-		transform: scaleX(0);
-		transition: transform .3s;
-	}
-	.anim-link:hover:after,
-	.anim-link:focus:after {
-		@apply origin-bottom-left;
-		transform: scaleX(1);
-	}
-	.pos-c-c {
-		@apply absolute left-1/2 top-1/2;
-		transform: translate(-50%, -50%);
-	}
-	.pos-c-r {
-		@apply absolute right-0 top-1/2;
-		transform: translateY(-50%);
-	}
-	.link {
-		@apply relative inline-block font-bold;
-	}
-	.link--more {
-		@apply text-sm md:text-base rounded-full bg-white dark:bg-gray dark:text-white dark:hover:text-accent border border-current border-solid transition-all;
-		padding: .5em 2em;
-	}
-	.link--more:hover,
-	.link--more:focus {
-		@apply text-accent;
-	}
-	.link--more:after {
-		@apply absolute w-1/4 h-px bg-current top-1/2 transition-all duration-500 ease-out;
-		transform: translate(50%, -50%);
-		content: '';
-	}
-	.link--more:hover:after,
-	.link--more:focus:after {
-		@apply bg-accent;
-		transform: translate(100%, -50%);
-	}
 }
 
 @layer utilities {

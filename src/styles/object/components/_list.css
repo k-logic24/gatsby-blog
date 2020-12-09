@@ -1,30 +1,30 @@
 @layer components {
-	.daily-list {
+	.blog-list {
 		@apply flex flex-wrap;
 		gap: 1rem;
 	}
 	@screen lg {
-		.daily-list {
+		.blog-list {
 			gap: 2rem 3rem;
 		}
 	}
-	.daily-list > li {
+	.blog-list > li {
 		width: calc(50% - 1rem * 1 / 2);
 	}
 	@screen sm {
-		.daily-list > li {
+		.blog-list > li {
 			width: calc(33.3333% - 1rem * 2 / 3);
 		}
 	}
 	@screen lg {
-		.daily-list > li {
+		.blog-list > li {
 			width: calc(33.3333% - 3rem * 2 / 3);
 		}
 	}
-	.daily-list__imgwrap:hover > a {
+	.blog-list__imgwrap:hover > a {
 		transform: scale(1.05);
 	}
-	.daily-list__ttl {
+	.blog-list__ttl {
 		@apply text-sm;
 		margin-top: 1em;
 	}

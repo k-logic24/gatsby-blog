@@ -39,7 +39,6 @@ export const useDarkMode = () => {
 
   useEffect(() => {
     const localTheme = window.localStorage.getItem('theme') as ThemeProps
-    console.log(localTheme)
     if (
       window.matchMedia &&
       window.matchMedia('(prefers-color-scheme: dark)').matches &&

@@ -11,18 +11,18 @@ const Header: React.FC = () => {
   useEffect(() => {}, [])
   return (
     <header className="header">
-      <div className="relative h-full container">
-        <Link to="/" className="text-white pos-c-c">
-          Iwata's Dialy
+      <div className="header__inner">
+        <Link to="/" className="text-white header__logo">
+          Iwata's BLOG
         </Link>
-        <nav className="pos-c-r">
+        <nav className="header-nav">
           <ul className="flex">
             <li>
               <Link to="/blog" className="text-white anim-link">
-                Diary
+                Blog
               </Link>
             </li>
-            <li className="ml-8">
+            <li className="ml-4 md:ml-8">
               <Toggle
                 theme={theme as AppProps['toggle']['theme']}
                 toggleTheme={toggleTheme as AppProps['toggle']['toggleTheme']}

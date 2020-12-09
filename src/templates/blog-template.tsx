@@ -12,7 +12,6 @@ import Layout from '@/layouts/default'
 import Seo from '@/components/seo'
 import Item from '@/components/item'
 
-// TODO
 const BlogIndex: React.FC<
   PageProps<GatsbyTypes.BlogPageQuery> & {
     pageContext: GatsbyTypes.SitePageContext
@@ -22,18 +21,21 @@ const BlogIndex: React.FC<
 
   if (posts.length === 0) {
     return (
-      <Layout title="Daily">
-        <Seo title="All posts" />
+      <Layout title="BLOG">
+        <Seo title="BLOG" />
         <p>No posts...</p>
       </Layout>
     )
   }
 
   return (
-    <Layout title="Dialy">
-      <Seo title="Daily" />
-      <section className="section daily">
-        <ul className="daily-list">
+    <Layout title="BLOG">
+      <Seo title="BLOG" />
+      <section className="section blog">
+        <div className="text-center">
+          <h1 className="pb-4 mb-10 section__ttl">All Posts</h1>
+        </div>
+        <ul className="blog-list">
           {posts.map(post => {
             const title = post.frontmatter?.title || post.fields?.slug
 

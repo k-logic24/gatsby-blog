@@ -1,10 +1,10 @@
 module.exports = {
   purge: ['src/**/*.tsx'],
   darkMode: 'class', // or 'media' or 'class'
-  important: true,
   theme: {
     fontFamily: {
-      sans: ['Montserrat', 'system-ui', 'sans-serif'],
+      sans: ['M PLUS Rounded 1c', 'sans-serif'],
+      scripts: ['Caveat', 'cursive'],
     },
     container: {
       center: true,

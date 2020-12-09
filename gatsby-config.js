@@ -2,12 +2,12 @@ const path = require('path')
 
 module.exports = {
   siteMetadata: {
-    title: `K.Iwata's Diary`,
+    title: `K.Iwata's Blog`,
     author: {
       name: `K.Iwata`,
-      summary: `K.Iwata's Gatsby Template`,
+      summary: `K.Iwata's Gatsby Blog`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `This is K.Iwata Blog.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
     social: {
       twitter: `k-logic24`,
@@ -64,8 +64,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `K.Iwata's Blog`,
+        short_name: `K.Iwata's Blog`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,

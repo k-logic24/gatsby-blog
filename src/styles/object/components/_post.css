@@ -1,9 +1,20 @@
 @layer components {
-	.blog-post {
-		@apply leading-loose;
-	}
 	.blog-post p {
-		@apply text-sm md:text-base;
-		margin-bottom: 1em;
+		@apply leading-loose;
+		font-size: .8rem;
+		margin-bottom: 1.5em;
+	}
+	@screen md {
+		.blog-post p {
+			font-size: 1rem;
+		}
+	}
+	.blog-post pre {
+		font-size: .8rem !important;
+	}
+	@screen md {
+		.blog-post pre {
+			font-size: 1rem !important;
+		}
 	}
 }

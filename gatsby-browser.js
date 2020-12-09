@@ -1,4 +1,5 @@
-import 'typeface-montserrat'
+import 'typeface-caveat'
+import 'typeface-m-plus-rounded-1c'
 
 import '@/styles/tailwind.css'
 import '@/styles/index.css'

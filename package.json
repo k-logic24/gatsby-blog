@@ -34,8 +34,9 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-tsparticles": "^1.18.11",
-    "typeface-merriweather": "0.0.72",
-    "typeface-montserrat": "0.0.75"
+    "typeface-caveat": "^1.1.13",
+    "typeface-m-plus-rounded-1c": "^1.1.13",
+    "typeface-merriweather": "0.0.72"
   },
   "devDependencies": {
     "@types/react-helmet": "^6.1.0",
