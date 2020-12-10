@@ -3163,22 +3163,6 @@ declare namespace GatsbyTypes {
     }
   }
 
-  type PagesQueryQueryVariables = Exact<{ [key: string]: never }>
-
-  type PagesQueryQuery = {
-    readonly allSitePage: {
-      readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>>
-    }
-  }
-
-  type Page404QueryVariables = Exact<{ [key: string]: never }>
-
-  type Page404Query = {
-    readonly site: Maybe<{
-      readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>>
-    }>
-  }
-
   type BlogIndexQueryVariables = Exact<{ [key: string]: never }>
 
   type BlogIndexQuery = {
@@ -3203,16 +3187,11 @@ declare namespace GatsbyTypes {
     }
   }
 
-  type ImgQueryVariables = Exact<{ [key: string]: never }>
+  type PagesQueryQueryVariables = Exact<{ [key: string]: never }>
 
-  type ImgQuery = {
-    readonly allImageSharp: {
-      readonly nodes: ReadonlyArray<{
-        readonly fluid: Maybe<
-          Pick<ImageSharpFluid, 'originalName'> &
-            GatsbyImageSharpFluid_withWebpFragment
-        >
-      }>
+  type PagesQueryQuery = {
+    readonly allSitePage: {
+      readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>>
     }
   }
 }

@@ -1,0 +1,9 @@
+.search__input {
+	@apply px-4 py-2 border-gray border border-solid rounded-lg;
+	width: 80%;
+	max-width: 350px;
+}
+
+.search-list {
+	@apply flex;
+}

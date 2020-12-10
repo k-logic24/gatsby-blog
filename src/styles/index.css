@@ -6,6 +6,7 @@
 @import "object/components/_list.css";
 @import "object/components/_post.css";
 @import "object/components/_toc.css";
+@import "object/components/_search.css";
 
 body {
 	@apply bg-white text-gray dark:text-white dark:bg-gray;

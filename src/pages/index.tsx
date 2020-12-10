@@ -5,6 +5,7 @@ import Image from 'gatsby-image'
 import Layout from '@/layouts/default'
 import Item from '@/components/item'
 import Seo from '@/components/seo'
+import Search from '@/components/search'
 
 const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   data,
@@ -42,6 +43,12 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
             <p>no posts...</p>
           )}
         </div>
+        <div className="section-wrap">
+          <div className="text-center">
+            <h1 className="pb-4 mb-10 section__ttl">Search</h1>
+          </div>
+          <Search />
+        </div>
       </div>
     </Layout>
   )
@@ -57,7 +64,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___date], order: ASC }
       limit: 6
     ) {
       nodes {

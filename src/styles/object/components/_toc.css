@@ -1,6 +1,6 @@
 @layer components {
 	.toc {
-		@apply leading-loose mb-16;
+		@apply leading-loose mb-16 p-4 border border-solid border-accent rounded;
 		font-size: .8rem;
 	}
 	@screen md {
@@ -9,7 +9,7 @@
 		}
 	}
 	.toc:before {
-		@apply font-bold tracking-wider text-accent;
+		@apply font-bold tracking-wider text-accent text-lg;
 		content: '目次';
 	}
 	.toc ul {
