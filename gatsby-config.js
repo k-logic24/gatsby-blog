@@ -35,6 +35,14 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              offsetY: `50`,
+              icon: false,
+              maintainCase: true,
+            },
+          },
+          {
             resolve: `gatsby-remark-prismjs-title`,
             options: {
               className: 'md-label',

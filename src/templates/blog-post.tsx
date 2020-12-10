@@ -22,6 +22,7 @@ const BlogPostTemplate: React.FC<BlogPostProps> = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const postTitle = post?.frontmatter?.title
   const postDate = post?.frontmatter?.date
+  const tableOfContents = post?.tableOfContents || ''
   const siteTitle = data.site?.siteMetadata?.title || `Title`
   const { previous, next } = pageContext
 
@@ -36,10 +37,16 @@ const BlogPostTemplate: React.FC<BlogPostProps> = ({ data, pageContext }) => {
         itemScope
         itemType="http://schema.org/Article"
       >
-        <h1 className="font-bold text-xl md:text-2xl blog-post__ttl">
-          {postTitle}
-        </h1>
-        <span className="text-xs text-secondary">{postDate}</span>
+        <div className="mb-8">
+          <h1 className="font-bold text-xl md:text-2xl blog-post__ttl">
+            {postTitle}
+          </h1>
+          <span className="text-xs text-secondary">{postDate}</span>
+        </div>
+        <div
+          className="toc"
+          dangerouslySetInnerHTML={{ __html: tableOfContents }}
+        ></div>
         <section
           dangerouslySetInnerHTML={{ __html: post?.html as string }}
           itemProp="articleBody"
@@ -91,6 +98,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
       }
+      tableOfContents
     }
   }
 `

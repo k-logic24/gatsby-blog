@@ -2599,9 +2599,12 @@ declare namespace GatsbyTypes {
     pluginCreator___pluginOptions___plugins___name = 'pluginCreator.pluginOptions.plugins.name',
     pluginCreator___pluginOptions___plugins___version = 'pluginCreator.pluginOptions.plugins.version',
     pluginCreator___pluginOptions___plugins___browserAPIs = 'pluginCreator.pluginOptions.plugins.browserAPIs',
+    pluginCreator___pluginOptions___plugins___ssrAPIs = 'pluginCreator.pluginOptions.plugins.ssrAPIs',
     pluginCreator___pluginOptions___plugins___pluginFilepath = 'pluginCreator.pluginOptions.plugins.pluginFilepath',
     pluginCreator___pluginOptions___path = 'pluginCreator.pluginOptions.path',
     pluginCreator___pluginOptions___name = 'pluginCreator.pluginOptions.name',
+    pluginCreator___pluginOptions___offsetY = 'pluginCreator.pluginOptions.offsetY',
+    pluginCreator___pluginOptions___maintainCase = 'pluginCreator.pluginOptions.maintainCase',
     pluginCreator___pluginOptions___className = 'pluginCreator.pluginOptions.className',
     pluginCreator___pluginOptions___maxWidth = 'pluginCreator.pluginOptions.maxWidth',
     pluginCreator___pluginOptions___wrapperStyle = 'pluginCreator.pluginOptions.wrapperStyle',
@@ -2610,7 +2613,6 @@ declare namespace GatsbyTypes {
     pluginCreator___pluginOptions___background_color = 'pluginCreator.pluginOptions.background_color',
     pluginCreator___pluginOptions___theme_color = 'pluginCreator.pluginOptions.theme_color',
     pluginCreator___pluginOptions___display = 'pluginCreator.pluginOptions.display',
-    pluginCreator___pluginOptions___icon = 'pluginCreator.pluginOptions.icon',
     pluginCreator___pluginOptions___cache_busting_mode = 'pluginCreator.pluginOptions.cache_busting_mode',
     pluginCreator___pluginOptions___include_favicon = 'pluginCreator.pluginOptions.include_favicon',
     pluginCreator___pluginOptions___legacy = 'pluginCreator.pluginOptions.legacy',
@@ -2807,13 +2809,19 @@ declare namespace GatsbyTypes {
     pluginOptions___plugins___id = 'pluginOptions.plugins.id',
     pluginOptions___plugins___name = 'pluginOptions.plugins.name',
     pluginOptions___plugins___version = 'pluginOptions.plugins.version',
+    pluginOptions___plugins___pluginOptions___offsetY = 'pluginOptions.plugins.pluginOptions.offsetY',
+    pluginOptions___plugins___pluginOptions___icon = 'pluginOptions.plugins.pluginOptions.icon',
+    pluginOptions___plugins___pluginOptions___maintainCase = 'pluginOptions.plugins.pluginOptions.maintainCase',
     pluginOptions___plugins___pluginOptions___className = 'pluginOptions.plugins.pluginOptions.className',
     pluginOptions___plugins___pluginOptions___maxWidth = 'pluginOptions.plugins.pluginOptions.maxWidth',
     pluginOptions___plugins___pluginOptions___wrapperStyle = 'pluginOptions.plugins.pluginOptions.wrapperStyle',
     pluginOptions___plugins___browserAPIs = 'pluginOptions.plugins.browserAPIs',
+    pluginOptions___plugins___ssrAPIs = 'pluginOptions.plugins.ssrAPIs',
     pluginOptions___plugins___pluginFilepath = 'pluginOptions.plugins.pluginFilepath',
     pluginOptions___path = 'pluginOptions.path',
     pluginOptions___name = 'pluginOptions.name',
+    pluginOptions___offsetY = 'pluginOptions.offsetY',
+    pluginOptions___maintainCase = 'pluginOptions.maintainCase',
     pluginOptions___className = 'pluginOptions.className',
     pluginOptions___maxWidth = 'pluginOptions.maxWidth',
     pluginOptions___wrapperStyle = 'pluginOptions.wrapperStyle',
@@ -2822,7 +2830,6 @@ declare namespace GatsbyTypes {
     pluginOptions___background_color = 'pluginOptions.background_color',
     pluginOptions___theme_color = 'pluginOptions.theme_color',
     pluginOptions___display = 'pluginOptions.display',
-    pluginOptions___icon = 'pluginOptions.icon',
     pluginOptions___cache_busting_mode = 'pluginOptions.cache_busting_mode',
     pluginOptions___include_favicon = 'pluginOptions.include_favicon',
     pluginOptions___legacy = 'pluginOptions.legacy',
@@ -2959,6 +2966,8 @@ declare namespace GatsbyTypes {
     >
     readonly path: Maybe<Scalars['String']>
     readonly name: Maybe<Scalars['String']>
+    readonly offsetY: Maybe<Scalars['String']>
+    readonly maintainCase: Maybe<Scalars['Boolean']>
     readonly className: Maybe<Scalars['String']>
     readonly maxWidth: Maybe<Scalars['Int']>
     readonly wrapperStyle: Maybe<Scalars['String']>
@@ -2967,7 +2976,6 @@ declare namespace GatsbyTypes {
     readonly background_color: Maybe<Scalars['String']>
     readonly theme_color: Maybe<Scalars['String']>
     readonly display: Maybe<Scalars['String']>
-    readonly icon: Maybe<Scalars['String']>
     readonly cache_busting_mode: Maybe<Scalars['String']>
     readonly include_favicon: Maybe<Scalars['Boolean']>
     readonly legacy: Maybe<Scalars['Boolean']>
@@ -2980,6 +2988,8 @@ declare namespace GatsbyTypes {
     readonly plugins: Maybe<SitePluginPluginOptionsPluginsFilterListInput>
     readonly path: Maybe<StringQueryOperatorInput>
     readonly name: Maybe<StringQueryOperatorInput>
+    readonly offsetY: Maybe<StringQueryOperatorInput>
+    readonly maintainCase: Maybe<BooleanQueryOperatorInput>
     readonly className: Maybe<StringQueryOperatorInput>
     readonly maxWidth: Maybe<IntQueryOperatorInput>
     readonly wrapperStyle: Maybe<StringQueryOperatorInput>
@@ -2988,7 +2998,6 @@ declare namespace GatsbyTypes {
     readonly background_color: Maybe<StringQueryOperatorInput>
     readonly theme_color: Maybe<StringQueryOperatorInput>
     readonly display: Maybe<StringQueryOperatorInput>
-    readonly icon: Maybe<StringQueryOperatorInput>
     readonly cache_busting_mode: Maybe<StringQueryOperatorInput>
     readonly include_favicon: Maybe<BooleanQueryOperatorInput>
     readonly legacy: Maybe<BooleanQueryOperatorInput>
@@ -3004,6 +3013,7 @@ declare namespace GatsbyTypes {
     readonly version: Maybe<Scalars['String']>
     readonly pluginOptions: Maybe<SitePluginPluginOptionsPluginsPluginOptions>
     readonly browserAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>
+    readonly ssrAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>
     readonly pluginFilepath: Maybe<Scalars['String']>
   }
 
@@ -3016,6 +3026,7 @@ declare namespace GatsbyTypes {
       SitePluginPluginOptionsPluginsPluginOptionsFilterInput
     >
     readonly browserAPIs: Maybe<StringQueryOperatorInput>
+    readonly ssrAPIs: Maybe<StringQueryOperatorInput>
     readonly pluginFilepath: Maybe<StringQueryOperatorInput>
   }
 
@@ -3024,12 +3035,18 @@ declare namespace GatsbyTypes {
   }
 
   type SitePluginPluginOptionsPluginsPluginOptions = {
+    readonly offsetY: Maybe<Scalars['String']>
+    readonly icon: Maybe<Scalars['Boolean']>
+    readonly maintainCase: Maybe<Scalars['Boolean']>
     readonly className: Maybe<Scalars['String']>
     readonly maxWidth: Maybe<Scalars['Int']>
     readonly wrapperStyle: Maybe<Scalars['String']>
   }
 
   type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
+    readonly offsetY: Maybe<StringQueryOperatorInput>
+    readonly icon: Maybe<BooleanQueryOperatorInput>
+    readonly maintainCase: Maybe<BooleanQueryOperatorInput>
     readonly className: Maybe<StringQueryOperatorInput>
     readonly maxWidth: Maybe<IntQueryOperatorInput>
     readonly wrapperStyle: Maybe<StringQueryOperatorInput>
@@ -3094,7 +3111,7 @@ declare namespace GatsbyTypes {
       readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>>
     }>
     readonly markdownRemark: Maybe<
-      Pick<MarkdownRemark, 'id' | 'excerpt' | 'html'> & {
+      Pick<MarkdownRemark, 'id' | 'excerpt' | 'html' | 'tableOfContents'> & {
         readonly frontmatter: Maybe<
           Pick<Frontmatter, 'title' | 'date' | 'description'>
         >
@@ -3178,5 +3195,51 @@ declare namespace GatsbyTypes {
         }
       >
     }
+  }
+
+  type SeoQueryVariables = Exact<{ [key: string]: never }>
+
+  type SeoQuery = {
+    readonly site: Maybe<{
+      readonly siteMetadata: Maybe<
+        Pick<SiteSiteMetadata, 'title' | 'description'> & {
+          readonly social: Maybe<Pick<Social, 'twitter'>>
+        }
+      >
+    }>
+  }
+
+  type ImgQueryVariables = Exact<{ [key: string]: never }>
+
+  type ImgQuery = {
+    readonly allImageSharp: {
+      readonly nodes: ReadonlyArray<{
+        readonly fluid: Maybe<
+          Pick<ImageSharpFluid, 'originalName'> &
+            GatsbyImageSharpFluid_withWebpFragment
+        >
+      }>
+    }
+  }
+
+  type GatsbyImageSharpFixedFragment = Pick<
+    ImageSharpFixed,
+    'base64' | 'width' | 'height' | 'src' | 'srcSet'
+  >
+
+  type BioQueryVariables = Exact<{ [key: string]: never }>
+
+  type BioQuery = {
+    readonly avatar: Maybe<{
+      readonly childImageSharp: Maybe<{
+        readonly fixed: Maybe<GatsbyImageSharpFixedFragment>
+      }>
+    }>
+    readonly site: Maybe<{
+      readonly siteMetadata: Maybe<{
+        readonly author: Maybe<Pick<Author, 'name' | 'summary'>>
+        readonly social: Maybe<Pick<Social, 'twitter' | 'github'>>
+      }>
+    }>
   }
 }

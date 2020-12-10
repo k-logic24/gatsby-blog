@@ -2,7 +2,7 @@
 	.blog-post {
 		@apply relative bg-white;
 		margin-top: -7rem;
-		padding: 2rem;
+		padding: 1em;
 	}
 	.blog-post p {
 		@apply leading-loose;
@@ -10,6 +10,9 @@
 		margin-bottom: 1.5em;
 	}
 	@screen md {
+		.blog-post {
+			padding: 2em;
+		}
 		.blog-post p {
 			font-size: 1rem;
 		}

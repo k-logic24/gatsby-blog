@@ -5,7 +5,6 @@ export const useLocation = () => {
 
   useEffect(() => {
     setPath(location.pathname)
-    console.log(location.pathname)
   }, [path])
 
   return [path]

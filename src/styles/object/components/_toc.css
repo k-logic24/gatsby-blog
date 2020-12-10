@@ -1,0 +1,25 @@
+@layer components {
+	.toc {
+		@apply leading-loose mb-16;
+		font-size: .8rem;
+	}
+	@screen md {
+		.toc {
+			font-size: 1rem;
+		}
+	}
+	.toc:before {
+		@apply font-bold tracking-wider;
+		content: '目次';
+	}
+	.toc ul {
+		list-style: disc;
+		padding-left: 1.5em;
+	}
+	.toc p{
+		margin-bottom: 0;
+	}
+	.toc ul ul{
+		margin-left: 1em;
+	}
+}
