@@ -20,20 +20,26 @@ interface BlogPostProps {
 
 const BlogPostTemplate: React.FC<BlogPostProps> = ({ data, pageContext }) => {
   const post = data.markdownRemark
+  const postTitle = post?.frontmatter?.title
+  const postDate = post?.frontmatter?.date
   const siteTitle = data.site?.siteMetadata?.title || `Title`
   const { previous, next } = pageContext
 
   return (
-    <Layout title={post?.frontmatter?.title} date={post?.frontmatter?.date}>
+    <Layout title={postTitle} date={postDate}>
       <Seo
         title={post?.frontmatter?.title}
         description={post?.frontmatter?.description || post?.excerpt}
       />
       <article
-        className="max-w-screen-sm mx-auto blog-post"
+        className="max-w-screen-md mx-auto blog-post"
         itemScope
         itemType="http://schema.org/Article"
       >
+        <h1 className="font-bold text-xl md:text-2xl blog-post__ttl">
+          {postTitle}
+        </h1>
+        <span className="text-xs text-secondary">{postDate}</span>
         <section
           dangerouslySetInnerHTML={{ __html: post?.html as string }}
           itemProp="articleBody"

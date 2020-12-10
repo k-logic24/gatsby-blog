@@ -26,7 +26,7 @@ const Item: React.FC<AppProps['item']> = ({ title, date, slug, src }) => {
             <span itemProp="headline">{title}</span>
           </Link>
         </h2>
-        <span className="text-xs text-gray-400">{date}</span>
+        <span className="text-xs text-secondary">{date}</span>
       </article>
     </li>
   )

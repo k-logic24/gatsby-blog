@@ -25,7 +25,7 @@ WordPress にはフック機能があり、例えば記事をアップした時�
 
 こんな感じで実装してみました。
 
-```php:functions.php
+```php:title=functions.php
 <?php
 add_action( 'save_post', 'save_post_urls' );
 function save_post_urls($post_ID) {

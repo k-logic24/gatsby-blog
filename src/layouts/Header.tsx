@@ -18,7 +18,10 @@ const Header: React.FC = () => {
         <nav className="header-nav">
           <ul className="flex">
             <li>
-              <Link to="/blog" className="text-white anim-link">
+              <Link
+                to="/blog"
+                className="text-white anim-link text-sm md:text-base"
+              >
                 Blog
               </Link>
             </li>

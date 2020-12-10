@@ -2,12 +2,12 @@ const path = require('path')
 
 module.exports = {
   siteMetadata: {
-    title: `K.Iwata's Blog`,
+    title: `K.Iwata's BLOG`,
     author: {
       name: `K.Iwata`,
-      summary: `K.Iwata's Gatsby Blog`,
+      summary: `K.Iwata's Gatsby BLOG`,
     },
-    description: `This is K.Iwata Blog.`,
+    description: `This is K.Iwata BLOG.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
     social: {
       twitter: `k-logic24`,
@@ -35,6 +35,13 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: `gatsby-remark-prismjs-title`,
+            options: {
+              className: 'md-label',
+            },
+          },
+          `gatsby-remark-prismjs`,
+          {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 630,
@@ -46,7 +53,6 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
@@ -64,8 +70,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `K.Iwata's Blog`,
-        short_name: `K.Iwata's Blog`,
+        name: `K.Iwata's BLOG`,
+        short_name: `K.Iwata's BLOG`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
