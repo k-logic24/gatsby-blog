@@ -10,4 +10,12 @@
 	.fv__ttl {
 		@apply text-white text-2xl md:text-4xl tracking-widest;
 	}
+	.particles {
+		@apply absolute top-0 left-0 bottom-0 right-0;
+	}
+	@screen md {
+		.particles-canvas {
+			height: auto !important;
+		}
+	}
 }

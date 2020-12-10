@@ -3,6 +3,7 @@ title: 日記みたいなもの
 date: '2020-12-02'
 description: '日記みたいなもの、始めました'
 hero: './thumb.png'
+category: 'daily'
 ---
 
 日記みたいなもの、始めました。  

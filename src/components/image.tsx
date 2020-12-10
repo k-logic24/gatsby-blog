@@ -12,7 +12,7 @@ const Img: React.FC<ImgProps> = ({ assetUrl, alt }) => {
     query Img {
       allImageSharp {
         nodes {
-          fluid(maxWidth: 600) {
+          fluid(maxWidth: 1600) {
             originalName
             ...GatsbyImageSharpFluid_withWebp
           }

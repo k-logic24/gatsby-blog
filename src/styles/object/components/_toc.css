@@ -9,7 +9,7 @@
 		}
 	}
 	.toc:before {
-		@apply font-bold tracking-wider;
+		@apply font-bold tracking-wider text-accent;
 		content: '目次';
 	}
 	.toc ul {

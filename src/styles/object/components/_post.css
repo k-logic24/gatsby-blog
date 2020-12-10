@@ -1,8 +1,8 @@
 @layer components {
 	.blog-post {
-		@apply relative bg-white;
+		@apply relative bg-white dark:bg-gray;
 		margin-top: -7rem;
-		padding: 1em;
+		padding: 1rem;
 	}
 	.blog-post p {
 		@apply leading-loose;
@@ -11,7 +11,7 @@
 	}
 	@screen md {
 		.blog-post {
-			padding: 2em;
+			padding: 4rem;
 		}
 		.blog-post p {
 			font-size: 1rem;
@@ -45,7 +45,7 @@
 	.blog-post h2 {
 		@apply relative text-xl md:text-2xl bg-accent text-white;
 		padding: .4em .8em;
-		margin: 1.5em 0 1em;
+		margin: 2em 0 1.5em;
 	}
 	.blog-post h2:after {
 		@apply absolute bottom-0 left-4 border-8 border-b-0 border-solid border-accent;
@@ -57,10 +57,10 @@
 	.blog-post h3 {
 		@apply text-lg md:text-xl border-l-2 border-accent border-solid;
 		padding: .2em .5em;
-		margin: 1em 0 .8em;
+		margin: 2em 0 1.5em;
 	}
 	.blog-post h4 {
 		@apply md:text-lg;
-		margin: .8em 0 .5em;
+		margin: 1.5em 0 1em;
 	}
 }

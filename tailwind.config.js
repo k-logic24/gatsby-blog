@@ -1,7 +1,6 @@
 module.exports = {
   purge: ['src/**/*.tsx'],
-  darkMode: 'class', // or 'media' or 'class'
-  important: true,
+  darkMode: 'class',
   theme: {
     fontFamily: {
       sans: ['M PLUS Rounded 1c', 'sans-serif'],

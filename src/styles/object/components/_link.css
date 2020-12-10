@@ -37,14 +37,14 @@
 	}
 
 	.anim-link {
+		@apply hover:text-accent transition-colors duration-300;
 		position: relative;
 	}
 	.anim-link:after {
-		@apply absolute left-0 w-full inline-block h-px bg-current origin-bottom-right;
+		@apply absolute left-0 w-full inline-block h-px bg-accent origin-bottom-right transition-transform duration-300 ;
 		content: '';
 		bottom: -2px;
 		transform: scaleX(0);
-		transition: transform .3s;
 	}
 	.anim-link:hover:after,
 	.anim-link:focus:after {

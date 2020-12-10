@@ -721,7 +721,7 @@ declare namespace GatsbyTypes {
     childMarkdownRemark___frontmatter___hero___id = 'childMarkdownRemark.frontmatter.hero.id',
     childMarkdownRemark___frontmatter___hero___children = 'childMarkdownRemark.frontmatter.hero.children',
     childMarkdownRemark___frontmatter___category = 'childMarkdownRemark.frontmatter.category',
-    childMarkdownRemark___frontmatter___tag = 'childMarkdownRemark.frontmatter.tag',
+    childMarkdownRemark___frontmatter___tags = 'childMarkdownRemark.frontmatter.tags',
     childMarkdownRemark___fields___slug = 'childMarkdownRemark.fields.slug',
     childMarkdownRemark___excerpt = 'childMarkdownRemark.excerpt',
     childMarkdownRemark___rawMarkdownBody = 'childMarkdownRemark.rawMarkdownBody',
@@ -850,8 +850,8 @@ declare namespace GatsbyTypes {
     readonly description: Maybe<Scalars['String']>
     readonly date: Maybe<Scalars['Date']>
     readonly hero: Maybe<File>
-    readonly category: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>
-    readonly tag: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>
+    readonly category: Maybe<Scalars['String']>
+    readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>
   }
 
   type Frontmatter_dateArgs = {
@@ -867,7 +867,7 @@ declare namespace GatsbyTypes {
     readonly date: Maybe<DateQueryOperatorInput>
     readonly hero: Maybe<FileFilterInput>
     readonly category: Maybe<StringQueryOperatorInput>
-    readonly tag: Maybe<StringQueryOperatorInput>
+    readonly tags: Maybe<StringQueryOperatorInput>
   }
 
   enum ImageCropFocus {
@@ -1570,7 +1570,7 @@ declare namespace GatsbyTypes {
     frontmatter___hero___childMarkdownRemark___tableOfContents = 'frontmatter.hero.childMarkdownRemark.tableOfContents',
     frontmatter___hero___childMarkdownRemark___children = 'frontmatter.hero.childMarkdownRemark.children',
     frontmatter___category = 'frontmatter.category',
-    frontmatter___tag = 'frontmatter.tag',
+    frontmatter___tags = 'frontmatter.tags',
     fields___slug = 'fields.slug',
     excerpt = 'excerpt',
     rawMarkdownBody = 'rawMarkdownBody',
@@ -3102,6 +3102,17 @@ declare namespace GatsbyTypes {
     readonly glob: Maybe<Scalars['String']>
   }
 
+  type GatsbyImageSharpFluid_withWebpFragment = Pick<
+    ImageSharpFluid,
+    | 'base64'
+    | 'aspectRatio'
+    | 'src'
+    | 'srcSet'
+    | 'srcWebp'
+    | 'srcSetWebp'
+    | 'sizes'
+  >
+
   type BlogPostBySlugQueryVariables = Exact<{
     slug: Scalars['String']
   }>
@@ -3113,22 +3124,17 @@ declare namespace GatsbyTypes {
     readonly markdownRemark: Maybe<
       Pick<MarkdownRemark, 'id' | 'excerpt' | 'html' | 'tableOfContents'> & {
         readonly frontmatter: Maybe<
-          Pick<Frontmatter, 'title' | 'date' | 'description'>
+          Pick<Frontmatter, 'title' | 'date' | 'description'> & {
+            readonly hero: Maybe<{
+              readonly childImageSharp: Maybe<{
+                readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment>
+              }>
+            }>
+          }
         >
       }
     >
   }
-
-  type GatsbyImageSharpFluid_withWebpFragment = Pick<
-    ImageSharpFluid,
-    | 'base64'
-    | 'aspectRatio'
-    | 'src'
-    | 'srcSet'
-    | 'srcWebp'
-    | 'srcSetWebp'
-    | 'sizes'
-  >
 
   type BlogPageQueryVariables = Exact<{
     limit: Scalars['Int']
@@ -3197,18 +3203,6 @@ declare namespace GatsbyTypes {
     }
   }
 
-  type SeoQueryVariables = Exact<{ [key: string]: never }>
-
-  type SeoQuery = {
-    readonly site: Maybe<{
-      readonly siteMetadata: Maybe<
-        Pick<SiteSiteMetadata, 'title' | 'description'> & {
-          readonly social: Maybe<Pick<Social, 'twitter'>>
-        }
-      >
-    }>
-  }
-
   type ImgQueryVariables = Exact<{ [key: string]: never }>
 
   type ImgQuery = {
@@ -3220,26 +3214,5 @@ declare namespace GatsbyTypes {
         >
       }>
     }
-  }
-
-  type GatsbyImageSharpFixedFragment = Pick<
-    ImageSharpFixed,
-    'base64' | 'width' | 'height' | 'src' | 'srcSet'
-  >
-
-  type BioQueryVariables = Exact<{ [key: string]: never }>
-
-  type BioQuery = {
-    readonly avatar: Maybe<{
-      readonly childImageSharp: Maybe<{
-        readonly fixed: Maybe<GatsbyImageSharpFixedFragment>
-      }>
-    }>
-    readonly site: Maybe<{
-      readonly siteMetadata: Maybe<{
-        readonly author: Maybe<Pick<Author, 'name' | 'summary'>>
-        readonly social: Maybe<Pick<Social, 'twitter' | 'github'>>
-      }>
-    }>
   }
 }

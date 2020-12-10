@@ -3,8 +3,8 @@ title: put_the_contentsでハマった話
 date: '2020-12-01'
 description: 'put_the_contentsでハマった話の共有です。'
 hero: './thumb.png'
-category: ['tech']
-tag: ['php']
+category: 'tech'
+tags: ['php']
 ---
 
 某日、WordPress サイト SEO 対策にて、「サイトマップとは別に読み込ませたいテキストファイルがある。」と依頼がきました。
