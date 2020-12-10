@@ -1888,8 +1888,6 @@ declare namespace GatsbyTypes {
   type Query_siteArgs = {
     buildTime: Maybe<DateQueryOperatorInput>
     siteMetadata: Maybe<SiteSiteMetadataFilterInput>
-    port: Maybe<IntQueryOperatorInput>
-    host: Maybe<StringQueryOperatorInput>
     polyfill: Maybe<BooleanQueryOperatorInput>
     pathPrefix: Maybe<StringQueryOperatorInput>
     id: Maybe<StringQueryOperatorInput>
@@ -2016,8 +2014,6 @@ declare namespace GatsbyTypes {
   type Site = Node & {
     readonly buildTime: Maybe<Scalars['Date']>
     readonly siteMetadata: Maybe<SiteSiteMetadata>
-    readonly port: Maybe<Scalars['Int']>
-    readonly host: Maybe<Scalars['String']>
     readonly polyfill: Maybe<Scalars['Boolean']>
     readonly pathPrefix: Maybe<Scalars['String']>
     readonly id: Scalars['ID']
@@ -2219,8 +2215,6 @@ declare namespace GatsbyTypes {
     siteMetadata___siteUrl = 'siteMetadata.siteUrl',
     siteMetadata___social___twitter = 'siteMetadata.social.twitter',
     siteMetadata___social___github = 'siteMetadata.social.github',
-    port = 'port',
-    host = 'host',
     polyfill = 'polyfill',
     pathPrefix = 'pathPrefix',
     id = 'id',
@@ -2314,8 +2308,6 @@ declare namespace GatsbyTypes {
   type SiteFilterInput = {
     readonly buildTime: Maybe<DateQueryOperatorInput>
     readonly siteMetadata: Maybe<SiteSiteMetadataFilterInput>
-    readonly port: Maybe<IntQueryOperatorInput>
-    readonly host: Maybe<StringQueryOperatorInput>
     readonly polyfill: Maybe<BooleanQueryOperatorInput>
     readonly pathPrefix: Maybe<StringQueryOperatorInput>
     readonly id: Maybe<StringQueryOperatorInput>
@@ -2598,6 +2590,7 @@ declare namespace GatsbyTypes {
     pluginCreator___pluginOptions___plugins___id = 'pluginCreator.pluginOptions.plugins.id',
     pluginCreator___pluginOptions___plugins___name = 'pluginCreator.pluginOptions.plugins.name',
     pluginCreator___pluginOptions___plugins___version = 'pluginCreator.pluginOptions.plugins.version',
+    pluginCreator___pluginOptions___plugins___nodeAPIs = 'pluginCreator.pluginOptions.plugins.nodeAPIs',
     pluginCreator___pluginOptions___plugins___browserAPIs = 'pluginCreator.pluginOptions.plugins.browserAPIs',
     pluginCreator___pluginOptions___plugins___ssrAPIs = 'pluginCreator.pluginOptions.plugins.ssrAPIs',
     pluginCreator___pluginOptions___plugins___pluginFilepath = 'pluginCreator.pluginOptions.plugins.pluginFilepath',
@@ -2619,6 +2612,9 @@ declare namespace GatsbyTypes {
     pluginCreator___pluginOptions___theme_color_in_head = 'pluginCreator.pluginOptions.theme_color_in_head',
     pluginCreator___pluginOptions___cacheDigest = 'pluginCreator.pluginOptions.cacheDigest',
     pluginCreator___pluginOptions___pathCheck = 'pluginCreator.pluginOptions.pathCheck',
+    pluginCreator___pluginOptions___allExtensions = 'pluginCreator.pluginOptions.allExtensions',
+    pluginCreator___pluginOptions___isTSX = 'pluginCreator.pluginOptions.isTSX',
+    pluginCreator___pluginOptions___jsxPragma = 'pluginCreator.pluginOptions.jsxPragma',
     pluginCreator___nodeAPIs = 'pluginCreator.nodeAPIs',
     pluginCreator___browserAPIs = 'pluginCreator.browserAPIs',
     pluginCreator___ssrAPIs = 'pluginCreator.ssrAPIs',
@@ -2815,6 +2811,7 @@ declare namespace GatsbyTypes {
     pluginOptions___plugins___pluginOptions___className = 'pluginOptions.plugins.pluginOptions.className',
     pluginOptions___plugins___pluginOptions___maxWidth = 'pluginOptions.plugins.pluginOptions.maxWidth',
     pluginOptions___plugins___pluginOptions___wrapperStyle = 'pluginOptions.plugins.pluginOptions.wrapperStyle',
+    pluginOptions___plugins___nodeAPIs = 'pluginOptions.plugins.nodeAPIs',
     pluginOptions___plugins___browserAPIs = 'pluginOptions.plugins.browserAPIs',
     pluginOptions___plugins___ssrAPIs = 'pluginOptions.plugins.ssrAPIs',
     pluginOptions___plugins___pluginFilepath = 'pluginOptions.plugins.pluginFilepath',
@@ -2836,6 +2833,9 @@ declare namespace GatsbyTypes {
     pluginOptions___theme_color_in_head = 'pluginOptions.theme_color_in_head',
     pluginOptions___cacheDigest = 'pluginOptions.cacheDigest',
     pluginOptions___pathCheck = 'pluginOptions.pathCheck',
+    pluginOptions___allExtensions = 'pluginOptions.allExtensions',
+    pluginOptions___isTSX = 'pluginOptions.isTSX',
+    pluginOptions___jsxPragma = 'pluginOptions.jsxPragma',
     nodeAPIs = 'nodeAPIs',
     browserAPIs = 'browserAPIs',
     ssrAPIs = 'ssrAPIs',
@@ -2982,6 +2982,9 @@ declare namespace GatsbyTypes {
     readonly theme_color_in_head: Maybe<Scalars['Boolean']>
     readonly cacheDigest: Maybe<Scalars['String']>
     readonly pathCheck: Maybe<Scalars['Boolean']>
+    readonly allExtensions: Maybe<Scalars['Boolean']>
+    readonly isTSX: Maybe<Scalars['Boolean']>
+    readonly jsxPragma: Maybe<Scalars['String']>
   }
 
   type SitePluginPluginOptionsFilterInput = {
@@ -3004,6 +3007,9 @@ declare namespace GatsbyTypes {
     readonly theme_color_in_head: Maybe<BooleanQueryOperatorInput>
     readonly cacheDigest: Maybe<StringQueryOperatorInput>
     readonly pathCheck: Maybe<BooleanQueryOperatorInput>
+    readonly allExtensions: Maybe<BooleanQueryOperatorInput>
+    readonly isTSX: Maybe<BooleanQueryOperatorInput>
+    readonly jsxPragma: Maybe<StringQueryOperatorInput>
   }
 
   type SitePluginPluginOptionsPlugins = {
@@ -3012,6 +3018,7 @@ declare namespace GatsbyTypes {
     readonly name: Maybe<Scalars['String']>
     readonly version: Maybe<Scalars['String']>
     readonly pluginOptions: Maybe<SitePluginPluginOptionsPluginsPluginOptions>
+    readonly nodeAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>
     readonly browserAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>
     readonly ssrAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>
     readonly pluginFilepath: Maybe<Scalars['String']>
@@ -3025,6 +3032,7 @@ declare namespace GatsbyTypes {
     readonly pluginOptions: Maybe<
       SitePluginPluginOptionsPluginsPluginOptionsFilterInput
     >
+    readonly nodeAPIs: Maybe<StringQueryOperatorInput>
     readonly browserAPIs: Maybe<StringQueryOperatorInput>
     readonly ssrAPIs: Maybe<StringQueryOperatorInput>
     readonly pluginFilepath: Maybe<StringQueryOperatorInput>
@@ -3102,16 +3110,33 @@ declare namespace GatsbyTypes {
     readonly glob: Maybe<Scalars['String']>
   }
 
-  type GatsbyImageSharpFluid_withWebpFragment = Pick<
-    ImageSharpFluid,
-    | 'base64'
-    | 'aspectRatio'
-    | 'src'
-    | 'srcSet'
-    | 'srcWebp'
-    | 'srcSetWebp'
-    | 'sizes'
-  >
+  type BioQueryVariables = Exact<{ [key: string]: never }>
+
+  type BioQuery = {
+    readonly avatar: Maybe<{
+      readonly childImageSharp: Maybe<{
+        readonly fixed: Maybe<GatsbyImageSharpFixedFragment>
+      }>
+    }>
+    readonly site: Maybe<{
+      readonly siteMetadata: Maybe<{
+        readonly author: Maybe<Pick<Author, 'name' | 'summary'>>
+        readonly social: Maybe<Pick<Social, 'twitter' | 'github'>>
+      }>
+    }>
+  }
+
+  type SeoQueryVariables = Exact<{ [key: string]: never }>
+
+  type SeoQuery = {
+    readonly site: Maybe<{
+      readonly siteMetadata: Maybe<
+        Pick<SiteSiteMetadata, 'title' | 'description'> & {
+          readonly social: Maybe<Pick<Social, 'twitter'>>
+        }
+      >
+    }>
+  }
 
   type BlogPostBySlugQueryVariables = Exact<{
     slug: Scalars['String']
@@ -3134,6 +3159,30 @@ declare namespace GatsbyTypes {
         >
       }
     >
+  }
+
+  type BlogIndexQueryVariables = Exact<{ [key: string]: never }>
+
+  type BlogIndexQuery = {
+    readonly site: Maybe<{
+      readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>>
+    }>
+    readonly allMarkdownRemark: {
+      readonly nodes: ReadonlyArray<
+        Pick<MarkdownRemark, 'excerpt'> & {
+          readonly fields: Maybe<Pick<Fields, 'slug'>>
+          readonly frontmatter: Maybe<
+            Pick<Frontmatter, 'date' | 'title' | 'description'> & {
+              readonly hero: Maybe<{
+                readonly childImageSharp: Maybe<{
+                  readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment>
+                }>
+              }>
+            }
+          >
+        }
+      >
+    }
   }
 
   type BlogPageQueryVariables = Exact<{
@@ -3163,35 +3212,177 @@ declare namespace GatsbyTypes {
     }
   }
 
-  type BlogIndexQueryVariables = Exact<{ [key: string]: never }>
+  type GatsbyImageSharpFixedFragment = Pick<
+    ImageSharpFixed,
+    'base64' | 'width' | 'height' | 'src' | 'srcSet'
+  >
 
-  type BlogIndexQuery = {
-    readonly site: Maybe<{
-      readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>>
-    }>
-    readonly allMarkdownRemark: {
-      readonly nodes: ReadonlyArray<
-        Pick<MarkdownRemark, 'excerpt'> & {
-          readonly fields: Maybe<Pick<Fields, 'slug'>>
-          readonly frontmatter: Maybe<
-            Pick<Frontmatter, 'date' | 'title' | 'description'> & {
-              readonly hero: Maybe<{
-                readonly childImageSharp: Maybe<{
-                  readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment>
-                }>
-              }>
-            }
-          >
-        }
-      >
-    }
+  type GatsbyImageSharpFixed_tracedSVGFragment = Pick<
+    ImageSharpFixed,
+    'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'
+  >
+
+  type GatsbyImageSharpFixed_withWebpFragment = Pick<
+    ImageSharpFixed,
+    'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
+  >
+
+  type GatsbyImageSharpFixed_withWebp_tracedSVGFragment = Pick<
+    ImageSharpFixed,
+    | 'tracedSVG'
+    | 'width'
+    | 'height'
+    | 'src'
+    | 'srcSet'
+    | 'srcWebp'
+    | 'srcSetWebp'
+  >
+
+  type GatsbyImageSharpFixed_noBase64Fragment = Pick<
+    ImageSharpFixed,
+    'width' | 'height' | 'src' | 'srcSet'
+  >
+
+  type GatsbyImageSharpFixed_withWebp_noBase64Fragment = Pick<
+    ImageSharpFixed,
+    'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
+  >
+
+  type GatsbyImageSharpFluidFragment = Pick<
+    ImageSharpFluid,
+    'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'
+  >
+
+  type GatsbyImageSharpFluidLimitPresentationSizeFragment = {
+    maxHeight: ImageSharpFluid['presentationHeight']
+    maxWidth: ImageSharpFluid['presentationWidth']
   }
 
-  type PagesQueryQueryVariables = Exact<{ [key: string]: never }>
+  type GatsbyImageSharpFluid_tracedSVGFragment = Pick<
+    ImageSharpFluid,
+    'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'
+  >
 
-  type PagesQueryQuery = {
-    readonly allSitePage: {
-      readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>>
+  type GatsbyImageSharpFluid_withWebpFragment = Pick<
+    ImageSharpFluid,
+    | 'base64'
+    | 'aspectRatio'
+    | 'src'
+    | 'srcSet'
+    | 'srcWebp'
+    | 'srcSetWebp'
+    | 'sizes'
+  >
+
+  type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<
+    ImageSharpFluid,
+    | 'tracedSVG'
+    | 'aspectRatio'
+    | 'src'
+    | 'srcSet'
+    | 'srcWebp'
+    | 'srcSetWebp'
+    | 'sizes'
+  >
+
+  type GatsbyImageSharpFluid_noBase64Fragment = Pick<
+    ImageSharpFluid,
+    'aspectRatio' | 'src' | 'srcSet' | 'sizes'
+  >
+
+  type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<
+    ImageSharpFluid,
+    'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'
+  >
+
+  type GatsbyImageSharpResolutionsFragment = Pick<
+    ImageSharpResolutions,
+    'base64' | 'width' | 'height' | 'src' | 'srcSet'
+  >
+
+  type GatsbyImageSharpResolutions_tracedSVGFragment = Pick<
+    ImageSharpResolutions,
+    'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'
+  >
+
+  type GatsbyImageSharpResolutions_withWebpFragment = Pick<
+    ImageSharpResolutions,
+    'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
+  >
+
+  type GatsbyImageSharpResolutions_withWebp_tracedSVGFragment = Pick<
+    ImageSharpResolutions,
+    | 'tracedSVG'
+    | 'width'
+    | 'height'
+    | 'src'
+    | 'srcSet'
+    | 'srcWebp'
+    | 'srcSetWebp'
+  >
+
+  type GatsbyImageSharpResolutions_noBase64Fragment = Pick<
+    ImageSharpResolutions,
+    'width' | 'height' | 'src' | 'srcSet'
+  >
+
+  type GatsbyImageSharpResolutions_withWebp_noBase64Fragment = Pick<
+    ImageSharpResolutions,
+    'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'
+  >
+
+  type GatsbyImageSharpSizesFragment = Pick<
+    ImageSharpSizes,
+    'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'
+  >
+
+  type GatsbyImageSharpSizes_tracedSVGFragment = Pick<
+    ImageSharpSizes,
+    'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'
+  >
+
+  type GatsbyImageSharpSizes_withWebpFragment = Pick<
+    ImageSharpSizes,
+    | 'base64'
+    | 'aspectRatio'
+    | 'src'
+    | 'srcSet'
+    | 'srcWebp'
+    | 'srcSetWebp'
+    | 'sizes'
+  >
+
+  type GatsbyImageSharpSizes_withWebp_tracedSVGFragment = Pick<
+    ImageSharpSizes,
+    | 'tracedSVG'
+    | 'aspectRatio'
+    | 'src'
+    | 'srcSet'
+    | 'srcWebp'
+    | 'srcSetWebp'
+    | 'sizes'
+  >
+
+  type GatsbyImageSharpSizes_noBase64Fragment = Pick<
+    ImageSharpSizes,
+    'aspectRatio' | 'src' | 'srcSet' | 'sizes'
+  >
+
+  type GatsbyImageSharpSizes_withWebp_noBase64Fragment = Pick<
+    ImageSharpSizes,
+    'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'
+  >
+
+  type ImgQueryVariables = Exact<{ [key: string]: never }>
+
+  type ImgQuery = {
+    readonly allImageSharp: {
+      readonly nodes: ReadonlyArray<{
+        readonly fluid: Maybe<
+          Pick<ImageSharpFluid, 'originalName'> &
+            GatsbyImageSharpFluid_withWebpFragment
+        >
+      }>
     }
   }
 }

@@ -49,7 +49,7 @@ const Search: React.FC = () => {
       </div>
       <ul className="search-list">
         {searchData.map(x => (
-          <li key={x.frontmatter.slug}>
+          <li key={x.fields?.slug}>
             <div className="flex">
               <span>{x.frontmatter?.date}</span>
               <p>
