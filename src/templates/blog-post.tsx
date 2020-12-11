@@ -55,6 +55,7 @@ const BlogPostTemplate: React.FC<BlogPostProps> = ({ data, pageContext }) => {
           ></div>
         )}
         <section
+          className="blog-post-contents"
           dangerouslySetInnerHTML={{ __html: post?.html as string }}
           itemProp="articleBody"
         />

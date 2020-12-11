@@ -1,6 +1,6 @@
 @layer components {
 	.toc {
-		@apply leading-loose mb-16 p-4 border border-solid border-accent rounded;
+		@apply leading-loose mb-16 p-4 border-2 border-solid border-accent rounded;
 		font-size: .8rem;
 	}
 	@screen md {

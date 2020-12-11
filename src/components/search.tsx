@@ -50,11 +50,11 @@ const Search: React.FC = () => {
       <ul className="search-list">
         {searchData.map(x => (
           <li key={x.fields?.slug}>
-            <div className="flex">
-              <span>{x.frontmatter?.date}</span>
-              <p>
-                <Link to={x.fields?.slug!}>{x.frontmatter?.title}</Link>
-              </p>
+            <div className="max-w-screen-sm mx-auto">
+              <Link className="flex" to={x.fields?.slug!}>
+                <span className="mr-4">{x.frontmatter?.date}</span>
+                <p>{x.frontmatter?.title}</p>
+              </Link>
             </div>
           </li>
         ))}

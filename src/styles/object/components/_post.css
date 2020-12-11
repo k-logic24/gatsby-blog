@@ -4,6 +4,11 @@
 		margin-top: -7rem;
 		padding: 1rem;
 	}
+	.blog-post-contents ul {
+		@apply leading-loose list-inside list-disc;
+		font-size: .8rem;
+		margin-bottom: 1.5em;
+	}
 	.blog-post p {
 		@apply leading-loose;
 		font-size: .8rem;
@@ -14,6 +19,9 @@
 			padding: 4rem;
 		}
 		.blog-post p {
+			font-size: 1rem;
+		}
+		.blog-post ul {
 			font-size: 1rem;
 		}
 	}
@@ -55,7 +63,7 @@
 		border-right-color: transparent;
 	}
 	.blog-post h3 {
-		@apply text-lg md:text-xl border-l-2 border-accent border-solid;
+		@apply text-lg md:text-xl border-l-4 border-accent border-solid;
 		padding: .2em .5em;
 		margin: 2em 0 1.5em;
 	}
