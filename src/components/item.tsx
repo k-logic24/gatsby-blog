@@ -4,18 +4,19 @@ import Image from 'gatsby-image'
 
 import { AppProps } from '@/types'
 
-const Item: React.FC<AppProps['item']> = ({ title, date, slug, src }) => {
+const Item: React.FC<AppProps['item']> = ({ title, date, slug, src, tags }) => {
   return (
     <li>
       <article itemScope itemType="http://schema.org/Article">
-        <figure className="overflow-hidden blog-list__imgwrap">
+        <figure className="overflow-hidden rounded relative blog-list__imgwrap">
           <Link
-            to={slug!}
+            to={`/blog${slug!}`}
             className="block transition-transform duration-700 ease-out"
             itemProp="url"
           >
             <Image fluid={src!} alt="" />
           </Link>
+          <p className="blog-list__date">{date}</p>
         </figure>
         <h2 className="blog-list__ttl">
           <Link
@@ -26,7 +27,9 @@ const Item: React.FC<AppProps['item']> = ({ title, date, slug, src }) => {
             <span itemProp="headline">{title}</span>
           </Link>
         </h2>
-        <span className="text-xs text-secondary">{date}</span>
+        <div className="mt-2">
+          {tags && tags.map(tag => <Link className='tag' to={`/tag/${tag}`}>#{tag}</Link>)}
+        </div>
       </article>
     </li>
   )

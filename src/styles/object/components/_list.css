@@ -28,4 +28,8 @@
 		@apply text-sm;
 		margin-top: 1em;
 	}
+	.blog-list__date {
+		@apply py-1 px-3 text-gray italic font-bold absolute bottom-0 left-0 w-full;
+		background-color: rgba(255,255,255,.6);
+	}
 }

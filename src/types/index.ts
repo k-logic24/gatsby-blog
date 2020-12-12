@@ -21,6 +21,7 @@ export interface AppProps {
       | 'srcWebp'
       | 'sizes'
     >
+    tags: string[] | null
     children?: never
   }
   toggle: {

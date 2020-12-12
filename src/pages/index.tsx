@@ -30,6 +30,7 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
                     src={post?.frontmatter?.hero?.childImageSharp?.fluid}
                     slug={post.fields?.slug}
                     date={post.frontmatter!.date}
+                    tags={post.frontmatter?.tags}
                   />
                 ))}
               </ul>
@@ -83,6 +84,7 @@ export const pageQuery = graphql`
               }
             }
           }
+          tags
         }
       }
     }

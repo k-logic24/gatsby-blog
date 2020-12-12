@@ -1,6 +1,7 @@
 @import "layout/_header.css";
 @import "layout/_section.css";
 @import "object/project/_fv.css";
+@import "object/components/_tag.css";
 @import "object/components/_link.css";
 @import "object/components/_bio.css";
 @import "object/components/_list.css";

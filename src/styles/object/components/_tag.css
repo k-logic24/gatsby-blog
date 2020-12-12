@@ -1,0 +1,7 @@
+.tag {
+	@apply inline-block text-xs md:text-sm border border-accent border-solid rounded-full text-accent hover:bg-accent hover:text-white transition-all duration-300;
+	padding: .15em .5em;
+}
+.tag + .tag {
+	margin-left: .5em;
+}
