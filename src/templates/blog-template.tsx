@@ -10,7 +10,7 @@ import {
 import Bio from '@/components/Bio'
 import Layout from '@/layouts/default'
 import Seo from '@/components/seo'
-import Item from '@/components/item'
+import Item from '@/components/blog/item'
 
 const BlogIndex: React.FC<
   PageProps<GatsbyTypes.BlogPageQuery> & {

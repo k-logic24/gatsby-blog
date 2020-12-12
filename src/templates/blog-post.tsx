@@ -29,7 +29,7 @@ const BlogPostTemplate: React.FC<BlogPostProps> = ({ data, pageContext }) => {
   const { previous, next } = pageContext
 
   return (
-    <Layout title={postTitle} date={postDate}>
+    <Layout title={postTitle} date={postDate} isText={false}>
       <Seo
         title={post?.frontmatter?.title}
         description={post?.frontmatter?.description || post?.excerpt}

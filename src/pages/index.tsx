@@ -3,7 +3,7 @@ import { Link, graphql, PageProps } from 'gatsby'
 import Image from 'gatsby-image'
 
 import Layout from '@/layouts/default'
-import Item from '@/components/item'
+import Item from '@/components/blog/item'
 import Seo from '@/components/seo'
 import Search from '@/components/search'
 import Tags from '@/components/_tags'

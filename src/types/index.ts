@@ -2,10 +2,12 @@ export interface AppProps {
   layouts: {
     title?: string
     date?: string
+    isText?: boolean
   }
   fv: {
     title?: string
     date?: string
+    isText?: boolean
   }
   item: {
     title?: string
@@ -21,7 +23,7 @@ export interface AppProps {
       | 'srcWebp'
       | 'sizes'
     >
-    tags: string[] | null
+    tags?: string[] | null
     children?: never
   }
   toggle: {

@@ -2,38 +2,28 @@ import React, { useEffect, useState } from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 
 const Tags = () => {
-  const [tags, setTags] = useState<string[]>([])
   const data = useStaticQuery<GatsbyTypes.TagQuery>(graphql`
     query Tag {
       allMarkdownRemark {
-        nodes {
-          frontmatter {
-            tags
-          }
+        group(field: frontmatter___tags) {
+          fieldValue
+          totalCount
         }
       }
     }
   `)
-  const nodes = data.allMarkdownRemark.nodes
-  useEffect(() => {
-    const myTagSet = new Set('')
-    nodes.map(({ frontmatter }) => {
-      frontmatter?.tags?.map(tag => {
-        myTagSet.add(tag ? tag : '')
-        setTags(Array.from(myTagSet))
-      })
-    })
-  }, [])
+  const tagGroup = data.allMarkdownRemark.group
 
   return (
     <ul className="flex flex-wrap justify-center gap-3">
-      {tags.map(tag => (
-        <li>
+      {tagGroup.map(({ fieldValue, totalCount }) => (
+        <li key={fieldValue}>
           <Link
             className="text-sm md:text-base font-bold tag"
-            to={`/tag/${tag}`}
+            to={`/tag/${fieldValue}`}
           >
-            {tag}
+            {fieldValue}
+            <span className="inline-block ml-2">{totalCount}</span>
           </Link>
         </li>
       ))}

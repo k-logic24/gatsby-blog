@@ -11,11 +11,14 @@ export const createPages: GatsbyNode['createPages'] = async ({
   reporter,
 }) => {
   const { createPage } = actions
+  const blogTemplate = path.resolve('./src/templates/blog-template.tsx')
+  const blogPostTemplate = path.resolve(`./src/templates/blog-post.tsx`)
+  const tagPostTemplate = path.resolve(`./src/templates/tag-template.tsx`)
   const blogResult = await graphql<{
     allMarkdownRemark: Pick<GatsbyTypes.Query['allMarkdownRemark'], 'nodes'>
   }>(
     `
-      query PostPaginateQuery {
+      query PostInfo {
         allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
@@ -26,7 +29,12 @@ export const createPages: GatsbyNode['createPages'] = async ({
             }
             frontmatter {
               title
+              tags
             }
+          }
+          group(field: frontmatter___tags) {
+            fieldValue
+            totalCount
           }
         }
       }
@@ -48,7 +56,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
       createPage({
         path: `/blog${post!.fields!.slug!}`,
-        component: path.resolve(`./src/templates/blog-post.tsx`),
+        component: blogPostTemplate,
         context: {
           slug: post!.fields!.slug,
           previous,
@@ -65,14 +73,15 @@ export const createPages: GatsbyNode['createPages'] = async ({
     )
     return
   }
-  const blogAllPosts = blogResult!.data!.allMarkdownRemark!.nodes.length
+  const blogNodes = blogResult!.data!.allMarkdownRemark!.nodes
+  const blogAllPosts = blogNodes.length
   const blogPerPage = 8
   const blogPages = Math.ceil(blogAllPosts / blogPerPage)
 
   Array.from({ length: blogAllPosts }).forEach((_, i) => {
     createPage({
       path: i === 0 ? `/blog/` : `/blog/${i + 1}`,
-      component: path.resolve('./src/templates/blog-template.tsx'),
+      component: blogTemplate,
       context: {
         skip: blogPerPage * i,
         limit: blogPerPage,
