@@ -48,7 +48,7 @@ Password:
 すると使用できるシェルのパスがずらっと出てきます。  
 以下の様な見た目です。
 
-![](https://storage.googleapis.com/zenn-user-upload/0pbvl4fmcp4xopxlwuq23cqjjpn8)
+![](./shell-check.png)
 
 確認後はインストールした zsh までのパスを追記します。
 

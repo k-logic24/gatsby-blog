@@ -1,17 +1,17 @@
 @layer components {
 	.header {
-		@apply fixed w-full top-0 left-0 z-50 bg-gray-light h-12;
+		@apply fixed w-full top-0 left-0 z-50 bg-gray-light opacity-90 h-12 shadow;
 	}
 	.header__inner {
-		@apply flex justify-between items-center md:block relative h-full container;
+		@apply flex justify-between items-center lg:block relative h-full container;
 	}
-	@screen md {
+	@screen lg {
 		.header__logo {
 			@apply absolute left-1/2 top-1/2;
 			transform: translate(-50%, -50%);
 		}
 	}
-	@screen md {
+	@screen lg {
 		.header-nav {
 			@apply absolute right-0 top-1/2;
 			transform: translateY(-50%);

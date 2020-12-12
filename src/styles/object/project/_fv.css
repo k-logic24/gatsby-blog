@@ -1,10 +1,10 @@
 @layer components {
 	.fv {
-		@apply w-full relative overflow-hidden mt-10;
-		height: clamp(220px, 40vw, 300px);
+		@apply w-full relative overflow-hidden;
+		height: clamp(220px, 40vw, 350px);
 	}
 	.fv__wrap {
-		@apply text-center absolute top-1/2 left-1/2 w-5/6 leading-loose;
+		@apply pt-12 text-center absolute top-1/2 left-1/2 w-5/6 leading-loose;
 		transform: translate(-50%, -50%);
 	}
 	.fv__ttl {

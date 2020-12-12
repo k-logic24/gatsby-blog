@@ -22,4 +22,7 @@
 	.toc ul ul{
 		margin-left: 1em;
 	}
+	.toc a {
+		@apply hover:underline hover:text-accent;
+	}
 }

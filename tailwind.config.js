@@ -16,6 +16,7 @@ module.exports = {
           DEFAULT: '#fafafa',
         },
         gray: {
+          tag: '#dadada',
           light: '#454545',
           DEFAULT: '#333',
           dark: '#212121',

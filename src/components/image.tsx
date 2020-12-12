@@ -24,7 +24,8 @@ const Img: React.FC<ImgProps> = ({ assetUrl, alt }) => {
   return (
     <Image
       fluid={
-        allImageSharp.nodes.find(n => n.fluid?.originalName === assetUrl)?.fluid
+        allImageSharp.nodes.find(n => n.fluid?.originalName === assetUrl)
+          ?.fluid!
       }
       alt={alt}
     />

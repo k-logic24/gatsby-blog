@@ -7,7 +7,7 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons'
 
-import Bio from '@/components/bio'
+import Bio from '@/components/Bio'
 import Layout from '@/layouts/default'
 import Seo from '@/components/seo'
 import Item from '@/components/item'
@@ -102,7 +102,7 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          date(formatString: "YYYY.MM.DD")
           title
           description
           hero {
