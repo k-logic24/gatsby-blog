@@ -6,6 +6,7 @@ import Layout from '@/layouts/default'
 import Item from '@/components/item'
 import Seo from '@/components/seo'
 import Search from '@/components/search'
+import Tags from '@/components/_tags'
 
 const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   data,
@@ -29,8 +30,9 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
                     title={post.frontmatter?.title || post.fields?.slug}
                     src={post?.frontmatter?.hero?.childImageSharp?.fluid}
                     slug={post.fields?.slug}
-                    date={post.frontmatter!.date}
-                    tags={post.frontmatter?.tags}
+                    date={post.frontmatter?.date}
+                    // TODO
+                    tags={post.frontmatter?.tags as any}
                   />
                 ))}
               </ul>
@@ -49,6 +51,14 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
             <h1 className="pb-4 mb-10 section__ttl">Search</h1>
           </div>
           <Search />
+        </div>
+        <div className="section-wrap">
+          <div className="max-w-screen-md mx-auto px-4 py-8 bg-gray-tag rounded-lg">
+            <div className="text-center">
+              <h1 className="pb-4 mb-10 section__ttl">Tags</h1>
+            </div>
+            <Tags />
+          </div>
         </div>
       </div>
     </Layout>

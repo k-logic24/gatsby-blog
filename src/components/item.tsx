@@ -20,7 +20,7 @@ const Item: React.FC<AppProps['item']> = ({ title, date, slug, src, tags }) => {
         </figure>
         <h2 className="blog-list__ttl">
           <Link
-            to={slug!}
+            to={`/blog${slug!}`}
             itemProp="url"
             className="block hover:opacity-60 transition-opacity"
           >
@@ -28,7 +28,16 @@ const Item: React.FC<AppProps['item']> = ({ title, date, slug, src, tags }) => {
           </Link>
         </h2>
         <div className="mt-2">
-          {tags && tags.map(tag => <Link className='tag' to={`/tag/${tag}`}>#{tag}</Link>)}
+          {tags &&
+            tags.map((tag, index) => (
+              <Link
+                className="text-xs md:text-sm tag"
+                to={`/tag/${tag}`}
+                key={index}
+              >
+                {tag}
+              </Link>
+            ))}
         </div>
       </article>
     </li>

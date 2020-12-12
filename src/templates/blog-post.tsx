@@ -113,7 +113,11 @@ export const pageQuery = graphql`
           }
         }
       }
-      tableOfContents
+      tableOfContents(
+        absolute: false
+        pathToSlugField: "frontmatter.path"
+        maxDepth: 3
+      )
     }
   }
 `
