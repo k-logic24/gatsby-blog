@@ -735,8 +735,8 @@ declare namespace GatsbyTypes {
     childMarkdownRemark___frontmatter___hero___publicURL = 'childMarkdownRemark.frontmatter.hero.publicURL',
     childMarkdownRemark___frontmatter___hero___id = 'childMarkdownRemark.frontmatter.hero.id',
     childMarkdownRemark___frontmatter___hero___children = 'childMarkdownRemark.frontmatter.hero.children',
-    childMarkdownRemark___frontmatter___tags = 'childMarkdownRemark.frontmatter.tags',
     childMarkdownRemark___frontmatter___category = 'childMarkdownRemark.frontmatter.category',
+    childMarkdownRemark___frontmatter___tags = 'childMarkdownRemark.frontmatter.tags',
     childMarkdownRemark___fields___slug = 'childMarkdownRemark.fields.slug',
     childMarkdownRemark___excerpt = 'childMarkdownRemark.excerpt',
     childMarkdownRemark___rawMarkdownBody = 'childMarkdownRemark.rawMarkdownBody',
@@ -865,8 +865,8 @@ declare namespace GatsbyTypes {
     readonly description: Maybe<Scalars['String']>
     readonly date: Maybe<Scalars['Date']>
     readonly hero: Maybe<File>
-    readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>
     readonly category: Maybe<Scalars['String']>
+    readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>
   }
 
   type Frontmatter_dateArgs = {
@@ -881,8 +881,8 @@ declare namespace GatsbyTypes {
     readonly description: Maybe<StringQueryOperatorInput>
     readonly date: Maybe<DateQueryOperatorInput>
     readonly hero: Maybe<FileFilterInput>
-    readonly tags: Maybe<StringQueryOperatorInput>
     readonly category: Maybe<StringQueryOperatorInput>
+    readonly tags: Maybe<StringQueryOperatorInput>
   }
 
   enum ImageCropFocus {
@@ -1627,8 +1627,8 @@ declare namespace GatsbyTypes {
     frontmatter___hero___childMarkdownRemark___timeToRead = 'frontmatter.hero.childMarkdownRemark.timeToRead',
     frontmatter___hero___childMarkdownRemark___tableOfContents = 'frontmatter.hero.childMarkdownRemark.tableOfContents',
     frontmatter___hero___childMarkdownRemark___children = 'frontmatter.hero.childMarkdownRemark.children',
-    frontmatter___tags = 'frontmatter.tags',
     frontmatter___category = 'frontmatter.category',
+    frontmatter___tags = 'frontmatter.tags',
     fields___slug = 'fields.slug',
     excerpt = 'excerpt',
     rawMarkdownBody = 'rawMarkdownBody',
@@ -2445,6 +2445,8 @@ declare namespace GatsbyTypes {
     readonly isLast: Maybe<Scalars['Boolean']>
     readonly tagPages: Maybe<Scalars['Int']>
     readonly tagId: Maybe<Scalars['String']>
+    readonly catPages: Maybe<Scalars['Int']>
+    readonly catId: Maybe<Scalars['String']>
   }
 
   type SitePageContextFilterInput = {
@@ -2459,6 +2461,8 @@ declare namespace GatsbyTypes {
     readonly isLast: Maybe<BooleanQueryOperatorInput>
     readonly tagPages: Maybe<IntQueryOperatorInput>
     readonly tagId: Maybe<StringQueryOperatorInput>
+    readonly catPages: Maybe<IntQueryOperatorInput>
+    readonly catId: Maybe<StringQueryOperatorInput>
   }
 
   type SitePageContextNext = {
@@ -2631,6 +2635,8 @@ declare namespace GatsbyTypes {
     context___isLast = 'context.isLast',
     context___tagPages = 'context.tagPages',
     context___tagId = 'context.tagId',
+    context___catPages = 'context.catPages',
+    context___catId = 'context.catId',
     pluginCreator___id = 'pluginCreator.id',
     pluginCreator___parent___id = 'pluginCreator.parent.id',
     pluginCreator___parent___parent___id = 'pluginCreator.parent.parent.id',
@@ -3398,6 +3404,31 @@ declare namespace GatsbyTypes {
     }
   }
 
+  type CatPageQueryVariables = Exact<{
+    limit: Scalars['Int']
+    skip: Scalars['Int']
+    catId: Scalars['String']
+  }>
+
+  type CatPageQuery = {
+    readonly allMarkdownRemark: Pick<MarkdownRemarkConnection, 'totalCount'> & {
+      readonly edges: ReadonlyArray<{
+        readonly node: {
+          readonly fields: Maybe<Pick<Fields, 'slug'>>
+          readonly frontmatter: Maybe<
+            Pick<Frontmatter, 'date' | 'title' | 'description' | 'tags'> & {
+              readonly hero: Maybe<{
+                readonly childImageSharp: Maybe<{
+                  readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment>
+                }>
+              }>
+            }
+          >
+        }
+      }>
+    }
+  }
+
   type PagesQueryQueryVariables = Exact<{ [key: string]: never }>
 
   type PagesQueryQuery = {
@@ -3461,6 +3492,16 @@ declare namespace GatsbyTypes {
     }
   }
 
+  type TagQueryVariables = Exact<{ [key: string]: never }>
+
+  type TagQuery = {
+    readonly allMarkdownRemark: {
+      readonly group: ReadonlyArray<
+        Pick<MarkdownRemarkGroupConnection, 'fieldValue' | 'totalCount'>
+      >
+    }
+  }
+
   type SeoQueryVariables = Exact<{ [key: string]: never }>
 
   type SeoQuery = {
@@ -3480,26 +3521,6 @@ declare namespace GatsbyTypes {
       readonly nodes: ReadonlyArray<{
         readonly fields: Maybe<Pick<Fields, 'slug'>>
         readonly frontmatter: Maybe<Pick<Frontmatter, 'date' | 'title'>>
-      }>
-    }
-  }
-
-  type TagQueryVariables = Exact<{ [key: string]: never }>
-
-  type TagQuery = {
-    readonly allMarkdownRemark: {
-      readonly group: ReadonlyArray<
-        Pick<MarkdownRemarkGroupConnection, 'fieldValue' | 'totalCount'>
-      >
-    }
-  }
-
-  type ImageQueryVariables = Exact<{ [key: string]: never }>
-
-  type ImageQuery = {
-    readonly allImageSharp: {
-      readonly nodes: ReadonlyArray<{
-        readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment>
       }>
     }
   }

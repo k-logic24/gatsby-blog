@@ -14,6 +14,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   const blogTemplate = path.resolve('./src/templates/blog-template.tsx')
   const blogPostTemplate = path.resolve(`./src/templates/blog-post.tsx`)
   const tagPostTemplate = path.resolve(`./src/templates/tag-template.tsx`)
+  const catPostTemplate = path.resolve(`./src/templates/cat-template.tsx`)
   const blogResult = await graphql<{
     allMarkdownRemark: Pick<GatsbyTypes.Query['allMarkdownRemark'], 'nodes'>
   }>(
@@ -92,9 +93,23 @@ export const createPages: GatsbyNode['createPages'] = async ({
       },
     })
   })
-  // @ts-ignore TODO
-  const tagGroup = blogResult!.data!.allMarkdownRemark!.group
-  console.log(tagGroup.length)
+  const tagResult = await graphql<{
+    allMarkdownRemark: Pick<GatsbyTypes.Query['allMarkdownRemark'], 'nodes'>
+  }>(
+    `
+      query TagInfo {
+        allMarkdownRemark {
+          group(field: frontmatter___tags) {
+            fieldValue
+            totalCount
+          }
+        }
+      }
+    `
+  )
+  // tag
+  // @ts-ignore TODO:group schemaが存在しないことになってる
+  const tagGroup = tagResult!.data!.allMarkdownRemark!.group
   for (let i = 0; i < tagGroup.length; i++) {
     const tagAllCounts = tagGroup[i].totalCount
     const tagPages = Math.ceil(tagAllCounts / blogPerPage)
@@ -113,6 +128,45 @@ export const createPages: GatsbyNode['createPages'] = async ({
           currentPage: j + 1,
           isFirst: j + 1 === 1,
           isLast: j + 1 === tagPages,
+        },
+      })
+    })
+  }
+  // category
+  const catResult = await graphql<{
+    allMarkdownRemark: Pick<GatsbyTypes.Query['allMarkdownRemark'], 'nodes'>
+  }>(
+    `
+      query CatInfo {
+        allMarkdownRemark {
+          group(field: frontmatter___category) {
+            fieldValue
+            totalCount
+          }
+        }
+      }
+    `
+  )
+  // @ts-ignore TODO:group schemaが存在しないことになってる
+  const catGroup = catResult!.data!.allMarkdownRemark!.group
+  for (let i = 0; i < catGroup.length; i++) {
+    const catAllCounts = catGroup[i].totalCount
+    const catPages = Math.ceil(catAllCounts / blogPerPage)
+    Array.from({ length: catAllCounts }).forEach((_, j) => {
+      createPage({
+        path:
+          j === 0
+            ? `/cat/${catGroup[i].fieldValue}`
+            : `/cat/${catGroup[i].fieldValue}/${j + 1}`,
+        component: catPostTemplate,
+        context: {
+          catPages: catPages,
+          catId: catGroup[i].fieldValue,
+          skip: blogPerPage * j,
+          limit: blogPerPage,
+          currentPage: j + 1,
+          isFirst: j + 1 === 1,
+          isLast: j + 1 === catPages,
         },
       })
     })
