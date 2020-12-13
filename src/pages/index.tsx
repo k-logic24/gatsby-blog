@@ -6,7 +6,7 @@ import Layout from '@/layouts/default'
 import Item from '@/components/blog/item'
 import Seo from '@/components/seo'
 import Search from '@/components/search'
-import Tags from '@/components/_tags'
+import Tags from '@/components/tags'
 
 const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   data,

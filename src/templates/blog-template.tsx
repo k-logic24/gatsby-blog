@@ -45,7 +45,8 @@ const BlogIndex: React.FC<
                 title={title}
                 src={post?.frontmatter?.hero?.childImageSharp?.fluid}
                 slug={post.fields?.slug}
-                date={post.frontmatter!.date}
+                date={post.frontmatter?.date}
+                tags={post.frontmatter?.tags}
               />
             )
           })}
@@ -86,13 +87,8 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query BlogPage($limit: Int!, $skip: Int!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___date], order: ASC }
       limit: $limit
       skip: $skip
     ) {
@@ -112,6 +108,7 @@ export const pageQuery = graphql`
               }
             }
           }
+          tags
         }
       }
     }

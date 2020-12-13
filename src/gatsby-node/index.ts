@@ -91,6 +91,30 @@ export const createPages: GatsbyNode['createPages'] = async ({
       },
     })
   })
+  // @ts-ignore TODO
+  const tagGroup = blogResult!.data!.allMarkdownRemark!.group
+  console.log(tagGroup.length)
+  for (let i = 0; i < tagGroup.length; i++) {
+    const tagAllCounts = tagGroup[i].totalCount
+    const tagPages = Math.ceil(tagAllCounts / blogPerPage)
+    Array.from({ length: tagAllCounts }).forEach((_, j) => {
+      createPage({
+        path:
+          j === 0
+            ? `/tag/${tagGroup[i].fieldValue}`
+            : `/tag/${tagGroup[i].fieldValue}/${j + 1}`,
+        component: tagPostTemplate,
+        context: {
+          tagId: tagGroup[i].fieldValue,
+          skip: blogPerPage * j,
+          limit: blogPerPage,
+          currentPage: j + 1,
+          isFirst: j + 1 === 1,
+          isLast: j + 1 === tagPages,
+        },
+      })
+    })
+  }
 }
 
 /**

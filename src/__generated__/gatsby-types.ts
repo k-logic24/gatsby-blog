@@ -2442,6 +2442,7 @@ declare namespace GatsbyTypes {
     readonly currentPage: Maybe<Scalars['Int']>
     readonly isFirst: Maybe<Scalars['Boolean']>
     readonly isLast: Maybe<Scalars['Boolean']>
+    readonly tagId: Maybe<Scalars['String']>
   }
 
   type SitePageContextFilterInput = {
@@ -2453,6 +2454,7 @@ declare namespace GatsbyTypes {
     readonly currentPage: Maybe<IntQueryOperatorInput>
     readonly isFirst: Maybe<BooleanQueryOperatorInput>
     readonly isLast: Maybe<BooleanQueryOperatorInput>
+    readonly tagId: Maybe<StringQueryOperatorInput>
   }
 
   type SitePageContextNext = {
@@ -2622,6 +2624,7 @@ declare namespace GatsbyTypes {
     context___currentPage = 'context.currentPage',
     context___isFirst = 'context.isFirst',
     context___isLast = 'context.isLast',
+    context___tagId = 'context.tagId',
     pluginCreator___id = 'pluginCreator.id',
     pluginCreator___parent___id = 'pluginCreator.parent.id',
     pluginCreator___parent___parent___id = 'pluginCreator.parent.parent.id',
@@ -3346,15 +3349,12 @@ declare namespace GatsbyTypes {
   }>
 
   type BlogPageQuery = {
-    readonly site: Maybe<{
-      readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>>
-    }>
     readonly allMarkdownRemark: {
       readonly nodes: ReadonlyArray<
         Pick<MarkdownRemark, 'excerpt'> & {
           readonly fields: Maybe<Pick<Fields, 'slug'>>
           readonly frontmatter: Maybe<
-            Pick<Frontmatter, 'date' | 'title' | 'description'> & {
+            Pick<Frontmatter, 'date' | 'title' | 'description' | 'tags'> & {
               readonly hero: Maybe<{
                 readonly childImageSharp: Maybe<{
                   readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment>
@@ -3364,6 +3364,31 @@ declare namespace GatsbyTypes {
           >
         }
       >
+    }
+  }
+
+  type TagPageQueryVariables = Exact<{
+    limit: Scalars['Int']
+    skip: Scalars['Int']
+    tagId: Scalars['String']
+  }>
+
+  type TagPageQuery = {
+    readonly allMarkdownRemark: Pick<MarkdownRemarkConnection, 'totalCount'> & {
+      readonly edges: ReadonlyArray<{
+        readonly node: {
+          readonly fields: Maybe<Pick<Fields, 'slug'>>
+          readonly frontmatter: Maybe<
+            Pick<Frontmatter, 'date' | 'title' | 'description' | 'tags'> & {
+              readonly hero: Maybe<{
+                readonly childImageSharp: Maybe<{
+                  readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment>
+                }>
+              }>
+            }
+          >
+        }
+      }>
     }
   }
 
@@ -3395,6 +3420,73 @@ declare namespace GatsbyTypes {
             }
           >
         }
+      >
+    }
+  }
+
+  type GatsbyImageSharpFixedFragment = Pick<
+    ImageSharpFixed,
+    'base64' | 'width' | 'height' | 'src' | 'srcSet'
+  >
+
+  type BioQueryVariables = Exact<{ [key: string]: never }>
+
+  type BioQuery = {
+    readonly avatar: Maybe<{
+      readonly childImageSharp: Maybe<{
+        readonly fixed: Maybe<GatsbyImageSharpFixedFragment>
+      }>
+    }>
+    readonly site: Maybe<{
+      readonly siteMetadata: Maybe<{
+        readonly author: Maybe<Pick<Author, 'name' | 'summary'>>
+        readonly social: Maybe<Pick<Social, 'twitter' | 'github'>>
+      }>
+    }>
+  }
+
+  type ImgQueryVariables = Exact<{ [key: string]: never }>
+
+  type ImgQuery = {
+    readonly allImageSharp: {
+      readonly nodes: ReadonlyArray<{
+        readonly fluid: Maybe<
+          Pick<ImageSharpFluid, 'originalName'> &
+            GatsbyImageSharpFluid_withWebpFragment
+        >
+      }>
+    }
+  }
+
+  type SearchQueryVariables = Exact<{ [key: string]: never }>
+
+  type SearchQuery = {
+    readonly allMarkdownRemark: {
+      readonly nodes: ReadonlyArray<{
+        readonly fields: Maybe<Pick<Fields, 'slug'>>
+        readonly frontmatter: Maybe<Pick<Frontmatter, 'date' | 'title'>>
+      }>
+    }
+  }
+
+  type SeoQueryVariables = Exact<{ [key: string]: never }>
+
+  type SeoQuery = {
+    readonly site: Maybe<{
+      readonly siteMetadata: Maybe<
+        Pick<SiteSiteMetadata, 'title' | 'description'> & {
+          readonly social: Maybe<Pick<Social, 'twitter'>>
+        }
+      >
+    }>
+  }
+
+  type TagQueryVariables = Exact<{ [key: string]: never }>
+
+  type TagQuery = {
+    readonly allMarkdownRemark: {
+      readonly group: ReadonlyArray<
+        Pick<MarkdownRemarkGroupConnection, 'fieldValue' | 'totalCount'>
       >
     }
   }
