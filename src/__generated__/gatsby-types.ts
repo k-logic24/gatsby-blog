@@ -3424,27 +3424,6 @@ declare namespace GatsbyTypes {
     }
   }
 
-  type GatsbyImageSharpFixedFragment = Pick<
-    ImageSharpFixed,
-    'base64' | 'width' | 'height' | 'src' | 'srcSet'
-  >
-
-  type BioQueryVariables = Exact<{ [key: string]: never }>
-
-  type BioQuery = {
-    readonly avatar: Maybe<{
-      readonly childImageSharp: Maybe<{
-        readonly fixed: Maybe<GatsbyImageSharpFixedFragment>
-      }>
-    }>
-    readonly site: Maybe<{
-      readonly siteMetadata: Maybe<{
-        readonly author: Maybe<Pick<Author, 'name' | 'summary'>>
-        readonly social: Maybe<Pick<Social, 'twitter' | 'github'>>
-      }>
-    }>
-  }
-
   type ImgQueryVariables = Exact<{ [key: string]: never }>
 
   type ImgQuery = {
@@ -3489,5 +3468,26 @@ declare namespace GatsbyTypes {
         Pick<MarkdownRemarkGroupConnection, 'fieldValue' | 'totalCount'>
       >
     }
+  }
+
+  type GatsbyImageSharpFixedFragment = Pick<
+    ImageSharpFixed,
+    'base64' | 'width' | 'height' | 'src' | 'srcSet'
+  >
+
+  type BioQueryVariables = Exact<{ [key: string]: never }>
+
+  type BioQuery = {
+    readonly avatar: Maybe<{
+      readonly childImageSharp: Maybe<{
+        readonly fixed: Maybe<GatsbyImageSharpFixedFragment>
+      }>
+    }>
+    readonly site: Maybe<{
+      readonly siteMetadata: Maybe<{
+        readonly author: Maybe<Pick<Author, 'name' | 'summary'>>
+        readonly social: Maybe<Pick<Social, 'twitter' | 'github'>>
+      }>
+    }>
   }
 }

@@ -71,4 +71,11 @@
 		@apply md:text-lg;
 		margin: 1.5em 0 1em;
 	}
+	blockquote {
+		@apply relative p-4 italic mb-4;
+		background: #efefef;
+	}
+	blockquote p {
+		margin-bottom: 0 !important;
+	}
 }

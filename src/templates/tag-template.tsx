@@ -11,11 +11,10 @@ import Bio from '@/components/Bio'
 import Layout from '@/layouts/default'
 import Seo from '@/components/seo'
 import Item from '@/components/blog/item'
+import { AppProps } from '@/types'
 
 const TagIndex: React.FC<
-  PageProps<GatsbyTypes.TagPage> & {
-    pageContext: GatsbyTypes.SitePageContext
-  }
+  PageProps<GatsbyTypes.TagPage> & AppProps['template']
 > = ({ data, pageContext }) => {
   const tagPosts = data.allMarkdownRemark.edges
   const tagId = pageContext.tagId

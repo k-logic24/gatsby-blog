@@ -11,11 +11,10 @@ import Bio from '@/components/Bio'
 import Layout from '@/layouts/default'
 import Seo from '@/components/seo'
 import Item from '@/components/blog/item'
+import { AppProps } from '@/types'
 
 const BlogIndex: React.FC<
-  PageProps<GatsbyTypes.BlogPageQuery> & {
-    pageContext: GatsbyTypes.SitePageContext
-  }
+  PageProps<GatsbyTypes.BlogPageQuery> & AppProps['template']
 > = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.nodes
 
@@ -46,7 +45,7 @@ const BlogIndex: React.FC<
                 src={post?.frontmatter?.hero?.childImageSharp?.fluid}
                 slug={post.fields?.slug}
                 date={post.frontmatter?.date}
-                tags={post.frontmatter?.tags}
+                tags={post.frontmatter?.tags as any}
               />
             )
           })}
@@ -88,7 +87,7 @@ export default BlogIndex
 export const pageQuery = graphql`
   query BlogPage($limit: Int!, $skip: Int!) {
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: ASC }
+      sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
     ) {

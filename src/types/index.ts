@@ -31,4 +31,7 @@ export interface AppProps {
     toggleTheme: () => void
     children?: never
   }
+  template: {
+    pageContext: GatsbyTypes.SitePageContext
+  }
 }

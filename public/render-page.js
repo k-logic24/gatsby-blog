@@ -135,15 +135,15 @@ var plugins = [{
     "short_name": "K.Iwata's BLOG",
     "start_url": "/",
     "background_color": "#ffffff",
-    "theme_color": "#663399",
+    "theme_color": "#1a7de3",
     "display": "minimal-ui",
-    "icon": "content/assets/gatsby-icon.png",
+    "icon": "content/assets/avater.jpg",
     "legacy": true,
     "theme_color_in_head": true,
     "cache_busting_mode": "query",
     "crossOrigin": "anonymous",
     "include_favicon": true,
-    "cacheDigest": "4a9773549091c227cd2eb82ccd9c5e3a"
+    "cacheDigest": "714a2d7b4084a25e148a38a6acf2c91f"
   }
 }, {
   plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-react-helmet/gatsby-ssr */ "./node_modules/gatsby-plugin-react-helmet/gatsby-ssr.js"),
