@@ -55,7 +55,7 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
         <div className="section-wrap">
           <div className="max-w-screen-md mx-auto px-4 py-8 bg-gray-tag rounded-lg">
             <div className="text-center">
-              <h1 className="pb-4 mb-10 section__ttl">Tags</h1>
+              <h1 className="pb-4 mb-10 text-gray section__ttl">Tags</h1>
             </div>
             <Tags />
           </div>

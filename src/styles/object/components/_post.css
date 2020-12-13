@@ -78,4 +78,10 @@
 	blockquote p {
 		margin-bottom: 0 !important;
 	}
+	.blog-post a {
+		@apply text-accent underline;
+	}
+	.blog-post .gatsby-resp-image-wrapper {
+		margin: 0 !important;
+	}
 }

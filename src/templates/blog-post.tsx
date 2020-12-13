@@ -63,7 +63,7 @@ const BlogPostTemplate: React.FC<BlogPostProps> = ({ data, pageContext }) => {
           <ul className="flex justify-between">
             <li>
               {previous && (
-                <Link to={previous?.fields?.slug!} rel="prev">
+                <Link to={`/blog${previous?.fields?.slug!}`} rel="prev">
                   <FontAwesomeIcon icon={faChevronLeft} />
                   <span style={{ marginLeft: '0.5em' }}>
                     {previous?.frontmatter?.title}
@@ -73,7 +73,7 @@ const BlogPostTemplate: React.FC<BlogPostProps> = ({ data, pageContext }) => {
             </li>
             <li>
               {next && (
-                <Link to={next?.fields?.slug!} rel="next">
+                <Link to={`/blog${next?.fields?.slug!}`} rel="next">
                   <span style={{ marginRight: '0.5em' }}>
                     {next?.frontmatter?.title}
                   </span>

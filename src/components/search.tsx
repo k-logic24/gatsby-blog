@@ -60,7 +60,7 @@ const Search: React.FC = () => {
                 </dt>
                 <Link
                   className="hover:text-accent transition-colors flex-1 font-bold underline"
-                  to={x.fields?.slug!}
+                  to={`/blog${x.fields?.slug!}`}
                 >
                   <dd>{x.frontmatter?.title}</dd>
                 </Link>

@@ -27,11 +27,11 @@ const Item: React.FC<AppProps['item']> = ({ title, date, slug, src, tags }) => {
             <span itemProp="headline">{title}</span>
           </Link>
         </h2>
-        <div className="mt-2">
+        <div className="mt-2 flex flex-wrap gap-1">
           {tags &&
             tags.map((tag, index) => (
               <Link
-                className="text-xs md:text-sm tag"
+                className="text-xs md:text-sm post-tag"
                 to={`/tag/${tag}`}
                 key={index}
               >

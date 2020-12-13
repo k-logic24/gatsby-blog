@@ -62,11 +62,11 @@ const TagIndex: React.FC<
                     <span itemProp="headline">{node.frontmatter.title}</span>
                   </Link>
                 </h2>
-                <div className="mt-2">
+                <div className="mt-2 flex flex-wrap gap-1">
                   {node.frontmatter.tags &&
                     node.frontmatter.tags.map((tag, index) => (
                       <Link
-                        className="text-xs md:text-sm tag"
+                        className="text-xs md:text-sm post-tag"
                         to={`/tag/${tag}`}
                         key={index}
                       >

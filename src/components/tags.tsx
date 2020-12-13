@@ -19,7 +19,7 @@ const Tags = () => {
       {tagGroup.map(({ fieldValue, totalCount }) => (
         <li key={fieldValue}>
           <Link
-            className="text-sm md:text-base font-bold tag"
+            className="text-sm md:text-base font-bold post-tag"
             to={`/tag/${fieldValue}`}
           >
             {fieldValue}

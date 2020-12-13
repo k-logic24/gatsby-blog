@@ -75,7 +75,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   }
   const blogNodes = blogResult!.data!.allMarkdownRemark!.nodes
   const blogAllPosts = blogNodes.length
-  const blogPerPage = 8
+  const blogPerPage = 6
   const blogPages = Math.ceil(blogAllPosts / blogPerPage)
 
   Array.from({ length: blogAllPosts }).forEach((_, i) => {
