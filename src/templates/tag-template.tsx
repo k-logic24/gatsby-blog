@@ -12,12 +12,13 @@ import Layout from '@/layouts/default'
 import Seo from '@/components/seo'
 import Item from '@/components/blog/item'
 import { AppProps } from '@/types'
+import Pagination from '@/pages/pagination'
 
 const TagIndex: React.FC<
   PageProps<GatsbyTypes.TagPage> & AppProps['template']
 > = ({ data, pageContext }) => {
   const tagPosts = data.allMarkdownRemark.edges
-  const tagId = pageContext.tagId
+  const { tagId, isFirst, isLast, currentPage, tagPages } = pageContext
   console.log(tagPosts)
 
   if (tagPosts.length === 0) {
@@ -78,33 +79,15 @@ const TagIndex: React.FC<
             </li>
           ))}
         </ul>
-        <nav className="paginate">
-          <ul className="paginate-list">
-            {!pageContext.isFirst && (
-              <li className="prev">
-                <Link
-                  to={
-                    pageContext.currentPage === 2
-                      ? `/blog/`
-                      : `/blog/${pageContext.currentPage! - 1}`
-                  }
-                  rel="prev"
-                >
-                  <FontAwesomeIcon icon={faChevronLeft} />
-                  <span style={{ marginLeft: '0.5em' }}>Prev</span>
-                </Link>
-              </li>
-            )}
-            {!pageContext.isLast && (
-              <li className="next">
-                <Link to={`/blog/${pageContext.currentPage! + 1}/`} rel="next">
-                  <span style={{ marginRight: '0.5em' }}>Next</span>
-                  <FontAwesomeIcon icon={faChevronRight} />
-                </Link>
-              </li>
-            )}
-          </ul>
-        </nav>
+        <div className="max-w-screen-sm mx-auto py-12">
+          <Pagination
+            isFirst={isFirst!}
+            isLast={isLast!}
+            currentPage={currentPage!}
+            type={`tag`}
+            pages={tagPages!}
+          />
+        </div>
       </section>
     </Layout>
   )

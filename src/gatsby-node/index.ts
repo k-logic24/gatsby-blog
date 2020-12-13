@@ -83,6 +83,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
       path: i === 0 ? `/blog/` : `/blog/${i + 1}`,
       component: blogTemplate,
       context: {
+        blogPages: blogPages,
         skip: blogPerPage * i,
         limit: blogPerPage,
         currentPage: i + 1,
@@ -105,6 +106,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
             : `/tag/${tagGroup[i].fieldValue}/${j + 1}`,
         component: tagPostTemplate,
         context: {
+          tagPages: tagPages,
           tagId: tagGroup[i].fieldValue,
           skip: blogPerPage * j,
           limit: blogPerPage,

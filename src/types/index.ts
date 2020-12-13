@@ -34,4 +34,11 @@ export interface AppProps {
   template: {
     pageContext: GatsbyTypes.SitePageContext
   }
+  pagination: {
+    isFirst: boolean
+    isLast: boolean
+    currentPage: number
+    type: string
+    pages: number
+  }
 }

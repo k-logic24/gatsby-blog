@@ -72,7 +72,7 @@
 		margin: 1.5em 0 1em;
 	}
 	blockquote {
-		@apply relative p-4 italic mb-4;
+		@apply relative p-4 italic mb-4 text-gray;
 		background: #efefef;
 	}
 	blockquote p {

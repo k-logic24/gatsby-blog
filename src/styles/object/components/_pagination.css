@@ -1,0 +1,13 @@
+.pagination {
+	@apply relative w-full;
+}
+.pagination .prev {
+	@apply absolute left-0 top-0;
+}
+.pagination .next {
+	@apply absolute right-0 top-0;
+}
+.pagination .page-txt {
+	@apply absolute left-2/4 top-0;
+	transform: translateX(-50%);
+}

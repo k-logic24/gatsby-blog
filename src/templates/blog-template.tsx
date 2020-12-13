@@ -11,12 +11,14 @@ import Bio from '@/components/Bio'
 import Layout from '@/layouts/default'
 import Seo from '@/components/seo'
 import Item from '@/components/blog/item'
+import Pagination from '@/pages/pagination'
 import { AppProps } from '@/types'
 
 const BlogIndex: React.FC<
   PageProps<GatsbyTypes.BlogPageQuery> & AppProps['template']
 > = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.nodes
+  const { isFirst, isLast, currentPage, blogPages } = pageContext
 
   if (posts.length === 0) {
     return (
@@ -50,33 +52,15 @@ const BlogIndex: React.FC<
             )
           })}
         </ul>
-        <nav className="paginate">
-          <ul className="paginate-list">
-            {!pageContext.isFirst && (
-              <li className="prev">
-                <Link
-                  to={
-                    pageContext.currentPage === 2
-                      ? `/blog/`
-                      : `/blog/${pageContext.currentPage! - 1}`
-                  }
-                  rel="prev"
-                >
-                  <FontAwesomeIcon icon={faChevronLeft} />
-                  <span style={{ marginLeft: '0.5em' }}>Prev</span>
-                </Link>
-              </li>
-            )}
-            {!pageContext.isLast && (
-              <li className="next">
-                <Link to={`/blog/${pageContext.currentPage! + 1}/`} rel="next">
-                  <span style={{ marginRight: '0.5em' }}>Next</span>
-                  <FontAwesomeIcon icon={faChevronRight} />
-                </Link>
-              </li>
-            )}
-          </ul>
-        </nav>
+        <div className="max-w-screen-sm mx-auto py-12">
+          <Pagination
+            isFirst={isFirst!}
+            isLast={isLast!}
+            currentPage={currentPage!}
+            type={`blog`}
+            pages={blogPages!}
+          />
+        </div>
       </section>
     </Layout>
   )
