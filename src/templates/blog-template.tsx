@@ -11,7 +11,7 @@ import Bio from '@/components/Bio'
 import Layout from '@/layouts/default'
 import Seo from '@/components/seo'
 import Item from '@/components/blog/item'
-import Pagination from '@/pages/pagination'
+import Pagination from '@/components/pagination'
 import { AppProps } from '@/types'
 
 const BlogIndex: React.FC<
@@ -34,7 +34,7 @@ const BlogIndex: React.FC<
       <Seo title="BLOG" />
       <section className="section blog">
         <div className="text-center">
-          <h1 className="pb-4 mb-10 section__ttl">All Posts</h1>
+          <h1 className="pb-4 mb-10 section__ttl">記事</h1>
         </div>
         <ul className="blog-list">
           {posts.map(post => {

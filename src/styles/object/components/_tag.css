@@ -1,5 +1,5 @@
 .post-tag {
-	@apply inline-block border border-accent border-solid rounded-full text-accent hover:bg-accent hover:text-white;
+	@apply inline-block border border-accent border-solid rounded text-accent hover:bg-accent hover:text-white;
 	transition: background-color .3s, color .3s;
 	padding: .05em .5em;
 }

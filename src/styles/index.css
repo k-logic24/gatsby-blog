@@ -9,6 +9,7 @@
 @import "object/components/_post.css";
 @import "object/components/_toc.css";
 @import "object/components/_search.css";
+@import "object/components/_cat.css";
 
 body {
 	@apply bg-white text-gray dark:text-white dark:bg-gray transition-all duration-300;

@@ -7,19 +7,18 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons'
 
-import Bio from '@/components/Bio'
+import Bio from '@/components/bio'
 import Layout from '@/layouts/default'
 import Seo from '@/components/seo'
 import Item from '@/components/blog/item'
+import Pagination from '@/components/pagination'
 import { AppProps } from '@/types'
-import Pagination from '@/pages/pagination'
 
 const TagIndex: React.FC<
   PageProps<GatsbyTypes.TagPage> & AppProps['template']
 > = ({ data, pageContext }) => {
   const tagPosts = data.allMarkdownRemark.edges
   const { tagId, isFirst, isLast, currentPage, tagPages } = pageContext
-  console.log(tagPosts)
 
   if (tagPosts.length === 0) {
     return (
@@ -31,11 +30,11 @@ const TagIndex: React.FC<
   }
 
   return (
-    <Layout title={`TAG：${tagId}`}>
-      <Seo title={`TAG：${tagId}`} />
+    <Layout title={`タグ: ${tagId}`}>
+      <Seo title={`タグ: ${tagId}`} />
       <section className="section blog">
         <div className="text-center">
-          <h1 className="pb-4 mb-10 section__ttl">{`TAG：${tagId}`}</h1>
+          <h1 className="pb-4 mb-10 section__ttl">{`タグ: ${tagId}`}</h1>
         </div>
         <ul className="blog-list">
           {tagPosts.map(({ node }) => (

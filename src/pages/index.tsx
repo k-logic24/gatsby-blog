@@ -6,7 +6,8 @@ import Layout from '@/layouts/default'
 import Item from '@/components/blog/item'
 import Seo from '@/components/seo'
 import Search from '@/components/search'
-import Tags from '@/components/tags'
+import Tag from '@/components/tag'
+import Cat from '@/components/cat'
 
 const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   data,
@@ -19,7 +20,7 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
       <div className="section home">
         <div className="section-wrap">
           <div className="text-center">
-            <h1 className="pb-4 mb-10 section__ttl">Latest</h1>
+            <h1 className="pb-4 mb-10 section__ttl">最新の記事</h1>
           </div>
           {posts.length ? (
             <>
@@ -48,17 +49,23 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
         </div>
         <div className="section-wrap">
           <div className="text-center">
-            <h1 className="pb-4 mb-10 section__ttl">Search</h1>
+            <h1 className="pb-4 mb-10 section__ttl">検索</h1>
           </div>
           <Search />
         </div>
         <div className="section-wrap">
-          <div className="max-w-screen-md mx-auto px-4 py-8 bg-gray-tag rounded-lg">
+          <div className="max-w-screen-md mx-auto px-4 py-8 bg-gray-tag dark:bg-white rounded-lg">
             <div className="text-center">
-              <h1 className="pb-4 mb-10 text-gray section__ttl">Tags</h1>
+              <h1 className="pb-4 mb-10 text-gray section__ttl">タグ</h1>
             </div>
-            <Tags />
+            <Tag />
           </div>
+        </div>
+        <div className="section-wrap">
+          <div className="text-center">
+            <h1 className="pb-4 mb-10 section__ttl">カテゴリー</h1>
+          </div>
+          <Cat />
         </div>
       </div>
     </Layout>
