@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import Particle from '@/components/Particle'
+import Particle from '@/components/particle'
 import { AppProps } from '@/types'
 import { useLocation } from '@/hooks/useLocation'
 
