@@ -14312,11 +14312,6 @@ typeface-caveat@^1.1.13:
   resolved "https://registry.yarnpkg.com/typeface-caveat/-/typeface-caveat-1.1.13.tgz#ccb8c80084d6ffe6e2dfb45d899ff4f7df1a2401"
   integrity sha512-vJTVkpr9+0rVx92FygBt3C7wNnw1r4qgA7855ouBKz1xCu0ReuEkd6YB5D2vvfhGTumf+ACi5MYvG8QhVWVp+A==
 
-typeface-m-plus-rounded-1c@^1.1.13:
-  version "1.1.13"
-  resolved "https://registry.yarnpkg.com/typeface-m-plus-rounded-1c/-/typeface-m-plus-rounded-1c-1.1.13.tgz#69fe968a1a635421d49a3e47318d38de8afb3ca7"
-  integrity sha512-inLZHeJ/BLYYoeqkiR6msEyxyjQR4bSlwUiVOB7RT6HkGv4QNS3oZEsCrndUeuf/1djSu9jTjxKDQyEzHff08g==
-
 typeface-merriweather@1.1.13:
   version "1.1.13"
   resolved "https://registry.yarnpkg.com/typeface-merriweather/-/typeface-merriweather-1.1.13.tgz#c6f0564bc0346174f4da8daf282d27bfa802f06f"
