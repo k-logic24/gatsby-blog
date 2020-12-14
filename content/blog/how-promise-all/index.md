@@ -76,7 +76,7 @@ export default App
 ```
 
 結果をみてみましょう。`yarn start`。
-![](https://storage.googleapis.com/zenn-user-upload/vt41uupxby2dng3jjt4nqkzcqe0b)
+![](test-before.gif)
 
 反映はされていますが、どうやら取得のデータ量が違うので反映までに差が生まれてしまっています。  
 リクエストに対しての応答、つまりレイテンシが大きくなってしまっているのが原因です。
@@ -112,7 +112,7 @@ const App = () => {
 }
 ```
 
-![](https://storage.googleapis.com/zenn-user-upload/1ik32l1obmdhql0gh8lxbvjo49hj)
+![](test-after.gif)
 同じタイミングでデータを表示させることができました。👏
 
 ## 感想
