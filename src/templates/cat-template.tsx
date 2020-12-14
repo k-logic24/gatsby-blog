@@ -83,7 +83,7 @@ const TagIndex: React.FC<
             isFirst={isFirst!}
             isLast={isLast!}
             currentPage={currentPage!}
-            type={`tag`}
+            type={`cat/${catId}`}
             pages={catPages!}
           />
         </div>

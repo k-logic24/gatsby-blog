@@ -1,54 +1,52 @@
-@layer components {
-	.link {
-		@apply relative inline-block font-bold;
-	}
-	.link--more {
-		@apply text-sm md:text-base rounded-full bg-white dark:bg-gray dark:text-white dark:hover:text-accent border border-current border-solid transition-all;
-		padding: .5em 2em;
-	}
-	.link--more:hover,
-	.link--more:focus {
-		@apply text-accent;
-	}
-	.link--more:before,
-	.link--more:after {
-		@apply absolute h-px bg-current top-1/2 transition-all duration-500 ease-out;
-		right: 0;
-		content: '';
-	}
-	.link--more:before {
-		width: 15px;
-		transform: translate(100%, -50%) rotate(30deg);
-		transform-origin: right bottom;
-	}
-	.link--more:after {
-		width: 30px;
-		transform: translate(50%, -50%);
-	}
-	.link--more:hover:before,
-	.link--more:focus:before {
-		@apply bg-accent;
-		transform: translate(200%, -50%) rotate(30deg);
-	}
-	.link--more:hover:after,
-	.link--more:focus:after {
-		@apply bg-accent;
-		transform: translate(100%, -50%);
-	}
+.link {
+	@apply relative inline-block font-bold;
+}
+.link--more {
+	@apply text-sm md:text-base rounded-full bg-white dark:bg-gray dark:text-white dark:hover:text-accent border border-current border-solid transition-all;
+	padding: .5em 2em;
+}
+.link--more:hover,
+.link--more:focus {
+	@apply text-accent;
+}
+.link--more:before,
+.link--more:after {
+	@apply absolute h-px bg-current top-1/2 transition-all duration-500 ease-out;
+	right: 0;
+	content: '';
+}
+.link--more:before {
+	width: 15px;
+	transform: translate(100%, -50%) rotate(30deg);
+	transform-origin: right bottom;
+}
+.link--more:after {
+	width: 30px;
+	transform: translate(50%, -50%);
+}
+.link--more:hover:before,
+.link--more:focus:before {
+	@apply bg-accent;
+	transform: translate(200%, -50%) rotate(30deg);
+}
+.link--more:hover:after,
+.link--more:focus:after {
+	@apply bg-accent;
+	transform: translate(100%, -50%);
+}
 
-	.anim-link {
-		@apply hover:text-accent transition-colors duration-300;
-		position: relative;
-	}
-	.anim-link:after {
-		@apply absolute left-0 w-full inline-block h-px bg-accent origin-bottom-right transition-transform duration-300 ;
-		content: '';
-		bottom: -2px;
-		transform: scaleX(0);
-	}
-	.anim-link:hover:after,
-	.anim-link:focus:after {
-		@apply origin-bottom-left;
-		transform: scaleX(1);
-	}
+.anim-link {
+	@apply hover:text-accent transition-colors duration-300;
+	position: relative;
+}
+.anim-link:after {
+	@apply absolute left-0 w-full inline-block h-px bg-accent origin-bottom-right transition-transform duration-300 ;
+	content: '';
+	bottom: -2px;
+	transform: scaleX(0);
+}
+.anim-link:hover:after,
+.anim-link:focus:after {
+	@apply origin-bottom-left;
+	transform: scaleX(1);
 }

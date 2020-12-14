@@ -79,7 +79,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   const blogPerPage = 6
   const blogPages = Math.ceil(blogAllPosts / blogPerPage)
 
-  Array.from({ length: blogAllPosts }).forEach((_, i) => {
+  Array.from({ length: blogPages }).forEach((_, i) => {
     createPage({
       path: i === 0 ? `/blog/` : `/blog/${i + 1}`,
       component: blogTemplate,
@@ -113,7 +113,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   for (let i = 0; i < tagGroup.length; i++) {
     const tagAllCounts = tagGroup[i].totalCount
     const tagPages = Math.ceil(tagAllCounts / blogPerPage)
-    Array.from({ length: tagAllCounts }).forEach((_, j) => {
+    Array.from({ length: tagPages }).forEach((_, j) => {
       createPage({
         path:
           j === 0
@@ -152,7 +152,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   for (let i = 0; i < catGroup.length; i++) {
     const catAllCounts = catGroup[i].totalCount
     const catPages = Math.ceil(catAllCounts / blogPerPage)
-    Array.from({ length: catAllCounts }).forEach((_, j) => {
+    Array.from({ length: catPages }).forEach((_, j) => {
       createPage({
         path:
           j === 0
