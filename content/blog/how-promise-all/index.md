@@ -7,22 +7,25 @@ tags: ['javascript']
 category: 'tech'
 ---
 
-仰々しく書きましたが、要するに「**APIデータ取得反映のレイテンシーを無くそう**」ということです。
+仰々しく書きましたが、要するに「**API データ取得反映のレイテンシーを無くそう**」ということです。
 
 実際にどういったことなのか、検証してみましょう。
 
-jsonデータを作成するために、以下のサイトを利用して作成しました。  
+json データを作成するために、以下のサイトを利用して作成しました。  
 [JSON GENERATOR](https://www.json-generator.com/)
 
 ## 用意する環境
-今回はコンポーネントの再利用と自身の馴染みのあるReactを使用して検証します。  
-APIデータは`light.json`と`fat.json`を使用します(ネーミングセンス皆無)。  
-だいたいlightは10, fatは100000データを用意してます。極端ですね。
+
+今回はコンポーネントの再利用と自身の馴染みのある React を使用して検証します。  
+API データは`light.json`と`fat.json`を使用します(ネーミングセンス皆無)。  
+だいたい light は 10, fat は 100000 データを用意してます。極端ですね。
 
 さて、この異なるサイズのデータを取得してリストに反映してみましょう。
 
 ### 律儀にいく
+
 とりあえず、`fetch`を利用してデータを取ってきてみましょうか。
+
 ```jsx:title=App.jsx
 import React, { useEffect, useState } from 'react'
 import './App.css'
@@ -80,11 +83,13 @@ export default App
 
 ではどうすれば同時に綺麗に反映できるでしょうか。
 
-### Promise.all使ってみよう
+### Promise.all 使ってみよう
+
 ここで本題に入ります。
->Promise.all(iterable) メソッドは単一の Promise を返し、これは引数 iterable の中のすべての Promise が解決されるか、引数 iterable の中に Promise がない場合に解決されます。
+
+> Promise.all(iterable) メソッドは単一の Promise を返し、これは引数 iterable の中のすべての Promise が解決されるか、引数 iterable の中に Promise がない場合に解決されます。
 >
->MDN web docsより [Promise.all()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
+> MDN web docs より [Promise.all()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
 
 ```jsx:title=App.jsx
 import React, { useEffect, useState } from 'react'
@@ -106,12 +111,14 @@ const App = () => {
   ...
 }
 ```
+
 ![](https://storage.googleapis.com/zenn-user-upload/1ik32l1obmdhql0gh8lxbvjo49hj)
 同じタイミングでデータを表示させることができました。👏
 
 ## 感想
+
 複数データを扱う際は積極的に使用してもよいかなと感じました。
 
 取得からの反映されるまで、感じる違和感があれば方法を考えて解決していくようにしていきたいです。
 
-JavaScriptにはデータを使用するために様々なメソッドがありますので、検討してみるのも良いかな、と感じました。
+JavaScript にはデータを使用するために様々なメソッドがありますので、検討してみるのも良いかな、と感じました。
