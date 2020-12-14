@@ -15,7 +15,7 @@ const Tag = () => {
   const tagGroup = data.allMarkdownRemark.group
 
   return (
-    <ul className="flex flex-wrap justify-center gap-y-3 gap-x-1">
+    <ul className="tag-list">
       {tagGroup.map(({ fieldValue, totalCount }) => (
         <li key={fieldValue}>
           <Link

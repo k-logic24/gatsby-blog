@@ -1,24 +1,11 @@
 @layer components {
 	.blog-list {
-		@apply flex flex-wrap;
-		gap: 1rem;
+		@apply grid gap-x-4 gap-y-6;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 	}
 	@screen lg {
 		.blog-list {
-			gap: 2rem 3rem;
-		}
-	}
-	.blog-list > li {
-		width: calc(50% - 1rem * 1 / 2);
-	}
-	@screen sm {
-		.blog-list > li {
-			width: calc(33.3333% - 1rem * 2 / 3);
-		}
-	}
-	@screen lg {
-		.blog-list > li {
-			width: calc(33.3333% - 3rem * 2 / 3);
+			@apply gap-x-8 gap-y-12;
 		}
 	}
 	.blog-list__imgwrap:hover > a {
@@ -31,5 +18,12 @@
 	.blog-list__date {
 		@apply py-1 px-3 text-gray italic font-bold text-sm md:text-base absolute bottom-0 left-0 w-full;
 		background-color: rgba(255,255,255,.6);
+	}
+	.tag-list {
+		@apply flex flex-wrap justify-center;
+		margin: -.4rem -.3rem;
+	}
+	.tag-list > li {
+		padding: .4rem .3rem;
 	}
 }

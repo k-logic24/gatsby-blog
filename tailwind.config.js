@@ -3,7 +3,7 @@ module.exports = {
   darkMode: 'class',
   theme: {
     fontFamily: {
-      sans: ['M PLUS Rounded 1c', 'sans-serif'],
+      sans: ['M PLUS Rounded 1c', 'system-ui', 'sans-serif'],
       scripts: ['Caveat', 'cursive'],
     },
     container: {
