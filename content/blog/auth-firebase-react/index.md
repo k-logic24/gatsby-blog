@@ -1,5 +1,5 @@
 ---
-title: 今更ながらのNext.js + TypeScript + Firebaseで認証機能を実装する
+title: '今更ながらのNext.js + TypeScript + Firebaseで認証機能を実装する'
 date: '2020-12-15'
 hero: '../img/react-firebase.jpg'
 category: 'tech'
