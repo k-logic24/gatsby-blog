@@ -65,7 +65,7 @@ const BlogPostTemplate: React.FC<BlogPostProps> = ({ data, pageContext }) => {
         />
         <nav className="hidden md:block pt-12 paginate">
           <ul className="flex justify-between">
-            <li>
+            <li className="md:w-1/3">
               {previous && (
                 <Link
                   to={`/blog${previous?.fields?.slug!}`}
@@ -82,7 +82,7 @@ const BlogPostTemplate: React.FC<BlogPostProps> = ({ data, pageContext }) => {
                 </Link>
               )}
             </li>
-            <li>
+            <li className="md:w-1/3">
               {next && (
                 <Link
                   to={`/blog${next?.fields?.slug!}`}
