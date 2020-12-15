@@ -6,7 +6,7 @@ import { AppProps } from '@/types'
 
 const Item: React.FC<AppProps['item']> = ({ title, date, slug, src, tags }) => {
   return (
-    <li>
+    <li key={slug}>
       <article itemScope itemType="http://schema.org/Article">
         <figure className="overflow-hidden rounded relative blog-list__imgwrap">
           <Link
@@ -31,11 +31,10 @@ const Item: React.FC<AppProps['item']> = ({ title, date, slug, src, tags }) => {
           <ul className="blog-list-taglist">
             {tags &&
               tags.map((tag, index) => (
-                <li>
+                <li key={index}>
                   <Link
                     className="text-xs md:text-sm post-tag"
                     to={`/tag/${tag}`}
-                    key={index}
                   >
                     {tag}
                   </Link>

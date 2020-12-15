@@ -25,9 +25,9 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
           {posts.length ? (
             <>
               <ul className="blog-list">
-                {posts.map(post => (
+                {posts.map((post, index) => (
                   <Item
-                    key={post.fields!.slug!}
+                    key={post.id}
                     title={post.frontmatter?.title || post.fields?.slug}
                     src={post?.frontmatter?.hero?.childImageSharp?.fluid}
                     slug={post.fields?.slug}
@@ -103,6 +103,7 @@ export const pageQuery = graphql`
           }
           tags
         }
+        id
       }
     }
   }

@@ -20,6 +20,8 @@ const TagIndex: React.FC<
   const catPosts = data.allMarkdownRemark.edges
   const { catId, isFirst, isLast, currentPage, catPages } = pageContext
 
+  console.log(catPosts)
+
   if (catPosts.length === 0) {
     return (
       <Layout title={`カテゴリー：${catId}`}>
@@ -66,11 +68,10 @@ const TagIndex: React.FC<
                   <ul className="blog-list-taglist">
                     {node.frontmatter.tags &&
                       node.frontmatter.tags.map((cat, index) => (
-                        <li>
+                        <li key={index}>
                           <Link
                             className="text-xs md:text-sm post-tag"
                             to={`/cat/${cat}`}
-                            key={index}
                           >
                             {cat}
                           </Link>

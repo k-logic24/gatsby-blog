@@ -66,11 +66,10 @@ const TagIndex: React.FC<
                   <ul className="blog-list-taglist">
                     {node.frontmatter.tags &&
                       node.frontmatter.tags.map((tag, index) => (
-                        <li>
+                        <li key={index}>
                           <Link
                             className="text-xs md:text-sm post-tag"
                             to={`/tag/${tag}`}
-                            key={index}
                           >
                             {tag}
                           </Link>
