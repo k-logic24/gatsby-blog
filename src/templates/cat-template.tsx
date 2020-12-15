@@ -10,7 +10,7 @@ import {
 import Bio from '@/components/bio'
 import Layout from '@/layouts/default'
 import Seo from '@/components/seo'
-import Item from '@/components/blog/item'
+import Item from '@/components/item'
 import Pagination from '@/components/pagination'
 import { AppProps } from '@/types'
 
@@ -20,67 +20,35 @@ const TagIndex: React.FC<
   const catPosts = data.allMarkdownRemark.edges
   const { catId, isFirst, isLast, currentPage, catPages } = pageContext
 
-  console.log(catPosts)
-
   if (catPosts.length === 0) {
     return (
-      <Layout title={`カテゴリー：${catId}`}>
-        <Seo title={`カテゴリー：${catId}`} />
+      <Layout title={`${catId}`}>
+        <Seo title={`${catId}`} />
         <p>No posts...</p>
       </Layout>
     )
   }
 
   return (
-    <Layout title={`カテゴリー: ${catId}`}>
-      <Seo title={`カテゴリー: ${catId}`} />
+    <Layout title={`Cat: ${catId}`}>
+      <Seo
+        title={`${catId}`}
+        description={`カテゴリー: ${catId}の一覧です。`}
+      />
       <section className="section blog">
         <div className="text-center">
-          <h1 className="pb-4 mb-10 section__ttl">{`カテゴリー: ${catId}`}</h1>
+          <h1 className="pb-4 mb-10 section__ttl">{`${catId}`}</h1>
         </div>
         <ul className="blog-list">
           {catPosts.map(({ node }) => (
-            <li key={node.fields.slug}>
-              <article itemScope itemType="http://schema.org/Article">
-                <figure className="overflow-hidden rounded relative blog-list__imgwrap">
-                  <Link
-                    to={`/blog${node.fields.slug!}`}
-                    className="block transition-transform duration-700 ease-out"
-                    itemProp="url"
-                  >
-                    <Image
-                      fluid={node.frontmatter.hero.childImageSharp.fluid!}
-                      alt=""
-                    />
-                  </Link>
-                  <p className="blog-list__date">{node.frontmatter.date}</p>
-                </figure>
-                <h2 className="blog-list__ttl">
-                  <Link
-                    to={`/blog${node.fields.slug!}`}
-                    itemProp="url"
-                    className="block hover:opacity-60 transition-opacity"
-                  >
-                    <span itemProp="headline">{node.frontmatter.title}</span>
-                  </Link>
-                </h2>
-                <div className="mt-1">
-                  <ul className="blog-list-taglist">
-                    {node.frontmatter.tags &&
-                      node.frontmatter.tags.map((cat, index) => (
-                        <li key={index}>
-                          <Link
-                            className="text-xs md:text-sm post-tag"
-                            to={`/cat/${cat}`}
-                          >
-                            {cat}
-                          </Link>
-                        </li>
-                      ))}
-                  </ul>
-                </div>
-              </article>
-            </li>
+            <Item
+              key={node.fields.slug}
+              title={node.frontmatter.title}
+              src={node.frontmatter.hero.childImageSharp.fluid!}
+              slug={node.fields.slug}
+              date={node.frontmatter.date}
+              tags={node.frontmatter.tags}
+            />
           ))}
         </ul>
         <div className="max-w-screen-sm mx-auto py-12">
@@ -114,7 +82,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "YYYY.MM.DD")
+            date(formatString: "YYYY-MM-DD")
             title
             description
             hero {

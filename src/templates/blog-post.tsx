@@ -29,7 +29,11 @@ const BlogPostTemplate: React.FC<BlogPostProps> = ({ data, pageContext }) => {
   const { previous, next } = pageContext
 
   return (
-    <Layout title={postTitle} date={postDate} isText={false}>
+    <Layout
+      title={postTitle}
+      date={postDate}
+      isText={false}
+    >
       <Seo
         title={post?.frontmatter?.title}
         description={post?.frontmatter?.description || post?.excerpt}
@@ -63,8 +67,15 @@ const BlogPostTemplate: React.FC<BlogPostProps> = ({ data, pageContext }) => {
           <ul className="flex justify-between">
             <li>
               {previous && (
-                <Link to={`/blog${previous?.fields?.slug!}`} rel="prev">
-                  <FontAwesomeIcon icon={faChevronLeft} />
+                <Link
+                  to={`/blog${previous?.fields?.slug!}`}
+                  rel="prev"
+                  className="pagination__link prev"
+                >
+                  <FontAwesomeIcon
+                    icon={faChevronLeft}
+                    className="pagination__icon prev"
+                  />
                   <span style={{ marginLeft: '0.5em' }}>
                     {previous?.frontmatter?.title}
                   </span>
@@ -73,11 +84,18 @@ const BlogPostTemplate: React.FC<BlogPostProps> = ({ data, pageContext }) => {
             </li>
             <li>
               {next && (
-                <Link to={`/blog${next?.fields?.slug!}`} rel="next">
+                <Link
+                  to={`/blog${next?.fields?.slug!}`}
+                  rel="next"
+                  className="pagination__link next"
+                >
                   <span style={{ marginRight: '0.5em' }}>
                     {next?.frontmatter?.title}
                   </span>
-                  <FontAwesomeIcon icon={faChevronRight} />
+                  <FontAwesomeIcon
+                    icon={faChevronRight}
+                    className="pagination__icon next"
+                  />
                 </Link>
               )}
             </li>
@@ -103,7 +121,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY-MM-DD")
         description
         hero {
           childImageSharp {

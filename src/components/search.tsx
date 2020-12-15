@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 
 const Search: React.FC = () => {
@@ -13,7 +13,7 @@ const Search: React.FC = () => {
             slug
           }
           frontmatter {
-            date(formatString: "YYYY.MM.DD")
+            date(formatString: "YYYY-MM-DD")
             title
           }
         }
@@ -27,9 +27,9 @@ const Search: React.FC = () => {
       if (keyword) {
         const data = nodes.filter(node => {
           const target = `
-            ${node.frontmatter?.title?.toLowerCase()}
-            ${node.fields?.slug?.toLowerCase()}
-          `
+          ${node.frontmatter?.title?.toLowerCase()}
+          ${node.fields?.slug?.toLowerCase()}
+        `
           return target.indexOf(keyword) !== -1
         })
         setSearchData(data)
@@ -56,7 +56,7 @@ const Search: React.FC = () => {
             <dl>
               <div className="flex items-center text-sm md:text-base">
                 <dt className="mr-4 text-sm whitespace-nowrap">
-                  {x.frontmatter?.date}
+                  <span itemProp="datePublished" content={x.frontmatter?.date}>{x.frontmatter?.date}</span>
                 </dt>
                 <Link
                   className="hover:text-accent transition-colors flex-1 font-bold underline"

@@ -3,7 +3,7 @@ import { Link, graphql, PageProps } from 'gatsby'
 import Image from 'gatsby-image'
 
 import Layout from '@/layouts/default'
-import Item from '@/components/blog/item'
+import Item from '@/components/item'
 import Seo from '@/components/seo'
 import Search from '@/components/search'
 import Tag from '@/components/tag'
@@ -91,7 +91,7 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "YYYY.MM.DD")
+          date(formatString: "YYYY-MM-DD")
           title
           description
           hero {

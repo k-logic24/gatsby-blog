@@ -16,7 +16,9 @@ const Item: React.FC<AppProps['item']> = ({ title, date, slug, src, tags }) => {
           >
             <Image fluid={src!} alt="" />
           </Link>
-          <p className="blog-list__date">{date}</p>
+          <p className="blog-list__date">
+            <span itemProp="datePublished" content={date}>{date}</span>
+          </p>
         </figure>
         <h2 className="blog-list__ttl">
           <Link
