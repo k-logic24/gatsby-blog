@@ -1,7 +1,6 @@
 ---
 title: 今更ながらのTypeとInterfaceの違い
 date: '2020-12-03'
-description: 'TypeScriptのtypeとinterfaceの違いについてまとめてみました。'
 hero: '../img/typescript.jpg'
 category: 'tech'
 tags: ['typescript']

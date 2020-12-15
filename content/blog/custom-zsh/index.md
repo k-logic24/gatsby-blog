@@ -1,7 +1,6 @@
 ---
 title: zshシェルをカスタマイズする方法
 date: '2020-12-02'
-description: 'zshのセットアップから、テーマ、コマンドの色付け、aliasについてします。'
 hero: '../img/shell-display.jpg'
 category: 'tech'
 tags: ['zsh', 'shell']

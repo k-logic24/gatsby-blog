@@ -1,6 +1,5 @@
 ---
 title: 'webpackでWebPを生成する方法'
-description: 'webpackでwebpフォーマットを生成する方法です。'
 date: 2020-12-05
 hero: '../img/webp.jpg'
 tags: ['webp', 'webpack']

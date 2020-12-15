@@ -1,6 +1,5 @@
 ---
 title: 'Next.js with Tailwind CSS 環境構築'
-description: 'Next.jsでTailwindCSSを使用したプロジェクトを立ち上げるために、構築方法を書いていきます。'
 date: 2020-12-06
 hero: '../img/tc-next.jpg'
 tags: ['tailwind', 'nextjs']

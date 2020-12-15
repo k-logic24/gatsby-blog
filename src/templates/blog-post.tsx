@@ -21,6 +21,7 @@ interface BlogPostProps {
 
 const BlogPostTemplate: React.FC<BlogPostProps> = ({ data, pageContext }) => {
   const post = data.markdownRemark
+  const excerpt = data.markdownRemark?.excerpt
   const postTitle = post?.frontmatter?.title
   const postDate = post?.frontmatter?.date
   const src = post?.frontmatter?.hero?.childImageSharp?.fluid

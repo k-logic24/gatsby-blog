@@ -1,7 +1,6 @@
 ---
 title: 'Gatsby-Imageコンポーネント化して使い回す方法'
 date: '2020-12-02'
-description: Gatsby-Imageを再利用する方法を紹介します。
 hero: '../img/gatsby.jpg'
 category: 'tech'
 tags: ['react', 'javascript', 'gatsby']

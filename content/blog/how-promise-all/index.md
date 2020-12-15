@@ -1,6 +1,5 @@
 ---
 title: 'Promise.allによるストレスフリーUI実現'
-description: 'Promise.allメソッドを使用したデータ反映遅延を解消していきます。'
 date: 2020-12-06
 hero: '../img/javascript.jpg'
 tags: ['javascript']

@@ -1,7 +1,6 @@
 ---
 title: 日記みたいなもの
 date: '2020-12-02'
-description: '日記みたいなもの、始めました'
 hero: '../img/forest.jpg'
 category: 'daily'
 ---
