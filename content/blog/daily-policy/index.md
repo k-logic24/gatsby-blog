@@ -1,5 +1,5 @@
 ---
-title: 日記みたいなもの
+title: '日記みたいなもの'
 date: '2020-12-02'
 hero: '../img/forest.jpg'
 category: 'daily'

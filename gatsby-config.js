@@ -39,7 +39,7 @@ module.exports = {
             options: {
               offsetY: `50`,
               icon: false,
-              maintainCase: true,
+              maintainCase: false,
             },
           },
           {

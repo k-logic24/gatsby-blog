@@ -1,5 +1,5 @@
 ---
-title: zshシェルをカスタマイズする方法
+title: 'zshシェルをカスタマイズする方法'
 date: '2020-12-02'
 hero: '../img/shell-display.jpg'
 category: 'tech'

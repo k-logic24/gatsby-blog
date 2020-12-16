@@ -1,5 +1,5 @@
 ---
-title: 今更ながらのTypeとInterfaceの違い
+title: '今更ながらのTypeとInterfaceの違い'
 date: '2020-12-03'
 hero: '../img/typescript.jpg'
 category: 'tech'

@@ -1,5 +1,5 @@
 ---
-title: put_the_contentsでハマった話
+title: 'put_the_contentsでハマった話'
 date: '2020-12-01'
 hero: '../img/php.jpg'
 category: 'tech'
