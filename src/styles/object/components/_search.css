@@ -1,8 +1,8 @@
 .search__input {
-	@apply px-4 py-2 border-gray border border-solid rounded text-gray;
-	width: 80%;
-	max-width: 350px;
+  @apply px-4 py-2 border-gray border border-solid rounded text-gray;
+  width: 80%;
+  max-width: 350px;
 }
 .search-list > li + li {
-	margin-top: .5em;
+  margin-top: 0.5em;
 }

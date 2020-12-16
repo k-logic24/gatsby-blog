@@ -107,8 +107,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
       }
     `
   )
-  // tag
-  // @ts-ignore TODO:group schemaが存在しないことになってる
+  // @ts-ignore
   const tagGroup = tagResult!.data!.allMarkdownRemark!.group
   for (let i = 0; i < tagGroup.length; i++) {
     const tagAllCounts = tagGroup[i].totalCount
@@ -147,7 +146,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
       }
     `
   )
-  // @ts-ignore TODO:group schemaが存在しないことになってる
+  // @ts-ignore
   const catGroup = catResult!.data!.allMarkdownRemark!.group
   for (let i = 0; i < catGroup.length; i++) {
     const catAllCounts = catGroup[i].totalCount

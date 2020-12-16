@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link, graphql, PageProps } from 'gatsby'
-import Image from 'gatsby-image'
 
 import Layout from '@/layouts/default'
 import Item from '@/components/item'
@@ -25,14 +24,13 @@ const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
           {posts.length ? (
             <>
               <ul className="blog-list">
-                {posts.map((post, index) => (
+                {posts.map(post => (
                   <Item
                     key={post.id}
                     title={post.frontmatter?.title || post.fields?.slug}
                     src={post?.frontmatter?.hero?.childImageSharp?.fluid}
                     slug={post.fields?.slug}
                     date={post.frontmatter?.date}
-                    // TODO
                     tags={post.frontmatter?.tags as any}
                   />
                 ))}

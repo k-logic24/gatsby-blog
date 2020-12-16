@@ -4,7 +4,7 @@ import { AppProps } from '@/types'
 
 type ThemeProps = AppProps['toggle']['theme']
 
-export const useDarkMode = () => {
+export const useDarkMode = (): [ThemeProps, () => void] => {
   const [theme, setTheme] = useState<ThemeProps>('light')
   const setMode = (mode: ThemeProps) => {
     window.localStorage.setItem('theme', mode)

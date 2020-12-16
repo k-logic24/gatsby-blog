@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
-const Bio = () => {
+const Bio: React.FC = () => {
   const data = useStaticQuery<GatsbyTypes.BioQuery>(graphql`
     query Bio {
       avatar: file(absolutePath: { regex: "/avater.jpg/" }) {
@@ -49,6 +49,7 @@ const Bio = () => {
               className="bio-list__link anim-link"
               href={`https://twitter.com/${social?.twitter || ``}`}
               target="_blank"
+              rel="noopenner noreferrer"
             >
               Twitter
             </a>
@@ -58,6 +59,7 @@ const Bio = () => {
               className="bio-list__link anim-link"
               href={`https://github.com/${social?.github || ``}`}
               target="_blank"
+              rel="noopenner noreferrer"
             >
               GitHub
             </a>

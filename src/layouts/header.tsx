@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'gatsby'
 
 import Toggle from '@/components/toggle'
@@ -12,7 +12,7 @@ const Header: React.FC = () => {
     <header className="header">
       <div className="header__inner">
         <Link to="/" className="text-white header__logo">
-          Iwata's BLOG
+          Iwata&apos;s BLOG
         </Link>
         <nav className="header-nav">
           <ul className="flex">

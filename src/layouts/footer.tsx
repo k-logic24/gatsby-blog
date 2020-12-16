@@ -1,9 +1,8 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
 import Bio from '@/components/bio'
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-light">
       <div className="py-4 flex justify-between container">

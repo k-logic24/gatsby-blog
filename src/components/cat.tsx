@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 
-import Img from '@/utils/image'
+import Img from '@/components/image'
 
-const Cat = () => {
+const Cat: React.FC = () => {
   const data = useStaticQuery<GatsbyTypes.CatQuery>(graphql`
     query Cat {
       allMarkdownRemark {

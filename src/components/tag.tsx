@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 
-const Tag = () => {
+const Tag: React.FC = () => {
   const data = useStaticQuery<GatsbyTypes.TagQuery>(graphql`
     query Tag {
       allMarkdownRemark {

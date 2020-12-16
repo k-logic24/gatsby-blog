@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState } from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 
 const Search: React.FC = () => {
@@ -56,11 +56,13 @@ const Search: React.FC = () => {
             <dl>
               <div className="flex items-center text-sm md:text-base">
                 <dt className="mr-4 text-sm whitespace-nowrap">
-                  <span itemProp="datePublished" content={x.frontmatter?.date}>{x.frontmatter?.date}</span>
+                  <span itemProp="datePublished" content={x.frontmatter?.date}>
+                    {x.frontmatter?.date}
+                  </span>
                 </dt>
                 <Link
                   className="hover:text-accent transition-colors flex-1 font-bold underline"
-                  to={`/blog${x.fields?.slug!}`}
+                  to={`/blog${x.fields?.slug}`}
                 >
                   <dd>{x.frontmatter?.title}</dd>
                 </Link>

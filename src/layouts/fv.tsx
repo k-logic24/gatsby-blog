@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import Particle from '@/components/particle'
 import { AppProps } from '@/types'
-import { useLocation } from '@/hooks/useLocation'
 
 const Fv: React.FC<AppProps['fv']> = ({ title, date, isText = true }) => {
   const titleJsx = isText ? (

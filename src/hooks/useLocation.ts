@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export const useLocation = () => {
+export const useLocation = (): string[] => {
   const [path, setPath] = useState<string>('')
 
   useEffect(() => {

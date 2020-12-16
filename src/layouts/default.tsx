@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { Link, PageProps } from 'gatsby'
+import React from 'react'
 
 import Header from '@/layouts/header'
 import Footer from '@/layouts/footer'
 import Fv from '@/layouts/fv'
-import Bio from '@/components/bio'
 
 import { AppProps } from '@/types'
 

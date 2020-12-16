@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes, { InferProps } from 'prop-types'
+import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
@@ -84,7 +84,6 @@ Seo.defaultProps = {
 Seo.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
-  // @ts-ignore
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
 }

@@ -1,13 +1,6 @@
 import React from 'react'
-import { Link, graphql, PageProps } from 'gatsby'
-import Image from 'gatsby-image'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faChevronLeft,
-  faChevronRight,
-} from '@fortawesome/free-solid-svg-icons'
+import { graphql, PageProps } from 'gatsby'
 
-import Bio from '@/components/bio'
 import Layout from '@/layouts/default'
 import Seo from '@/components/seo'
 import Item from '@/components/item'
@@ -31,10 +24,7 @@ const TagIndex: React.FC<
 
   return (
     <Layout title={`Tag: ${tagId}`}>
-      <Seo
-        title={`${tagId}`}
-        description={`タグ: ${tagId}の一覧です。`}
-      />
+      <Seo title={`${tagId}`} description={`タグ: ${tagId}の一覧です。`} />
       <section className="section blog">
         <div className="text-center">
           <h1 className="pb-4 mb-10 section__ttl">{`${tagId}`}</h1>

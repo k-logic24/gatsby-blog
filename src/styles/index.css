@@ -1,21 +1,21 @@
-@import "layout/_header.css";
-@import "layout/_section.css";
-@import "object/project/_fv.css";
-@import "object/components/_tag.css";
-@import "object/components/_pagination.css";
-@import "object/components/_link.css";
-@import "object/components/_bio.css";
-@import "object/components/_list.css";
-@import "object/components/_post.css";
-@import "object/components/_toc.css";
-@import "object/components/_search.css";
+@import 'layout/_header.css';
+@import 'layout/_section.css';
+@import 'object/project/_fv.css';
+@import 'object/components/_tag.css';
+@import 'object/components/_pagination.css';
+@import 'object/components/_link.css';
+@import 'object/components/_bio.css';
+@import 'object/components/_list.css';
+@import 'object/components/_post.css';
+@import 'object/components/_toc.css';
+@import 'object/components/_search.css';
 
 body {
-	@apply bg-white text-gray dark:text-white dark:bg-gray transition-all duration-300;
+  @apply bg-white text-gray dark:text-white dark:bg-gray transition-all duration-300;
 }
 
 @layer utilities {
-	.text-link {
-		color: #005b99;
-	}
+  .text-link {
+    color: #005b99;
+  }
 }

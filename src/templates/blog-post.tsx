@@ -7,7 +7,6 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons'
 
-import Bio from '@/components/bio'
 import Layout from '@/layouts/default'
 import Seo from '@/components/seo'
 
@@ -21,20 +20,14 @@ interface BlogPostProps {
 
 const BlogPostTemplate: React.FC<BlogPostProps> = ({ data, pageContext }) => {
   const post = data.markdownRemark
-  const excerpt = data.markdownRemark?.excerpt
   const postTitle = post?.frontmatter?.title
   const postDate = post?.frontmatter?.date
   const src = post?.frontmatter?.hero?.childImageSharp?.fluid
   const tableOfContents = post?.tableOfContents || ''
-  const siteTitle = data.site?.siteMetadata?.title || `Title`
   const { previous, next } = pageContext
 
   return (
-    <Layout
-      title={postTitle}
-      date={postDate}
-      isText={false}
-    >
+    <Layout title={postTitle} date={postDate} isText={false}>
       <Seo
         title={post?.frontmatter?.title}
         description={post?.frontmatter?.description || post?.excerpt}
@@ -69,7 +62,7 @@ const BlogPostTemplate: React.FC<BlogPostProps> = ({ data, pageContext }) => {
             <li className="md:w-1/3">
               {previous && (
                 <Link
-                  to={`/blog${previous?.fields?.slug!}`}
+                  to={`/blog${previous?.fields?.slug}`}
                   rel="prev"
                   className="pagination__link prev"
                 >
@@ -86,7 +79,7 @@ const BlogPostTemplate: React.FC<BlogPostProps> = ({ data, pageContext }) => {
             <li className="md:w-1/3">
               {next && (
                 <Link
-                  to={`/blog${next?.fields?.slug!}`}
+                  to={`/blog${next?.fields?.slug}`}
                   rel="next"
                   className="pagination__link next"
                 >
