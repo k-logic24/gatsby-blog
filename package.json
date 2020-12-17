@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "iwata-gatsby-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "Iwata's Blog with Gatsby.js.",
   "version": "0.1.0",
   "author": "K.Iwata <iwater0715@gmail.com>",
   "dependencies": {
@@ -56,6 +56,8 @@
   },
   "license": "0BSD",
   "main": "n/a",
+  "bugs": "https://github.com/k-logic24/gatsby-blog/issues",
+  "repository": { "type": "git", "url": "https://github.com/k-logic24/gatsby-blog.git" },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
