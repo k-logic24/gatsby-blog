@@ -1,9 +1,9 @@
 ---
-title: 'TypeScriptのUtilityを解剖してみる'
-date: '2020-12-17'
-hero: '../img/typescript.jpg'
-category: 'tech'
-tags: ['typescript']
+title: "TypeScriptのUtilityを解剖してみる"
+date: "2020-12-17"
+hero: "../img/typescript.jpg"
+category: "tech"
+tags: ["typescript"]
 ---
 TypeScriptにおけるUtilityとは、  
 コード内で型変換を容易にする為にTypeScriptが提供する型  

@@ -3462,18 +3462,15 @@ type CatQueryVariables = Exact<{ [key: string]: never; }>;
 
 type CatQuery = { readonly allMarkdownRemark: { readonly group: ReadonlyArray<Pick<MarkdownRemarkGroupConnection, 'fieldValue'>> } };
 
-type ImgQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type ImgQuery = { readonly allImageSharp: { readonly nodes: ReadonlyArray<{ readonly fluid: Maybe<(
-        Pick<ImageSharpFluid, 'originalName'>
-        & GatsbyImageSharpFluid_withWebpFragment
-      )> }> } };
-
 type BioQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type BioQuery = { readonly avatar: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixedFragment> }> }>, readonly site: Maybe<{ readonly siteMetadata: Maybe<{ readonly author: Maybe<Pick<Author, 'name' | 'summary'>>, readonly social: Maybe<Pick<Social, 'twitter' | 'github'>> }> }> };
+
+type SearchQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SearchQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly fields: Maybe<Pick<Fields, 'slug'>>, readonly frontmatter: Maybe<Pick<Frontmatter, 'date' | 'title'>> }> } };
 
 type SeoQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3483,10 +3480,13 @@ type SeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<(
       & { readonly social: Maybe<Pick<Social, 'twitter'>> }
     )> }> };
 
-type SearchQueryVariables = Exact<{ [key: string]: never; }>;
+type ImgQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type SearchQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly fields: Maybe<Pick<Fields, 'slug'>>, readonly frontmatter: Maybe<Pick<Frontmatter, 'date' | 'title'>> }> } };
+type ImgQuery = { readonly allImageSharp: { readonly nodes: ReadonlyArray<{ readonly fluid: Maybe<(
+        Pick<ImageSharpFluid, 'originalName'>
+        & GatsbyImageSharpFluid_withWebpFragment
+      )> }> } };
 
 type TagQueryVariables = Exact<{ [key: string]: never; }>;
 
