@@ -14,7 +14,7 @@ Reactを使用していると、ループしてkeyを設定することが多々
 ですが、indexを指定すると罠にはまります。
 
 ## さっそくご覧いただこう
-[https://jsbin.com/wohima/edit?js,output]()
+[https://jsbin.com/wohima/edit?js,output](https://jsbin.com/wohima/edit?js,output)
 
 これはとても良い例です。  
 やっていることはTodoリストみたいなもので、Add itemボタンを押すとアイテムが増える、という仕様です。
@@ -26,14 +26,14 @@ Reactを使用していると、ループしてkeyを設定することが多々
 どうしてこのようなことが起きてしまったのでしょうか。
 
 ## ドキュメントに答えがある
-> [https://ja.reactjs.org/docs/lists-and-keys.html]()
+> [https://ja.reactjs.org/docs/lists-and-keys.html](https://ja.reactjs.org/docs/lists-and-keys.html)
 > React公式より
 
 keyには要素の識別をするための情報を与えなければなりません。  
 keyを指定しなければindexになります。
 
 > コンポーネントのインスタンスは key に基づいて更新、再利用されます。インデックスが key の場合、要素の移動はインデックスの変更を伴います。結果として、非制御の入力などに対するコンポーネントの状態が混乱し、予期せぬ形で更新されてしまうことがあります。  
-> React公式 [https://ja.reactjs.org/docs/reconciliation.html]()
+> React公式 [https://ja.reactjs.org/docs/reconciliation.html](https://ja.reactjs.org/docs/reconciliation.html)
 
 つまり、keyにindexでは特定要素として判別するために不十分となります。
 
