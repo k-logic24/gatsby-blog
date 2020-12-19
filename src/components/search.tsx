@@ -7,7 +7,7 @@ const Search: React.FC = () => {
   >([])
   const data = useStaticQuery<GatsbyTypes.SearchQuery>(graphql`
     query Search {
-      allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
+      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
         nodes {
           fields {
             slug
