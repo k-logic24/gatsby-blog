@@ -17,7 +17,7 @@
     transform: scale(1.05);
   }
   .blog-list__ttl {
-    @apply text-sm font-bold;
+    @apply text-sm md:text-base font-bold;
     margin-top: 1em;
   }
   .blog-list__date {

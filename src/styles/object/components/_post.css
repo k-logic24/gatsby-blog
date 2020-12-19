@@ -4,24 +4,16 @@
   padding: 1rem;
 }
 .blog-post-contents ul {
-  @apply leading-loose list-inside list-disc;
-  font-size: 0.8rem;
+  @apply text-sm md:text-base leading-loose list-inside list-disc;
   margin-bottom: 1.5em;
 }
 .blog-post p {
-  @apply leading-loose;
-  font-size: 0.8rem;
+  @apply text-sm md:text-base leading-relaxed md:leading-loose;
   margin-bottom: 1.5em;
 }
 @screen md {
   .blog-post {
     padding: 4rem;
-  }
-  .blog-post p {
-    font-size: 1rem;
-  }
-  .blog-post ul {
-    font-size: 1rem;
   }
 }
 .blog-post pre {
