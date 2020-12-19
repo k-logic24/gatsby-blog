@@ -1,9 +1,9 @@
 ---
-title: 'なぜGithubブランチはmasterからmainに？'
+title: "なぜGithubブランチはmasterからmainに？"
 date: 2020-12-13
-hero: '../img/github.jpg'
-tags: ['github']
-category: 'tech'
+hero: "../img/github.jpg"
+tags: ["github"]
+category: "tech"
 ---
 
 今日のGitHubのデフォルトブランチは`main`になっています。  
