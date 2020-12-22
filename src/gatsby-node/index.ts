@@ -11,10 +11,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
   reporter,
 }) => {
   const { createPage } = actions
-  const blogTemplate = path.resolve('./src/templates/blog-template.tsx')
-  const blogPostTemplate = path.resolve(`./src/templates/blog-post.tsx`)
-  const tagPostTemplate = path.resolve(`./src/templates/tag-template.tsx`)
-  const catPostTemplate = path.resolve(`./src/templates/cat-template.tsx`)
+  const blogTemplate = path.resolve('./src/pages/blog-template.tsx')
+  const blogPostTemplate = path.resolve(`./src/pages/blog-post.tsx`)
+  const tagPostTemplate = path.resolve(`./src/pages/tag-template.tsx`)
+  const catPostTemplate = path.resolve(`./src/pages/cat-template.tsx`)
   const blogResult = await graphql<{
     allMarkdownRemark: Pick<GatsbyTypes.Query['allMarkdownRemark'], 'nodes'>
   }>(

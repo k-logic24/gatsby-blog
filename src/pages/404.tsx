@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Layout from '@/layouts/default'
+import Layout from '@/components/templates/layout'
 import Seo from '@/components/seo'
 import { Link } from 'gatsby'
 

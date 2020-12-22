@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Image from 'gatsby-image'
 
+import Label from '@/components/atoms/label'
 import { AppProps } from '@/types'
 
 const Item: React.FC<AppProps['item']> = ({ title, date, slug, src, tags }) => {
@@ -36,12 +37,7 @@ const Item: React.FC<AppProps['item']> = ({ title, date, slug, src, tags }) => {
             {tags &&
               tags.map((tag, index) => (
                 <li key={index}>
-                  <Link
-                    className="text-xs md:text-sm post-tag"
-                    to={`/tag/${tag}`}
-                  >
-                    {tag}
-                  </Link>
+                  <Label fieldValue={tag} />
                 </li>
               ))}
           </ul>

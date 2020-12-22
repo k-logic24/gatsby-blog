@@ -1,12 +1,12 @@
 import React from 'react'
 
-import Header from '@/layouts/header'
-import Footer from '@/layouts/footer'
-import Fv from '@/layouts/fv'
+import Header from '@/components/organisms/header'
+import Footer from '@/components/organisms/footer'
+import Fv from '@/components/organisms/fv'
 
 import { AppProps } from '@/types'
 
-const Default: React.FC<AppProps['layouts']> = ({
+const Layout: React.FC<AppProps['layouts']> = ({
   title,
   children,
   date,
@@ -24,4 +24,4 @@ const Default: React.FC<AppProps['layouts']> = ({
   )
 }
 
-export default Default
+export default Layout

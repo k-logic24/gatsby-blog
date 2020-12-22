@@ -41,4 +41,8 @@ export interface AppProps {
     type: string
     pages: number
   }
+  tag: {
+    fieldValue: string
+    totalCount?: number
+  }
 }

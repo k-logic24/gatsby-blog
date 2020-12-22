@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Particle from '@/components/particle'
+import Particle from '@/components/organisms/particle'
 import { AppProps } from '@/types'
 
 const Fv: React.FC<AppProps['fv']> = ({ title, date, isText = true }) => {

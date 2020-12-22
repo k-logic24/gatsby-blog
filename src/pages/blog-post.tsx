@@ -7,7 +7,7 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons'
 
-import Layout from '@/layouts/default'
+import Layout from '@/components/templates/layout'
 import Seo from '@/components/seo'
 
 interface BlogPostProps {

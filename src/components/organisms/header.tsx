@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import Toggle from '@/components/toggle'
+import Toggle from '@/components/molecules/toggle'
 import { useDarkMode } from '@/hooks/useDarkMode'
 import { AppProps } from '@/types'
 

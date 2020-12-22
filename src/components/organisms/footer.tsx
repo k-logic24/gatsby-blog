@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Bio from '@/components/bio'
+import Bio from '@/components/molecules/bio'
 
 const Footer: React.FC = () => {
   return (

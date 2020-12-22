@@ -1,10 +1,10 @@
 import React from 'react'
 import { graphql, PageProps } from 'gatsby'
 
-import Layout from '@/layouts/default'
+import Layout from '@/components/templates/layout'
 import Seo from '@/components/seo'
-import Item from '@/components/item'
-import Pagination from '@/components/pagination'
+import Item from '@/components/molecules/item'
+import Pagination from '@/components/organisms/pagination'
 import { AppProps } from '@/types'
 
 const TagIndex: React.FC<
