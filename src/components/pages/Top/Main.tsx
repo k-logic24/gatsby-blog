@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 
 import Header from '@/components/organisms/header'
@@ -21,7 +21,7 @@ const Main: React.FC<BlogIndexProps> = ({ title, data }) => {
   const [tagGroup, setTagGroup] = useState<BlogTagGroupProps | []>([])
   const [catGroup, setCatGroup] = useState<BlogCatGroupProps | []>([])
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const { nodes, tagGroup, catGroup } = data.allMarkdownRemark
     setPosts(nodes)
     setTagGroup(tagGroup)
