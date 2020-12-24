@@ -32,6 +32,7 @@ const Cat: React.FC<CatTemplateProps> = ({ title, data, pageContext }) => {
                 slug={node.fields?.slug}
                 date={node.frontmatter?.date}
                 tags={node.frontmatter?.tags}
+                variant={'sm'}
               />
             ))}
           </ul>

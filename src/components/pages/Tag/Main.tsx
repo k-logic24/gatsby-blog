@@ -31,6 +31,7 @@ const TagIndex: React.FC<TagTemplateProps> = ({ title, data, pageContext }) => {
                 slug={node.fields?.slug}
                 date={node.frontmatter?.date}
                 tags={node.frontmatter?.tags}
+                variant={'sm'}
               />
             ))}
           </ul>

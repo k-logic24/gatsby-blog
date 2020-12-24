@@ -38,6 +38,7 @@ const Main: React.FC<BlogPageProps> = ({ data, pageContext }) => {
                   slug={post.fields?.slug}
                   date={post.frontmatter?.date}
                   tags={post.frontmatter?.tags}
+                  variant={'sm'}
                 />
               )
             })}

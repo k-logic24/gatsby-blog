@@ -10,6 +10,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.13",
     "clsx": "^1.1.1",
+    "dotenv": "^8.2.0",
     "gatsby": "^2.29.0",
     "gatsby-image": "^2.8.0",
     "gatsby-plugin-feed": "^2.10.0",
@@ -57,7 +58,10 @@
   "license": "0BSD",
   "main": "n/a",
   "bugs": "https://github.com/k-logic24/gatsby-blog/issues",
-  "repository": { "type": "git", "url": "https://github.com/k-logic24/gatsby-blog.git" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/k-logic24/gatsby-blog.git"
+  },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
