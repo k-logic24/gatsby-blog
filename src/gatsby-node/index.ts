@@ -55,7 +55,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   /**
    * ブログ記事
    */
-  const blogPosts = blogResult?.data?.allMarkdownRemark?.nodes
+  const blogPosts = blogResult.data?.allMarkdownRemark.nodes
   if (blogPosts && blogPosts.length > 0) {
     blogPosts.forEach((post, index) => {
       const previous =
@@ -77,7 +77,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   /**
    * ブログ一覧
    */
-  const blogNodes = blogResult?.data?.allMarkdownRemark?.nodes
+  const blogNodes = blogResult.data?.allMarkdownRemark.nodes
   const blogAllPosts = blogNodes ? blogNodes.length : 0
   const blogPerPage = 6
   const blogPages = Math.ceil(blogAllPosts / blogPerPage)
@@ -101,7 +101,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
    * タグ一覧
    */
   // @ts-ignore
-  const tagGroup = blogResult?.data?.allMarkdownRemark?.tagGroup
+  const tagGroup = blogResult.data?.allMarkdownRemark.tagGroup
   for (let i = 0; i < tagGroup.length; i++) {
     const tagAllCounts = tagGroup[i].totalCount
     const tagPages = Math.ceil(tagAllCounts / blogPerPage)
@@ -128,7 +128,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
    * カテゴリー一覧
    */
     // @ts-ignore
-  const catGroup = blogResult?.data?.allMarkdownRemark?.catGroup
+  const catGroup = blogResult.data?.allMarkdownRemark.catGroup
   for (let i = 0; i < catGroup.length; i++) {
     const catAllCounts = catGroup[i].totalCount
     const catPages = Math.ceil(catAllCounts / blogPerPage)
