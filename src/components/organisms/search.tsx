@@ -1,34 +1,20 @@
 import React, { useState } from 'react'
-import { useStaticQuery, graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 
-const Search: React.FC = () => {
+import { PostProps } from '@/types'
+
+const Search: React.FC<{ posts: PostProps }> = ({ posts }) => {
   const [searchData, setSearchData] = useState<
     GatsbyTypes.SearchQuery['allMarkdownRemark']['nodes']
   >([])
-  const data = useStaticQuery<GatsbyTypes.SearchQuery>(graphql`
-    query Search {
-      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-        nodes {
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "YYYY-MM-DD")
-            title
-          }
-        }
-      }
-    }
-  `)
-  const nodes = data.allMarkdownRemark.nodes
   const handleInputSearch = (target: EventTarget) => {
     if (target instanceof HTMLInputElement) {
       const keyword = target.value.toLowerCase()
       if (keyword) {
-        const data = nodes.filter(node => {
+        const data = posts.filter(post => {
           const target = `
-          ${node.frontmatter?.title?.toLowerCase()}
-          ${node.fields?.slug?.toLowerCase()}
+          ${post.frontmatter?.title?.toLowerCase()}
+          ${post.fields?.slug?.toLowerCase()}
         `
           return target.indexOf(keyword) !== -1
         })

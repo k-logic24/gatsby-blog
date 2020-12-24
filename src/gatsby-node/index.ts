@@ -16,7 +16,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
   const tagPostTemplate = path.resolve(`./src/templates/tag-template.tsx`)
   const catPostTemplate = path.resolve(`./src/templates/cat-template.tsx`)
   const blogResult = await graphql<{
-    allMarkdownRemark: Pick<GatsbyTypes.Query['allMarkdownRemark'], 'nodes' | 'group'>
+    allMarkdownRemark: Pick<
+      GatsbyTypes.Query['allMarkdownRemark'],
+      'nodes' | 'group'
+    >
   }>(
     `
       query {
@@ -127,7 +130,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   /**
    * カテゴリー一覧
    */
-    // @ts-ignore
+  // @ts-ignore
   const catGroup = blogResult.data!.allMarkdownRemark.catGroup
   for (let i = 0; i < catGroup.length; i++) {
     const catAllCounts = catGroup[i].totalCount

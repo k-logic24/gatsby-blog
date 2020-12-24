@@ -5,7 +5,14 @@ import Image from 'gatsby-image'
 import TagLabel from '@/components/atoms/tag-label'
 import { AppProps } from '@/types'
 
-const Item: React.FC<AppProps['item']> = ({ title, date, slug, src, tags, variant}) => {
+const Item: React.FC<AppProps['item']> = ({
+  title,
+  date,
+  slug,
+  src,
+  tags,
+  variant,
+}) => {
   return (
     <li key={slug}>
       <article itemScope itemType="http://schema.org/Article">

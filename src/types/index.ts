@@ -25,6 +25,7 @@ export type TagTemplateProps = {
   pageContext: GatsbyTypes.SitePageContext
   title: string
 }
+export type PostProps = BlogIndexProps['data']['allMarkdownRemark']['nodes']
 export interface AppProps {
   layouts: {
     title?: string

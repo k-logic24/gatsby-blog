@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { Link } from 'gatsby'
 
 import Header from '@/components/organisms/header'
@@ -9,16 +9,19 @@ import Item from '@/components/molecules/item'
 import Search from '@/components/organisms/search'
 import Tag from '@/components/organisms/tag'
 import Cat from '@/components/organisms/cat'
-import { BlogIndexProps, BlogTagGroupProps, BlogCatGroupProps } from '@/types'
-
-type PostProps = BlogIndexProps['data']['allMarkdownRemark']['nodes']
+import {
+  BlogIndexProps,
+  BlogTagGroupProps,
+  BlogCatGroupProps,
+  PostProps,
+} from '@/types'
 
 const Main: React.FC<BlogIndexProps> = ({ title, data }) => {
   const [posts, setPosts] = useState<PostProps>([])
   const [tagGroup, setTagGroup] = useState<BlogTagGroupProps | []>([])
   const [catGroup, setCatGroup] = useState<BlogCatGroupProps | []>([])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const { nodes, tagGroup, catGroup } = data.allMarkdownRemark
     setPosts(nodes)
     setTagGroup(tagGroup)
@@ -65,7 +68,7 @@ const Main: React.FC<BlogIndexProps> = ({ title, data }) => {
             <div className="text-center">
               <h1 className="pb-4 mb-10 section__ttl">検索</h1>
             </div>
-            <Search />
+            <Search posts={posts} />
           </div>
           <div className="section-wrap">
             <Tag tagGroup={tagGroup} />
