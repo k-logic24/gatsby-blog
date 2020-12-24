@@ -1,29 +1,22 @@
 import React from 'react'
-import { graphql, Link, useStaticQuery } from 'gatsby'
 
 import TagLabel from '@/components/atoms/tag-label'
+import { BlogTagGroupProps } from '@/types'
 
-const Tag: React.FC = () => {
-  const data = useStaticQuery<GatsbyTypes.TagQuery>(graphql`
-    query Tag {
-      allMarkdownRemark {
-        group(field: frontmatter___tags) {
-          fieldValue
-          totalCount
-        }
-      }
-    }
-  `)
-  const tagGroup = data.allMarkdownRemark.group
-
+const Tag: React.FC<{ tagGroup: BlogTagGroupProps }> = ({ tagGroup }) => {
   return (
-    <ul className="tag-list">
-      {tagGroup.map(({ fieldValue, totalCount }) => (
-        <li key={fieldValue}>
-          <TagLabel fieldValue={fieldValue!} totalCount={totalCount} />
-        </li>
-      ))}
-    </ul>
+    <div className="max-w-screen-md mx-auto px-4 py-8 bg-gray-tag dark:bg-white rounded-lg">
+      <div className="text-center">
+        <h1 className="pb-4 mb-10 text-gray section__ttl">タグ</h1>
+      </div>
+      <ul className="tag-list">
+        {tagGroup.map(({ fieldValue, totalCount }) => (
+          <li key={fieldValue}>
+            <TagLabel fieldValue={fieldValue!} totalCount={totalCount} />
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 

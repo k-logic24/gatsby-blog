@@ -1,12 +1,15 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import clsx from 'clsx'
 
 import { AppProps } from '@/types'
 
-const TagLabel: React.FC<AppProps['tag']> = ({ fieldValue, totalCount }) => {
+const TagLabel: React.FC<AppProps['taglabel']> = ({ fieldValue, totalCount, variant }) => {
+  const size = clsx('post-tag', variant === 'sm' && 'post-tag--sm', variant === 'lg' && 'post-tag--lg')
+
   return (
     <Link
-      className="text-sm md:text-base font-bold post-tag"
+      className={size}
       to={`/tag/${fieldValue}`}
     >
       {fieldValue}

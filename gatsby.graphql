@@ -739,6 +739,9 @@ type SitePageConnection {
 }
 
 type SitePageContext {
+  blogPages: Int
+  catId: String
+  catPages: Int
   currentPage: Int
   isFirst: Boolean
   isLast: Boolean
@@ -748,6 +751,7 @@ type SitePageContext {
   skip: Int
   slug: String
   tagId: String
+  tagPages: Int
 }
 
 type SitePageContextNext {
@@ -1998,6 +2002,9 @@ enum SitePageFieldsEnum {
   component
   componentChunkName
   componentPath
+  context___blogPages
+  context___catId
+  context___catPages
   context___currentPage
   context___isFirst
   context___isLast
@@ -2011,6 +2018,7 @@ enum SitePageFieldsEnum {
   context___skip
   context___slug
   context___tagId
+  context___tagPages
   id
   internalComponentName
   internal___content
@@ -2732,6 +2740,9 @@ input SiteFilterInput {
 }
 
 input SitePageContextFilterInput {
+  blogPages: IntQueryOperatorInput
+  catId: StringQueryOperatorInput
+  catPages: IntQueryOperatorInput
   currentPage: IntQueryOperatorInput
   isFirst: BooleanQueryOperatorInput
   isLast: BooleanQueryOperatorInput
@@ -2741,6 +2752,7 @@ input SitePageContextFilterInput {
   skip: IntQueryOperatorInput
   slug: StringQueryOperatorInput
   tagId: StringQueryOperatorInput
+  tagPages: IntQueryOperatorInput
 }
 
 input SitePageContextNextFieldsFilterInput {

@@ -2,10 +2,10 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Image from 'gatsby-image'
 
-import Label from '@/components/atoms/label'
+import TagLabel from '@/components/atoms/tag-label'
 import { AppProps } from '@/types'
 
-const Item: React.FC<AppProps['item']> = ({ title, date, slug, src, tags }) => {
+const Item: React.FC<AppProps['item']> = ({ title, date, slug, src, tags, variant}) => {
   return (
     <li key={slug}>
       <article itemScope itemType="http://schema.org/Article">
@@ -37,7 +37,7 @@ const Item: React.FC<AppProps['item']> = ({ title, date, slug, src, tags }) => {
             {tags &&
               tags.map((tag, index) => (
                 <li key={index}>
-                  <Label fieldValue={tag} />
+                  <TagLabel fieldValue={tag} variant={variant} />
                 </li>
               ))}
           </ul>

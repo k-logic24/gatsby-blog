@@ -1,7 +1,13 @@
 .post-tag {
-  @apply inline-block border border-accent border-solid rounded text-accent hover:bg-accent hover:text-white;
+  @apply font-bold inline-block border border-accent border-solid rounded text-accent hover:bg-accent hover:text-white;
   transition: background-color 0.3s, color 0.3s;
   padding: 0.05em 0.5em;
+}
+.post-tag--sm {
+  @apply font-normal text-sm;
+}
+.post-tag--lg {
+  @apply text-lg;
 }
 .post-tag:before {
   content: '#';

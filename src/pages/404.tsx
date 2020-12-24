@@ -1,23 +1,27 @@
 import React from 'react'
+import { graphql, PageProps } from 'gatsby'
 
-import Layout from '@/components/templates/layout'
-import Seo from '@/components/seo'
-import { Link } from 'gatsby'
+import Main from '@/components/pages/Top/Main'
 
-const NotFoundPage: React.FC = () => {
-  return (
-    <Layout title="404: Not Found">
-      <Seo title="404: Not Found" description={`404Page`} />
-      <section className="text-center">
-        <p className="tracking-wider md:text-lg">You just hit a route.</p>
-        <div className="pt-8 text-center">
-          <Link className="link link--more" to="/">
-            ホームへ戻る
-          </Link>
-        </div>
-      </section>
-    </Layout>
-  )
+const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
+  data,
+}) => {
+  return <Main title="404 Not Found" data={data} />
 }
 
-export default NotFoundPage
+export default BlogIndex
+
+export const pageQuery = graphql`
+  query ErrorPage {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      catGroup: group(field: frontmatter___category) {
+        fieldValue
+        totalCount
+      }
+      tagGroup: group(field: frontmatter___tags) {
+        fieldValue
+        totalCount
+      }
+    }
+  }
+`

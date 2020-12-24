@@ -11,15 +11,15 @@ export const createPages: GatsbyNode['createPages'] = async ({
   reporter,
 }) => {
   const { createPage } = actions
-  const blogTemplate = path.resolve('./src/pages/blog-template.tsx')
-  const blogPostTemplate = path.resolve(`./src/pages/blog-post.tsx`)
-  const tagPostTemplate = path.resolve(`./src/pages/tag-template.tsx`)
-  const catPostTemplate = path.resolve(`./src/pages/cat-template.tsx`)
+  const blogTemplate = path.resolve('./src/templates/blog-template.tsx')
+  const blogPostTemplate = path.resolve(`./src/templates/blog-post.tsx`)
+  const tagPostTemplate = path.resolve(`./src/templates/tag-template.tsx`)
+  const catPostTemplate = path.resolve(`./src/templates/cat-template.tsx`)
   const blogResult = await graphql<{
-    allMarkdownRemark: Pick<GatsbyTypes.Query['allMarkdownRemark'], 'nodes'>
+    allMarkdownRemark: Pick<GatsbyTypes.Query['allMarkdownRemark'], 'nodes' | 'group'>
   }>(
     `
-      query PostInfo {
+      query {
         allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
@@ -33,7 +33,11 @@ export const createPages: GatsbyNode['createPages'] = async ({
               tags
             }
           }
-          group(field: frontmatter___tags) {
+          tagGroup: group(field: frontmatter___tags) {
+            fieldValue
+            totalCount
+          }
+          catGroup: group(field: frontmatter___category) {
             fieldValue
             totalCount
           }
@@ -48,15 +52,18 @@ export const createPages: GatsbyNode['createPages'] = async ({
     )
     return
   }
-  const blogPosts = blogResult!.data!.allMarkdownRemark!.nodes
-  if (blogPosts.length > 0) {
+  /**
+   * ブログ記事
+   */
+  const blogPosts = blogResult?.data?.allMarkdownRemark?.nodes
+  if (blogPosts && blogPosts.length > 0) {
     blogPosts.forEach((post, index) => {
       const previous =
         index === blogPosts.length - 1 ? null : blogPosts[index + 1]
       const next = index === 0 ? null : blogPosts[index - 1]
 
       createPage({
-        path: `/blog${post!.fields!.slug!}`,
+        path: `/blog${post?.fields?.slug}`,
         component: blogPostTemplate,
         context: {
           slug: post!.fields!.slug,
@@ -67,19 +74,15 @@ export const createPages: GatsbyNode['createPages'] = async ({
     })
   }
 
-  if (blogResult.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading your blog posts`,
-      blogResult.errors
-    )
-    return
-  }
-  const blogNodes = blogResult!.data!.allMarkdownRemark!.nodes
-  const blogAllPosts = blogNodes.length
+  /**
+   * ブログ一覧
+   */
+  const blogNodes = blogResult?.data?.allMarkdownRemark?.nodes
+  const blogAllPosts = blogNodes ? blogNodes.length : 0
   const blogPerPage = 6
   const blogPages = Math.ceil(blogAllPosts / blogPerPage)
 
-  Array.from({ length: blogPages }).forEach((_, i) => {
+  Array.from({ length: blogPages }).forEach((_: unknown, i) => {
     createPage({
       path: i === 0 ? `/blog/` : `/blog/${i + 1}`,
       component: blogTemplate,
@@ -93,26 +96,16 @@ export const createPages: GatsbyNode['createPages'] = async ({
       },
     })
   })
-  const tagResult = await graphql<{
-    allMarkdownRemark: Pick<GatsbyTypes.Query['allMarkdownRemark'], 'nodes'>
-  }>(
-    `
-      query TagInfo {
-        allMarkdownRemark {
-          group(field: frontmatter___tags) {
-            fieldValue
-            totalCount
-          }
-        }
-      }
-    `
-  )
+
+  /**
+   * タグ一覧
+   */
   // @ts-ignore
-  const tagGroup = tagResult!.data!.allMarkdownRemark!.group
+  const tagGroup = blogResult?.data?.allMarkdownRemark?.tagGroup
   for (let i = 0; i < tagGroup.length; i++) {
     const tagAllCounts = tagGroup[i].totalCount
     const tagPages = Math.ceil(tagAllCounts / blogPerPage)
-    Array.from({ length: tagPages }).forEach((_, j) => {
+    Array.from({ length: tagPages }).forEach((_: unknown, j) => {
       createPage({
         path:
           j === 0
@@ -131,27 +124,15 @@ export const createPages: GatsbyNode['createPages'] = async ({
       })
     })
   }
-  // category
-  const catResult = await graphql<{
-    allMarkdownRemark: Pick<GatsbyTypes.Query['allMarkdownRemark'], 'nodes'>
-  }>(
-    `
-      query CatInfo {
-        allMarkdownRemark {
-          group(field: frontmatter___category) {
-            fieldValue
-            totalCount
-          }
-        }
-      }
-    `
-  )
-  // @ts-ignore
-  const catGroup = catResult!.data!.allMarkdownRemark!.group
+  /**
+   * カテゴリー一覧
+   */
+    // @ts-ignore
+  const catGroup = blogResult?.data?.allMarkdownRemark?.catGroup
   for (let i = 0; i < catGroup.length; i++) {
     const catAllCounts = catGroup[i].totalCount
     const catPages = Math.ceil(catAllCounts / blogPerPage)
-    Array.from({ length: catPages }).forEach((_, j) => {
+    Array.from({ length: catPages }).forEach((_: unknown, j) => {
       createPage({
         path:
           j === 0
@@ -223,7 +204,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
       frontmatter: Frontmatter
       fields: Fields
     }
-
+    
     type Frontmatter {
       title: String
       description: String
