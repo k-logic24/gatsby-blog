@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, PageProps } from 'gatsby'
 
-import Main from '@/components/pages/Top/Main'
+import Main from '@/components/pages/Error/Main'
 
 const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   data,
