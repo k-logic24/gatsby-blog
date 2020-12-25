@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
@@ -7,13 +6,21 @@ type Props = {
   description?: string
   lang?: string
   meta?: HTMLMetaElement[]
-  title: string | undefined
+  title?: string
+  image?: string
 }
 
-const Seo: React.FC<Props> = ({ description, lang, meta, title }) => {
-  const { site } = useStaticQuery<GatsbyTypes.SeoQuery>(
+const Seo: React.FC<Props> = ({ description, lang, meta, title, image }) => {
+  const { site, avatar } = useStaticQuery<GatsbyTypes.SeoQuery>(
     graphql`
       query Seo {
+        avatar: file(absolutePath: { regex: "/avatar.jpg/" }) {
+          childImageSharp {
+            sizes {
+              src
+            }
+          }
+        }
         site {
           siteMetadata {
             title
@@ -27,8 +34,11 @@ const Seo: React.FC<Props> = ({ description, lang, meta, title }) => {
     `
   )
 
+  const siteUrl = site?.siteMetadata?.siteUrl
   const metaDescription = description || site!.siteMetadata!.description
-  const defaultTitle = site!.siteMetadata?.title
+  const defaultTitle = site?.siteMetadata?.title
+  const defaultImage = avatar?.childImageSharp?.sizes?.src
+  const ogImage = `${image}` || `${defaultImage}`
 
   return (
     <Helmet
@@ -55,6 +65,10 @@ const Seo: React.FC<Props> = ({ description, lang, meta, title }) => {
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: `${ogImage}`,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
@@ -74,18 +88,10 @@ const Seo: React.FC<Props> = ({ description, lang, meta, title }) => {
     />
   )
 }
-
 Seo.defaultProps = {
-  lang: `en`,
+  lang: `ja`,
   meta: [],
   description: ``,
-}
-
-Seo.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
 }
 
 export default Seo

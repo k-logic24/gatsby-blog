@@ -28,6 +28,7 @@ const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
       <Seo
         title={post?.frontmatter?.title}
         description={post?.frontmatter?.description || post?.excerpt}
+        image={post?.frontmatter?.hero?.childImageSharp?.sizes?.src}
       />
       <Header />
       <Fv isText={false} />

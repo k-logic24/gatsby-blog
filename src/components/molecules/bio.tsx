@@ -5,7 +5,7 @@ import Image from 'gatsby-image'
 const Bio: React.FC = () => {
   const data = useStaticQuery<GatsbyTypes.BioQuery>(graphql`
     query Bio {
-      avatar: file(absolutePath: { regex: "/avater.jpg/" }) {
+      avatar: file(absolutePath: { regex: "/avatar.jpg/" }) {
         childImageSharp {
           fixed(width: 50, height: 50, quality: 95) {
             ...GatsbyImageSharpFixed
@@ -16,7 +16,6 @@ const Bio: React.FC = () => {
         siteMetadata {
           author {
             name
-            summary
           }
           social {
             twitter
