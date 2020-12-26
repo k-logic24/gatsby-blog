@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPen, faSun } from '@fortawesome/free-solid-svg-icons'
 
 import Toggle from '@/components/molecules/toggle'
 import { useDarkMode } from '@/hooks/useDarkMode'
@@ -19,9 +21,10 @@ const Header: React.FC = () => {
             <li>
               <Link
                 to="/blog"
-                className="text-white anim-link text-sm md:text-base"
+                className="text-white text-lg md:text-base"
               >
-                BLOG
+                <span className={"hidden md:inline-block mr-2"}>BLOG</span>
+                <FontAwesomeIcon icon={faPen} aria-hidden="true" />
               </Link>
             </li>
             <li className="ml-4 md:ml-8">
