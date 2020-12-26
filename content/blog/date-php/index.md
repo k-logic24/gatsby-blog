@@ -1,12 +1,12 @@
 ---
-title: "WordPressで時刻ずれてません？"
+title: "WordPressで9時間遅れていた話"
 date: "2020-12-26"
 hero: "../img/php.jpg"
 tags: ["php", "wordpress"]
 category: "tech"
 ---
-
-まず前提で、WordPressは内部的時刻がUTC（世界標準時）です。
+## 前提
+WordPressは内部的時刻がUTC（世界標準時）です。
 よってこんなことをすると、
 ```php
 // 9時間ずれが発生
