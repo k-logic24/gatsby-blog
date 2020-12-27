@@ -1,4 +1,12 @@
+#生成ディレクトリ
 .cache
+public
+
+# idea設定ディレクトリ
 .idea
+
+# Packageディレクトリ
 node_modules
+
+# 環境変数ファイル
 .env.*
