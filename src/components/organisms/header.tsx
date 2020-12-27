@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPen, faSun } from '@fortawesome/free-solid-svg-icons'
+import { faPen } from '@fortawesome/free-solid-svg-icons'
 
 import Toggle from '@/components/molecules/toggle'
 import { useDarkMode } from '@/hooks/useDarkMode'
@@ -19,11 +19,8 @@ const Header: React.FC = () => {
         <nav className="header-nav">
           <ul className="flex">
             <li>
-              <Link
-                to="/blog"
-                className="text-white text-lg md:text-base"
-              >
-                <span className={"hidden md:inline-block mr-2"}>BLOG</span>
+              <Link to="/blog" className="text-white text-lg md:text-base">
+                <span className={'hidden md:inline-block mr-2'}>BLOG</span>
                 <FontAwesomeIcon icon={faPen} aria-hidden="true" />
               </Link>
             </li>
