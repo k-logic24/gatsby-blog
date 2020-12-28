@@ -19,7 +19,7 @@ const Toggle: React.FC<AppProps['toggle']> = ({ theme, toggleTheme }) => {
       onClick={toggleTheme}
       aria-label="テーマを変更"
     >
-      <span className={'hidden md:inline-block mr-2'}>THEME</span>
+      <span className={'hidden md:inline-block mr-2'}>Theme</span>
       {icon}
     </button>
   )
