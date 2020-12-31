@@ -5,17 +5,14 @@ import { PostProps } from '@/types'
 
 const Search: React.FC<{ posts: PostProps }> = ({ posts }) => {
   const [searchData, setSearchData] = useState<
-    GatsbyTypes.SearchQuery['allMarkdownRemark']['nodes']
+    GatsbyTypes.BlogIndexQuery['allMarkdownRemark']['nodes']
   >([])
   const handleInputSearch = (target: EventTarget) => {
     if (target instanceof HTMLInputElement) {
       const keyword = target.value.toLowerCase()
       if (keyword) {
         const data = posts.filter(post => {
-          const target = `
-          ${post.frontmatter?.title?.toLowerCase()}
-          ${post.fields?.slug?.toLowerCase()}
-        `
+          const target = `${post.frontmatter?.title?.toLowerCase()}`
           return target.indexOf(keyword) !== -1
         })
         setSearchData(data)
