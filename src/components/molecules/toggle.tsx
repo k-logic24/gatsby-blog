@@ -15,11 +15,11 @@ const Toggle: React.FC<AppProps['toggle']> = ({ theme, toggleTheme }) => {
   return (
     <button
       type="button"
-      className={'text-lg md:text-base text-white'}
+      className="text-lg md:text-base text-white"
       onClick={toggleTheme}
       aria-label="テーマを変更"
+      title="テーマを変更"
     >
-      <span className={'hidden md:inline-block mr-2'}>Theme</span>
       {icon}
     </button>
   )

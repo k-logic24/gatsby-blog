@@ -20,8 +20,7 @@ const Header: React.FC = () => {
           <ul className="flex">
             <li>
               <Link to="/blog" className="text-white text-lg md:text-base">
-                <span className={'hidden md:inline-block mr-2'}>Blog</span>
-                <FontAwesomeIcon icon={faPen} aria-hidden="true" />
+                <span className={'hidden md:inline-block mr-2'}>BLOG</span>
               </Link>
             </li>
             <li className="ml-4 md:ml-8">
