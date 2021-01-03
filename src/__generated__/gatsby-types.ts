@@ -735,8 +735,8 @@ declare namespace GatsbyTypes {
     childMarkdownRemark___frontmatter___hero___publicURL = 'childMarkdownRemark.frontmatter.hero.publicURL',
     childMarkdownRemark___frontmatter___hero___id = 'childMarkdownRemark.frontmatter.hero.id',
     childMarkdownRemark___frontmatter___hero___children = 'childMarkdownRemark.frontmatter.hero.children',
-    childMarkdownRemark___frontmatter___category = 'childMarkdownRemark.frontmatter.category',
     childMarkdownRemark___frontmatter___tags = 'childMarkdownRemark.frontmatter.tags',
+    childMarkdownRemark___frontmatter___category = 'childMarkdownRemark.frontmatter.category',
     childMarkdownRemark___frontmatter___thumb___sourceInstanceName = 'childMarkdownRemark.frontmatter.thumb.sourceInstanceName',
     childMarkdownRemark___frontmatter___thumb___absolutePath = 'childMarkdownRemark.frontmatter.thumb.absolutePath',
     childMarkdownRemark___frontmatter___thumb___relativePath = 'childMarkdownRemark.frontmatter.thumb.relativePath',
@@ -903,8 +903,8 @@ declare namespace GatsbyTypes {
     readonly description: Maybe<Scalars['String']>
     readonly date: Maybe<Scalars['Date']>
     readonly hero: Maybe<File>
-    readonly category: Maybe<Scalars['String']>
     readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>
+    readonly category: Maybe<Scalars['String']>
     readonly thumb: Maybe<File>
     readonly author: Maybe<Scalars['String']>
     readonly published_date: Maybe<Scalars['Date']>
@@ -929,8 +929,8 @@ declare namespace GatsbyTypes {
     readonly description: Maybe<StringQueryOperatorInput>
     readonly date: Maybe<DateQueryOperatorInput>
     readonly hero: Maybe<FileFilterInput>
-    readonly category: Maybe<StringQueryOperatorInput>
     readonly tags: Maybe<StringQueryOperatorInput>
+    readonly category: Maybe<StringQueryOperatorInput>
     readonly thumb: Maybe<FileFilterInput>
     readonly author: Maybe<StringQueryOperatorInput>
     readonly published_date: Maybe<DateQueryOperatorInput>
@@ -1678,8 +1678,8 @@ declare namespace GatsbyTypes {
     frontmatter___hero___childMarkdownRemark___timeToRead = 'frontmatter.hero.childMarkdownRemark.timeToRead',
     frontmatter___hero___childMarkdownRemark___tableOfContents = 'frontmatter.hero.childMarkdownRemark.tableOfContents',
     frontmatter___hero___childMarkdownRemark___children = 'frontmatter.hero.childMarkdownRemark.children',
-    frontmatter___category = 'frontmatter.category',
     frontmatter___tags = 'frontmatter.tags',
+    frontmatter___category = 'frontmatter.category',
     frontmatter___thumb___sourceInstanceName = 'frontmatter.thumb.sourceInstanceName',
     frontmatter___thumb___absolutePath = 'frontmatter.thumb.absolutePath',
     frontmatter___thumb___relativePath = 'frontmatter.thumb.relativePath',

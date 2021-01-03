@@ -27,7 +27,7 @@
 	@apply border border-solid border-gray py-3 px-4;
 }
 .book-list > li + li {
-	@apply mt-6;
+	@apply mt-10;
 }
 .book__contents a {
 	@apply text-accent underline inline-block mt-4;

@@ -1,5 +1,5 @@
 ---
-title: "design-22"
+title: "これならわかる！ 人を動かすデザイン22の法則"
 date: "2021-01-02"
 thumb: "./thumb.jpg"
 author: "ウジ トモコ"

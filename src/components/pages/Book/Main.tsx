@@ -24,9 +24,6 @@ const Main: React.FC<BookPageProps> = ({ data, pageContext }) => {
       <main className="py-8 md:py-12 px-4 mx-auto max-w-screen-md">
         <Seo title="BOOK" description="本一覧ページになります。" />
         <section className="section book">
-          <div className="text-center">
-            <h1 className="pb-4 mb-10 section__ttl">読本一覧</h1>
-          </div>
           <ul className="book-list">
             {books.length &&
               books.map(book => (
