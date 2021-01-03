@@ -178,7 +178,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     `
   )
 
-  const bookNodes = bookResult.data?.allMarkdownRemark?.nodes
+  const bookNodes = bookResult.data!.allMarkdownRemark.nodes
   const bookAllPosts = bookNodes ? bookNodes.length : 0
   const bookPerPage = 10
   const bookPages = Math.ceil(bookAllPosts / bookPerPage)
