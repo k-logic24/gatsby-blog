@@ -20,11 +20,11 @@
 	}
 }
 .book-table {
-	@apply w-full border border-solid border-gray;
+	@apply w-full border border-solid border-gray dark:border-white;
 }
 .book-table th,
 .book-table td {
-	@apply border border-solid border-gray py-3 px-4;
+	@apply border border-solid border-gray dark:border-white py-3 px-4;
 }
 .book-list > li + li {
 	@apply mt-10;
