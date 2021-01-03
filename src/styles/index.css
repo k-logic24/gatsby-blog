@@ -1,6 +1,5 @@
 @import 'layout/_header.css';
 @import 'layout/_section.css';
-@import 'object/project/_fv.css';
 @import 'object/components/_tag.css';
 @import 'object/components/_pagination.css';
 @import 'object/components/_link.css';
@@ -9,6 +8,8 @@
 @import 'object/components/_post.css';
 @import 'object/components/_toc.css';
 @import 'object/components/_search.css';
+@import 'object/project/_fv.css';
+@import 'object/project/_book.css';
 
 body {
   @apply bg-white text-gray dark:text-white dark:bg-gray transition-all duration-300;

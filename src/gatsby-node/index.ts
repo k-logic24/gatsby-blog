@@ -12,6 +12,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 }) => {
   const { createPage } = actions
   const blogTemplate = path.resolve('./src/templates/blog-template.tsx')
+  const bookTemplate = path.resolve('./src/templates/book-template.tsx')
   const blogPostTemplate = path.resolve(`./src/templates/blog-post.tsx`)
   const tagPostTemplate = path.resolve(`./src/templates/tag-template.tsx`)
   const catPostTemplate = path.resolve(`./src/templates/cat-template.tsx`)
@@ -58,7 +59,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   /**
    * ブログ記事
    */
-  const blogPosts = blogResult.data!.allMarkdownRemark.nodes
+  const blogPosts = blogResult.data?.allMarkdownRemark?.nodes
   if (blogPosts && blogPosts.length > 0) {
     blogPosts.forEach((post, index) => {
       const previous =
@@ -96,6 +97,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
         currentPage: i + 1,
         isFirst: i + 1 === 1,
         isLast: i + 1 === blogPages,
+        regex: '/(tech|daily)/',
       },
     })
   })
@@ -154,6 +156,48 @@ export const createPages: GatsbyNode['createPages'] = async ({
       })
     })
   }
+
+  /**
+   * book
+   */
+  const bookResult = await graphql<{
+    allMarkdownRemark: Pick<GatsbyTypes.Query['allMarkdownRemark'], 'nodes'>
+  }>(
+    `
+      query {
+        allMarkdownRemark(
+          filter: { frontmatter: { category: { eq: "book" } } }
+          sort: { fields: [frontmatter___date], order: DESC }
+          limit: 1000
+        ) {
+          nodes {
+            id
+          }
+        }
+      }
+    `
+  )
+
+  const bookNodes = bookResult.data?.allMarkdownRemark?.nodes
+  const bookAllPosts = bookNodes ? bookNodes.length : 0
+  const bookPerPage = 10
+  const bookPages = Math.ceil(bookAllPosts / bookPerPage)
+
+  Array.from({ length: bookPages }).forEach((_: unknown, i) => {
+    createPage({
+      path: i === 0 ? `/book/` : `/book/${i + 1}`,
+      component: bookTemplate,
+      context: {
+        bookPages: bookPages,
+        skip: bookPerPage * i,
+        limit: bookPerPage,
+        currentPage: i + 1,
+        isFirst: i + 1 === 1,
+        isLast: i + 1 === bookPages,
+        identifer: 'book',
+      },
+    })
+  })
 }
 
 /**

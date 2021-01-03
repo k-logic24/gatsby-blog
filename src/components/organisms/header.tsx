@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPen } from '@fortawesome/free-solid-svg-icons'
+import { faPen, faBook } from '@fortawesome/free-solid-svg-icons'
 
 import Toggle from '@/components/molecules/toggle'
 import { useDarkMode } from '@/hooks/useDarkMode'
@@ -18,12 +18,23 @@ const Header: React.FC = () => {
         </Link>
         <nav className="header-nav">
           <ul className="flex">
-            <li>
-              <Link to="/blog" className="text-white text-lg md:text-base">
-                <span className={'hidden md:inline-block mr-2'}>BLOG</span>
+            <li className="mr-4">
+              <Link to="/book" className="text-white text-lg md:text-base">
+                <span className="hidden lg:inline-block">book</span>
+                <span className="lg:hidden" aria-label="book">
+                  <FontAwesomeIcon icon={faBook} aria-hidden="true" />
+                </span>
               </Link>
             </li>
-            <li className="ml-4 md:ml-8">
+            <li>
+              <Link to="/blog" className="text-white text-lg md:text-base">
+                <span className="hidden lg:inline-block">blog</span>
+                <span className="lg:hidden" aria-label="blog">
+                  <FontAwesomeIcon icon={faPen} aria-hidden="true" />
+                </span>
+              </Link>
+            </li>
+            <li className="ml-8">
               <Toggle
                 theme={theme as AppProps['toggle']['theme']}
                 toggleTheme={toggleTheme as AppProps['toggle']['toggleTheme']}

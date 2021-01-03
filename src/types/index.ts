@@ -15,6 +15,10 @@ export type BlogPageProps = {
   data: GatsbyTypes.BlogPageQuery
   pageContext: GatsbyTypes.SitePageContext
 }
+export type BookPageProps = {
+  data: GatsbyTypes.BookPageQuery
+  pageContext: GatsbyTypes.SitePageContext
+}
 export type CatTemplateProps = {
   data: GatsbyTypes.CatPageQuery
   pageContext: GatsbyTypes.SitePageContext
@@ -51,7 +55,7 @@ export interface AppProps {
       | 'srcWebp'
       | 'sizes'
     >
-    tags: GatsbyTypes.Maybe<readonly (string | undefined)[]>
+    tags?: GatsbyTypes.Maybe<readonly (string | undefined)[]>
     children?: never
     variant?: 'sm' | 'lg'
   }

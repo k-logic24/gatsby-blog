@@ -1,25 +1,25 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Main from '@/components/pages/Blog/Main'
-import { BlogPageProps } from '@/types'
+import Main from '@/components/pages/Book/Main'
+import { BookPageProps } from '@/types'
 
-const BlogIndex: React.FC<BlogPageProps> = ({ data, pageContext }) => {
+const BlogIndex: React.FC<BookPageProps> = ({ data, pageContext }) => {
   return <Main data={data} pageContext={pageContext} />
 }
 
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query BlogPage($limit: Int!, $skip: Int!, $regex: String!) {
+  query BookPage($limit: Int!, $skip: Int!, $identifer: String!) {
     allMarkdownRemark(
-      filter: { frontmatter: { category: { regex: $regex } } }
+      filter: { frontmatter: { category: { eq: $identifer } } }
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
     ) {
       nodes {
-        excerpt
+        html
         fields {
           slug
         }
@@ -27,14 +27,15 @@ export const pageQuery = graphql`
           date(formatString: "YYYY-MM-DD")
           title
           description
-          hero {
+          author
+          published_date
+          thumb {
             childImageSharp {
-              fluid(maxWidth: 900) {
+              fluid(maxWidth: 600) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
-          tags
         }
       }
     }

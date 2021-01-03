@@ -25,7 +25,7 @@ module.exports = {
       options: {
         output: `/sitemap.xml`,
         createLinkInHead: true,
-      }
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,

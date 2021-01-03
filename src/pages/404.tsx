@@ -13,7 +13,10 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query ErrorPage {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      filter: { frontmatter: { category: { regex: "/(tech|daily)/" } } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       catGroup: group(field: frontmatter___category) {
         fieldValue
         totalCount

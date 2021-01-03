@@ -1,0 +1,34 @@
+.book__ttl {
+	@apply relative font-bold text-lg md:text-2xl;
+	margin-bottom: 1.5em;
+}
+.book__ttl:after {
+	@apply absolute -bottom-3 left-0 right-0 h-3;
+	content: "";
+	background-image: repeating-linear-gradient(-45deg, theme('colors.accent.DEFAULT'), theme('colors.accent.DEFAULT') 1px, transparent 2px, transparent 5px);
+	background-size: 7px 7px;
+	backface-visibility: hidden;
+}
+.book__imgwrap {
+	@apply mb-4 sm:mb-0 mx-auto;
+	width: 200px;
+}
+@screen sm {
+	.book__imgwrap {
+		width: 70%;
+		max-width: 250px;
+	}
+}
+.book-table {
+	@apply w-full border border-solid border-gray;
+}
+.book-table th,
+.book-table td {
+	@apply border border-solid border-gray py-3 px-4;
+}
+.book-list > li + li {
+	@apply mt-6;
+}
+.book__contents a {
+	@apply text-accent underline inline-block mt-4;
+}
