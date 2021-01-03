@@ -59,7 +59,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   /**
    * ブログ記事
    */
-  const blogPosts = blogResult.data?.allMarkdownRemark?.nodes
+  const blogPosts = blogResult.data!.allMarkdownRemark.nodes
   if (blogPosts && blogPosts.length > 0) {
     blogPosts.forEach((post, index) => {
       const previous =
