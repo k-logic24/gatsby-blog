@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Image from 'gatsby-image'
 
 import Seo from '@/components/shared/seo'
@@ -10,6 +10,11 @@ import { BookPageProps } from '@/types'
 type BookProps = BookPageProps['data']['allMarkdownRemark']['nodes']
 
 const Main: React.FC<BookPageProps> = ({ data, pageContext }) => {
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 1.0
+  }
   const [books, setBooks] = useState<BookProps>([])
   const { isFirst, isLast, currentPage, bookPages } = pageContext
 

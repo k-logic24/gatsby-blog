@@ -25,7 +25,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
     `
       query {
         allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
+          sort: {
+            fields: [frontmatter___date],
+            order: DESC
+          }
           limit: 1000
         ) {
           nodes {
@@ -35,6 +38,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
             frontmatter {
               title
               tags
+              category
             }
           }
           tagGroup: group(field: frontmatter___tags) {
@@ -60,11 +64,13 @@ export const createPages: GatsbyNode['createPages'] = async ({
    * ブログ記事
    */
   const blogPosts = blogResult.data!.allMarkdownRemark.nodes
-  if (blogPosts && blogPosts.length > 0) {
-    blogPosts.forEach((post, index) => {
+  const postsExcludeCatBook = blogPosts
+    .filter(post => post.frontmatter?.category !== 'book')
+  if (postsExcludeCatBook && postsExcludeCatBook.length > 0) {
+    postsExcludeCatBook.forEach((post, index) => {
       const previous =
-        index === blogPosts.length - 1 ? null : blogPosts[index + 1]
-      const next = index === 0 ? null : blogPosts[index - 1]
+        index === postsExcludeCatBook.length - 1 ? null : postsExcludeCatBook[index + 1]
+      const next = index === 0 ? null : postsExcludeCatBook[index - 1]
 
       createPage({
         path: `/blog${post.fields!.slug}`,
@@ -97,7 +103,6 @@ export const createPages: GatsbyNode['createPages'] = async ({
         currentPage: i + 1,
         isFirst: i + 1 === 1,
         isLast: i + 1 === blogPages,
-        regex: '/(tech|daily)/',
       },
     })
   })
@@ -194,7 +199,6 @@ export const createPages: GatsbyNode['createPages'] = async ({
         currentPage: i + 1,
         isFirst: i + 1 === 1,
         isLast: i + 1 === bookPages,
-        identifer: 'book',
       },
     })
   })

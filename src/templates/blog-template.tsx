@@ -11,9 +11,9 @@ const BlogIndex: React.FC<BlogPageProps> = ({ data, pageContext }) => {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query BlogPage($limit: Int!, $skip: Int!, $regex: String!) {
+  query BlogPage($limit: Int!, $skip: Int!) {
     allMarkdownRemark(
-      filter: { frontmatter: { category: { regex: $regex } } }
+      filter: { frontmatter: { category: { regex: "/(tech|daily)/" } } }
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip

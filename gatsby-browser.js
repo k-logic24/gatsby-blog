@@ -12,9 +12,13 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
 config.autoAddCss = false
 
+/**
+ * smooth-scroll
+ */
 if (typeof window !== 'undefined') {
   require('smooth-scroll')('a[href*="#"]', {
     offset: 60,
     easing: 'easeInOutCubic',
   })
 }
+

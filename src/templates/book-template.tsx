@@ -11,9 +11,9 @@ const BlogIndex: React.FC<BookPageProps> = ({ data, pageContext }) => {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query BookPage($limit: Int!, $skip: Int!, $identifer: String!) {
+  query BookPage($limit: Int!, $skip: Int!) {
     allMarkdownRemark(
-      filter: { frontmatter: { category: { eq: $identifer } } }
+      filter: { frontmatter: { category: { eq: "book" } } }
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
