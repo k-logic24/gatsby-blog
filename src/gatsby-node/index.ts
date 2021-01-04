@@ -65,7 +65,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
    */
   const blogPosts = blogResult.data!.allMarkdownRemark.nodes
   const postsExcludeCatBook = blogPosts
-    .filter(post => post.frontmatter?.category !== 'book')
+    .filter(post => post.frontmatter.category !== 'book')
   if (postsExcludeCatBook && postsExcludeCatBook.length > 0) {
     postsExcludeCatBook.forEach((post, index) => {
       const previous =
