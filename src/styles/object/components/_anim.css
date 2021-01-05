@@ -1,0 +1,9 @@
+.js-fadeUpPost {
+	opacity: .1;
+	transform: translateY(40px);
+	transition: all 800ms cubic-bezier(.17,.67,.64,.95);
+}
+.js-fadeUpPost.show {
+	opacity: 1;
+	transform: translateY(0);
+}

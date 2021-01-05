@@ -22,3 +22,14 @@ if (typeof window !== 'undefined') {
   })
 }
 
+const onRouteUpdate = ({ location }) => {
+  const postRegExp = /\/.+\/.+\/.+\//
+  if (postRegExp.test(location.pathname)) {
+    const targets = document.querySelectorAll('.js-fadeUpPost')
+    targets.forEach((target, idx) => {
+      setTimeout(() => target.classList.add('show'), 500 * idx)
+    })
+  }
+}
+
+export { onRouteUpdate }

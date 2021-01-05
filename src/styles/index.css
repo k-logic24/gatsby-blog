@@ -1,5 +1,6 @@
 @import 'layout/_header.css';
 @import 'layout/_section.css';
+@import 'object/components/_anim.css';
 @import 'object/components/_tag.css';
 @import 'object/components/_pagination.css';
 @import 'object/components/_link.css';

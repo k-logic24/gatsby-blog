@@ -25,10 +25,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     `
       query {
         allMarkdownRemark(
-          sort: {
-            fields: [frontmatter___date],
-            order: DESC
-          }
+          sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {
           nodes {
@@ -64,12 +61,15 @@ export const createPages: GatsbyNode['createPages'] = async ({
    * ブログ記事
    */
   const blogPosts = blogResult.data!.allMarkdownRemark.nodes
-  const postsExcludeCatBook = blogPosts
-    .filter(post => post.frontmatter!.category !== 'book')
+  const postsExcludeCatBook = blogPosts.filter(
+    post => post.frontmatter!.category !== 'book'
+  )
   if (postsExcludeCatBook && postsExcludeCatBook.length > 0) {
     postsExcludeCatBook.forEach((post, index) => {
       const previous =
-        index === postsExcludeCatBook.length - 1 ? null : postsExcludeCatBook[index + 1]
+        index === postsExcludeCatBook.length - 1
+          ? null
+          : postsExcludeCatBook[index + 1]
       const next = index === 0 ? null : postsExcludeCatBook[index - 1]
 
       createPage({
@@ -88,7 +88,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
    * ブログ一覧
    */
   const blogNodes = blogResult.data!.allMarkdownRemark.nodes
-  const filteredNoBookPosts = blogNodes.filter(node => node.frontmatter!.category !== 'book')
+  const filteredNoBookPosts = blogNodes.filter(
+    node => node.frontmatter!.category !== 'book'
+  )
   const blogAllPosts = blogNodes ? filteredNoBookPosts.length : 0
   const blogPerPage = 6
   const blogPages = Math.ceil(blogAllPosts / blogPerPage)

@@ -38,13 +38,13 @@ const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
           itemScope
           itemType="http://schema.org/Article"
         >
-          <div className="mb-6">
+          <div className="js-fadeUpPost mb-6">
             <h1 className="font-bold text-xl md:text-2xl blog-post__ttl">
               {title}
             </h1>
             <span className="text-xs text-secondary">{date}</span>
           </div>
-          <div className="mb-8">
+          <div className="js-fadeUpPost mb-8">
             <Image fluid={src!} alt="" />
           </div>
           {tableOfContents && (
