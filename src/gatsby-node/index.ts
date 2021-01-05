@@ -88,7 +88,8 @@ export const createPages: GatsbyNode['createPages'] = async ({
    * ブログ一覧
    */
   const blogNodes = blogResult.data!.allMarkdownRemark.nodes
-  const blogAllPosts = blogNodes ? blogNodes.length : 0
+  const filteredNoBookPosts = blogNodes.filter(node => node.frontmatter!.category !== 'book')
+  const blogAllPosts = blogNodes ? filteredNoBookPosts.length : 0
   const blogPerPage = 6
   const blogPages = Math.ceil(blogAllPosts / blogPerPage)
 
