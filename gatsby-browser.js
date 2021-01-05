@@ -23,7 +23,7 @@ if (typeof window !== 'undefined') {
 }
 
 const onRouteUpdate = ({ location }) => {
-  const postRegExp = /\/.+\/.+\/.+\//
+  const postRegExp = /^\/blog\/(web|daily)\/.+\/$/
   if (postRegExp.test(location.pathname)) {
     const targets = document.querySelectorAll('.js-fadeUpPost')
     targets.forEach((target, idx) => {
