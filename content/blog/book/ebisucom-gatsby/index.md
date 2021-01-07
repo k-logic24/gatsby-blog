@@ -11,4 +11,4 @@ Reactベースの静的サイトジェネレーターGatsbyについて、手を
 実際にサイトを作成しながらなので、わかりやすかったです。  
 このサイトも、この本を元に作成しました。
 
-[Amzn](https://www.amazon.co.jp/dp/4839973008/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=ebisu01-22&linkId=73c994da62b94962d7617937633f8fa1&language=ja_JP)
+[購入する](https://www.amazon.co.jp/dp/4839973008/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=ebisu01-22&linkId=73c994da62b94962d7617937633f8fa1&language=ja_JP)

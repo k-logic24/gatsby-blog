@@ -11,12 +11,12 @@
 }
 .book__imgwrap {
 	@apply mb-4 sm:mb-0 mx-auto;
-	width: 200px;
+	width: 150px;
 }
 @screen sm {
 	.book__imgwrap {
-		width: 70%;
-		max-width: 250px;
+		width: 50%;
+		max-width: 200px;
 	}
 }
 .book-table {
