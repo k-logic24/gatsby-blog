@@ -7,6 +7,10 @@
   @apply text-sm md:text-base leading-loose list-inside list-disc;
   margin-bottom: 1.5em;
 }
+.blog-post-contents ol {
+  @apply text-sm md:text-base leading-loose list-inside list-decimal;
+  margin-bottom: 1.5em;
+}
 .blog-post p {
   @apply text-sm md:text-base leading-relaxed md:leading-loose;
   margin-bottom: 1.5em;
@@ -74,4 +78,11 @@ blockquote p {
 }
 .blog-post .gatsby-resp-image-wrapper {
   margin: 0 !important;
+}
+.blog-post strong {
+  background: linear-gradient(to bottom, transparent 70%,  theme('colors.accent.DEFAULT') 70%);
+}
+.blog-post .language-text {
+  padding: .1em .3em;
+  margin: 0 .3em
 }

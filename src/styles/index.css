@@ -6,9 +6,9 @@
 @import 'object/components/_link.css';
 @import 'object/components/_bio.css';
 @import 'object/components/_list.css';
-@import 'object/components/_post.css';
 @import 'object/components/_toc.css';
 @import 'object/components/_search.css';
+@import 'object/project/_post.css';
 @import 'object/project/_fv.css';
 @import 'object/project/_book.css';
 
