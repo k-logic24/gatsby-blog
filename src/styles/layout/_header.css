@@ -30,7 +30,7 @@
     transition: opacity 300ms, visibility 300ms;
   }
   .header-nav__tooltip:after {
-    @apply absolute;
+    @apply absolute hidden sm:block;
     content: "";
     top: -15px;
     left: 50%;
@@ -38,7 +38,8 @@
     border: 10px solid transparent;
     border-bottom-color: theme('colors.black');
   }
-  .tooltip-trigger:hover .header-nav__tooltip {
+  .tooltip-trigger:hover .header-nav__tooltip,
+  .tooltip-trigger:focus .header-nav__tooltip{
     opacity: 1;
     visibility: visible;
   }
