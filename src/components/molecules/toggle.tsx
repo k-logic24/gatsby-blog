@@ -5,22 +5,31 @@ import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 import { AppProps } from '@/types'
 
 const Toggle: React.FC<AppProps['toggle']> = ({ theme, toggleTheme }) => {
+  const currentTheme = theme === 'light' ? 'ライト' : 'ダーク'
   const icon =
     theme === 'light' ? (
-      <FontAwesomeIcon icon={faMoon} aria-hidden="true" />
+      <FontAwesomeIcon icon={faSun} aria-hidden="true" />
     ) : (
-      <FontAwesomeIcon icon={faSun} className="text-white" aria-hidden="true" />
+      <FontAwesomeIcon
+        icon={faMoon}
+        className="text-white"
+        aria-hidden="true"
+      />
     )
 
   return (
     <button
       type="button"
-      className="text-lg md:text-base text-white"
+      className="text-lg text-white p-2 relative tooltip-trigger"
       onClick={toggleTheme}
-      aria-label="テーマを変更"
       title="テーマを変更"
     >
       {icon}
+      <div className="header-nav__tooltip" role="tooltip" aria-hidden="true">
+        テーマを変更します。
+        <br />
+        現在は{currentTheme}です。
+      </div>
     </button>
   )
 }

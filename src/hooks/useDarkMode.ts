@@ -15,12 +15,12 @@ export const useDarkMode = (): [ThemeProps, () => void] => {
   const toggleClass = (theme: ThemeProps) => {
     switch (theme) {
       case 'light':
-        document.documentElement.classList.remove('light')
-        document.documentElement.classList.add('dark')
-        break
-      case 'dark':
         document.documentElement.classList.remove('dark')
         document.documentElement.classList.add('light')
+        break
+      case 'dark':
+        document.documentElement.classList.remove('light')
+        document.documentElement.classList.add('dark')
         break
       default:
         break

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'gatsby-image'
 
 import Seo from '@/components/shared/seo'

@@ -17,24 +17,32 @@ const Header: React.FC = () => {
           Iwata&apos;s BLOG
         </Link>
         <nav className="header-nav">
-          <ul className="flex">
-            <li className="mr-4">
-              <Link to="/book" className="text-white text-lg md:text-base">
-                <span className="hidden lg:inline-block">book</span>
-                <span className="lg:hidden" aria-label="book">
-                  <FontAwesomeIcon icon={faBook} aria-hidden="true" />
-                </span>
-              </Link>
-            </li>
+          <ul className="flex items-center">
             <li>
-              <Link to="/blog" className="text-white text-lg md:text-base">
-                <span className="hidden lg:inline-block">blog</span>
-                <span className="lg:hidden" aria-label="blog">
-                  <FontAwesomeIcon icon={faPen} aria-hidden="true" />
-                </span>
+              <Link to="/book" className="tooltip-trigger header-nav__link">
+                <FontAwesomeIcon icon={faBook} aria-hidden="true" />
+                <div
+                  className="header-nav__tooltip"
+                  role="tooltip"
+                  aria-hidden="true"
+                >
+                  読んだ本を紹介していきます。
+                </div>
               </Link>
             </li>
-            <li className="ml-8">
+            <li className="ml-2">
+              <Link to="/blog" className="tooltip-trigger header-nav__link">
+                <FontAwesomeIcon icon={faPen} aria-hidden="true" />
+                <div
+                  className="header-nav__tooltip"
+                  role="tooltip"
+                  aria-hidden="true"
+                >
+                  ブログ一覧ページです。
+                </div>
+              </Link>
+            </li>
+            <li className="ml-4">
               <Toggle
                 theme={theme as AppProps['toggle']['theme']}
                 toggleTheme={toggleTheme as AppProps['toggle']['toggleTheme']}
