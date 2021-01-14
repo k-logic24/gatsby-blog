@@ -22,7 +22,7 @@
   }
   .header-nav__tooltip {
     @apply text-left absolute text-sm p-2 leading-normal bg-black rounded;
-    width: 10em;
+    width: 8em;
 		transform: translate(-50%, 10px);
     left: 50%;
     opacity: 0;
