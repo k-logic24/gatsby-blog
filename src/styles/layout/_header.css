@@ -21,7 +21,7 @@
     @apply text-white p-2 text-lg relative;
   }
   .header-nav__tooltip {
-    @apply text-left absolute text-sm p-2 leading-normal bg-black rounded;
+    @apply text-left hidden sm:block absolute text-sm p-2 leading-normal bg-black rounded;
     width: 8em;
 		transform: translate(-50%, 10px);
     left: 50%;
@@ -30,7 +30,7 @@
     transition: opacity 300ms, visibility 300ms;
   }
   .header-nav__tooltip:after {
-    @apply absolute hidden sm:block;
+    @apply absolute;
     content: "";
     top: -15px;
     left: 50%;
