@@ -40,10 +40,10 @@ const Item: React.FC<AppProps['item']> = ({
           </Link>
         </h2>
         <div className="mt-1">
-          <ul className="blog-list-taglist">
+          <ul className="flex flex-wrap -m-0.5">
             {tags &&
               tags.map((tag, index) => (
-                <li key={index}>
+                <li className="p-0.5" key={index}>
                   <TagLabel fieldValue={tag} variant={variant} />
                 </li>
               ))}

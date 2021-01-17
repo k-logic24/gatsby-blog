@@ -11,8 +11,7 @@
 }
 .link--more:before,
 .link--more:after {
-  @apply absolute h-px bg-current top-1/2 transition-all duration-500 ease-out;
-  right: 0;
+  @apply absolute h-px bg-current top-1/2 transition-all duration-500 ease-out right-0;
   content: '';
 }
 .link--more:before {
@@ -36,17 +35,14 @@
 }
 
 .anim-link {
-  @apply hover:text-accent transition-colors duration-300;
-  position: relative;
+  @apply relative hover:text-accent transition-colors duration-300;
 }
 .anim-link:after {
-  @apply absolute left-0 w-full inline-block h-px bg-accent origin-bottom-right transition-transform duration-300;
+  @apply absolute left-0 w-full inline-block h-px bg-accent origin-bottom-right transition-transform duration-300 transform scale-x-0;
   content: '';
   bottom: -2px;
-  transform: scaleX(0);
 }
 .anim-link:hover:after,
 .anim-link:focus:after {
-  @apply origin-bottom-left;
-  transform: scaleX(1);
+  @apply origin-bottom-left transform scale-x-100;
 }

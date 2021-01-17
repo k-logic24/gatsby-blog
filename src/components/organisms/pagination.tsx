@@ -16,12 +16,12 @@ const Pagination: React.FC<AppProps['pagination']> = ({
   pages,
 }) => {
   return (
-    <nav className="pagination">
+    <nav className="relative w-full pagination">
       <ul className="pagination-list">
         {!isFirst && (
-          <li className="pagination-list__item prev">
+          <li className="pagination-list__item absolute left-0 top-0">
             <Link
-              className="pagination__link"
+              className="hover:opacity-60 transition-opacity duration-300 tracking-wider pagination__link"
               to={
                 currentPage === 2 ? `/${type}/` : `/${type}/${currentPage! - 1}`
               }
@@ -29,20 +29,20 @@ const Pagination: React.FC<AppProps['pagination']> = ({
             >
               <FontAwesomeIcon
                 icon={faChevronLeft}
-                className="pagination__icon prev"
+                className="transition-transform duration-300 text-sm pagination__icon prev"
               />
               <span style={{ marginLeft: '0.5em' }}>Prev</span>
             </Link>
           </li>
         )}
-        <li className="page-txt">
+        <li className="absolute left-2/4 top-0 transform -translate-x-1/2">
           page {currentPage} / {pages}
         </li>
         {!isLast && (
-          <li className="pagination-list__item next">
+          <li className="pagination-list__item absolute right-0 top-0">
             <Link
               to={`/${type}/${currentPage! + 1}/`}
-              className="pagination__link"
+              className="hover:opacity-60 transition-opacity duration-300 tracking-wider pagination__link"
               rel="next"
             >
               <span style={{ marginRight: '0.5em' }}>Next</span>

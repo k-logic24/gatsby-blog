@@ -42,10 +42,10 @@ const Bio: React.FC = () => {
         />
       )}
       {author?.name && (
-        <ul className="bio-list">
+        <ul className="ml-4 self-end flex">
           <li>
             <a
-              className="bio-list__link anim-link"
+              className="text-white text-sm anim-link"
               href={`https://twitter.com/${social?.twitter || ``}`}
               target="_blank"
               rel="noopenner noreferrer"
@@ -53,9 +53,9 @@ const Bio: React.FC = () => {
               Twitter
             </a>
           </li>
-          <li>
+          <li className="ml-2">
             <a
-              className="bio-list__link anim-link"
+              className="text-white text-sm anim-link"
               href={`https://github.com/${social?.github || ``}`}
               target="_blank"
               rel="noopenner noreferrer"

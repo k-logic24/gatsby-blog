@@ -4,7 +4,6 @@
 @import 'object/components/_tag.css';
 @import 'object/components/_pagination.css';
 @import 'object/components/_link.css';
-@import 'object/components/_bio.css';
 @import 'object/components/_list.css';
 @import 'object/components/_toc.css';
 @import 'object/components/_search.css';
@@ -19,5 +18,8 @@ body {
 @layer utilities {
   .text-link {
     color: #005b99;
+  }
+  .absolute-center {
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
   }
 }

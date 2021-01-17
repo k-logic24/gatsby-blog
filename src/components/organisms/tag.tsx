@@ -9,10 +9,10 @@ const Tag: React.FC<{ tagGroup: BlogTagGroupProps }> = ({ tagGroup }) => {
       <div className="text-center">
         <h1 className="pb-4 mb-10 text-gray section__ttl">タグ</h1>
       </div>
-      <ul className="tag-list">
+      <ul className="flex flex-wrap justify-center -my-1.5 -mx-1">
         {tagGroup.map(({ fieldValue, totalCount }) => (
-          <li key={fieldValue}>
-            <TagLabel fieldValue={fieldValue!} totalCount={totalCount} />
+          <li className="my-1.5 mx-1" key={fieldValue}>
+            <TagLabel fieldValue={fieldValue!} totalCount={totalCount} variant="lg" />
           </li>
         ))}
       </ul>

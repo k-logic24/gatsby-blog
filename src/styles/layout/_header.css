@@ -1,25 +1,4 @@
 @layer components {
-  .header {
-    @apply fixed w-full top-0 left-0 z-50 bg-gray-light opacity-90 h-12 shadow;
-  }
-  .header__inner {
-    @apply flex justify-between items-center lg:block relative h-full container;
-  }
-  @screen lg {
-    .header__logo {
-      @apply absolute left-1/2 top-1/2;
-      transform: translate(-50%, -50%);
-    }
-  }
-  @screen lg {
-    .header-nav {
-      @apply absolute right-4 top-1/2;
-      transform: translateY(-50%);
-    }
-  }
-  .header-nav__link {
-    @apply text-white p-2 text-lg relative;
-  }
   .header-nav__tooltip {
     @apply text-left hidden sm:block absolute text-sm p-2 leading-normal bg-black rounded;
     width: 8em;
@@ -39,7 +18,7 @@
     border-bottom-color: theme('colors.black');
   }
   .tooltip-trigger:hover .header-nav__tooltip,
-  .tooltip-trigger:focus .header-nav__tooltip{
+  .tooltip-trigger:focus .header-nav__tooltip {
     opacity: 1;
     visibility: visible;
   }

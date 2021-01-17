@@ -11,8 +11,8 @@ const TagLabel: React.FC<AppProps['taglabel']> = ({
 }) => {
   const size = clsx(
     'post-tag',
-    variant === 'sm' && 'post-tag--sm',
-    variant === 'lg' && 'post-tag--lg'
+    variant === 'sm' && 'font-normal text-sm',
+    variant === 'lg' && 'font-bold text-lg'
   )
 
   return (

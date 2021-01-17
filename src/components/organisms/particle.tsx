@@ -5,7 +5,7 @@ const Particle: React.FC = () => {
   return (
     <Particles
       id="tsparticles"
-      className="particles"
+      className="absolute top-0 left-0 bottom-0 right-0"
       canvasClassName="particles-canvas"
       options={{
         background: {

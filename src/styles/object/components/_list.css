@@ -24,25 +24,6 @@
     @apply py-1 px-3 text-gray italic font-bold text-sm md:text-base absolute bottom-0 left-0 w-full;
     background-color: rgba(255, 255, 255, 0.6);
   }
-  .blog-list-taglist {
-    @apply flex flex-wrap -m-0.5;
-  }
-  .blog-list-taglist > li {
-    @apply p-0.5;
-  }
-  .tag-list {
-    @apply flex flex-wrap justify-center;
-    margin: -0.3rem -0.2rem;
-  }
-  .tag-list > li {
-    padding: 0.3rem 0.2rem;
-  }
-  .cat-list {
-    @apply max-w-screen-md mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8;
-  }
-  .cat-list > li {
-    @apply relative rounded overflow-hidden h-32 sm:h-40;
-  }
   .cat-list__link:after {
     @apply absolute top-0 left-0 right-0 bottom-0 bg-gray opacity-20 transition-opacity duration-300;
     content: '';
@@ -52,11 +33,5 @@
   }
   .cat-list__link {
     @apply block h-full;
-  }
-  .cat-list__txt {
-    @apply font-bold absolute text-xl md:text-3xl tracking-widest z-50 text-white font-scripts;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 }
