@@ -22,7 +22,7 @@ const TagIndex: React.FC<TagTemplateProps> = ({ title, data, pageContext }) => {
           <div className="text-center">
             <h1 className="pb-4 mb-10 section__ttl">{`${tagId}`}</h1>
           </div>
-          <ul className="blog-list">
+          <ul className="card-list">
             {tagPosts.map(({ node }) => (
               <Item
                 key={node.fields?.slug}

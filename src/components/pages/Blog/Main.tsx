@@ -26,7 +26,7 @@ const Main: React.FC<BlogPageProps> = ({ data, pageContext }) => {
           <div className="text-center">
             <h1 className="pb-4 mb-10 section__ttl">記事</h1>
           </div>
-          <ul className="blog-list">
+          <ul className="card-list">
             {posts.map(post => {
               const title = post.frontmatter?.title || post.fields?.slug
 

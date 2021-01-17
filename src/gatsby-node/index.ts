@@ -166,6 +166,27 @@ export const createPages: GatsbyNode['createPages'] = async ({
   }
 
   /**
+   * work
+   */
+  const workResult = await graphql<{
+    allMarkdownRemark: Pick<GatsbyTypes.Query['allMarkdownRemark'], 'nodes'>
+  }>(
+    `
+      query {
+        allMarkdownRemark(
+          filter: { frontmatter: { category: { eq: "work" } } }
+          sort: { fields: [frontmatter___date], order: DESC }
+          limit: 1000
+        ) {
+          nodes {
+            id
+          }
+        }
+      }
+    `
+  )
+
+  /**
    * book
    */
   const bookResult = await graphql<{

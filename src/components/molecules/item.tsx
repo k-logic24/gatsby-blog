@@ -16,7 +16,7 @@ const Item: React.FC<AppProps['item']> = ({
   return (
     <li key={slug}>
       <article itemScope itemType="http://schema.org/Article">
-        <figure className="overflow-hidden rounded relative blog-list__imgwrap">
+        <figure className="overflow-hidden rounded relative card-list__imgwrap">
           <Link
             to={`/blog${slug!}`}
             className="block transition-transform duration-700 ease-out"
@@ -24,13 +24,13 @@ const Item: React.FC<AppProps['item']> = ({
           >
             <Image fluid={src!} alt="" />
           </Link>
-          <p className="blog-list__date">
+          <p className="card-list__date">
             <span itemProp="datePublished" content={date}>
               {date}
             </span>
           </p>
         </figure>
-        <h2 className="blog-list__ttl">
+        <h2 className="card-list__ttl">
           <Link
             to={`/blog${slug!}`}
             itemProp="url"

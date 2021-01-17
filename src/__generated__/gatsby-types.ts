@@ -775,6 +775,9 @@ declare namespace GatsbyTypes {
     childMarkdownRemark___frontmatter___thumb___children = 'childMarkdownRemark.frontmatter.thumb.children',
     childMarkdownRemark___frontmatter___author = 'childMarkdownRemark.frontmatter.author',
     childMarkdownRemark___frontmatter___published_date = 'childMarkdownRemark.frontmatter.published_date',
+    childMarkdownRemark___frontmatter___skill = 'childMarkdownRemark.frontmatter.skill',
+    childMarkdownRemark___frontmatter___siteUrl = 'childMarkdownRemark.frontmatter.siteUrl',
+    childMarkdownRemark___frontmatter___githubUrl = 'childMarkdownRemark.frontmatter.githubUrl',
     childMarkdownRemark___fields___slug = 'childMarkdownRemark.fields.slug',
     childMarkdownRemark___excerpt = 'childMarkdownRemark.excerpt',
     childMarkdownRemark___rawMarkdownBody = 'childMarkdownRemark.rawMarkdownBody',
@@ -908,6 +911,9 @@ declare namespace GatsbyTypes {
     readonly thumb: Maybe<File>
     readonly author: Maybe<Scalars['String']>
     readonly published_date: Maybe<Scalars['Date']>
+    readonly skill: Maybe<Scalars['String']>
+    readonly siteUrl: Maybe<Scalars['String']>
+    readonly githubUrl: Maybe<Scalars['String']>
   }
 
   type Frontmatter_dateArgs = {
@@ -934,6 +940,9 @@ declare namespace GatsbyTypes {
     readonly thumb: Maybe<FileFilterInput>
     readonly author: Maybe<StringQueryOperatorInput>
     readonly published_date: Maybe<DateQueryOperatorInput>
+    readonly skill: Maybe<StringQueryOperatorInput>
+    readonly siteUrl: Maybe<StringQueryOperatorInput>
+    readonly githubUrl: Maybe<StringQueryOperatorInput>
   }
 
   enum ImageCropFocus {
@@ -1744,6 +1753,9 @@ declare namespace GatsbyTypes {
     frontmatter___thumb___childMarkdownRemark___children = 'frontmatter.thumb.childMarkdownRemark.children',
     frontmatter___author = 'frontmatter.author',
     frontmatter___published_date = 'frontmatter.published_date',
+    frontmatter___skill = 'frontmatter.skill',
+    frontmatter___siteUrl = 'frontmatter.siteUrl',
+    frontmatter___githubUrl = 'frontmatter.githubUrl',
     fields___slug = 'fields.slug',
     excerpt = 'excerpt',
     rawMarkdownBody = 'rawMarkdownBody',
@@ -3637,6 +3649,24 @@ declare namespace GatsbyTypes {
     }
   }
 
+  type WorkPageQueryVariables = Exact<{ [key: string]: never }>
+
+  type WorkPageQuery = {
+    readonly allMarkdownRemark: {
+      readonly nodes: ReadonlyArray<{
+        readonly frontmatter: Maybe<
+          Pick<Frontmatter, 'title' | 'siteUrl' | 'githubUrl' | 'skill'> & {
+            readonly thumb: Maybe<{
+              readonly childImageSharp: Maybe<{
+                readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment>
+              }>
+            }>
+          }
+        >
+      }>
+    }
+  }
+
   type BioQueryVariables = Exact<{ [key: string]: never }>
 
   type BioQuery = {
@@ -3651,6 +3681,19 @@ declare namespace GatsbyTypes {
         readonly social: Maybe<Pick<Social, 'twitter' | 'github'>>
       }>
     }>
+  }
+
+  type ImgQueryVariables = Exact<{ [key: string]: never }>
+
+  type ImgQuery = {
+    readonly allImageSharp: {
+      readonly nodes: ReadonlyArray<{
+        readonly fluid: Maybe<
+          Pick<ImageSharpFluid, 'originalName'> &
+            GatsbyImageSharpFluid_withWebpFragment
+        >
+      }>
+    }
   }
 
   type SeoQueryVariables = Exact<{ [key: string]: never }>
@@ -3668,19 +3711,6 @@ declare namespace GatsbyTypes {
         }
       >
     }>
-  }
-
-  type ImgQueryVariables = Exact<{ [key: string]: never }>
-
-  type ImgQuery = {
-    readonly allImageSharp: {
-      readonly nodes: ReadonlyArray<{
-        readonly fluid: Maybe<
-          Pick<ImageSharpFluid, 'originalName'> &
-            GatsbyImageSharpFluid_withWebpFragment
-        >
-      }>
-    }
   }
 
   type GatsbyImageSharpFixedFragment = Pick<

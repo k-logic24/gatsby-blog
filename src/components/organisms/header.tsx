@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPen, faBook } from '@fortawesome/free-solid-svg-icons'
 
 import Toggle from '@/components/molecules/toggle'
 import { useDarkMode } from '@/hooks/useDarkMode'
+import { navs } from '@/constants'
 import { AppProps } from '@/types'
 
 const Header: React.FC = () => {
@@ -21,36 +21,23 @@ const Header: React.FC = () => {
         </Link>
         <nav className="lg:absolute lg:right-4 lg:top-1/2 lg:transform lg:-translate-y-1/2">
           <ul className="flex items-center">
-            <li>
-              <Link
-                to="/book"
-                className="tooltip-trigger text-white p-2 text-lg relative"
-              >
-                <FontAwesomeIcon icon={faBook} aria-hidden="true" />
-                <div
-                  className="header-nav__tooltip"
-                  role="tooltip"
-                  aria-hidden="true"
+            {navs.map((nav, idx) => (
+              <li key={idx} className={nav.margin ? nav.margin : ''}>
+                <Link
+                  to={nav.path}
+                  className="tooltip-trigger text-white p-2 text-lg relative"
                 >
-                  読んだ本を紹介していきます。
-                </div>
-              </Link>
-            </li>
-            <li className="ml-2">
-              <Link
-                to="/blog"
-                className="tooltip-trigger text-white p-2 text-lg relative"
-              >
-                <FontAwesomeIcon icon={faPen} aria-hidden="true" />
-                <div
-                  className="header-nav__tooltip"
-                  role="tooltip"
-                  aria-hidden="true"
-                >
-                  ブログ一覧ページです。
-                </div>
-              </Link>
-            </li>
+                  <FontAwesomeIcon icon={nav.icon} aria-hidden="true" />
+                  <div
+                    className="header-nav__tooltip"
+                    role="tooltip"
+                    aria-hidden="true"
+                  >
+                    {nav.txt}
+                  </div>
+                </Link>
+              </li>
+            ))}
             <li className="ml-4">
               <Toggle
                 theme={theme as AppProps['toggle']['theme']}

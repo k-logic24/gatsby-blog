@@ -23,7 +23,7 @@ const Cat: React.FC<CatTemplateProps> = ({ title, data, pageContext }) => {
           <div className="text-center">
             <h1 className="pb-4 mb-10 section__ttl">{`${catId}`}</h1>
           </div>
-          <ul className="blog-list">
+          <ul className="card-list">
             {catPosts.map(({ node }) => (
               <Item
                 key={node.fields?.slug}

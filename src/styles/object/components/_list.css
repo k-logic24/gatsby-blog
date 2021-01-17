@@ -1,26 +1,26 @@
 @layer components {
-  .blog-list {
+  .card-list {
     @apply grid gap-x-4 gap-y-6;
     grid-template-columns: repeat(2, 1fr);
   }
   @screen sm {
-    .blog-list {
+    .card-list {
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
   }
   @screen lg {
-    .blog-list {
+    .card-list {
       @apply gap-x-8 gap-y-12;
     }
   }
-  .blog-list__imgwrap:hover > a {
+  .card-list__imgwrap:hover > a {
     transform: scale(1.05);
   }
-  .blog-list__ttl {
+  .card-list__ttl {
     @apply text-sm md:text-base font-bold;
     margin-top: 1em;
   }
-  .blog-list__date {
+  .card-list__date {
     @apply py-1 px-3 text-gray italic font-bold text-sm md:text-base absolute bottom-0 left-0 w-full;
     background-color: rgba(255, 255, 255, 0.6);
   }

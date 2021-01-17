@@ -280,6 +280,7 @@ type FileGroupConnection {
 }
 
 type Frontmatter {
+  author: String
   category: String
   date(
     "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\"."
@@ -292,8 +293,22 @@ type Frontmatter {
     locale: String
   ): Date
   description: String
+  githubUrl: String
   hero: File
+  published_date(
+    "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\"."
+    difference: String,
+    "Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens."
+    formatString: String,
+    "Returns a string generated with Moment.js' `fromNow` function"
+    fromNow: Boolean,
+    "Configures the locale Moment.js will use to format the date."
+    locale: String
+  ): Date
+  siteUrl: String
+  skill: String
   tags: [String]
+  thumb: File
   title: String
 }
 
@@ -740,6 +755,7 @@ type SitePageConnection {
 
 type SitePageContext {
   blogPages: Int
+  bookPages: Int
   catId: String
   catPages: Int
   currentPage: Int
@@ -764,6 +780,7 @@ type SitePageContextNextFields {
 }
 
 type SitePageContextNextFrontmatter {
+  category: String
   tags: [String]
   title: String
 }
@@ -778,6 +795,7 @@ type SitePageContextPreviousFields {
 }
 
 type SitePageContextPreviousFrontmatter {
+  category: String
   tags: [String]
   title: String
 }
@@ -873,6 +891,7 @@ type SitePluginPluginOptions {
   cacheDigest: String
   cache_busting_mode: String
   className: String
+  createLinkInHead: Boolean
   crossOrigin: String
   defaultQuality: Int
   disableBgImage: Boolean
@@ -891,6 +910,7 @@ type SitePluginPluginOptions {
   maxWidth: Int
   name: String
   offsetY: Int
+  output: String
   pageTransitionDelay: Int
   path: String
   pathCheck: Boolean
@@ -1199,9 +1219,11 @@ enum FileFieldsEnum {
   childMarkdownRemark___excerptAst @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
   childMarkdownRemark___fields___slug
   childMarkdownRemark___fileAbsolutePath @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+  childMarkdownRemark___frontmatter___author
   childMarkdownRemark___frontmatter___category
   childMarkdownRemark___frontmatter___date
   childMarkdownRemark___frontmatter___description
+  childMarkdownRemark___frontmatter___githubUrl
   childMarkdownRemark___frontmatter___hero___absolutePath
   childMarkdownRemark___frontmatter___hero___accessTime
   childMarkdownRemark___frontmatter___hero___atime
@@ -1238,7 +1260,46 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___hero___size
   childMarkdownRemark___frontmatter___hero___sourceInstanceName
   childMarkdownRemark___frontmatter___hero___uid
+  childMarkdownRemark___frontmatter___published_date
+  childMarkdownRemark___frontmatter___siteUrl
+  childMarkdownRemark___frontmatter___skill
   childMarkdownRemark___frontmatter___tags
+  childMarkdownRemark___frontmatter___thumb___absolutePath
+  childMarkdownRemark___frontmatter___thumb___accessTime
+  childMarkdownRemark___frontmatter___thumb___atime
+  childMarkdownRemark___frontmatter___thumb___atimeMs
+  childMarkdownRemark___frontmatter___thumb___base
+  childMarkdownRemark___frontmatter___thumb___birthTime
+  childMarkdownRemark___frontmatter___thumb___birthtime
+  childMarkdownRemark___frontmatter___thumb___birthtimeMs
+  childMarkdownRemark___frontmatter___thumb___blksize
+  childMarkdownRemark___frontmatter___thumb___blocks
+  childMarkdownRemark___frontmatter___thumb___changeTime
+  childMarkdownRemark___frontmatter___thumb___children
+  childMarkdownRemark___frontmatter___thumb___ctime
+  childMarkdownRemark___frontmatter___thumb___ctimeMs
+  childMarkdownRemark___frontmatter___thumb___dev
+  childMarkdownRemark___frontmatter___thumb___dir
+  childMarkdownRemark___frontmatter___thumb___ext
+  childMarkdownRemark___frontmatter___thumb___extension
+  childMarkdownRemark___frontmatter___thumb___gid
+  childMarkdownRemark___frontmatter___thumb___id
+  childMarkdownRemark___frontmatter___thumb___ino
+  childMarkdownRemark___frontmatter___thumb___mode
+  childMarkdownRemark___frontmatter___thumb___modifiedTime
+  childMarkdownRemark___frontmatter___thumb___mtime
+  childMarkdownRemark___frontmatter___thumb___mtimeMs
+  childMarkdownRemark___frontmatter___thumb___name
+  childMarkdownRemark___frontmatter___thumb___nlink
+  childMarkdownRemark___frontmatter___thumb___prettySize
+  childMarkdownRemark___frontmatter___thumb___publicURL
+  childMarkdownRemark___frontmatter___thumb___rdev
+  childMarkdownRemark___frontmatter___thumb___relativeDirectory
+  childMarkdownRemark___frontmatter___thumb___relativePath
+  childMarkdownRemark___frontmatter___thumb___root
+  childMarkdownRemark___frontmatter___thumb___size
+  childMarkdownRemark___frontmatter___thumb___sourceInstanceName
+  childMarkdownRemark___frontmatter___thumb___uid
   childMarkdownRemark___frontmatter___title
   childMarkdownRemark___headings @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
   childMarkdownRemark___headings___depth @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1631,9 +1692,11 @@ enum MarkdownRemarkFieldsEnum {
   excerptAst @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
   fields___slug
   fileAbsolutePath @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+  frontmatter___author
   frontmatter___category
   frontmatter___date
   frontmatter___description
+  frontmatter___githubUrl
   frontmatter___hero___absolutePath
   frontmatter___hero___accessTime
   frontmatter___hero___atime
@@ -1696,7 +1759,72 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___hero___size
   frontmatter___hero___sourceInstanceName
   frontmatter___hero___uid
+  frontmatter___published_date
+  frontmatter___siteUrl
+  frontmatter___skill
   frontmatter___tags
+  frontmatter___thumb___absolutePath
+  frontmatter___thumb___accessTime
+  frontmatter___thumb___atime
+  frontmatter___thumb___atimeMs
+  frontmatter___thumb___base
+  frontmatter___thumb___birthTime
+  frontmatter___thumb___birthtime
+  frontmatter___thumb___birthtimeMs
+  frontmatter___thumb___blksize
+  frontmatter___thumb___blocks
+  frontmatter___thumb___changeTime
+  frontmatter___thumb___childImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+  frontmatter___thumb___childImageSharp___gatsbyImageData @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+  frontmatter___thumb___childImageSharp___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+  frontmatter___thumb___childMarkdownRemark___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+  frontmatter___thumb___childMarkdownRemark___excerpt @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+  frontmatter___thumb___childMarkdownRemark___excerptAst @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+  frontmatter___thumb___childMarkdownRemark___fileAbsolutePath @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+  frontmatter___thumb___childMarkdownRemark___headings @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+  frontmatter___thumb___childMarkdownRemark___html @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+  frontmatter___thumb___childMarkdownRemark___htmlAst @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+  frontmatter___thumb___childMarkdownRemark___id
+  frontmatter___thumb___childMarkdownRemark___rawMarkdownBody @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+  frontmatter___thumb___childMarkdownRemark___tableOfContents @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+  frontmatter___thumb___childMarkdownRemark___timeToRead @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+  frontmatter___thumb___children
+  frontmatter___thumb___children___children
+  frontmatter___thumb___children___id
+  frontmatter___thumb___ctime
+  frontmatter___thumb___ctimeMs
+  frontmatter___thumb___dev
+  frontmatter___thumb___dir
+  frontmatter___thumb___ext
+  frontmatter___thumb___extension
+  frontmatter___thumb___gid
+  frontmatter___thumb___id
+  frontmatter___thumb___ino
+  frontmatter___thumb___internal___content
+  frontmatter___thumb___internal___contentDigest
+  frontmatter___thumb___internal___description
+  frontmatter___thumb___internal___fieldOwners
+  frontmatter___thumb___internal___ignoreType
+  frontmatter___thumb___internal___mediaType
+  frontmatter___thumb___internal___owner
+  frontmatter___thumb___internal___type
+  frontmatter___thumb___mode
+  frontmatter___thumb___modifiedTime
+  frontmatter___thumb___mtime
+  frontmatter___thumb___mtimeMs
+  frontmatter___thumb___name
+  frontmatter___thumb___nlink
+  frontmatter___thumb___parent___children
+  frontmatter___thumb___parent___id
+  frontmatter___thumb___prettySize
+  frontmatter___thumb___publicURL
+  frontmatter___thumb___rdev
+  frontmatter___thumb___relativeDirectory
+  frontmatter___thumb___relativePath
+  frontmatter___thumb___root
+  frontmatter___thumb___size
+  frontmatter___thumb___sourceInstanceName
+  frontmatter___thumb___uid
   frontmatter___title
   headings @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
   headings___depth @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -2003,6 +2131,7 @@ enum SitePageFieldsEnum {
   componentChunkName
   componentPath
   context___blogPages
+  context___bookPages
   context___catId
   context___catPages
   context___currentPage
@@ -2010,9 +2139,11 @@ enum SitePageFieldsEnum {
   context___isLast
   context___limit
   context___next___fields___slug
+  context___next___frontmatter___category
   context___next___frontmatter___tags
   context___next___frontmatter___title
   context___previous___fields___slug
+  context___previous___frontmatter___category
   context___previous___frontmatter___tags
   context___previous___frontmatter___title
   context___skip
@@ -2136,6 +2267,7 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___cacheDigest
   pluginCreator___pluginOptions___cache_busting_mode
   pluginCreator___pluginOptions___className
+  pluginCreator___pluginOptions___createLinkInHead
   pluginCreator___pluginOptions___crossOrigin
   pluginCreator___pluginOptions___defaultQuality
   pluginCreator___pluginOptions___disableBgImage
@@ -2154,6 +2286,7 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___maxWidth
   pluginCreator___pluginOptions___name
   pluginCreator___pluginOptions___offsetY
+  pluginCreator___pluginOptions___output
   pluginCreator___pluginOptions___pageTransitionDelay
   pluginCreator___pluginOptions___path
   pluginCreator___pluginOptions___pathCheck
@@ -2297,6 +2430,7 @@ enum SitePluginFieldsEnum {
   pluginOptions___cacheDigest
   pluginOptions___cache_busting_mode
   pluginOptions___className
+  pluginOptions___createLinkInHead
   pluginOptions___crossOrigin
   pluginOptions___defaultQuality
   pluginOptions___disableBgImage
@@ -2315,6 +2449,7 @@ enum SitePluginFieldsEnum {
   pluginOptions___maxWidth
   pluginOptions___name
   pluginOptions___offsetY
+  pluginOptions___output
   pluginOptions___pageTransitionDelay
   pluginOptions___path
   pluginOptions___pathCheck
@@ -2511,11 +2646,17 @@ input FloatQueryOperatorInput {
 }
 
 input FrontmatterFilterInput {
+  author: StringQueryOperatorInput
   category: StringQueryOperatorInput
   date: DateQueryOperatorInput
   description: StringQueryOperatorInput
+  githubUrl: StringQueryOperatorInput
   hero: FileFilterInput
+  published_date: DateQueryOperatorInput
+  siteUrl: StringQueryOperatorInput
+  skill: StringQueryOperatorInput
   tags: StringQueryOperatorInput
+  thumb: FileFilterInput
   title: StringQueryOperatorInput
 }
 
@@ -2741,6 +2882,7 @@ input SiteFilterInput {
 
 input SitePageContextFilterInput {
   blogPages: IntQueryOperatorInput
+  bookPages: IntQueryOperatorInput
   catId: StringQueryOperatorInput
   catPages: IntQueryOperatorInput
   currentPage: IntQueryOperatorInput
@@ -2765,6 +2907,7 @@ input SitePageContextNextFilterInput {
 }
 
 input SitePageContextNextFrontmatterFilterInput {
+  category: StringQueryOperatorInput
   tags: StringQueryOperatorInput
   title: StringQueryOperatorInput
 }
@@ -2779,6 +2922,7 @@ input SitePageContextPreviousFilterInput {
 }
 
 input SitePageContextPreviousFrontmatterFilterInput {
+  category: StringQueryOperatorInput
   tags: StringQueryOperatorInput
   title: StringQueryOperatorInput
 }
@@ -2869,6 +3013,7 @@ input SitePluginPluginOptionsFilterInput {
   cacheDigest: StringQueryOperatorInput
   cache_busting_mode: StringQueryOperatorInput
   className: StringQueryOperatorInput
+  createLinkInHead: BooleanQueryOperatorInput
   crossOrigin: StringQueryOperatorInput
   defaultQuality: IntQueryOperatorInput
   disableBgImage: BooleanQueryOperatorInput
@@ -2887,6 +3032,7 @@ input SitePluginPluginOptionsFilterInput {
   maxWidth: IntQueryOperatorInput
   name: StringQueryOperatorInput
   offsetY: IntQueryOperatorInput
+  output: StringQueryOperatorInput
   pageTransitionDelay: IntQueryOperatorInput
   path: StringQueryOperatorInput
   pathCheck: BooleanQueryOperatorInput
