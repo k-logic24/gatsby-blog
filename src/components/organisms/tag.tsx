@@ -12,7 +12,11 @@ const Tag: React.FC<{ tagGroup: BlogTagGroupProps }> = ({ tagGroup }) => {
       <ul className="flex flex-wrap justify-center -my-1.5 -mx-1">
         {tagGroup.map(({ fieldValue, totalCount }) => (
           <li className="my-1.5 mx-1" key={fieldValue}>
-            <TagLabel fieldValue={fieldValue!} totalCount={totalCount} variant="lg" />
+            <TagLabel
+              fieldValue={fieldValue!}
+              totalCount={totalCount}
+              variant="lg"
+            />
           </li>
         ))}
       </ul>

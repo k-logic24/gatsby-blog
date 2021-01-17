@@ -58,18 +58,18 @@ const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
             dangerouslySetInnerHTML={{ __html: html as string }}
             itemProp="articleBody"
           />
-          <nav className="hidden md:block pt-12 paginate">
+          <nav className="hidden md:block pt-12 pagination">
             <ul className="flex justify-between">
               <li className="md:w-1/3">
                 {previous && (
                   <Link
                     to={`/blog${previous?.fields?.slug}`}
                     rel="prev"
-                    className="pagination__link prev"
+                    className="inline-block pagination__link"
                   >
                     <FontAwesomeIcon
                       icon={faChevronLeft}
-                      className="pagination__icon prev"
+                      className="transition-transform duration-300 pagination__icon prev"
                     />
                     <span style={{ marginLeft: '0.5em' }}>
                       {previous?.frontmatter?.title}
@@ -82,14 +82,14 @@ const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
                   <Link
                     to={`/blog${next?.fields?.slug}`}
                     rel="next"
-                    className="pagination__link next"
+                    className="inline-block pagination__link"
                   >
                     <span style={{ marginRight: '0.5em' }}>
                       {next?.frontmatter?.title}
                     </span>
                     <FontAwesomeIcon
                       icon={faChevronRight}
-                      className="pagination__icon next"
+                      className="transition-transform duration-300 pagination__icon next"
                     />
                   </Link>
                 )}
