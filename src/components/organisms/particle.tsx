@@ -43,7 +43,7 @@ const Particle: React.FC = () => {
         },
         particles: {
           color: {
-            value: '#ffffff',
+            value: '#f87171',
           },
           links: {
             color: '#ffffff',
