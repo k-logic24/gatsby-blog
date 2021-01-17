@@ -18,6 +18,7 @@ const Item: React.FC<Props> = ({ title, src, siteUrl, githubUrl, skill }) => {
             href={siteUrl}
             className="block"
             itemProp="url"
+            target="_blank"
             rel="nofollow noreferer"
           >
             <Image fluid={src!} alt="" />
@@ -41,6 +42,8 @@ const Item: React.FC<Props> = ({ title, src, siteUrl, githubUrl, skill }) => {
               <a
                 className="text-xs md:text-base text-blue-600 hover:underline"
                 href={githubUrl}
+                target="_blank"
+                rel="nofollow noreferer"
               >
                 GitHub
               </a>
