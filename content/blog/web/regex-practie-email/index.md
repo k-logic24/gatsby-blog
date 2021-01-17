@@ -3,7 +3,7 @@ title: "正規表現をがんばるお(email編)"
 date: "2021-01-11"
 hero: "../../images/javascript.jpg"
 category: "tech"
-tags: ["javascript", "正規表現"]
+tags: ["javascript", "regex"]
 ---
 下記のメールアドレスに一致させます。
 ```shell

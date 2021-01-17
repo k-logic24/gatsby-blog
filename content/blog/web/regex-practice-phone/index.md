@@ -3,7 +3,7 @@ title: "正規表現をがんばるお(電話番号編)"
 date: "2021-01-06"
 hero: "../../images/javascript.jpg"
 category: "tech"
-tags: ["javascript", "正規表現"]
+tags: ["javascript", "regex"]
 ---
 
 正規表現苦手なので、地道に練習やってみます。  
