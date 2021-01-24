@@ -1,5 +1,10 @@
+import { gsap } from 'gsap'
 import 'typeface-caveat'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { config } from '@fortawesome/fontawesome-svg-core'
+config.autoAddCss = false
 
+import { splitTestToChars } from './src/utils/SplitTextUtils'
 import '@/styles/tailwind.css'
 import '@/styles/index.css'
 import '@/styles/tailwind-utils.css'
@@ -7,10 +12,6 @@ import '@/styles/tailwind-utils.css'
 // prism
 import 'prismjs/themes/prism-tomorrow.css'
 import 'prismjs/plugins/command-line/prism-command-line.css'
-
-import '@fortawesome/fontawesome-svg-core/styles.css'
-import { config } from '@fortawesome/fontawesome-svg-core'
-config.autoAddCss = false
 
 /**
  * smooth-scroll
@@ -29,6 +30,21 @@ const onRouteUpdate = ({ location }) => {
     targets.forEach((target, idx) => {
       setTimeout(() => target.classList.add('show'), 500 * idx)
     })
+  }
+
+  const textAnimEl = document.getElementById('js-splitText')
+  if (textAnimEl) {
+    const chars = splitTestToChars(textAnimEl)
+    gsap.from(
+      chars, {
+        opacity: 0,
+        x: -20,
+        ease: 'inOut',
+        stagger: 0.15,
+        duration: 0.2,
+        delay: 0.5
+      }
+    )
   }
 }
 
