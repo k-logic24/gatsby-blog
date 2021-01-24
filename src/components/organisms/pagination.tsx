@@ -48,7 +48,7 @@ const Pagination: React.FC<AppProps['pagination']> = ({
               <span style={{ marginRight: '0.5em' }}>Next</span>
               <FontAwesomeIcon
                 icon={faChevronRight}
-                className="pagination__icon next"
+                className="transition-transform duration-300 text-sm pagination__icon next"
               />
             </Link>
           </li>
