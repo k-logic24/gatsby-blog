@@ -3,10 +3,13 @@ const splitTestToChars = (textNode: HTMLElement) => {
   if (textContent) {
     const textSplit = textContent.split('')
     const flag = document.createDocumentFragment()
-    textSplit.forEach((letter, i) => {
+    textSplit.forEach(letter => {
       const spanEl = document.createElement('span')
       spanEl.textContent = letter
-      spanEl.setAttribute('style', 'display: inline-block; opacity: 1; position: relative;')
+      spanEl.setAttribute(
+        'style',
+        'display: inline-block; opacity: 1; position: relative;'
+      )
       flag.appendChild(spanEl)
     })
     textNode.textContent = ''
@@ -16,6 +19,4 @@ const splitTestToChars = (textNode: HTMLElement) => {
   return textNode.children
 }
 
-export {
-  splitTestToChars
-}
+export { splitTestToChars }

@@ -21,7 +21,10 @@ const Main: React.FC<BlogPageProps> = ({ data, pageContext }) => {
       <Header />
       <Fv title="BLOG" isText={true} />
       <main className="py-8 md:py-12 px-4 mx-auto max-w-screen-lg">
-        <Seo title="BLOG" description={`ブログ一覧ページになります。`} />
+        <Seo
+          title="BLOG"
+          description="ブログ一覧ページになります。日々の業務の中、個人制作でつまづいたところを共有します。webのことはもちろん、日々の暮らしについても執筆しています。"
+        />
         <section className="section blog">
           <div className="text-center">
             <h1 className="pb-4 mb-10 section__ttl">記事</h1>

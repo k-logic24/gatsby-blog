@@ -19,7 +19,10 @@ const Main: React.FC<{ data: GatsbyTypes.WorkPageQuery }> = ({ data }) => {
       <Header />
       <Fv title="WORK" isText={true} />
       <main className="py-8 md:py-12 px-4 mx-auto max-w-screen-md">
-        <Seo title="WORK" description="制作作品ページになります。" />
+        <Seo
+          title="WORK"
+          description="制作した作品ページになります。フロントエンドエンジニアとして、APIを使用したアプリや違った視点からのゲーム作成など、精力的にこなしていきます。"
+        />
         <section className="section work">
           <ul className="card-list">
             {works.map(({ frontmatter }) => (

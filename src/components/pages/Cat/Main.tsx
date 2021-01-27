@@ -18,7 +18,10 @@ const Cat: React.FC<CatTemplateProps> = ({ title, data, pageContext }) => {
       <Header />
       <Fv title={title} isText={true} />
       <main className="py-8 md:py-12 px-4 mx-auto max-w-screen-lg">
-        <Seo title={title} />
+        <Seo
+          title={title}
+          description={`カテゴリー${catId}の一覧ページです。`}
+        />
         <section className="section blog">
           <div className="text-center">
             <h1 className="pb-4 mb-10 section__ttl">{`${catId}`}</h1>

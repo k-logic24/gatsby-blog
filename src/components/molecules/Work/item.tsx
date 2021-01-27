@@ -6,7 +6,7 @@ interface Props {
   src: any
   siteUrl?: string
   githubUrl?: string
-  skill: string
+  skill?: string
 }
 
 const Item: React.FC<Props> = ({ title, src, siteUrl, githubUrl, skill }) => {
@@ -19,7 +19,7 @@ const Item: React.FC<Props> = ({ title, src, siteUrl, githubUrl, skill }) => {
             className="block"
             itemProp="url"
             target="_blank"
-            rel="nofollow noreferer"
+            rel="nofollow noreferrer"
           >
             <Image fluid={src!} alt="" />
           </a>
@@ -30,7 +30,7 @@ const Item: React.FC<Props> = ({ title, src, siteUrl, githubUrl, skill }) => {
             itemProp="url"
             className="block font-bold hover:opacity-60 transition-opacity md:text-xl mb-2 mt-3"
             target="_blank"
-            rel="nofollow noreferer"
+            rel="nofollow noreferrer"
           >
             <span itemProp="headline">{title}</span>
           </a>
@@ -43,7 +43,7 @@ const Item: React.FC<Props> = ({ title, src, siteUrl, githubUrl, skill }) => {
                 className="text-xs md:text-base text-blue-600 hover:underline"
                 href={githubUrl}
                 target="_blank"
-                rel="nofollow noreferer"
+                rel="nofollow noreferrer"
               >
                 GitHub
               </a>

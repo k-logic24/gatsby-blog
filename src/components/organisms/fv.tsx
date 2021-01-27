@@ -15,7 +15,14 @@ const Fv: React.FC<AppProps['fv']> = ({ title, date, isText = true }) => {
   ) : null
 
   // cpu使用率が高い、開発ではただの黒画面にする
-  const devComponent = process.env.NODE_ENV === 'development' ? <div className="absolute top-0 left-0 bottom-0 right-0 bg-black">&ensp;</div> : <Particle />
+  const devComponent =
+    process.env.NODE_ENV === 'development' ? (
+      <div className="absolute top-0 left-0 bottom-0 right-0 bg-black">
+        &ensp;
+      </div>
+    ) : (
+      <Particle />
+    )
 
   return (
     <div className="fv">

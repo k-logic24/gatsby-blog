@@ -12,7 +12,6 @@ export const createPages: GatsbyNode['createPages'] = async ({
 }) => {
   const { createPage } = actions
   const blogTemplate = path.resolve('./src/templates/blog-template.tsx')
-  const bookTemplate = path.resolve('./src/templates/book-template.tsx')
   const blogPostTemplate = path.resolve(`./src/templates/blog-post.tsx`)
   const tagPostTemplate = path.resolve(`./src/templates/tag-template.tsx`)
   const catPostTemplate = path.resolve(`./src/templates/cat-template.tsx`)
@@ -62,7 +61,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
    */
   const blogPosts = blogResult.data!.allMarkdownRemark.nodes
   const postsExcludeCatBook = blogPosts.filter(
-    post => post.frontmatter!.category !== 'book'
+    post => {
+      const cat = post.frontmatter!.category
+      return cat !== 'work'
+    }
   )
   if (postsExcludeCatBook && postsExcludeCatBook.length > 0) {
     postsExcludeCatBook.forEach((post, index) => {
@@ -92,7 +94,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
     node => node.frontmatter!.category !== 'book'
   )
   const blogAllPosts = blogNodes ? filteredNoBookPosts.length : 0
-  const blogPerPage = 6
+  const blogPerPage = 12
   const blogPages = Math.ceil(blogAllPosts / blogPerPage)
 
   Array.from({ length: blogPages }).forEach((_: unknown, i) => {
@@ -185,47 +187,6 @@ export const createPages: GatsbyNode['createPages'] = async ({
       }
     `
   )
-
-  /**
-   * book
-   */
-  const bookResult = await graphql<{
-    allMarkdownRemark: Pick<GatsbyTypes.Query['allMarkdownRemark'], 'nodes'>
-  }>(
-    `
-      query {
-        allMarkdownRemark(
-          filter: { frontmatter: { category: { eq: "book" } } }
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
-          nodes {
-            id
-          }
-        }
-      }
-    `
-  )
-
-  const bookNodes = bookResult.data!.allMarkdownRemark.nodes
-  const bookAllPosts = bookNodes ? bookNodes.length : 0
-  const bookPerPage = 10
-  const bookPages = Math.ceil(bookAllPosts / bookPerPage)
-
-  Array.from({ length: bookPages }).forEach((_: unknown, i) => {
-    createPage({
-      path: i === 0 ? `/book/` : `/book/${i + 1}`,
-      component: bookTemplate,
-      context: {
-        bookPages: bookPages,
-        skip: bookPerPage * i,
-        limit: bookPerPage,
-        currentPage: i + 1,
-        isFirst: i + 1 === 1,
-        isLast: i + 1 === bookPages,
-      },
-    })
-  })
 }
 
 /**

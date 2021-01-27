@@ -23,7 +23,7 @@ const Main: React.FC<BlogIndexProps> = ({ title, data }) => {
       <Header />
       <Fv title={title} isText={true} />
       <main className="py-8 md:py-12 px-4 mx-auto max-w-screen-lg">
-        <Seo title="404Page" />
+        <Seo title="404Page" description="404ページです。" />
         <div className="section home">
           <div className="section-wrap">
             <div className="text-center">
