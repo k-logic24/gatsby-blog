@@ -11,7 +11,7 @@ import { CatTemplateProps } from '@/types'
 
 const Cat: React.FC<CatTemplateProps> = ({ title, data, pageContext }) => {
   const catPosts = data.allMarkdownRemark.edges
-  const { catId, isFirst, isLast, currentPage, catPages } = pageContext
+  const { catId, currentPage, catPages } = pageContext
 
   return (
     <div className="wrapper">
@@ -41,8 +41,6 @@ const Cat: React.FC<CatTemplateProps> = ({ title, data, pageContext }) => {
           </ul>
           <div className="max-w-screen-sm mx-auto py-12">
             <Pagination
-              isFirst={isFirst!}
-              isLast={isLast!}
               currentPage={currentPage!}
               type={`cat/${catId}`}
               pages={catPages!}

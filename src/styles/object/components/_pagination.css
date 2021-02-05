@@ -1,6 +1,44 @@
-.pagination__link:hover .pagination__icon.prev {
-  transform: translateX(-5px);
-}
-.pagination__link:hover .pagination__icon.next {
-  transform: translateX(5px);
+@layer components {
+  .pager {
+    @apply text-center relative;
+  }
+  .pager > li {
+    @apply inline-block;
+  }
+  .pager > li:not(.pager-archive) + li {
+    @apply ml-2;
+  }
+  .pager > li:not(.pager-archive, .pager-archive-dots) a {
+    @apply transition-colors border border-black border-solid flex items-center justify-center w-8 h-8 bg-black text-white;
+  }
+  .pager > li:not(.pager-archive, .pager-archive-dots) a:hover {
+    @apply bg-white text-black;
+  }
+  .pager > li:not(.pager-archive, .pager-archive-dots) span {
+    @apply flex items-center justify-center w-8 h-8 border border-black border-solid;
+  }
+  .pager-archive {
+    @apply absolute transform top-1/2 -translate-y-1/2;
+  }
+  .pager-archive a {
+    @apply transition-opacity duration-300;
+  }
+  .pager-archive a:hover {
+    @apply hover:opacity-60;
+  }
+  .pager-archive--older a:hover .pager-archive__icon {
+    @apply transform -translate-x-1;
+  }
+  .pager-archive--newer a:hover .pager-archive__icon {
+    @apply transform translate-x-1;
+  }
+  .pager-archive__icon {
+    @apply transition-transform duration-300 text-sm;
+  }
+  .pager-archive--newer {
+    @apply right-0;
+  }
+  .pager-archive--older {
+    @apply left-0;
+  }
 }

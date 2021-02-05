@@ -10,7 +10,7 @@ type PostProps = BlogPageProps['data']['allMarkdownRemark']['nodes']
 
 const Main: React.FC<BlogPageProps> = ({ data, pageContext }) => {
   const [posts, setPosts] = useState<PostProps>([])
-  const { isFirst, isLast, currentPage, blogPages } = pageContext
+  const { currentPage, blogPages } = pageContext
 
   useEffect(() => {
     setPosts(data.allMarkdownRemark.nodes)
@@ -48,8 +48,6 @@ const Main: React.FC<BlogPageProps> = ({ data, pageContext }) => {
           </ul>
           <div className="max-w-screen-sm mx-auto py-12">
             <Pagination
-              isFirst={isFirst!}
-              isLast={isLast!}
               currentPage={currentPage!}
               type={`blog`}
               pages={blogPages!}

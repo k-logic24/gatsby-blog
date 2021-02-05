@@ -66,8 +66,6 @@ export interface AppProps {
     variant?: 'sm' | 'lg'
   }
   pagination: {
-    isFirst: boolean
-    isLast: boolean
     currentPage: number
     type: string
     pages: number

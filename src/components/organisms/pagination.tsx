@@ -28,57 +28,68 @@ interface NextProps {
 const Li: React.FC<LiProps> = ({ num, isCurrent, path }) => {
   if (isCurrent) {
     return (
-      <li><span>{num}</span></li>
+      <li>
+        <span>{num}</span>
+      </li>
     )
-  } else {
-    return (
-      <li><Link to={path}>{num}</Link></li>
-    )
-  }
-}
-
-const Prev: React.FC<PrevProps> = ({ type, current }) => {
-  if (current === 1) {
-    return (
-      <li className="disable"><span>Newer</span></li>
-    )
-  }
-  if (current === 2) {
-    return (
-			<li><Link to={`/${type}/`}>Newer</Link></li>
-		)
   }
 
   return (
     <li>
-      <Link to={`/${type}/${current - 1}/`}>Newer</Link>
+      <Link to={path}>{num}</Link>
+    </li>
+  )
+}
+
+const Prev: React.FC<PrevProps> = ({ type, current }) => {
+  if (current === 1) return null
+  if (current === 2) {
+    return (
+      <li className="pager-archive pager-archive--older">
+        <Link to={`/${type}`}>
+          <FontAwesomeIcon
+            icon={faChevronLeft}
+            className="mr-2 pager-archive__icon"
+          />
+          Older
+        </Link>
+      </li>
+    )
+  }
+
+  return (
+    <li className="pager-archive pager-archive--older">
+      <Link to={`/${type}/${current - 1}`}>
+        <FontAwesomeIcon
+          icon={faChevronLeft}
+          className="mr-2 pager-archive__icon"
+        />
+        Older
+      </Link>
     </li>
   )
 }
 
 const Next: React.FC<NextProps> = ({ type, current, pages }) => {
-  if (current === pages) {
-    return (
-      <li className="disable"><span>Older</span></li>
-    )
-  }
-
+  if (pages === current) return null
   return (
-    <li className="c-pager--archive__next">
-      <Link to={`/${type}/${current + 1}/`}>Older</Link>
+    <li className="pager-archive pager-archive--newer">
+      <Link to={`/${type}/${current + 1}`}>
+        Newer
+        <FontAwesomeIcon
+          icon={faChevronRight}
+          className="ml-2 pager-archive__icon"
+        />
+      </Link>
     </li>
   )
 }
 
 const Skip: React.FC<{ isShow: boolean }> = ({ isShow }) => {
-  return (
-    isShow ? <li>...</li> : <></>
-  )
+  return isShow ? <li className="pager-archive-dots">...</li> : <></>
 }
 
 const Pagination: React.FC<AppProps['pagination']> = ({
-  isFirst,
-  isLast,
   currentPage,
   type,
   pages,
@@ -90,51 +101,57 @@ const Pagination: React.FC<AppProps['pagination']> = ({
 
   if (pages < 6) {
     return (
-      <ul className="pagination-list">
+      <ul className="pager">
         <Prev current={currentPage} type={type} />
-        { (array || []).map(i => (
-          i === 1
-            ? <Li
-                num={i}
-                isCurrent={currentPage === i}
-                path={`/${type}/`}
-              />
-            : <Li
-                num={i}
-                isCurrent={currentPage === i}
-                path={`/${type}/${i}`}
-              />
-          ))
-        }
+        {array.map(i =>
+          i === 1 ? (
+            <Li
+              key={i}
+              num={i}
+              isCurrent={currentPage === i}
+              path={`/${type}`}
+            />
+          ) : (
+            <Li
+              key={i}
+              num={i}
+              isCurrent={currentPage === i}
+              path={`/${type}/${i}`}
+            />
+          )
+        )}
         <Next current={currentPage} type={type} pages={pages} />
       </ul>
     )
   } else {
     if (pages >= 8) {
-      if (currentPage <= 3 ||  currentPage === 1) {
+      if (currentPage <= 3 || currentPage === 1) {
         array.length = 0
-				for (let index = 1; index <= 5; index++) {
-					array.push(index)
+        for (let index = 1; index <= 5; index++) {
+          array.push(index)
         }
 
         return (
-          <ul className="pagination-list">
+          <ul className="pager">
             <Prev current={currentPage} type={type} />
-            { (array || []).map(i => (
-              i === 1
-                ? <Li
-                    num={i}
-                    isCurrent={currentPage === i}
-                    path={`/${type}/`}
-                  />
-                : <Li
-                    num={i}
-                    isCurrent={currentPage === i}
-                    path={`/${type}/${i}`}
-                  />
-              ))
-            }
-            <li>...</li>
+            {array.map(i =>
+              i === 1 ? (
+                <Li
+                  key={i}
+                  num={i}
+                  isCurrent={currentPage === i}
+                  path={`/${type}`}
+                />
+              ) : (
+                <Li
+                  key={i}
+                  num={i}
+                  isCurrent={currentPage === i}
+                  path={`/${type}/${i}`}
+                />
+              )
+            )}
+            <li className="pager-archive-dots">...</li>
             <li>
               <Link to={`/${type}/${pages}/`}>{pages}</Link>
             </li>
@@ -143,104 +160,69 @@ const Pagination: React.FC<AppProps['pagination']> = ({
         )
       } else if (currentPage >= pages - 3) {
         array.length = 0
-				for (let index = pages - 4; index <= pages; index++) {
-					array.push(index)
+        for (let index = pages - 4; index <= pages; index++) {
+          array.push(index)
         }
 
         return (
-          <ul className="pagination-list">
+          <ul className="pager">
             <Prev current={currentPage} type={type} />
-            <li><Link to={`/${type}`}>1</Link></li>
-            <li>...</li>
-            { (array || []).map(i => (
-              i === 1
-                ? <Li
-                    num={i}
-                    isCurrent={currentPage === i}
-                    path={`/${type}/`}
-                  />
-                : <Li
-                    num={i}
-                    isCurrent={currentPage === i}
-                    path={`/${type}/${i}`}
-                  />
-              ))
-            }
+            <li>
+              <Link to={`/${type}`}>1</Link>
+            </li>
+            <li className="pager-archive-dots">...</li>
+            {array.map(i =>
+              i === 1 ? (
+                <Li
+                  key={i}
+                  num={i}
+                  isCurrent={currentPage === i}
+                  path={`/${type}`}
+                />
+              ) : (
+                <Li
+                  key={i}
+                  num={i}
+                  isCurrent={currentPage === i}
+                  path={`/${type}/${i}`}
+                />
+              )
+            )}
             <Next current={currentPage} type={type} pages={pages} />
           </ul>
         )
       } else {
         array.length = 0
-				for (let index = currentPage - 1; index <= currentPage + 2; index++) {
-					array.push(index)
+        for (let index = currentPage - 1; index <= currentPage + 2; index++) {
+          array.push(index)
         }
 
         return (
-          <ul className="pagination-list">
+          <ul className="pager">
             <Prev current={currentPage} type={type} />
-            <li><Link to={`/${type}`}>1</Link></li>
+            <li>
+              <Link to={`/${type}`}>1</Link>
+            </li>
             <Skip isShow={currentPage !== pages + (currentPage - 3)} />
-            { (array || []).map(i => (
+            {array.map(i => (
               <Li
+                key={i}
                 num={i}
                 isCurrent={currentPage === i}
-                path={`/${type}/`}
+                path={`/${type}/${i}`}
               />
             ))}
             <Skip isShow={currentPage !== pages + (currentPage + 3)} />
-            <li><Link to={`/${type}/${pages}/`}>{pages}</Link></li>
+            <li>
+              <Link to={`/${type}/${pages}`}>{pages}</Link>
+            </li>
             <Next current={currentPage} type={type} pages={pages} />
           </ul>
         )
       }
     }
-    return (
-      <></>
-    )
+    return null
   }
-
-  // return (
-  //   <nav className="relative w-full pagination">
-  //     <ul className="pagination-list">
-
-  //       {!isFirst && (
-  //         <li className="pagination-list__item absolute left-0 top-0">
-  //           <Link
-  //             className="hover:opacity-60 transition-opacity duration-300 tracking-wider pagination__link"
-  //             to={
-  //               currentPage === 2 ? `/${type}/` : `/${type}/${currentPage! - 1}`
-  //             }
-  //             rel="prev"
-  //           >
-  //             <FontAwesomeIcon
-  //               icon={faChevronLeft}
-  //               className="transition-transform duration-300 text-sm pagination__icon prev"
-  //             />
-  //             <span style={{ marginLeft: '0.5em' }}>Prev</span>
-  //           </Link>
-  //         </li>
-  //       )}
-  //       <li className="absolute left-2/4 top-0 transform -translate-x-1/2">
-  //         page {currentPage} / {pages}
-  //       </li>
-  //       {!isLast && (
-  //         <li className="pagination-list__item absolute right-0 top-0">
-  //           <Link
-  //             to={`/${type}/${currentPage! + 1}/`}
-  //             className="hover:opacity-60 transition-opacity duration-300 tracking-wider pagination__link"
-  //             rel="next"
-  //           >
-  //             <span style={{ marginRight: '0.5em' }}>Next</span>
-  //             <FontAwesomeIcon
-  //               icon={faChevronRight}
-  //               className="transition-transform duration-300 text-sm pagination__icon next"
-  //             />
-  //           </Link>
-  //         </li>
-  //       )}
-  //     </ul>
-  //   </nav>
-  // )
 }
 
 export default Pagination

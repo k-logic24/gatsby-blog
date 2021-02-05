@@ -10,7 +10,7 @@ import { TagTemplateProps } from '@/types'
 
 const TagIndex: React.FC<TagTemplateProps> = ({ title, data, pageContext }) => {
   const tagPosts = data.allMarkdownRemark.edges
-  const { tagId, isFirst, isLast, currentPage, tagPages } = pageContext
+  const { tagId, currentPage, tagPages } = pageContext
 
   return (
     <div className="wrapper">
@@ -37,8 +37,6 @@ const TagIndex: React.FC<TagTemplateProps> = ({ title, data, pageContext }) => {
           </ul>
           <div className="max-w-screen-sm mx-auto py-12">
             <Pagination
-              isFirst={isFirst!}
-              isLast={isLast!}
               currentPage={currentPage!}
               type={`tag/${tagId}`}
               pages={tagPages!}

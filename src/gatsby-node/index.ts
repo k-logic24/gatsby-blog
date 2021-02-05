@@ -60,12 +60,10 @@ export const createPages: GatsbyNode['createPages'] = async ({
    * ブログ記事
    */
   const blogPosts = blogResult.data!.allMarkdownRemark.nodes
-  const postsExcludeWork = blogPosts.filter(
-    post => {
-      const cat = post.frontmatter!.category
-      return cat !== 'work'
-    }
-  )
+  const postsExcludeWork = blogPosts.filter(post => {
+    const cat = post.frontmatter!.category
+    return cat !== 'work'
+  })
   if (postsExcludeWork && postsExcludeWork.length > 0) {
     postsExcludeWork.forEach((post, index) => {
       const previous =
@@ -91,7 +89,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
    */
   const blogNodes = blogResult.data!.allMarkdownRemark.nodes
   const blogAllPosts = blogNodes ? blogNodes.length : 0
-  const blogPerPage = 4
+  const blogPerPage = 12
   const blogPages = Math.ceil(blogAllPosts / blogPerPage)
 
   Array.from({ length: blogPages }).forEach((_: unknown, i) => {
@@ -103,8 +101,6 @@ export const createPages: GatsbyNode['createPages'] = async ({
         skip: blogPerPage * i,
         limit: blogPerPage,
         currentPage: i + 1,
-        isFirst: i + 1 === 1,
-        isLast: i + 1 === blogPages,
       },
     })
   })
@@ -130,8 +126,6 @@ export const createPages: GatsbyNode['createPages'] = async ({
           skip: blogPerPage * j,
           limit: blogPerPage,
           currentPage: j + 1,
-          isFirst: j + 1 === 1,
-          isLast: j + 1 === tagPages,
         },
       })
     })
@@ -157,8 +151,6 @@ export const createPages: GatsbyNode['createPages'] = async ({
           skip: blogPerPage * j,
           limit: blogPerPage,
           currentPage: j + 1,
-          isFirst: j + 1 === 1,
-          isLast: j + 1 === catPages,
         },
       })
     })

@@ -2,7 +2,6 @@ import React from 'react'
 
 import Particle from '@/components/organisms/particle'
 import { AppProps } from '@/types'
-import { splitTestToChars } from '@/utils/SplitTextUtils'
 
 const Fv: React.FC<AppProps['fv']> = ({ title, date, isText = true }) => {
   const titleJsx = isText ? (
