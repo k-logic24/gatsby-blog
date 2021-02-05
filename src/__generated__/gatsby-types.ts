@@ -762,8 +762,8 @@ enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___hero___publicURL = 'childMarkdownRemark.frontmatter.hero.publicURL',
   childMarkdownRemark___frontmatter___hero___id = 'childMarkdownRemark.frontmatter.hero.id',
   childMarkdownRemark___frontmatter___hero___children = 'childMarkdownRemark.frontmatter.hero.children',
-  childMarkdownRemark___frontmatter___tags = 'childMarkdownRemark.frontmatter.tags',
   childMarkdownRemark___frontmatter___category = 'childMarkdownRemark.frontmatter.category',
+  childMarkdownRemark___frontmatter___tags = 'childMarkdownRemark.frontmatter.tags',
   childMarkdownRemark___frontmatter___skill = 'childMarkdownRemark.frontmatter.skill',
   childMarkdownRemark___frontmatter___siteUrl = 'childMarkdownRemark.frontmatter.siteUrl',
   childMarkdownRemark___frontmatter___githubUrl = 'childMarkdownRemark.frontmatter.githubUrl',
@@ -931,8 +931,8 @@ type Frontmatter = {
   readonly description: Maybe<Scalars['String']>;
   readonly date: Maybe<Scalars['Date']>;
   readonly hero: Maybe<File>;
-  readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly category: Maybe<Scalars['String']>;
+  readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly skill: Maybe<Scalars['String']>;
   readonly siteUrl: Maybe<Scalars['String']>;
   readonly githubUrl: Maybe<Scalars['String']>;
@@ -952,8 +952,8 @@ type FrontmatterFilterInput = {
   readonly description: Maybe<StringQueryOperatorInput>;
   readonly date: Maybe<DateQueryOperatorInput>;
   readonly hero: Maybe<FileFilterInput>;
-  readonly tags: Maybe<StringQueryOperatorInput>;
   readonly category: Maybe<StringQueryOperatorInput>;
+  readonly tags: Maybe<StringQueryOperatorInput>;
   readonly skill: Maybe<StringQueryOperatorInput>;
   readonly siteUrl: Maybe<StringQueryOperatorInput>;
   readonly githubUrl: Maybe<StringQueryOperatorInput>;
@@ -1717,8 +1717,8 @@ enum MarkdownRemarkFieldsEnum {
   frontmatter___hero___childMarkdownRemark___timeToRead = 'frontmatter.hero.childMarkdownRemark.timeToRead',
   frontmatter___hero___childMarkdownRemark___tableOfContents = 'frontmatter.hero.childMarkdownRemark.tableOfContents',
   frontmatter___hero___childMarkdownRemark___children = 'frontmatter.hero.childMarkdownRemark.children',
-  frontmatter___tags = 'frontmatter.tags',
   frontmatter___category = 'frontmatter.category',
+  frontmatter___tags = 'frontmatter.tags',
   frontmatter___skill = 'frontmatter.skill',
   frontmatter___siteUrl = 'frontmatter.siteUrl',
   frontmatter___githubUrl = 'frontmatter.githubUrl',
@@ -3601,14 +3601,6 @@ type BioQueryVariables = Exact<{ [key: string]: never; }>;
 
 type BioQuery = { readonly avatar: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixedFragment> }> }>, readonly site: Maybe<{ readonly siteMetadata: Maybe<{ readonly author: Maybe<Pick<Author, 'name'>>, readonly social: Maybe<Pick<Social, 'twitter' | 'github'>> }> }> };
 
-type SeoQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SeoQuery = { readonly avatar: Maybe<{ readonly childImageSharp: Maybe<{ readonly sizes: Maybe<Pick<ImageSharpSizes, 'src'>> }> }>, readonly site: Maybe<{ readonly siteMetadata: Maybe<(
-      Pick<SiteSiteMetadata, 'title' | 'siteUrl' | 'description'>
-      & { readonly social: Maybe<Pick<Social, 'twitter'>> }
-    )> }> };
-
 type ImgQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3616,6 +3608,14 @@ type ImgQuery = { readonly allImageSharp: { readonly nodes: ReadonlyArray<{ read
         Pick<ImageSharpFluid, 'originalName'>
         & GatsbyImageSharpFluid_withWebpFragment
       )> }> } };
+
+type SeoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SeoQuery = { readonly avatar: Maybe<{ readonly childImageSharp: Maybe<{ readonly sizes: Maybe<Pick<ImageSharpSizes, 'src'>> }> }>, readonly site: Maybe<{ readonly siteMetadata: Maybe<(
+      Pick<SiteSiteMetadata, 'title' | 'siteUrl' | 'description'>
+      & { readonly social: Maybe<Pick<Social, 'twitter'>> }
+    )> }> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
