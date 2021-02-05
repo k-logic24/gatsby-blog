@@ -15,10 +15,6 @@ export type BlogPageProps = {
   data: GatsbyTypes.BlogPageQuery
   pageContext: GatsbyTypes.SitePageContext
 }
-export type BookPageProps = {
-  data: GatsbyTypes.BookPageQuery
-  pageContext: GatsbyTypes.SitePageContext
-}
 export type CatTemplateProps = {
   data: GatsbyTypes.CatPageQuery
   pageContext: GatsbyTypes.SitePageContext

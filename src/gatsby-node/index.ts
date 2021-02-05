@@ -60,19 +60,19 @@ export const createPages: GatsbyNode['createPages'] = async ({
    * ブログ記事
    */
   const blogPosts = blogResult.data!.allMarkdownRemark.nodes
-  const postsExcludeCatBook = blogPosts.filter(
+  const postsExcludeWork = blogPosts.filter(
     post => {
       const cat = post.frontmatter!.category
       return cat !== 'work'
     }
   )
-  if (postsExcludeCatBook && postsExcludeCatBook.length > 0) {
-    postsExcludeCatBook.forEach((post, index) => {
+  if (postsExcludeWork && postsExcludeWork.length > 0) {
+    postsExcludeWork.forEach((post, index) => {
       const previous =
-        index === postsExcludeCatBook.length - 1
+        index === postsExcludeWork.length - 1
           ? null
-          : postsExcludeCatBook[index + 1]
-      const next = index === 0 ? null : postsExcludeCatBook[index - 1]
+          : postsExcludeWork[index + 1]
+      const next = index === 0 ? null : postsExcludeWork[index - 1]
 
       createPage({
         path: `/blog${post.fields!.slug}`,
@@ -90,10 +90,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
    * ブログ一覧
    */
   const blogNodes = blogResult.data!.allMarkdownRemark.nodes
-  const filteredNoBookPosts = blogNodes.filter(
-    node => node.frontmatter!.category !== 'book'
-  )
-  const blogAllPosts = blogNodes ? filteredNoBookPosts.length : 0
+  const blogAllPosts = blogNodes ? blogNodes.length : 0
   const blogPerPage = 12
   const blogPages = Math.ceil(blogAllPosts / blogPerPage)
 

@@ -8,6 +8,24 @@ import {
 
 import { AppProps } from '@/types'
 
+interface LiProps {
+  pages: number
+  current: boolean
+  path: string
+}
+
+const Li: React.FC<LiProps> = ({ pages, current, path }) => {
+  if (current) {
+    return (
+      <li><span>{pages}</span></li>
+    )
+  } else {
+    return (
+      <li><Link to={path}>{pages}</Link></li>
+    )
+  }
+}
+
 const Pagination: React.FC<AppProps['pagination']> = ({
   isFirst,
   isLast,
