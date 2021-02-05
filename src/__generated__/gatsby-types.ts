@@ -3632,19 +3632,6 @@ declare namespace GatsbyTypes {
     }>
   }
 
-  type ImgQueryVariables = Exact<{ [key: string]: never }>
-
-  type ImgQuery = {
-    readonly allImageSharp: {
-      readonly nodes: ReadonlyArray<{
-        readonly fluid: Maybe<
-          Pick<ImageSharpFluid, 'originalName'> &
-            GatsbyImageSharpFluid_withWebpFragment
-        >
-      }>
-    }
-  }
-
   type SeoQueryVariables = Exact<{ [key: string]: never }>
 
   type SeoQuery = {
@@ -3660,6 +3647,19 @@ declare namespace GatsbyTypes {
         }
       >
     }>
+  }
+
+  type ImgQueryVariables = Exact<{ [key: string]: never }>
+
+  type ImgQuery = {
+    readonly allImageSharp: {
+      readonly nodes: ReadonlyArray<{
+        readonly fluid: Maybe<
+          Pick<ImageSharpFluid, 'originalName'> &
+            GatsbyImageSharpFluid_withWebpFragment
+        >
+      }>
+    }
   }
 
   type GatsbyImageSharpFixedFragment = Pick<

@@ -8,14 +8,17 @@
   .pager > li:not(.pager-archive) + li {
     @apply ml-2;
   }
+  .pager > li:not(.pager-archive) {
+    @apply hidden sm:inline-block;
+  }
   .pager > li:not(.pager-archive, .pager-archive-dots) a {
-    @apply transition-colors border border-black border-solid flex items-center justify-center w-8 h-8 bg-black text-white;
+    @apply transition-colors border border-gray border-solid flex items-center justify-center w-8 h-8 bg-gray text-white dark:bg-white dark:text-gray dark:border-white;
   }
   .pager > li:not(.pager-archive, .pager-archive-dots) a:hover {
-    @apply bg-white text-black;
+    @apply bg-white text-gray dark:text-white dark:bg-gray;
   }
   .pager > li:not(.pager-archive, .pager-archive-dots) span {
-    @apply flex items-center justify-center w-8 h-8 border border-black border-solid;
+    @apply flex items-center justify-center w-8 h-8 border border-gray border-solid dark:border-white;
   }
   .pager-archive {
     @apply absolute transform top-1/2 -translate-y-1/2;
