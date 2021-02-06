@@ -63,7 +63,7 @@ window.addEventListener('scroll', Action, {passive: true})
 let flag = false;
 
 function Action() {
-  if (!ticking) {
+  if (!flag) {
     requestAnimationFrame(function() {
       flag = false
       console.log(`event fired!!`)
