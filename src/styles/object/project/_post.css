@@ -4,11 +4,11 @@
   padding: 1rem;
 }
 .blog-post-contents ul {
-  @apply text-sm md:text-base leading-loose list-inside list-disc;
+  @apply text-sm md:text-base leading-loose list-inside list-disc leading-relaxed;
   margin-bottom: 1.5em;
 }
 .blog-post-contents ol {
-  @apply text-sm md:text-base leading-loose list-inside list-decimal;
+  @apply text-sm md:text-base leading-loose list-inside list-decimal leading-relaxed;
   margin-bottom: 1.5em;
 }
 .blog-post p {
