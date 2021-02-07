@@ -1,11 +1,6 @@
 @layer components {
   .fv {
-    @apply w-full relative overflow-hidden;
+    @apply w-full relative;
     height: clamp(220px, 40vw, 350px);
-  }
-  @screen md {
-    .particles-canvas {
-      height: auto !important;
-    }
   }
 }

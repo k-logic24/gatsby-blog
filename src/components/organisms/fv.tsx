@@ -25,7 +25,8 @@ const Fv: React.FC<AppProps['fv']> = ({ title, date, isText = true }) => {
 
   return (
     <div className="fv">
-      {devComponent}
+      {/*{devComponent}*/}
+      <Particle />
       {titleJsx}
     </div>
   )

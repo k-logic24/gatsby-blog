@@ -2,16 +2,23 @@ import React from 'react'
 import Particles from 'react-tsparticles'
 
 const Particle: React.FC = () => {
+  React.useEffect(() => {
+    console.log(`render`)
+  }, [])
   return (
     <Particles
       id="tsparticles"
-      className="absolute top-0 left-0 bottom-0 right-0"
+      className="h-full"
       canvasClassName="particles-canvas"
       options={{
         background: {
           color: {
-            value: '#212121',
+            value: 'red',
           },
+          image: "url('https://newevolutiondesigns.com/images/freebies/4k-wallpaper-1.jpg')",
+          position: "50% 50%",
+          repeat: "no-repeat",
+          size: "cover"
         },
         fpsLimit: 60,
         interactivity: {
