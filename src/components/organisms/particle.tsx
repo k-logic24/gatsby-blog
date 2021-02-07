@@ -1,24 +1,31 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import Particles from 'react-tsparticles'
 
 const Particle: React.FC = () => {
-  React.useEffect(() => {
-    console.log(`render`)
-  }, [])
+  const data = useStaticQuery<GatsbyTypes.FvQuery>(graphql`
+    query Fv {
+      fv: file(absolutePath: { regex: "/fv.jpg/" }) {
+        childImageSharp {
+          fluid(maxWidth: 900) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  `)
+  const fvSrc = data.fv?.childImageSharp?.fluid?.src
+
   return (
     <Particles
       id="tsparticles"
-      className="h-full"
       canvasClassName="particles-canvas"
       options={{
         background: {
-          color: {
-            value: 'red',
-          },
-          image: "url('https://newevolutiondesigns.com/images/freebies/4k-wallpaper-1.jpg')",
-          position: "50% 50%",
-          repeat: "no-repeat",
-          size: "cover"
+          image: `url(${fvSrc})`,
+          position: '50% 50%',
+          repeat: 'no-repeat',
+          size: 'cover',
         },
         fpsLimit: 60,
         interactivity: {

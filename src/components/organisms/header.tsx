@@ -11,7 +11,7 @@ const Header: React.FC = () => {
   const [theme, toggleTheme] = useDarkMode()
 
   return (
-    <header className="fixed w-full top-0 left-0 z-50 bg-gray-light opacity-90 h-12 shadow">
+    <header className="header">
       <div className="flex justify-between items-center lg:block relative h-full container">
         <Link
           to="/"

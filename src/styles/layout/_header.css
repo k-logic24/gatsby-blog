@@ -1,4 +1,9 @@
 @layer components {
+  .header {
+    @apply fixed w-full top-0 left-0 z-50 h-12 bg-black bg-opacity-70;
+    backdrop-filter: blur(5px);
+  }
+
   .header-nav__tooltip {
     @apply text-left hidden sm:block absolute text-sm p-2 leading-normal bg-black rounded;
     width: 8em;
