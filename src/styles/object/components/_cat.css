@@ -1,0 +1,12 @@
+@layer components {
+	.cat-list__link:after {
+		@apply absolute top-0 left-0 right-0 bottom-0 bg-gray opacity-20 transition-opacity duration-300;
+		content: '';
+	}
+	.cat-list__link:hover:after {
+		@apply opacity-40;
+	}
+	.cat-list__link {
+		@apply block h-full;
+	}
+}

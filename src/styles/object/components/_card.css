@@ -1,0 +1,13 @@
+@layer components {
+	.card__imgwrap:hover > a {
+		transform: scale(1.05);
+	}
+	.card__ttl {
+		@apply text-sm md:text-base font-bold;
+		margin-top: 1em;
+	}
+	.card__date {
+		@apply py-1 px-3 text-gray italic font-bold text-sm md:text-base absolute bottom-0 left-0 w-full;
+		background-color: rgba(255, 255, 255, 0.6);
+	}
+}

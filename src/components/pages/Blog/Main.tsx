@@ -29,10 +29,9 @@ const Main: React.FC<BlogPageProps> = ({ data, pageContext }) => {
           <div className="text-center">
             <h1 className="pb-4 mb-10 section__ttl">記事</h1>
           </div>
-          <ul className="card-list">
+          <ul className="article-list">
             {posts.map(post => {
               const title = post.frontmatter?.title || post.fields?.slug
-
               return (
                 <Item
                   key={post.fields!.slug!}

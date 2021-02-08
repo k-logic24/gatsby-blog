@@ -41,7 +41,7 @@ const Main: React.FC<BlogIndexProps> = ({ title, data }) => {
             </div>
             {posts.length ? (
               <>
-                <ul className="card-list">
+                <ul className="article-list">
                   {posts.slice(0, 6).map(post => (
                     <Item
                       key={post.id}

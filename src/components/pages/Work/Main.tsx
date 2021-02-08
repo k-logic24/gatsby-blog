@@ -24,7 +24,7 @@ const Main: React.FC<{ data: GatsbyTypes.WorkPageQuery }> = ({ data }) => {
           description="制作した作品ページになります。フロントエンドエンジニアとして、APIを使用したアプリや違った視点からのゲーム作成など、精力的にこなしていきます。"
         />
         <section className="section work">
-          <ul className="card-list">
+          <ul className="article-list">
             {works.map(({ frontmatter }) => (
               <Item
                 key={frontmatter?.title}
