@@ -87,8 +87,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   /**
    * ブログ一覧
    */
-  const blogNodes = blogResult.data!.allMarkdownRemark.nodes
-  const blogAllPosts = blogNodes ? blogNodes.length : 0
+  const blogAllPosts = postsExcludeWork ? postsExcludeWork.length : 0
   const blogPerPage = 12
   const blogPages = Math.ceil(blogAllPosts / blogPerPage)
 
@@ -155,27 +154,6 @@ export const createPages: GatsbyNode['createPages'] = async ({
       })
     })
   }
-
-  /**
-   * work
-   */
-  const workResult = await graphql<{
-    allMarkdownRemark: Pick<GatsbyTypes.Query['allMarkdownRemark'], 'nodes'>
-  }>(
-    `
-      query {
-        allMarkdownRemark(
-          filter: { frontmatter: { category: { eq: "work" } } }
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
-          nodes {
-            id
-          }
-        }
-      }
-    `
-  )
 }
 
 /**
