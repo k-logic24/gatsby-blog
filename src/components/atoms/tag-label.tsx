@@ -12,13 +12,15 @@ const TagLabel: React.FC<AppProps['taglabel']> = ({
   const size = clsx(
     'post-tag',
     variant === 'sm' && 'font-normal text-sm',
-    variant === 'lg' && 'font-bold text-lg'
+    variant === 'lg' && 'font-bold text-base sm:text-lg'
   )
 
   return (
     <Link className={size} to={`/tag/${fieldValue}`}>
-      {fieldValue}
-      {totalCount && <span className="inline-block ml-2">({totalCount})</span>}
+      <p className="relative z-10">
+        {fieldValue}
+        {totalCount && <span className="inline-block ml-2">({totalCount})</span>}
+      </p>
     </Link>
   )
 }

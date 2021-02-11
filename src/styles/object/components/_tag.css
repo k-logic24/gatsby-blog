@@ -1,7 +1,15 @@
 .post-tag {
-  @apply inline-block border border-accent border-solid rounded text-accent hover:bg-accent hover:text-white transition-all duration-300;
+  @apply relative inline-block text-accent hover:text-white transition-colors duration-300 ease-out;
   padding: 0.05em 0.5em;
 }
-.post-tag:before {
-  content: '#';
+.post-tag::before {
+  content: "";
+  @apply absolute border border-accent border-solid transform skew-x-6 top-0 left-0 right-0 bottom-0;
+}
+.post-tag::after {
+  content: "";
+  @apply absolute top-0 left-0 right-0 bottom-0 bg-accent origin-left transform scale-x-0 skew-x-6 transition-transform duration-300 ease-out;
+}
+.post-tag:hover::after {
+  @apply scale-x-100 skew-x-6;
 }

@@ -3600,14 +3600,6 @@ type FvQueryVariables = Exact<{ [key: string]: never; }>;
 
 type FvQuery = { readonly fv: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment> }> }> };
 
-type ImgQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type ImgQuery = { readonly allImageSharp: { readonly nodes: ReadonlyArray<{ readonly fluid: Maybe<(
-        Pick<ImageSharpFluid, 'originalName'>
-        & GatsbyImageSharpFluid_withWebpFragment
-      )> }> } };
-
 type SeoQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3615,6 +3607,14 @@ type SeoQuery = { readonly avatar: Maybe<{ readonly childImageSharp: Maybe<{ rea
       Pick<SiteSiteMetadata, 'title' | 'siteUrl' | 'description'>
       & { readonly social: Maybe<Pick<Social, 'twitter'>> }
     )> }> };
+
+type ImgQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type ImgQuery = { readonly allImageSharp: { readonly nodes: ReadonlyArray<{ readonly fluid: Maybe<(
+        Pick<ImageSharpFluid, 'originalName'>
+        & GatsbyImageSharpFluid_withWebpFragment
+      )> }> } };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
