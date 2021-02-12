@@ -10,6 +10,7 @@
   content: "";
   @apply absolute top-0 left-0 right-0 bottom-0 bg-accent origin-left transform scale-x-0 skew-x-6 transition-transform duration-300;
 }
-.post-tag:hover::after {
+.post-tag:hover::after,
+.post-tag:focus::after {
   @apply scale-x-100 skew-x-6;
 }
