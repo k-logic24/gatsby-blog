@@ -39,9 +39,9 @@ const Search: React.FC<{ posts: PostProps }> = ({ posts }) => {
             <dl>
               <div className="flex items-center text-sm md:text-base">
                 <dt className="mr-4 text-sm whitespace-nowrap">
-                  <span itemProp="datePublished" content={x.frontmatter?.date}>
+                  <time dateTime={x.frontmatter?.date}>
                     {x.frontmatter?.date}
-                  </span>
+                  </time>
                 </dt>
                 <Link
                   className="hover:text-accent transition-colors flex-1 font-bold underline"
