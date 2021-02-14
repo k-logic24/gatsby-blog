@@ -25,9 +25,7 @@ const Item: React.FC<AppProps['item']> = ({
             <Image fluid={src!} alt="" />
           </Link>
           <p className="card__date">
-            <time dateTime={date}>
-              {date}
-            </time>
+            <time dateTime={date}>{date}</time>
           </p>
         </figure>
         <h2 className="card__ttl">

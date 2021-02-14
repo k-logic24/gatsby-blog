@@ -19,7 +19,9 @@ const TagLabel: React.FC<AppProps['taglabel']> = ({
     <Link className={size} to={`/tag/${fieldValue}`}>
       <p className="relative z-10">
         {fieldValue}
-        {totalCount && <span className="inline-block ml-2">({totalCount})</span>}
+        {totalCount && (
+          <span className="inline-block ml-2">({totalCount})</span>
+        )}
       </p>
     </Link>
   )
