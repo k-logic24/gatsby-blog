@@ -47,7 +47,7 @@ yup、という見慣れないライブラリがでてきました。
 後述しますが、formikの`validationSchema`にyupのオブジェクトスキーマを登録した時、機能します。
 
 ### コード
-```tsx:App.tsx
+```tsx:title=App.tsx
 import React from 'react'
 import {Formik} from 'formik'
 import * as yup from 'yup'
@@ -157,6 +157,6 @@ Formikコンポーネントには以下をセットします。
 ### こんな挙動になります
 ![](formik-demo.gif)
 
-### 参照
+## 参照
 - [Formik](https://formik.org/docs/)
 - [yup](https://github.com/jquense/yup)
