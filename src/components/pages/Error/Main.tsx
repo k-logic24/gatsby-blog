@@ -18,7 +18,8 @@ const Main: React.FC<BlogIndexProps> = ({ title, data }) => {
   return (
     <Layouts
       fvTitle="404: NotFound"
-      seoTitle="Sorry.This page is Error Page..."
+      seoDescription="Sorry.This page is Error Page.."
+      seoTitle="404: NotFound"
       isText={true}
     >
       <div className="section home">

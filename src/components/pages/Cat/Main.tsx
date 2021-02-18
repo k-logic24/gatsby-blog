@@ -12,7 +12,8 @@ const Cat: React.FC<CatTemplateProps> = ({ title, data, pageContext }) => {
   return (
     <Layouts
       fvTitle={title}
-      seoTitle={`The page of category ${catId}`}
+      seoDescription={`The page of category ${catId}`}
+      seoTitle={`Category: ${catId}`}
       isText={true}
     >
       <section className="section blog">

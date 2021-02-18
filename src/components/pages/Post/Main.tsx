@@ -5,13 +5,9 @@ import {
   faChevronLeft,
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons'
-
-import Header from '@/components/organisms/header'
-import Footer from '@/components/organisms/footer'
-import Fv from '@/components/organisms/fv'
-import Seo from '@/components/shared/seo'
 import Image from 'gatsby-image'
 
+import Layouts from '@/layouts/layouts'
 import { BlogPostProps } from '@/types'
 
 const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
@@ -24,16 +20,12 @@ const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
   const { previous, next } = pageContext
 
   return (
-    <div className="wrapper">
-      <Seo
-        title={post?.frontmatter?.title}
-        description={post?.frontmatter?.description || post?.excerpt}
-        image={post?.frontmatter?.hero?.childImageSharp?.sizes?.src}
-      />
-      <Header />
-      <Fv isText={false} />
-      <main className="py-8 md:py-12 px-4 mx-auto max-w-screen-lg">
-        <article
+    <Layouts
+      seoTitle={post?.frontmatter?.title}
+      seoDescription={post?.frontmatter?.description || post?.excerpt}
+      isText={false}
+    >
+      <article
           className="max-w-screen-md mx-auto blog-post"
           itemScope
           itemType="http://schema.org/Article"
@@ -97,9 +89,7 @@ const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
             </ul>
           </nav>
         </article>
-      </main>
-      <Footer />
-    </div>
+    </Layouts>
   )
 }
 

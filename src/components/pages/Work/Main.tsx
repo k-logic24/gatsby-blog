@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import Seo from '@/components/shared/seo'
-import Header from '@/components/organisms/header'
-import Fv from '@/components/organisms/fv'
+import Layouts from '@/layouts/layouts'
 import Item from '@/components/molecules/Work/item'
 
 type WorkProps = GatsbyTypes.WorkPageQuery['allMarkdownRemark']['nodes']
@@ -15,30 +13,27 @@ const Main: React.FC<{ data: GatsbyTypes.WorkPageQuery }> = ({ data }) => {
   }, [])
 
   return (
-    <div className="wrapper">
-      <Header />
-      <Fv title="WORK" isText={true} />
-      <main className="py-8 md:py-12 px-4 mx-auto max-w-screen-md">
-        <Seo
-          title="WORK"
-          description="制作した作品ページになります。フロントエンドエンジニアとして、APIを使用したアプリや違った視点からのゲーム作成など、精力的にこなしていきます。"
-        />
-        <section className="section work">
-          <ul className="article-list">
-            {works.map(({ frontmatter }) => (
-              <Item
-                key={frontmatter?.title}
-                title={frontmatter?.title}
-                src={frontmatter?.thumb?.childImageSharp?.fluid}
-                githubUrl={frontmatter?.githubUrl}
-                siteUrl={frontmatter?.siteUrl}
-                skill={frontmatter?.skill}
-              />
-            ))}
-          </ul>
-        </section>
-      </main>
-    </div>
+    <Layouts
+      seoTitle="WORK"
+      seoDescription="This is a page of my work. As a front-end engineer, I will be actively working on applications using APIs and creating games from different perspectives."
+      fvTitle="WORK"
+      isText={true}
+    >
+      <section className="section work">
+        <ul className="article-list">
+          {works.map(({ frontmatter }) => (
+            <Item
+              key={frontmatter?.title}
+              title={frontmatter?.title}
+              src={frontmatter?.thumb?.childImageSharp?.fluid}
+              githubUrl={frontmatter?.githubUrl}
+              siteUrl={frontmatter?.siteUrl}
+              skill={frontmatter?.skill}
+            />
+          ))}
+        </ul>
+      </section>
+    </Layouts>
   )
 }
 

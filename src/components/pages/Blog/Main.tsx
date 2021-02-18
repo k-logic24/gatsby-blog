@@ -17,7 +17,8 @@ const Main: React.FC<BlogPageProps> = ({ data, pageContext }) => {
 
   return (
     <Layouts
-      seoTitle="This is the blog list page. I write not only about the web, but also about my daily life."
+      seoTitle="BLOG"
+      seoDescription="This is the blog list page. I write not only about the web, but also about my daily life."
       fvTitle="BLOG"
       isText={true}
     >
