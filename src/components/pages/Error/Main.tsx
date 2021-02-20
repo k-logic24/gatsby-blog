@@ -21,6 +21,7 @@ const Main: React.FC<BlogIndexProps> = ({ title, data }) => {
       seoDescription="Sorry.This page is Error Page.."
       seoTitle="404: NotFound"
       isText={true}
+      isNoIndex={true}
     >
       <div className="section home">
         <div className="section-wrap">

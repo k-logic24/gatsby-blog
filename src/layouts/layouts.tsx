@@ -6,14 +6,15 @@ import Seo from '@/components/shared/seo'
 import Footer from '@/components/organisms/footer'
 
 interface Props {
+  isText: boolean
   fvTitle?: string
   seoTitle?: string
   seoDescription?: string
   seoImage?: string
-  isText: boolean
+  isNoIndex?: boolean
 }
 
-const Layouts: React.FC<Props> = ({ children, fvTitle, isText, seoTitle, seoDescription, seoImage }) => {
+const Layouts: React.FC<Props> = ({ children, fvTitle, isText, seoTitle, seoDescription, seoImage, isNoIndex = false }) => {
   return (
     <div className="wrapper">
       <Header />
@@ -23,6 +24,7 @@ const Layouts: React.FC<Props> = ({ children, fvTitle, isText, seoTitle, seoDesc
           title={ seoTitle }
           description={seoDescription}
           image={seoImage}
+          isNoIndex={isNoIndex}
         />
         { children }
       </main>

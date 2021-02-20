@@ -2,15 +2,16 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-type Props = {
+interface Props {
   description?: string
   lang?: string
   meta?: HTMLMetaElement[]
   title?: string
   image?: string
+  isNoIndex?: boolean
 }
 
-const Seo: React.FC<Props> = ({ description, lang, meta, title, image }) => {
+const Seo: React.FC<Props> = ({ description, lang, meta, title, image, isNoIndex }) => {
   const { site, avatar } = useStaticQuery<GatsbyTypes.SeoQuery>(
     graphql`
       query Seo {
@@ -40,6 +41,10 @@ const Seo: React.FC<Props> = ({ description, lang, meta, title, image }) => {
   const defaultTitle = site?.siteMetadata?.title
   const defaultImage = avatar?.childImageSharp?.sizes?.src
   const ogImage = `${image}` || `${defaultImage}`
+  const noIndex = isNoIndex ? {
+    name: `robots`,
+    content: `noindex`,
+  } : {}
 
   return (
     <Helmet
@@ -49,6 +54,7 @@ const Seo: React.FC<Props> = ({ description, lang, meta, title, image }) => {
       title={title}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : ''}
       meta={[
+        noIndex,
         {
           name: `description`,
           content: metaDescription,
