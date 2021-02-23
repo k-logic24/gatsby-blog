@@ -1,4 +1,4 @@
-const splitTestToChars = (textNode: HTMLElement) => {
+const splitTestToChars = (textNode: HTMLElement): HTMLCollection => {
   const textContent = textNode.textContent
   if (textContent) {
     const textSplit = textContent.split('')

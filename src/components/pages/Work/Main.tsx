@@ -17,7 +17,7 @@ const Main: React.FC<{ data: GatsbyTypes.WorkPageQuery }> = ({ data }) => {
       seoTitle="WORK"
       seoDescription="This is a page of my work. As a front-end engineer, I will be actively working on applications using APIs and creating games from different perspectives."
       fvTitle="WORK"
-      isText={true}
+      isText
     >
       <section className="section work">
         <ul className="article-list">

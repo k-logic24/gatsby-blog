@@ -5,7 +5,7 @@ import Tag from '@/components/organisms/tag'
 import Cat from '@/components/organisms/cat'
 import { BlogIndexProps, BlogTagGroupProps, BlogCatGroupProps } from '@/types'
 
-const Main: React.FC<BlogIndexProps> = ({ title, data }) => {
+const Main: React.FC<BlogIndexProps> = ({ data }) => {
   const [tagGroup, setTagGroup] = useState<BlogTagGroupProps | []>([])
   const [catGroup, setCatGroup] = useState<BlogCatGroupProps | []>([])
 
@@ -20,8 +20,8 @@ const Main: React.FC<BlogIndexProps> = ({ title, data }) => {
       fvTitle="404: NotFound"
       seoDescription="Sorry.This page is Error Page.."
       seoTitle="404: NotFound"
-      isText={true}
-      isNoIndex={true}
+      isText
+      isNoIndex
     >
       <div className="section home">
         <div className="section-wrap">

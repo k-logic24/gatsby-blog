@@ -13,7 +13,7 @@ import {
   PostProps,
 } from '@/types'
 
-const Main: React.FC<BlogIndexProps> = ({ title, data }) => {
+const Main: React.FC<BlogIndexProps> = ({ data }) => {
   const [posts, setPosts] = useState<PostProps>([])
   const [tagGroup, setTagGroup] = useState<BlogTagGroupProps | []>([])
   const [catGroup, setCatGroup] = useState<BlogCatGroupProps | []>([])
@@ -29,7 +29,7 @@ const Main: React.FC<BlogIndexProps> = ({ title, data }) => {
     <Layouts
       fvTitle="HAPPY HACKING"
       seoTitle="K.Iwata's BLOG -frontend engineer"
-      isText={true}
+      isText
     >
       <div className="section home">
         <div className="section-wrap">

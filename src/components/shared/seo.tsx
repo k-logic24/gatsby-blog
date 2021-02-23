@@ -11,7 +11,14 @@ interface Props {
   isNoIndex?: boolean
 }
 
-const Seo: React.FC<Props> = ({ description, lang, meta, title, image, isNoIndex }) => {
+const Seo: React.FC<Props> = ({
+  description,
+  lang,
+  meta,
+  title,
+  image,
+  isNoIndex,
+}) => {
   const { site, avatar } = useStaticQuery<GatsbyTypes.SeoQuery>(
     graphql`
       query Seo {
@@ -41,10 +48,12 @@ const Seo: React.FC<Props> = ({ description, lang, meta, title, image, isNoIndex
   const defaultTitle = site?.siteMetadata?.title
   const defaultImage = avatar?.childImageSharp?.sizes?.src
   const ogImage = `${image}` || `${defaultImage}`
-  const noIndex = isNoIndex ? {
-    name: `robots`,
-    content: `noindex`,
-  } : {}
+  const noIndex = isNoIndex
+    ? {
+        name: `robots`,
+        content: `noindex`,
+      }
+    : {}
 
   return (
     <Helmet

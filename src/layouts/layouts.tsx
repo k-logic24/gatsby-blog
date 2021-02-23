@@ -14,19 +14,27 @@ interface Props {
   isNoIndex?: boolean
 }
 
-const Layouts: React.FC<Props> = ({ children, fvTitle, isText, seoTitle, seoDescription, seoImage, isNoIndex = false }) => {
+const Layouts: React.FC<Props> = ({
+  children,
+  fvTitle,
+  isText,
+  seoTitle,
+  seoDescription,
+  seoImage,
+  isNoIndex = false,
+}) => {
   return (
     <div className="wrapper">
       <Header />
-      <Fv title={ fvTitle } isText={ isText } />
+      <Fv title={fvTitle} isText={isText} />
       <main className="py-8 md:py-12 px-4 lg:px-0 mx-auto max-w-screen-lg">
         <Seo
-          title={ seoTitle }
+          title={seoTitle}
           description={seoDescription}
           image={seoImage}
           isNoIndex={isNoIndex}
         />
-        { children }
+        {children}
       </main>
       <Footer />
     </div>

@@ -14,7 +14,7 @@ const Cat: React.FC<CatTemplateProps> = ({ title, data, pageContext }) => {
       fvTitle={title}
       seoDescription={`The page of category ${catId}`}
       seoTitle={`Category: ${catId}`}
-      isText={true}
+      isText
     >
       <section className="section blog">
         <div className="text-center">
@@ -42,7 +42,6 @@ const Cat: React.FC<CatTemplateProps> = ({ title, data, pageContext }) => {
         </div>
       </section>
     </Layouts>
-
   )
 }
 
