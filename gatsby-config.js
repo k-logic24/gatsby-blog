@@ -11,7 +11,7 @@ module.exports = {
       name: `K.Iwata`,
       summary: `K.Iwata's Gatsby BLOG`,
     },
-    description: `こちらはフロントエンドエンジニアK.Iwataのブログサイトになります。日々の業務の中や個人制作等で学んだTipsをまとめ、記事として残していきます。`,
+    description: `This is the blog site of front-end engineer K.Iwata. I'll be posting tips and tricks that I've learned in my daily work and personal projects.`,
     siteUrl: `https://k-blog.life`,
     social: {
       twitter: `webD_hello21`,
