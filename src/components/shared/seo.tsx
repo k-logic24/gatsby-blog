@@ -47,7 +47,7 @@ const Seo: React.FC<Props> = ({
   const metaDescription = description || site!.siteMetadata!.description
   const defaultTitle = site?.siteMetadata?.title
   const defaultImage = avatar?.childImageSharp?.sizes?.src
-  const ogImage = `${image}` || `${defaultImage}`
+  const ogImage = image || defaultImage
   const noIndex = isNoIndex
     ? {
         name: `robots`,
@@ -105,9 +105,9 @@ const Seo: React.FC<Props> = ({
   )
 }
 Seo.defaultProps = {
-  lang: `ja`,
+  lang: 'ja',
   meta: [],
-  description: ``,
+  description: '',
 }
 
 export default Seo

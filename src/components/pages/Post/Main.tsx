@@ -15,7 +15,8 @@ const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
   const html = post?.html
   const title = post?.frontmatter?.title
   const date = post?.frontmatter?.date
-  const src = post?.frontmatter?.hero?.childImageSharp?.fluid
+  const originSrc = post?.frontmatter?.hero?.childImageSharp?.sizes?.src
+  const srcset = post?.frontmatter?.hero?.childImageSharp?.fluid
   const tableOfContents = post?.tableOfContents || ''
   const { previous, next } = pageContext
 
@@ -23,6 +24,7 @@ const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
     <Layouts
       seoTitle={post?.frontmatter?.title}
       seoDescription={post?.frontmatter?.description || post?.excerpt}
+      seoImage={originSrc}
       isText={false}
     >
       <article
@@ -37,7 +39,7 @@ const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
           <span className="text-xs text-secondary">{date}</span>
         </div>
         <div className="js-fadeUpPost mb-8">
-          <Image fluid={src!} alt="" />
+          <Image fluid={srcset!} alt="" />
         </div>
         {tableOfContents && (
           <div
