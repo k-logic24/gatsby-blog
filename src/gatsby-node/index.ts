@@ -73,7 +73,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
       const next = index === 0 ? null : postsExcludeWork[index - 1]
 
       createPage({
-        path: `/blog${post.fields!.slug}`,
+        path: `${post.fields!.slug}`,
         component: blogPostTemplate,
         context: {
           slug: post!.fields!.slug,
