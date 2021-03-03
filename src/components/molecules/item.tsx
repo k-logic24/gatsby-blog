@@ -18,7 +18,7 @@ const Item: React.FC<AppProps['item']> = ({
       <article className="card" itemScope itemType="http://schema.org/Article">
         <figure className="overflow-hidden rounded relative card__imgwrap">
           <Link
-            to={`/blog${slug!}`}
+            to={slug!}
             className="block transition-transform duration-700 ease-out"
             itemProp="url"
           >
@@ -30,7 +30,7 @@ const Item: React.FC<AppProps['item']> = ({
         </figure>
         <h2 className="card__ttl">
           <Link
-            to={`/blog${slug!}`}
+            to={slug!}
             itemProp="url"
             className="block hover:opacity-60 transition-opacity"
           >
