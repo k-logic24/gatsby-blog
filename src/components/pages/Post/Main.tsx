@@ -57,7 +57,7 @@ const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
             <li className="md:w-1/3">
               {previous && (
                 <Link
-                  to={`/blog${previous?.fields?.slug}`}
+                  to={`${previous?.fields?.slug}`}
                   rel="prev"
                   className="inline-block pagination__link"
                 >
@@ -74,7 +74,7 @@ const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
             <li className="md:w-1/3">
               {next && (
                 <Link
-                  to={`/blog${next?.fields?.slug}`}
+                  to={`${next?.fields?.slug}`}
                   rel="next"
                   className="inline-block pagination__link"
                 >

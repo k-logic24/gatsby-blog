@@ -45,7 +45,7 @@ const Search: React.FC<{ posts: PostProps }> = ({ posts }) => {
                 </dt>
                 <Link
                   className="hover:text-accent transition-colors flex-1 font-bold underline"
-                  to={`/blog${x.fields?.slug}`}
+                  to={`${x.fields?.slug}`}
                 >
                   <dd>{x.frontmatter?.title}</dd>
                 </Link>
