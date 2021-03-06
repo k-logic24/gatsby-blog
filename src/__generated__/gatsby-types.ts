@@ -2801,6 +2801,7 @@ declare namespace GatsbyTypes {
     pluginCreator___pluginOptions___plugins___pluginFilepath = 'pluginCreator.pluginOptions.plugins.pluginFilepath',
     pluginCreator___pluginOptions___output = 'pluginCreator.pluginOptions.output',
     pluginCreator___pluginOptions___createLinkInHead = 'pluginCreator.pluginOptions.createLinkInHead',
+    pluginCreator___pluginOptions___publisherId = 'pluginCreator.pluginOptions.publisherId',
     pluginCreator___pluginOptions___path = 'pluginCreator.pluginOptions.path',
     pluginCreator___pluginOptions___name = 'pluginCreator.pluginOptions.name',
     pluginCreator___pluginOptions___offsetY = 'pluginCreator.pluginOptions.offsetY',
@@ -3056,6 +3057,7 @@ declare namespace GatsbyTypes {
     pluginOptions___plugins___pluginFilepath = 'pluginOptions.plugins.pluginFilepath',
     pluginOptions___output = 'pluginOptions.output',
     pluginOptions___createLinkInHead = 'pluginOptions.createLinkInHead',
+    pluginOptions___publisherId = 'pluginOptions.publisherId',
     pluginOptions___path = 'pluginOptions.path',
     pluginOptions___name = 'pluginOptions.name',
     pluginOptions___offsetY = 'pluginOptions.offsetY',
@@ -3222,6 +3224,7 @@ declare namespace GatsbyTypes {
     >
     readonly output: Maybe<Scalars['String']>
     readonly createLinkInHead: Maybe<Scalars['Boolean']>
+    readonly publisherId: Maybe<Scalars['String']>
     readonly path: Maybe<Scalars['String']>
     readonly name: Maybe<Scalars['String']>
     readonly offsetY: Maybe<Scalars['Int']>
@@ -3270,6 +3273,7 @@ declare namespace GatsbyTypes {
     readonly plugins: Maybe<SitePluginPluginOptionsPluginsFilterListInput>
     readonly output: Maybe<StringQueryOperatorInput>
     readonly createLinkInHead: Maybe<BooleanQueryOperatorInput>
+    readonly publisherId: Maybe<StringQueryOperatorInput>
     readonly path: Maybe<StringQueryOperatorInput>
     readonly name: Maybe<StringQueryOperatorInput>
     readonly offsetY: Maybe<IntQueryOperatorInput>

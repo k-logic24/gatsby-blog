@@ -5,13 +5,14 @@ interface Props {
   title?: string
   src?: Pick<
     GatsbyTypes.ImageSharpFluid,
-  | 'base64'
-  | 'aspectRatio'
-  | 'src'
-  | 'srcSet'
-  | 'srcSetWebp'
-  | 'srcWebp'
-  | 'sizes'>
+    | 'base64'
+    | 'aspectRatio'
+    | 'src'
+    | 'srcSet'
+    | 'srcSetWebp'
+    | 'srcWebp'
+    | 'sizes'
+  >
   siteUrl?: string
   githubUrl?: string
   skill?: string
