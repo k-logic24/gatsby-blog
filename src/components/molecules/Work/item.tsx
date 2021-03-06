@@ -3,7 +3,15 @@ import Image from 'gatsby-image'
 
 interface Props {
   title?: string
-  src: any
+  src?: Pick<
+    GatsbyTypes.ImageSharpFluid,
+  | 'base64'
+  | 'aspectRatio'
+  | 'src'
+  | 'srcSet'
+  | 'srcSetWebp'
+  | 'srcWebp'
+  | 'sizes'>
   siteUrl?: string
   githubUrl?: string
   skill?: string

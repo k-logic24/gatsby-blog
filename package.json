@@ -30,17 +30,13 @@
     "gatsby-source-filesystem": "^2.8.0",
     "gatsby-transformer-remark": "^2.13.0",
     "gatsby-transformer-sharp": "^2.9.0",
-    "gsap": "^3.6.0",
-    "npm-check-updates": "^10.2.5",
     "postcss": "^8.2.4",
     "prismjs": "^1.22.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-tsparticles": "^1.18.11",
-    "smooth-scroll": "^16.1.3",
-    "typeface-caveat": "^1.1.13",
-    "typeface-merriweather": "1.1.13"
+    "smooth-scroll": "^16.1.3"
   },
   "devDependencies": {
     "@types/react-helmet": "^6.1.0",

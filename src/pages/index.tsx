@@ -6,7 +6,7 @@ import Main from '@/components/pages/Top/Main'
 const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
   data,
 }) => {
-  return <Main title="Hello Hacker" data={data} />
+  return <Main data={data} />
 }
 
 export default BlogIndex

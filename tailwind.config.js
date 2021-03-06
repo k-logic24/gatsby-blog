@@ -11,7 +11,6 @@ module.exports = {
         'Meiryo',
         'sans-serif',
       ],
-      scripts: ['Caveat', 'cursive'],
     },
     container: {
       center: true,

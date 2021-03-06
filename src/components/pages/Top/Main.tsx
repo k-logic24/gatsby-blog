@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 
+import Fv from '@/components/organisms/fv'
 import Seo from '@/components/shared/seo'
 import Layouts from '@/layouts/layouts'
 import Item from '@/components/molecules/item'
@@ -27,51 +28,54 @@ const Main: React.FC<BlogIndexProps> = ({ data }) => {
   }, [])
 
   return (
-    <Layouts fvTitle="HAPPY HACKING" isText>
+    <Layouts>
+      <Fv title="Happy Hacking" />
       <Seo title="K.Iwata's BLOG -frontend engineer" />
-      <div className="section home">
-        <div className="section-wrap">
-          <div className="text-center">
-            <h1 className="pb-4 mb-10 section__ttl">最新の記事</h1>
+      <main className="py-8 md:py-12 px-4 lg:px-0 mx-auto max-w-screen-lg">
+        <div className="section home">
+          <div className="section-wrap">
+            <div className="text-center">
+              <h1 className="pb-4 mb-10 section__ttl">最新の記事</h1>
+            </div>
+            {posts.length ? (
+              <>
+                <ul className="article-list">
+                  {posts.slice(0, 6).map(post => (
+                    <Item
+                      key={post.id}
+                      title={post.frontmatter?.title || post.fields?.slug}
+                      src={post?.frontmatter?.hero?.childImageSharp?.fluid}
+                      slug={post.fields?.slug}
+                      date={post.frontmatter?.date}
+                      tags={post.frontmatter?.tags}
+                      variant={'sm'}
+                    />
+                  ))}
+                </ul>
+                <div className="pt-8 text-center">
+                  <Link className="link link--more" to="/blog">
+                    もっとみる
+                  </Link>
+                </div>
+              </>
+            ) : (
+              <p>no posts...</p>
+            )}
           </div>
-          {posts.length ? (
-            <>
-              <ul className="article-list">
-                {posts.slice(0, 6).map(post => (
-                  <Item
-                    key={post.id}
-                    title={post.frontmatter?.title || post.fields?.slug}
-                    src={post?.frontmatter?.hero?.childImageSharp?.fluid}
-                    slug={post.fields?.slug}
-                    date={post.frontmatter?.date}
-                    tags={post.frontmatter?.tags}
-                    variant={'sm'}
-                  />
-                ))}
-              </ul>
-              <div className="pt-8 text-center">
-                <Link className="link link--more" to="/blog">
-                  もっとみる
-                </Link>
-              </div>
-            </>
-          ) : (
-            <p>no posts...</p>
-          )}
-        </div>
-        <div className="section-wrap">
-          <div className="text-center">
-            <h1 className="pb-4 mb-10 section__ttl">検索</h1>
+          <div className="section-wrap">
+            <div className="text-center">
+              <h1 className="pb-4 mb-10 section__ttl">検索</h1>
+            </div>
+            <Search posts={posts} />
           </div>
-          <Search posts={posts} />
+          <div className="section-wrap">
+            <Tag tagGroup={tagGroup} />
+          </div>
+          <div className="section-wrap">
+            <Cat catGroup={catGroup} />
+          </div>
         </div>
-        <div className="section-wrap">
-          <Tag tagGroup={tagGroup} />
-        </div>
-        <div className="section-wrap">
-          <Cat catGroup={catGroup} />
-        </div>
-      </div>
+      </main>
     </Layouts>
   )
 }

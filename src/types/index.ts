@@ -9,7 +9,6 @@ export type BlogPostProps = {
 }
 export type BlogIndexProps = {
   data: GatsbyTypes.BlogIndexQuery
-  title: string
 }
 export type BlogPageProps = {
   data: GatsbyTypes.BlogPageQuery
