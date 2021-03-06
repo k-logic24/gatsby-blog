@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 
+import Seo from '@/components/shared/seo'
 import Layouts from '@/layouts/layouts'
 import Item from '@/components/molecules/item'
 import Search from '@/components/organisms/search'
@@ -26,11 +27,8 @@ const Main: React.FC<BlogIndexProps> = ({ data }) => {
   }, [])
 
   return (
-    <Layouts
-      fvTitle="HAPPY HACKING"
-      seoTitle="K.Iwata's BLOG -frontend engineer"
-      isText
-    >
+    <Layouts fvTitle="HAPPY HACKING" isText>
+      <Seo title="K.Iwata's BLOG -frontend engineer" />
       <div className="section home">
         <div className="section-wrap">
           <div className="text-center">

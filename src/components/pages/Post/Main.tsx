@@ -7,6 +7,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import Image from 'gatsby-image'
 
+import Seo from '@/components/shared/seo'
 import Layouts from '@/layouts/layouts'
 import { BlogPostProps } from '@/types'
 
@@ -21,12 +22,12 @@ const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
   const { previous, next } = pageContext
 
   return (
-    <Layouts
-      seoTitle={post?.frontmatter?.title}
-      seoDescription={post?.frontmatter?.description || post?.excerpt}
-      seoImage={originSrc}
-      isText={false}
-    >
+    <Layouts isText={false}>
+      <Seo
+        title={post?.frontmatter?.title}
+        description={post?.frontmatter?.description || post?.excerpt}
+        image={originSrc}
+      />
       <article
         className="max-w-screen-md mx-auto blog-post"
         itemScope

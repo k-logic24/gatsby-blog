@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
+import Seo from '@/components/shared/seo'
 import Layouts from '@/layouts/layouts'
 import Item from '@/components/molecules/Work/item'
 
@@ -13,12 +14,11 @@ const Main: React.FC<{ data: GatsbyTypes.WorkPageQuery }> = ({ data }) => {
   }, [])
 
   return (
-    <Layouts
-      seoTitle="WORK"
-      seoDescription="This is a page of my work. As a front-end engineer, I will be actively working on applications using APIs and creating games from different perspectives."
-      fvTitle="WORK"
-      isText
-    >
+    <Layouts fvTitle="WORK" isText>
+      <Seo
+        title="work"
+        description="This is a page of my work. As a front-end engineer, I will be actively working on applications using APIs and creating games from different perspectives."
+      />
       <section className="section work">
         <ul className="article-list">
           {works.map(({ frontmatter }) => (

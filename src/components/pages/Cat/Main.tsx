@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Seo from '@/components/shared/seo'
 import Item from '@/components/molecules/item'
 import Pagination from '@/components/organisms/pagination'
 import Layouts from '@/layouts/layouts'
@@ -10,12 +11,11 @@ const Cat: React.FC<CatTemplateProps> = ({ title, data, pageContext }) => {
   const { catId, currentPage, catPages } = pageContext
 
   return (
-    <Layouts
-      fvTitle={title}
-      seoDescription={`The page of category ${catId}`}
-      seoTitle={`Category: ${catId}`}
-      isText
-    >
+    <Layouts fvTitle={title} isText>
+      <Seo
+        title={`Category: ${catId}`}
+        description={`The page of category ${catId}`}
+      />
       <section className="section blog">
         <div className="text-center">
           <h1 className="pb-4 mb-10 section__ttl">{`${catId}`}</h1>

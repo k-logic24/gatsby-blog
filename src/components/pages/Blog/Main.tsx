@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
+import Seo from '@/components/shared/seo'
 import Layouts from '@/layouts/layouts'
 import Item from '@/components/molecules/item'
 import Pagination from '@/components/organisms/pagination'
@@ -16,12 +17,11 @@ const Main: React.FC<BlogPageProps> = ({ data, pageContext }) => {
   }, [])
 
   return (
-    <Layouts
-      seoTitle="BLOG"
-      seoDescription="This is the blog list page. I write not only about the web, but also about my daily life."
-      fvTitle="BLOG"
-      isText
-    >
+    <Layouts fvTitle="BLOG" isText>
+      <Seo
+        title="blog"
+        description="This is the blog list page. I write not only about the web, but also about my daily life."
+      />
       <section className="section blog">
         <div className="text-center">
           <h1 className="pb-4 mb-10 section__ttl">記事</h1>

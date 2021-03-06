@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Seo from '@/components/shared/seo'
 import Layouts from '@/layouts/layouts'
 import Item from '@/components/molecules/item'
 import Pagination from '@/components/organisms/pagination'
@@ -10,12 +11,8 @@ const TagIndex: React.FC<TagTemplateProps> = ({ title, data, pageContext }) => {
   const { tagId, currentPage, tagPages } = pageContext
 
   return (
-    <Layouts
-      fvTitle={title}
-      seoDescription={`The page of tag ${tagId}`}
-      seoTitle={`Tag: ${tagId}`}
-      isText={true}
-    >
+    <Layouts fvTitle={title} isText={true}>
+      <Seo title={`Tag: ${tagId}`} description={`The page of tag ${tagId}`} />
       <section className="section blog">
         <div className="text-center">
           <h1 className="pb-4 mb-10 section__ttl">{`${tagId}`}</h1>

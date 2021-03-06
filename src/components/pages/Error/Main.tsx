@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
+import Seo from '@/components/shared/seo'
 import Layouts from '@/layouts/layouts'
 import Tag from '@/components/organisms/tag'
 import Cat from '@/components/organisms/cat'
@@ -16,13 +17,8 @@ const Main: React.FC<BlogIndexProps> = ({ data }) => {
   }, [])
 
   return (
-    <Layouts
-      fvTitle="404: NotFound"
-      seoDescription="Sorry.This page is Error Page.."
-      seoTitle="404: NotFound"
-      isText
-      isNoIndex
-    >
+    <Layouts fvTitle="404: NotFound" isText>
+      <Seo isNoIndex />
       <div className="section home">
         <div className="section-wrap">
           <div className="text-center">
