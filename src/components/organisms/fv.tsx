@@ -13,7 +13,7 @@ const Fv: React.FC<AppProps['fv']> = ({ title, date, isText = true }) => {
       )}
       {isText && (
         <section className="pt-12 text-center absolute-center w-5/6 leading-loose">
-          <h1 className="text-white text-2xl md:text-4xl tracking-widest">
+          <h1 className="text-white text-2xl md:text-4xl tracking-widest font-dosis">
             {title}
           </h1>
           {date ? <span className="text-gray-200 text-xs">{date}</span> : null}
