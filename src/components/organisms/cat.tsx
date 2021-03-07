@@ -18,7 +18,7 @@ const Cat: React.FC<{ catGroup: BlogCatGroupProps }> = ({ catGroup }) => {
               <figure className="cat-list__imgwrap">
                 <Img assetUrl={`cat-${fieldValue}.jpg`} alt={``} />
               </figure>
-              <p className="font-bold text-xl md:text-3xl tracking-widest z-50 text-white font-scripts absolute-center">
+              <p className="font-bold text-xl md:text-3xl tracking-widest z-50 text-white font-dosis absolute-center">
                 {fieldValue}
               </p>
             </Link>
