@@ -3,13 +3,11 @@ import { graphql, PageProps } from 'gatsby'
 
 import Main from '@/components/pages/Error/Main'
 
-const BlogIndex: React.FC<PageProps<GatsbyTypes.BlogIndexQuery>> = ({
-  data,
-}) => {
-  return <Main title="404 Not Found" data={data} />
+const Error: React.FC<PageProps<GatsbyTypes.ErrorPageQuery>> = ({ data }) => {
+  return <Main data={data} />
 }
 
-export default BlogIndex
+export default Error
 
 export const pageQuery = graphql`
   query ErrorPage {

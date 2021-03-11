@@ -1,4 +1,4 @@
-import { faBook, faPen } from '@fortawesome/free-solid-svg-icons'
+import { faBook, faPen, faFileAlt } from '@fortawesome/free-solid-svg-icons'
 
 export const navs = [
   {
@@ -12,5 +12,11 @@ export const navs = [
     txt: `制作作品一覧ページです。`,
     margin: `ml-1 md:ml-2`,
     path: '/work',
+  },
+  {
+    icon: faFileAlt,
+    txt: `プライバシーポリシーページです。`,
+    margin: `ml-1 md:ml-2`,
+    path: '/privacy',
   },
 ]

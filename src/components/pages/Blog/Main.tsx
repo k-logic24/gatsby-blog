@@ -21,7 +21,7 @@ const Main: React.FC<BlogPageProps> = ({ data, pageContext }) => {
     <Layouts>
       <Fv title="BLOG" />
       <Seo
-        title="BLOG"
+        title="BLOG | K.Iwata's BLOG"
         description="This is the blog list page. I write not only about the web, but also about my daily life."
       />
       <main className="py-8 md:py-12 px-4 lg:px-0 mx-auto max-w-screen-lg">

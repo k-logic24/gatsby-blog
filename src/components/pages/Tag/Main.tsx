@@ -14,7 +14,10 @@ const TagIndex: React.FC<TagTemplateProps> = ({ data, pageContext }) => {
   return (
     <Layouts>
       <Fv title={tagId} />
-      <Seo title={`Tag: ${tagId}`} description={`The page of tag ${tagId}`} />
+      <Seo
+        title={`Tag: ${tagId} | K.Iwata's BLOG`}
+        description={`The page of tag ${tagId}`}
+      />
       <main className="py-8 md:py-12 px-4 lg:px-0 mx-auto max-w-screen-lg">
         <section className="section blog">
           <div className="text-center">

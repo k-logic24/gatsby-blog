@@ -1,0 +1,16 @@
+.privacy section + section {
+	@apply mt-8;
+}
+
+.privacy h2 {
+	@apply text-lg text-xl font-bold;
+	margin-bottom: .5em;
+}
+
+.privacy p {
+	@apply leading-relaxed;
+}
+
+.privacy a {
+	@apply text-blue-400 hover:underline;
+}

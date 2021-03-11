@@ -598,8 +598,8 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.hero.childrenImageSharp'
   | 'childrenMarkdownRemark.frontmatter.hero.id'
   | 'childrenMarkdownRemark.frontmatter.hero.children'
-  | 'childrenMarkdownRemark.frontmatter.tags'
   | 'childrenMarkdownRemark.frontmatter.category'
+  | 'childrenMarkdownRemark.frontmatter.tags'
   | 'childrenMarkdownRemark.frontmatter.skill'
   | 'childrenMarkdownRemark.frontmatter.siteUrl'
   | 'childrenMarkdownRemark.frontmatter.githubUrl'
@@ -736,8 +736,8 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.hero.childrenImageSharp'
   | 'childMarkdownRemark.frontmatter.hero.id'
   | 'childMarkdownRemark.frontmatter.hero.children'
-  | 'childMarkdownRemark.frontmatter.tags'
   | 'childMarkdownRemark.frontmatter.category'
+  | 'childMarkdownRemark.frontmatter.tags'
   | 'childMarkdownRemark.frontmatter.skill'
   | 'childMarkdownRemark.frontmatter.siteUrl'
   | 'childMarkdownRemark.frontmatter.githubUrl'
@@ -1179,8 +1179,8 @@ type Frontmatter = {
   readonly description: Maybe<Scalars['String']>;
   readonly date: Maybe<Scalars['Date']>;
   readonly hero: Maybe<File>;
-  readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly category: Maybe<Scalars['String']>;
+  readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly skill: Maybe<Scalars['String']>;
   readonly siteUrl: Maybe<Scalars['String']>;
   readonly githubUrl: Maybe<Scalars['String']>;
@@ -1200,8 +1200,8 @@ type FrontmatterFilterInput = {
   readonly description: Maybe<StringQueryOperatorInput>;
   readonly date: Maybe<DateQueryOperatorInput>;
   readonly hero: Maybe<FileFilterInput>;
-  readonly tags: Maybe<StringQueryOperatorInput>;
   readonly category: Maybe<StringQueryOperatorInput>;
+  readonly tags: Maybe<StringQueryOperatorInput>;
   readonly skill: Maybe<StringQueryOperatorInput>;
   readonly siteUrl: Maybe<StringQueryOperatorInput>;
   readonly githubUrl: Maybe<StringQueryOperatorInput>;
@@ -1979,8 +1979,8 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.hero.internal.mediaType'
   | 'frontmatter.hero.internal.owner'
   | 'frontmatter.hero.internal.type'
-  | 'frontmatter.tags'
   | 'frontmatter.category'
+  | 'frontmatter.tags'
   | 'frontmatter.skill'
   | 'frontmatter.siteUrl'
   | 'frontmatter.githubUrl'

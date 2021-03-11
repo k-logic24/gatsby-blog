@@ -11,10 +11,7 @@ module.exports = {
         'Meiryo',
         'sans-serif',
       ],
-      dosis: [
-        'Dosis',
-        'sans-serif'
-      ]
+      dosis: ['Dosis', 'sans-serif'],
     },
     container: {
       center: true,

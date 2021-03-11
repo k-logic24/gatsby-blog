@@ -15,7 +15,7 @@ const Cat: React.FC<CatTemplateProps> = ({ title, data, pageContext }) => {
     <Layouts>
       <Fv title={title} />
       <Seo
-        title={`Category: ${catId}`}
+        title={`Category: ${catId} | K.Iwata's BLOG`}
         description={`The page of category ${catId}`}
       />
       <main className="py-8 md:py-12 px-4 lg:px-0 mx-auto max-w-screen-lg">

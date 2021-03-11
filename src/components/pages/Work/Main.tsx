@@ -17,7 +17,7 @@ const Main: React.FC<{ data: GatsbyTypes.WorkPageQuery }> = ({ data }) => {
   return (
     <Layouts>
       <Seo
-        title="WORK"
+        title="WORK | K.Iwata's BLOG"
         description="This is a page of my work. As a front-end engineer, I will be actively working on applications using APIs and creating games from different perspectives."
       />
       <Fv title="WORK" />

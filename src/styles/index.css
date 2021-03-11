@@ -11,6 +11,7 @@
 @import 'object/project/_post.css';
 @import 'object/project/_fv.css';
 @import 'object/project/_book.css';
+@import 'object/project/_privacy.css';
 
 body {
   @apply bg-white text-gray dark:text-white dark:bg-gray transition-all duration-300;
