@@ -93,7 +93,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
   Array.from({ length: blogPages }).forEach((_: unknown, i) => {
     createPage({
-      path: i === 0 ? `/blog/` : `/blog/${i + 1}`,
+      path: i === 0 ? `/post/` : `/post/${i + 1}`,
       component: blogTemplate,
       context: {
         blogPages: blogPages,
