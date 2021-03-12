@@ -12,11 +12,10 @@ const Ads: React.FC = ( props: any ) => {
 
   return (
     <ins
-      className="text-center py-4 block"
+      className="block py-4 w-full adsbygoogle"
       data-ad-client="ca-pub-3684314520364885"
       data-ad-slot="7188888367"
       data-ad-format='auto'
-      data-full-width-responsive='false'
     />
   )
 }
