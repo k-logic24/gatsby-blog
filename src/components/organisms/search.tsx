@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
 
-import { PostProps } from '@/types'
+import { PostProps } from '@/@types'
 
 const Search: React.FC<{ posts: PostProps }> = ({ posts }) => {
   const [searchData, setSearchData] = useState<

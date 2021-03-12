@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Main from '@/components/pages/Blog/Main'
-import { BlogPageProps } from '@/types'
+import { BlogPageProps } from '@/@types'
 
 const BlogIndex: React.FC<BlogPageProps> = ({ data, pageContext }) => {
   return <Main data={data} pageContext={pageContext} />

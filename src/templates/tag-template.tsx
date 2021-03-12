@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Main from '@/components/pages/Tag/Main'
-import { TagTemplateProps } from '@/types'
+import { TagTemplateProps } from '@/@types'
 
 const TagIndex: React.FC<TagTemplateProps> = ({ data, pageContext }) => {
   const { tagId } = pageContext

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Toggle from '@/components/molecules/toggle'
 import { useDarkMode } from '@/hooks/useDarkMode'
 import { navs } from '@/constants'
-import { AppProps } from '@/types'
+import { AppProps } from '@/@types'
 
 const Header: React.FC = () => {
   const [theme, toggleTheme] = useDarkMode()

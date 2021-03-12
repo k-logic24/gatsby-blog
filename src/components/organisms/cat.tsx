@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import Img from '@/components/shared/image'
-import { BlogCatGroupProps } from '@/types'
+import { BlogCatGroupProps } from '@/@types'
 
 const Cat: React.FC<{ catGroup: BlogCatGroupProps }> = ({ catGroup }) => {
   return (

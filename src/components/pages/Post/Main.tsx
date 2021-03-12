@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { Helmet } from 'react-helmet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faChevronLeft,
@@ -9,8 +10,9 @@ import Image from 'gatsby-image'
 
 import Fv from '@/components/organisms/fv'
 import Seo from '@/components/shared/seo'
+import Ads from '@/components/shared/ads'
 import Layouts from '@/layouts/layouts'
-import { BlogPostProps } from '@/types'
+import { BlogPostProps } from '@/@types'
 
 const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
   const post = data.markdownRemark
@@ -45,6 +47,7 @@ const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
           <div className="mb-8">
             <Image fluid={srcset!} alt="" />
           </div>
+          <Ads />
           {tableOfContents && (
             <div
               className="toc"

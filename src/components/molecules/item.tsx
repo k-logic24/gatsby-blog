@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import Image from 'gatsby-image'
 
 import TagLabel from '@/components/atoms/tag-label'
-import { AppProps } from '@/types'
+import { AppProps } from '@/@types'
 
 const Item: React.FC<AppProps['item']> = ({
   title,

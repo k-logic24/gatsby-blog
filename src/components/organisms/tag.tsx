@@ -1,7 +1,7 @@
 import React from 'react'
 
 import TagLabel from '@/components/atoms/tag-label'
-import { BlogTagGroupProps } from '@/types'
+import { BlogTagGroupProps } from '@/@types'
 
 const Tag: React.FC<{ tagGroup: BlogTagGroupProps }> = ({ tagGroup }) => {
   return (

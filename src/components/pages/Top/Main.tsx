@@ -13,7 +13,7 @@ import {
   BlogTagGroupProps,
   BlogCatGroupProps,
   PostProps,
-} from '@/types'
+} from '@/@types'
 
 const Main: React.FC<BlogIndexProps> = ({ data }) => {
   const [posts, setPosts] = useState<PostProps>([])

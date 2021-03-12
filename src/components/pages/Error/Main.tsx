@@ -5,7 +5,7 @@ import Seo from '@/components/shared/seo'
 import Layouts from '@/layouts/layouts'
 import Tag from '@/components/organisms/tag'
 import Cat from '@/components/organisms/cat'
-import { BlogIndexProps, BlogTagGroupProps, BlogCatGroupProps } from '@/types'
+import { BlogIndexProps, BlogTagGroupProps, BlogCatGroupProps } from '@/@types'
 
 const Main: React.FC<BlogIndexProps> = ({ data }) => {
   const [tagGroup, setTagGroup] = useState<BlogTagGroupProps | []>([])

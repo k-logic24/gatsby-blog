@@ -5,7 +5,7 @@ import Seo from '@/components/shared/seo'
 import Layouts from '@/layouts/layouts'
 import Item from '@/components/molecules/item'
 import Pagination from '@/components/organisms/pagination'
-import { TagTemplateProps } from '@/types'
+import { TagTemplateProps } from '@/@types'
 
 const TagIndex: React.FC<TagTemplateProps> = ({ data, pageContext }) => {
   const tagPosts = data.allMarkdownRemark.edges

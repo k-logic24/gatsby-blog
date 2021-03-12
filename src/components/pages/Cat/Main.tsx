@@ -5,7 +5,7 @@ import Seo from '@/components/shared/seo'
 import Item from '@/components/molecules/item'
 import Pagination from '@/components/organisms/pagination'
 import Layouts from '@/layouts/layouts'
-import { CatTemplateProps } from '@/types'
+import { CatTemplateProps } from '@/@types'
 
 const Cat: React.FC<CatTemplateProps> = ({ title, data, pageContext }) => {
   const catPosts = data.allMarkdownRemark.edges

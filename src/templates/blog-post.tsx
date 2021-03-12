@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Main from '@/components/pages/Post/Main'
-import { BlogPostProps } from '@/types'
+import { BlogPostProps } from '@/@types'
 
 const BlogPostTemplate: React.FC<BlogPostProps> = ({ data, pageContext }) => {
   return <Main data={data} pageContext={pageContext} />

@@ -5,7 +5,7 @@ import Seo from '@/components/shared/seo'
 import Layouts from '@/layouts/layouts'
 import Item from '@/components/molecules/item'
 import Pagination from '@/components/organisms/pagination'
-import { BlogPageProps } from '@/types'
+import { BlogPageProps } from '@/@types'
 
 type PostProps = BlogPageProps['data']['allMarkdownRemark']['nodes']
 

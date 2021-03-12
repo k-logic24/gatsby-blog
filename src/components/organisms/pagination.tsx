@@ -6,7 +6,7 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons'
 
-import { AppProps } from '@/types'
+import { AppProps } from '@/@types'
 
 interface LiProps {
   num: number

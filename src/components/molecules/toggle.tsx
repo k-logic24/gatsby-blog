@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 
-import { AppProps } from '@/types'
+import { AppProps } from '@/@types'
 
 const Toggle: React.FC<AppProps['toggle']> = ({ theme, toggleTheme }) => {
   const currentTheme = theme === 'light' ? 'ライト' : 'ダーク'

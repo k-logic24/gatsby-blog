@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import clsx from 'clsx'
 
-import { AppProps } from '@/types'
+import { AppProps } from '@/@types'
 
 const TagLabel: React.FC<AppProps['taglabel']> = ({
   fieldValue,

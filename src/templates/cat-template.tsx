@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Main from '@/components/pages/Cat/Main'
-import { CatTemplateProps } from '@/types'
+import { CatTemplateProps } from '@/@types'
 
 const TagIndex: React.FC<CatTemplateProps> = ({ data, pageContext }) => {
   const { catId } = pageContext
