@@ -1,10 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Toggle from '@/components/molecules/toggle'
 import { useDarkMode } from '@/hooks/useDarkMode'
-import { navs } from '@/constants'
+import { headerNavs } from '@/constants'
 import { AppProps } from '@/@types'
 
 const Header: React.FC = () => {
@@ -12,33 +11,23 @@ const Header: React.FC = () => {
 
   return (
     <header className="header">
-      <div className="flex justify-between items-center lg:block relative h-full container">
-        <Link
-          to="/"
-          className="text-white lg:absolute lg:left-1/2 lg:top-1/2 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2"
-        >
+      <div className="py-1 px-4 lg:py-3 lg:px-0 flex justify-between items-center max-w-screen-lg mx-auto">
+        <Link to="/" className="text-white">
           Iwata&apos;s BLOG
         </Link>
-        <nav className="lg:absolute lg:right-4 lg:top-1/2 lg:transform lg:-translate-y-1/2">
-          <ul className="flex items-center">
-            {navs.map((nav, idx) => (
-              <li key={idx} className={nav.margin ? nav.margin : ''}>
+        <nav>
+          <ul className="flex gap-x-1 items-center">
+            {headerNavs.map(nav => (
+              <li key={nav.txt}>
                 <Link
                   to={nav.path}
-                  className="tooltip-trigger text-white p-2 text-lg relative"
+                  className="text-white p-2 text-lg font-dosis anim-link"
                 >
-                  <FontAwesomeIcon icon={nav.icon} aria-hidden="true" />
-                  <div
-                    className="header-nav__tooltip"
-                    role="tooltip"
-                    aria-hidden="true"
-                  >
-                    {nav.txt}
-                  </div>
+                  {nav.txt}
                 </Link>
               </li>
             ))}
-            <li className="ml-4">
+            <li className="ml-1 lg:ml-2">
               <Toggle
                 theme={theme as AppProps['toggle']['theme']}
                 toggleTheme={toggleTheme as AppProps['toggle']['toggleTheme']}

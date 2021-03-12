@@ -31,7 +31,7 @@ const Bio: React.FC = () => {
   const avatar = data?.avatar?.childImageSharp?.fixed
 
   return (
-    <div className="flex">
+    <div className="sm:justify-self-end flex">
       {avatar && (
         <Image
           fixed={avatar}
@@ -45,7 +45,7 @@ const Bio: React.FC = () => {
         <ul className="ml-4 self-end flex">
           <li>
             <a
-              className="text-white text-sm anim-link"
+              className="text-white text-sm anim-link font-dosis tracking-wider"
               href={`https://twitter.com/${social?.twitter || ``}`}
               target="_blank"
               rel="noopenner noreferrer"
@@ -55,7 +55,7 @@ const Bio: React.FC = () => {
           </li>
           <li className="ml-2">
             <a
-              className="text-white text-sm anim-link"
+              className="text-white text-sm anim-link font-dosis tracking-wider"
               href={`https://github.com/${social?.github || ``}`}
               target="_blank"
               rel="noopenner noreferrer"

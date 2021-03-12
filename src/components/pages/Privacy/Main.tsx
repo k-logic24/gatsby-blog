@@ -4,7 +4,7 @@ import Fv from '@/components/organisms/fv'
 import Seo from '@/components/shared/seo'
 import Layouts from '@/layouts/layouts'
 
-const Main = () => {
+const Main: React.FC = () => {
   return (
     <Layouts>
       <Fv title="Privacy Policy" />

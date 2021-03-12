@@ -1,22 +1,25 @@
-import { faBook, faPen, faFileAlt } from '@fortawesome/free-solid-svg-icons'
-
-export const navs = [
+export const headerNavs = [
   {
-    icon: faPen,
-    txt: `ブログ一覧ページです。`,
-    margin: `ml-1 md:ml-2`,
-    path: '/blog',
+    txt: 'posts',
+    path: '/post',
   },
   {
-    icon: faBook,
-    txt: `制作作品一覧ページです。`,
-    margin: `ml-1 md:ml-2`,
+    txt: 'works',
+    path: '/work',
+  },
+]
+
+export const footerNavs = [
+  {
+    txt: 'posts',
+    path: '/post',
+  },
+  {
+    txt: 'works',
     path: '/work',
   },
   {
-    icon: faFileAlt,
-    txt: `プライバシーポリシーページです。`,
-    margin: `ml-1 md:ml-2`,
+    txt: 'privacy policy',
     path: '/privacy',
   },
 ]
