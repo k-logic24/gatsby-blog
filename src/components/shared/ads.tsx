@@ -12,7 +12,7 @@ const Ads: React.FC = ( props: any ) => {
 
   return (
     <ins
-      className="block py-4 adsbygoogle"
+      className="block my-4 adsbygoogle"
       data-ad-client="ca-pub-3684314520364885"
       data-ad-slot="7188888367"
       data-ad-format='auto'
