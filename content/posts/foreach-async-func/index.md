@@ -24,7 +24,7 @@ MDNをみればちゃんと記述されていました。
 1秒ごとに番号をログ出力します。
 
 ### 望まない挙動
-forEachだとプロミスを又な
+forEachだとプロミスを待たない。
 ```ts
 function sleep(time) {
     return new Promise((resolve) => {
