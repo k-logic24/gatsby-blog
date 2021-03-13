@@ -30,6 +30,7 @@ export const pageQuery = graphql`
           }
         }
       }
+      htmlAst
       tableOfContents(
         absolute: false
         pathToSlugField: "frontmatter.path"

@@ -1,5 +1,5 @@
 ---
-title: "どれが早いの？Benchmark.js使ってみようよ。"
+title: "Benchmark.jsを使用してパフォーマンスを検証する"
 date: "2020-12-18"
 hero: "../images/javascript.jpg"
 category: "tech"
@@ -81,7 +81,9 @@ Fastest is map
 mapを使用した方法が一番早いですね。  
 といった具合に比較して結果を出力してくれます。
 
-## ちなみに
+<adsense></adsense>
+
+## P.S
 単なるオブジェクトのコピーだったらmapは使用できません。  
 lodashとJSONを使用した方法の比較を載せておきます。
 

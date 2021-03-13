@@ -91,6 +91,7 @@ export { auth }
 ```
 Firebaseアプリ情報をイニシャライズします。
 
+<adsense></adsense>
 
 ```tsx:title=src/auth/AuthProvider.tsx
 import { User } from 'firebase'
@@ -302,6 +303,8 @@ export default Home
 
 ログイン、サインアップ共にフォームを入力し、照合します。  
 `try{}catch{}`で成功・失敗したときの処理を記述しています。
+
+<adsense></adsense>
 
 ## 感想
 とても簡単にauth認証が実現できました。  

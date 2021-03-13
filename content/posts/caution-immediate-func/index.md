@@ -6,9 +6,8 @@ tags: ["javascript"]
 category: "tech"
 ---
 さっそくですが、即時関数はご存知だと思います。  
-グローバル汚染を防ぐために無名関数でくくり、関数スコープで完結させるテクです。
+グローバル汚染を防ぐために無名関数でくくり、関数スコープで完結させるテクニックです。
 
-## 突然のエラー
 ある時、即時関数を使用しているとエラーがでました。以下のようなコードです。
 ```js
 const callName = function(name: string) {
@@ -21,7 +20,8 @@ const callName = function(name: string) {
 ```
 
 ## 原因
-セミコロンがないがために文が継続していると解釈されるため。つまり以下のコードになる。
+セミコロンがないがために文が継続していると解釈されるため。  
+つまり以下のコードになる。
 ```js
 const callName = function(name: string) {
   console.log(`hey ${name}`);
@@ -29,6 +29,8 @@ const callName = function(name: string) {
    console.log("call immediate function");
 })();
 ```
+
+<adsense></adsense>
 
 ## 解決策
 ちゃんとセミコロンをつけましょう。

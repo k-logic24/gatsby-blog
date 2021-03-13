@@ -81,6 +81,8 @@ __toRefs__ は、reactiveで定義したオブジェクトをそれぞれrefみ�
 
 setup内でtemplate側で使用する変数、関数は必ずオブジェクトでreturnする必要があります。
 
+<adsense></adsense>
+
 ### PrevNext.vue
 ```js:title=PrevNext.vue
 <template>

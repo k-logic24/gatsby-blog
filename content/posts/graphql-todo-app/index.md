@@ -115,6 +115,8 @@ server.listen().then(({url}) => {
 server.listen({ port:8080 })...
 ```
 
+<adsense></adsense>
+
 ## フロント実装
 フロント側はReactで実装していきます。  
 Apollo Clientを使用し、GraphQL APIをシンプルにクライアント側で操作できるようにしていきます。

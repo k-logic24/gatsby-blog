@@ -54,6 +54,9 @@ type OptionalPerson = Required<Person>
 //   age: number;
 // }
 ```
+
+<adsense></adsense>
+
 ## Record
 `Record<K, T>`  
 Kのプロパティを持つTの型を作成できます。
@@ -93,6 +96,9 @@ type PickValues = Pick<Values, 'a'|'c'>
 //   c: boolean;
 // }
 ```
+
+<adsense></adsense>
+
 ## Omit
 `Omit<T, K>`
 Pickとは逆の動きです。  
@@ -142,6 +148,9 @@ type ExtractValues = Extract<keyof Values, 'a'>
 // result
 // type ExtractValues = "a"
 ```
+
+<adsense></adsense>
+
 ## NonNullable
 `NonNullable<T>`  
 nullやundefinedを取り除いてくれます。

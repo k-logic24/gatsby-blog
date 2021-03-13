@@ -9,7 +9,7 @@ tags: ['zsh', 'shell']
 お恥ずかしい話、プログラマーの身でありながら、シェルにこだわりを持っていませんでした。
 
 npm や node.js, その他のコマンドを打つ上で視認性、実用性を見直す様になり、zsh シェルのカスタムを行いました。  
-その一連の流れを備忘録として記事にしていきます。
+その一連の流れを備忘録として記事に残していきます。
 
 ここでは、zsh のセットアップから、テーマ、コマンドの色付け、alias について執筆します。
 
@@ -27,6 +27,8 @@ echo $SHELL
 
 zsh が使用されていればそのまま使用します。  
 もし、bash など他のシェルを使用しているならば zsh に変更する必要があります。
+
+<adsense></adsense>
 
 ## 使用シェルを zsh へ変更する
 
@@ -85,6 +87,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 すると、ホームディレクトリに.zshrc ファイル（設定ファイル）が作成されます。  
 このファイルをカスタマイズしていくことになります。
 
+<adsense></adsense>
+
 ## .zshrc の設定
 
 ### プロンプト変更
@@ -105,7 +109,7 @@ ZSH_THEME="clear"
 
 変更後は`source ~/.zshrc`を実行しないと変更が反映されませんので、忘れず行ってください。
 
-その他のテーマは以下の GitHub Wiki を参照ください。
+その他のテーマは以下の GitHub Wiki を参照ください。  
 [oh-my-zsh theme](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)
 
 ### コマンドの色付け

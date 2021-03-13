@@ -31,6 +31,8 @@ console.log(queries.get('q')) // neko
 `url.search`で?以下を取得し、新たに`new URLSearchParams`でURLSearchParams オブジェクトを作成します。  
 このURLSearchParams オブジェクトには多くの便利なメソッドがあります。
 
+<adsense></adsense>
+
 今回はgetを使用し、指定したパラメータ値を取得しました。  
 他にはこんなこともできます。
 

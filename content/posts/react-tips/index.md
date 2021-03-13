@@ -120,6 +120,8 @@ const App = () => {
 export default App;
 ```
 
+<adsense></adsense>
+
 ### String props
 単純な文字列のみの受け取りならば、{}で囲む必要はありません。
 ```tsx

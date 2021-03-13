@@ -21,7 +21,7 @@ JavaScriptのscrollイベント、resizeイベントはそのまま使用する�
 - スクロールイベント内で`preventDefault()`が実行されている可能性がある
 - スクロールイベント内で要素のサイズや位置を取得する処理がある
 
-### preventDefault...可能性？
+### preventDefault
 イベントは`preventDefault`が呼び出された地点で、処理が中止されます。  
 しかし、ブラウザ側はイベント内で`preventDefault`が呼び出されるか事前に知りません。  
 イベント内で処理が待つしかなく、それが遅延の原因となりえます。
@@ -76,6 +76,8 @@ document.addEventListener('scroll', Action, {passive: true})
 ```
 requestAnimationFrameはブラウザの適切なタイミングで実行してくれます。  
 なので、別タブにいるときは発火せず、戻ってきた時に再開してくれます。
+
+<adsense></adsense>
 
 ## 感想
 割とネックになる部分ではあるので、意識して実装していくといいですね。  

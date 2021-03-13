@@ -5,8 +5,7 @@ hero: "../images/javascript.jpg"
 tags: ["javascript"]
 category: "tech"
 ---
-ラムダ式は難しい印象を受けますが、そんなことありません。  
-一緒にみていきましょう。
+ラムダ式は難しい印象を受けますが、実際は難しいわけではなく段階を踏めば理解できます。
 
 ## ラムダ式とは
 **無名関数を簡潔に書く方法**がラムダ式です。
@@ -48,8 +47,9 @@ const idx = todos.findIndex(todo => todo.id === targetId)
 
 これがラムダ式です。
 
-### 呪文のように見えるけど
-では順番を追ってみてみましょう。
+### 仕組みをみる
+では仕組みをみてみます。
+
 ```js
 // ①これが原型
 todos.findIndex(function(todo) {

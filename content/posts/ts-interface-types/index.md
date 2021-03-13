@@ -31,6 +31,11 @@ type は**オブジェクト、関数以外の型宣言も可能**
 
 概略に示した特徴が出てますね。
 
+### 共通点
+
+- class への implements ができる
+- index シグネチャが使用可能`[key: string]`
+
 ### マージについて
 
 ```typescript
@@ -53,12 +58,6 @@ interface IBaseProps {
   z: number
 }
 // Merged!!
-
-const obj: IBaseProps = {
-  x: 10,
-  y: 100,
-}
-// Error!
 ```
 
 type はマージされません。  
@@ -89,6 +88,7 @@ type Point = {
   x: number
   y: number
 }
+
 type SolidPoint = Point & {
   y: string | number
   z: number
@@ -104,14 +104,7 @@ const obj: SolidPoint = {
 `&`を使用すれば型の制約を増やせます。同じプロパティであれば両方を満たす必要があります。  
 ちなみに`interface`を type に交差させても問題ありません。
 
-## 逆に共通点
-
-- class への implements ができる
-- index シグネチャが使用可能`[key: string]`
-
 ## 結論
 
 ケースによるのかなと感じました。  
 アプリ制作であったり、web サイトの作成といった規模によっては、使い分けする必要がありますね。
-
-型の規格を広く定義するときには`interface`、再利用等よく使用するものには`type`っていう認識であってるのかなぁ。。

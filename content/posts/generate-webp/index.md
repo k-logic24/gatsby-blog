@@ -6,18 +6,15 @@ tags: ['webp', 'webpack']
 category: 'tech'
 ---
 
-2010 年 9 月 30 日、Google が発表した WebP という静止画像フォーマット。  
-みなさん、周知の事実であると思います。
-
+2010 年 9 月 30 日、Google が発表した WebP という静止画像フォーマット。
 Safari14 から WebP がサポートされ、ついにモダンブラウザのラインナップが揃いました。これから積極的に使用されていくと思われます。
 
 しかし肝心な生成方法がまだ不足しています。  
-PhotoShop でプラグインを入れるか、コマンドラインから直接生成するか...
+PhotoShop でプラグインを入れるか、コマンドラインから直接生成するか、という問題です。
 
 そこで、フロント開発環境でお世話になっている webpack を使用した、生成方法について執筆していきます。
 
 なお、以下の環境での動作確認です。
-
 ```
 "copy-webpack-plugin": "^6.2.0",
 "file-loader": "^6.1.0",
@@ -28,9 +25,7 @@ PhotoShop でプラグインを入れるか、コマンドラインから直接�
 ```
 
 ## package.json
-
 早速ですが、package.json の中身から確認します。
-
 ```json
 {
   "name": "webp-with-webpack",
@@ -55,10 +50,10 @@ PhotoShop でプラグインを入れるか、コマンドラインから直接�
 今回のメインは、imagemin-webp-webapck-plugin です。
 こちらのプラグインを使用すると、指定した jpg や png ファイルを自動的に変換してくれる様になります。
 
+<adsense></adsense>
+
 ## webpack.config.js
-
-これがないと始まりませんね。webpack の設定ファイルになります。
-
+webpack の設定ファイルになります。
 ```js
 const path = require('path')
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
@@ -110,11 +105,12 @@ const config = {
 
 module.exports = config
 ```
-
-webpack の詳細は省きます。  
 注目していただきたいのは、plugins 配列の中にある`new ImageminWebpWebpackPlugin`です。
+
 test プロパティで該当する拡張子を指定し、options の quality は仕上がりの画質程度を指定します。  
-detailedLogs はビルドのログにどれくらい変わったのか、出力をしてくれます。デフォルトは false なので、ここでは true にしています。
+
+detailedLogs はビルドのログにどれくらい変わったのか出力してくれます。  
+デフォルトは false なので、ここでは true にしています。
 
 ## 実際に生成する
 
@@ -143,11 +139,11 @@ Assets の部分に jpg と webp の比較がなされています。
 いかがでしょうか。この数値だけでも恐るべしですね。  
 数値だけでなく、png に使用すれば透過性は保ったまま、サイズの軽量化が測れるところも魅力的です。
 
-## 感想
+<adsense></adsense>
 
+## 感想
 WebP が主流になっていくことは避けされないと思われます。  
 これを気に積極的に使用していくことにします。
 
-## 今回の使用モジュール Document
-
+## 今回の使用モジュール ドキュメント
 [imagemin-webp-webpack-plugin](https://www.npmjs.com/package/imagemin-webp-webpack-plugin)

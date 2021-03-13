@@ -1,5 +1,5 @@
 ---
-title: "正規表現をがんばるお(email編)"
+title: "正規表現(email編)"
 date: "2021-01-11"
 hero: "../images/javascript.jpg"
 category: "tech"

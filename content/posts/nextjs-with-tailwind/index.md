@@ -32,8 +32,9 @@ $ npx create-next-app nextjs-with-tailwind
 $ cd nextjs-with-tailwind
 ```
 
-## Tailwind CSS を導入する
+<adsense></adsense>
 
+## Tailwind CSS を導入する
 まずモジュールをインストールしましょう。
 
 ```shell
@@ -77,6 +78,8 @@ module.exports = {
 
 こうすることで、components と pages ディレクトリ配下、.jsx ファイルをみて、未使用クラスを削除してくれます。  
 **※purge しないとファイルサイズが膨大になりますので、ここは設定することを推奨します。**
+
+<adsense></adsense>
 
 最後に、コンパイルするための postcss.config.js を作成します。  
 まずは必要モジュールをインストールします。
@@ -147,6 +150,5 @@ Tailwind CSS はユーティリティークラスを基調としたカスタマ�
 私自身も、積極的に取り入れて開発を進めていきたいですね。
 
 ## P.S
-
 Tailwind CSS 公式もいいですが、一目でクラス名を確認できるチートシートが存在します。  
 [Tailwind CSS チートシート](https://nerdcave.com/tailwind-cheat-sheet)

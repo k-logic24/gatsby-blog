@@ -41,6 +41,7 @@ const obj = Object.freeze({
 obj.a = 'hogehoge'
 ```
 確かに書き換えを防ぐことができます。  
+
 しかし、あくまでシャローなのでディープだと、
 ```js
 const obj = Object.freeze({
@@ -63,6 +64,8 @@ console.log(obj)
 ```
 余裕で書き変わります。  
 deep-freezeライブラリがあるそうですが、パフォーマンスにも影響がでるそうであまり使用したくはないですね。
+
+<adsense></adsense>
 
 ## そこでconstアサーション
 constアサーションを使用すると以下のようになります。

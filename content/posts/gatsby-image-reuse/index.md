@@ -7,14 +7,17 @@ tags: ['react', 'javascript', 'gatsby']
 ---
 
 ## 前提
+Gatsbyにはgatsby-imageという画像最適化のためのプラグインがあります。  
+GraphQLからファイルデータを取得し、gatsby-imageのImgコンポーネントにsrcとしてセットすることで、画像を最適化します。
 
-1 ページに複数の画像があり、  
-全て webp 対応して、  
-かつ使いまわしたい。
+ここでは、以下の要件が必要になってことを仮定して話を進めていきます。
+- 1 ページに複数の画像がある
+- 全て webp 対応した画像最適化をしたい  
+- 再利用したい（いちいちImgコンポーネントを持ってこない）
 
-## 律儀に
+## 再利用可能なコンポーネントを作成する
 
-まずテンプレを持ってくる。
+まずテンプレを持ってきます。
 
 ```shell
 gatsby-starter-default@0.1.0 develop /Users/goqsystem_77/Desktop/my-gatsby-project
@@ -23,7 +26,7 @@ gatsby-starter-default@0.1.0 develop /Users/goqsystem_77/Desktop/my-gatsby-proje
 yarn start
 ```
 
-さて、お出迎えするのは見慣れた宇宙服のおっさん。
+さて、お出迎えするのは見慣れた宇宙服のおっさんですね。
 
 `src/components/image.js`をみてみるとこんなコードが書いてあります。
 
@@ -56,15 +59,14 @@ export default Image
 ```
 
 `gatsby-astronaut.png`を検索し、その画像を引っ張ってきているだけですね。  
-ファイル名を決め打ちしてますから、もちろん使いまわせるはずもありません。
+ファイル名をしていますので、使いまわしができません。
 
 ## webp 対応
-
-まず、上記だと webp が出力ができてません。対応します。  
+前例だと webp が出力ができてません。  
 といっても Fragment 名を変えるのみです。
 
 ```jsx:title=src/components/image.js
-...
+...(省略)
 query {
   placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
     childImageSharp {
@@ -102,9 +104,11 @@ fragment GatsbyImageSharpFluid_withWebp on ChildImageSharp {
 以下はドキュメントです。  
 [https://www.gatsbyjs.com/plugins/gatsby-image/#fragments](https://www.gatsbyjs.com/plugins/gatsby-image/#fragments)
 
+<adsense></adsense>
+
 ## props で受け取る
 
-webp 対応はできました。では使いまわしです。  
+webp 対応はできました。では再利用をしていきましょう。  
 結論、以下のように書き換えます。
 
 ```js:title=src/components/image.js
@@ -131,14 +135,11 @@ props に assetUrl と alt を設定しました。使用側でデータを渡�
 
 あとは、find メソッドで originalName と assetUrl が一致するものをフィルタリングし、fluid にアクセスします。
 
-使用側は以下のようにします。
-
 ```js
 <Image assetUrl="....png" alt="..." />
 ```
 
-おじさまだけではつまらないでしょうから、猫を追加しました。
-
+実際に使用してみました。
 ```jsx:title=src/pages/index.js
 <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
   <Image assetUrl='gatsby-astronaut.png' alt='astronaut' />
@@ -150,6 +151,4 @@ props に assetUrl と alt を設定しました。使用側でデータを渡�
 
 ![](result-gatsby-image.png)
 
-## 感想
-
-いちいちクエリを作成するのではなく、再利用性があるととても幸せなことに気づきました。
+<adsense></adsense>

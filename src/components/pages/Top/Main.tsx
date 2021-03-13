@@ -53,7 +53,7 @@ const Main: React.FC<BlogIndexProps> = ({ data }) => {
                   ))}
                 </ul>
                 <div className="pt-8 text-center">
-                  <Link className="link link--more" to="/blog">
+                  <Link className="link link--more" to="/post">
                     もっとみる
                   </Link>
                 </div>

@@ -7,11 +7,21 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import Image from 'gatsby-image'
 
+import Ads from '@/components/shared/ads'
 import Fv from '@/components/organisms/fv'
 import Seo from '@/components/shared/seo'
-import Ads from '@/components/shared/ads'
 import Layouts from '@/layouts/layouts'
 import { BlogPostProps } from '@/@types'
+import rehypeReact from 'rehype-react'
+
+// todo
+// @ts-ignore
+const renderAst = new rehypeReact({
+  createElement: React.createElement,
+  components: {
+    'adsense': Ads
+  },
+}).Compiler
 
 const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
   const post = data.markdownRemark
@@ -53,11 +63,7 @@ const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
               dangerouslySetInnerHTML={{ __html: tableOfContents }}
             ></div>
           )}
-          <section
-            className="blog-post-contents"
-            dangerouslySetInnerHTML={{ __html: html as string }}
-            itemProp="articleBody"
-          />
+          <div className="blog-post-contents" itemProp="articleBody">{renderAst(post?.htmlAst)}</div>
           <nav className="hidden md:block pt-12 pagination">
             <ul className="flex justify-between">
               <li className="md:w-1/3">

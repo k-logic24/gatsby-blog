@@ -1,5 +1,5 @@
 ---
-title: "正規表現をがんばるお(電話番号編)"
+title: "正規表現(電話番号編)"
 date: "2021-01-06"
 hero: "../images/javascript.jpg"
 category: "tech"
