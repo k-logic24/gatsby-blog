@@ -9,14 +9,14 @@ category: "tech"
 結論、**forEachはPromiseを待たない**
 
 MDNをみればちゃんと記述されていました。  
-https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+[Array.prototype.forEach](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 
 ## polyfillから見る
 またpolyfillをみて、以下のことが言えます。
 - Array.prototype.forEachはasync関数ではない。
 - callback.callにawaitがついていない。
   
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#polyfill
+[Array.prototype.forEach polyfill](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#polyfill)
 
 <adsense></adsense>
 

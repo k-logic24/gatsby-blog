@@ -12,7 +12,7 @@
   margin-bottom: 1.5em;
 }
 .blog-post p {
-  @apply text-sm md:text-base leading-relaxed md:leading-loose;
+  @apply text-sm md:text-base leading-relaxed md:leading-loose whitespace-nowrap;
   margin-bottom: 1.5em;
 }
 @screen md {
