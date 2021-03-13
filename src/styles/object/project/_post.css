@@ -12,7 +12,7 @@
   margin-bottom: 1.5em;
 }
 .blog-post p {
-  @apply text-sm md:text-base leading-relaxed md:leading-loose whitespace-nowrap;
+  @apply text-sm md:text-base leading-relaxed md:leading-loose whitespace-pre-wrap;
   margin-bottom: 1.5em;
 }
 @screen md {
@@ -74,7 +74,7 @@ blockquote p {
   margin-bottom: 0 !important;
 }
 .blog-post a {
-  @apply text-accent underline;
+  @apply text-accent underline whitespace-pre-wrap;
 }
 .blog-post .gatsby-resp-image-wrapper {
   margin: 0 !important;
