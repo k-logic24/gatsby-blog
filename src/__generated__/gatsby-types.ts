@@ -3851,6 +3851,11 @@ type WorkPageQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArr
         & { readonly thumb: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment> }> }> }
       )> }> } };
 
+type BioQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type BioQuery = { readonly avatar: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixedFragment> }> }>, readonly site: Maybe<{ readonly siteMetadata: Maybe<{ readonly author: Maybe<Pick<Author, 'name'>>, readonly social: Maybe<Pick<Social, 'twitter' | 'github'>> }> }> };
+
 type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3859,10 +3864,13 @@ type Unnamed_1_Query = { readonly allImageSharp: { readonly nodes: ReadonlyArray
         & GatsbyImageSharpFluid_withWebpFragment
       )> }> } };
 
-type BioQueryVariables = Exact<{ [key: string]: never; }>;
+type ImgQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type BioQuery = { readonly avatar: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixedFragment> }> }>, readonly site: Maybe<{ readonly siteMetadata: Maybe<{ readonly author: Maybe<Pick<Author, 'name'>>, readonly social: Maybe<Pick<Social, 'twitter' | 'github'>> }> }> };
+type ImgQuery = { readonly allImageSharp: { readonly nodes: ReadonlyArray<{ readonly fluid: Maybe<(
+        Pick<ImageSharpFluid, 'originalName'>
+        & GatsbyImageSharpFluid_withWebpFragment
+      )> }> } };
 
 type SeoQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3871,14 +3879,6 @@ type SeoQuery = { readonly avatar: Maybe<{ readonly childImageSharp: Maybe<{ rea
       Pick<SiteSiteMetadata, 'title' | 'siteUrl' | 'description'>
       & { readonly social: Maybe<Pick<Social, 'twitter'>> }
     )> }> };
-
-type ImgQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type ImgQuery = { readonly allImageSharp: { readonly nodes: ReadonlyArray<{ readonly fluid: Maybe<(
-        Pick<ImageSharpFluid, 'originalName'>
-        & GatsbyImageSharpFluid_withWebpFragment
-      )> }> } };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

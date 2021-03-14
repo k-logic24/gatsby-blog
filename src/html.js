@@ -15,6 +15,15 @@ export default function HTML(props) {
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-X5QP8QV30K" />
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-X5QP8QV30K');
+        </script>
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
