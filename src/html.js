@@ -19,7 +19,7 @@ export default function HTML(props) {
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-X5QP8QV30K" />
         <script>
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
+          function gtag(){dataLayer.push(arguments)}
           gtag('js', new Date());
 
           gtag('config', 'G-X5QP8QV30K');
