@@ -99,6 +99,14 @@ module.exports = {
         icon: `content/assets/avatar.jpg`,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "G-X5QP8QV30K",
+        head: false,
+        anonymize: true,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typegen`,
   ],
