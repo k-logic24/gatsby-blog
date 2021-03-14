@@ -13,7 +13,7 @@ const TagIndex: React.FC<TagTemplateProps> = ({ data, pageContext }) => {
 
   return (
     <Layouts>
-      <Fv title={tagId} />
+      <Fv title={tagId} assetName="post.jpg" />
       <Seo
         title={`Tag: ${tagId} | K.Iwata's BLOG`}
         description={`The page of tag ${tagId}`}

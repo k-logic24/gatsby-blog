@@ -35,6 +35,7 @@ export interface AppProps {
     title?: string
     date?: string
     isText?: boolean
+    assetName?: string
   }
   item: {
     title?: string

@@ -20,7 +20,7 @@ const Main: React.FC<BlogPageProps> = ({ data, pageContext }) => {
 
   return (
     <Layouts>
-      <Fv title="POST" />
+      <Fv title="POST" assetName="post.jpg" />
       <Seo
         title="POST | K.Iwata's BLOG"
         description="This is the blog list page. I write not only about the web, but also about my daily life."

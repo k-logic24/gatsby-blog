@@ -20,7 +20,7 @@ const Main: React.FC<{ data: GatsbyTypes.WorkPageQuery }> = ({ data }) => {
         title="WORKS | K.Iwata's BLOG"
         description="This is a page of my works. As a front-end engineer, I will be actively working on applications using APIs and creating games from different perspectives."
       />
-      <Fv title="WORKS" />
+      <Fv title="WORKS" assetName="works.jpg" />
       <main className="py-8 md:py-12 px-4 lg:px-0 mx-auto max-w-screen-lg">
         <section className="section work">
           <ul className="article-list">

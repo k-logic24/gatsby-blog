@@ -13,7 +13,7 @@ const Cat: React.FC<CatTemplateProps> = ({ title, data, pageContext }) => {
 
   return (
     <Layouts>
-      <Fv title={title} />
+      <Fv title={title} assetName="post.jpg" />
       <Seo
         title={`Category: ${catId} | K.Iwata's BLOG`}
         description={`The page of category ${catId}`}

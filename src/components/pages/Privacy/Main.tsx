@@ -7,7 +7,7 @@ import Layouts from '@/layouts/layouts'
 const Main: React.FC = () => {
   return (
     <Layouts>
-      <Fv title="Privacy Policy" />
+      <Fv title="Privacy Policy" assetName="privacy.jpg" />
       <Seo
         title="Privacy Policy | K.Iwata's BLOG"
         description="This page is Privacy Policy Page."

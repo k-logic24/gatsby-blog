@@ -35,7 +35,7 @@ const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
 
   return (
     <Layouts>
-      <Fv isText={false} />
+      <Fv isText={false} assetName="post.jpg" />
       <Seo
         title={post?.frontmatter?.title}
         description={post?.frontmatter?.description || post?.excerpt}

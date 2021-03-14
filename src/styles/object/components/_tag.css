@@ -1,5 +1,5 @@
 .post-tag {
-  @apply relative inline-block text-accent hover:text-white transition-colors duration-300;
+  @apply relative inline-block text-accent hover:text-white focus:text-white transition-colors duration-300;
   padding: 0.05em 0.5em;
 }
 .post-tag::before {
