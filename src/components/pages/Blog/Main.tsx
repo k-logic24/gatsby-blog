@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import rehypeReact from 'rehype-react'
 
 import Fv from '@/components/organisms/fv'
 import Seo from '@/components/shared/seo'

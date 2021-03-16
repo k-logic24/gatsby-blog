@@ -4,7 +4,12 @@ import BackgroundImage from 'gatsby-background-image'
 
 import { AppProps } from '@/@types'
 
-const Fv: React.FC<AppProps['fv']> = ({ title, date, isText = true, assetName }) => {
+const Fv: React.FC<AppProps['fv']> = ({
+  title,
+  date,
+  isText = true,
+  assetName,
+}) => {
   const { allImageSharp } = useStaticQuery(graphql`
     query {
       allImageSharp {
@@ -18,14 +23,11 @@ const Fv: React.FC<AppProps['fv']> = ({ title, date, isText = true, assetName })
     }
   `)
   const src = assetName || 'default.jpg'
-  const fvSrc = allImageSharp.nodes.find(n => n.fluid.originalName === src)?.fluid
+  const fvSrc = allImageSharp.nodes.find(n => n.fluid.originalName === src)
+    ?.fluid
 
   return (
-    <BackgroundImage
-      Tag="div"
-      className="fv"
-      fluid={fvSrc}
-    >
+    <BackgroundImage Tag="div" className="fv" fluid={fvSrc}>
       <div className="fv-overlay" />
       {isText && (
         <section className="pt-12 text-center absolute-center w-5/6 leading-loose z-10">

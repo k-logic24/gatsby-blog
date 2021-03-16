@@ -100,9 +100,15 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `k-blog-1`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-135923063-7",
+        trackingId: 'UA-135923063-7',
         head: false,
         anonymize: true,
       },

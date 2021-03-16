@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { Disqus } from 'gatsby-plugin-disqus'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faChevronLeft,
@@ -19,13 +20,12 @@ import rehypeReact from 'rehype-react'
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
-    'adsense': Ads
+    adsense: Ads,
   },
 }).Compiler
 
 const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
   const post = data.markdownRemark
-  const html = post?.html
   const title = post?.frontmatter?.title
   const date = post?.frontmatter?.date
   const originSrc = post?.frontmatter?.hero?.childImageSharp?.sizes?.src
@@ -63,7 +63,9 @@ const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
               dangerouslySetInnerHTML={{ __html: tableOfContents }}
             ></div>
           )}
-          <div className="blog-post-contents" itemProp="articleBody">{renderAst(post?.htmlAst)}</div>
+          <div className="blog-post-contents" itemProp="articleBody">
+            {renderAst(post?.htmlAst)}
+          </div>
           <nav className="hidden md:block pt-12 pagination">
             <ul className="flex justify-between">
               <li className="md:w-1/3">
@@ -102,6 +104,15 @@ const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
               </li>
             </ul>
           </nav>
+          <div className="mt-8">
+            <Disqus
+              config={{
+                url: `https://k-blog.life${post?.fields?.slug}`,
+                identifier: post?.id,
+                title: title,
+              }}
+            />
+          </div>
         </article>
       </main>
     </Layouts>
