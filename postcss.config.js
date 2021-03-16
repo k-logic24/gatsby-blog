@@ -1,7 +1,8 @@
 module.exports = {
-  plugins: [
-    require('tailwindcss'),
-    require('autoprefixer'),
-    require('postcss-define-function'),
-  ],
+  plugins: {
+    // '@tailwindcss/jit': {},
+    tailwindcss: {},
+    autoprefixer: {},
+    'postcss-define-function': {},
+  }
 }
