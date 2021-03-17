@@ -7,7 +7,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       alias: {
         '@': resolve(__dirname, 'src'),
       },
-      moduleExtensions: ['tsx', 'ts'],
+      extensions: ['tsx', 'ts'],
     },
   })
 }

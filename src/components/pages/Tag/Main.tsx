@@ -28,7 +28,7 @@ const TagIndex: React.FC<TagTemplateProps> = ({ data, pageContext }) => {
               <Item
                 key={node.fields?.slug}
                 title={node.frontmatter?.title}
-                src={node.frontmatter?.hero?.childImageSharp?.fluid}
+                src={node.frontmatter?.hero?.childImageSharp?.gatsbyImageData}
                 slug={node.fields?.slug}
                 date={node.frontmatter?.date}
                 tags={node.frontmatter?.tags}

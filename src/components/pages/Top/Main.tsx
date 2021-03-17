@@ -44,7 +44,7 @@ const Main: React.FC<BlogIndexProps> = ({ data }) => {
                     <Item
                       key={post.id}
                       title={post.frontmatter?.title || post.fields?.slug}
-                      src={post?.frontmatter?.hero?.childImageSharp?.fluid}
+                      src={post?.frontmatter?.hero?.childImageSharp?.gatsbyImageData}
                       slug={post.fields?.slug}
                       date={post.frontmatter?.date}
                       tags={post.frontmatter?.tags}

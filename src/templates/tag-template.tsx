@@ -32,9 +32,7 @@ export const pageQuery = graphql`
             description
             hero {
               childImageSharp {
-                fluid(maxWidth: 900) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+                gatsbyImageData(layout: FULL_WIDTH)
               }
             }
             tags

@@ -6,7 +6,7 @@ import {
   faChevronLeft,
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons'
-import Image from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import Ads from '@/components/shared/ads'
 import Fv from '@/components/organisms/fv'
@@ -28,8 +28,8 @@ const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const title = post?.frontmatter?.title
   const date = post?.frontmatter?.date
-  const originSrc = post?.frontmatter?.hero?.childImageSharp?.sizes?.src
-  const srcset = post?.frontmatter?.hero?.childImageSharp?.fluid
+  const originSrc = post?.frontmatter?.hero?.childImageSharp?.original?.src
+  const srcset = post?.frontmatter?.hero?.childImageSharp?.gatsbyImageData
   const tableOfContents = post?.tableOfContents || ''
   const { previous, next } = pageContext
 
@@ -54,7 +54,7 @@ const Main: React.FC<BlogPostProps> = ({ data, pageContext }) => {
             <span className="text-xs text-secondary">{date}</span>
           </div>
           <div className="mb-8">
-            <Image fluid={srcset!} alt="" />
+            <GatsbyImage image={srcset!} alt="" />
           </div>
           <Ads />
           {tableOfContents && (

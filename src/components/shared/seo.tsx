@@ -24,7 +24,7 @@ const Seo: React.FC<Props> = ({
       query Seo {
         avatar: file(absolutePath: { regex: "/avatar.jpg/" }) {
           childImageSharp {
-            sizes {
+            fluid {
               src
             }
           }
@@ -46,7 +46,7 @@ const Seo: React.FC<Props> = ({
   const siteUrl = site?.siteMetadata?.siteUrl
   const metaDescription = description || site!.siteMetadata!.description
   const defaultTitle = site?.siteMetadata?.title
-  const defaultImage = avatar?.childImageSharp?.sizes?.src
+  const defaultImage = avatar?.childImageSharp?.fluid?.src
   const ogImage = image || defaultImage
   const noIndex = isNoIndex
     ? {

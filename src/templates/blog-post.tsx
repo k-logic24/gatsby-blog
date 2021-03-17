@@ -24,10 +24,8 @@ export const pageQuery = graphql`
         description
         hero {
           childImageSharp {
-            fluid(maxWidth: 900) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-            sizes {
+            gatsbyImageData(layout: FULL_WIDTH)
+            original {
               src
             }
           }

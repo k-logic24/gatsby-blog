@@ -1,18 +1,9 @@
 import React from 'react'
-import Image from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 interface Props {
   title?: string
-  src?: Pick<
-    GatsbyTypes.ImageSharpFluid,
-    | 'base64'
-    | 'aspectRatio'
-    | 'src'
-    | 'srcSet'
-    | 'srcSetWebp'
-    | 'srcWebp'
-    | 'sizes'
-  >
+  src?: any
   siteUrl?: string
   githubUrl?: string
   skill?: string
@@ -30,7 +21,7 @@ const Item: React.FC<Props> = ({ title, src, siteUrl, githubUrl, skill }) => {
             target="_blank"
             rel="nofollow noreferrer"
           >
-            <Image fluid={src!} alt="" />
+            <GatsbyImage image={src!} alt="" />
           </a>
         </figure>
         <h2>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Image from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import TagLabel from '@/components/atoms/tag-label'
 import { AppProps } from '@/@types'
@@ -22,7 +22,7 @@ const Item: React.FC<AppProps['item']> = ({
             className="block transition-transform duration-700 ease-out"
             itemProp="url"
           >
-            <Image fluid={src!} alt="" />
+            <GatsbyImage image={src!} alt="" />
           </Link>
           <p className="card__date">
             <time dateTime={date}>{date}</time>

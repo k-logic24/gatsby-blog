@@ -28,7 +28,7 @@ const Main: React.FC<{ data: GatsbyTypes.WorkPageQuery }> = ({ data }) => {
               <Item
                 key={frontmatter?.title}
                 title={frontmatter?.title}
-                src={frontmatter?.thumb?.childImageSharp?.fluid}
+                src={frontmatter?.thumb?.childImageSharp?.gatsbyImageData}
                 githubUrl={frontmatter?.githubUrl}
                 siteUrl={frontmatter?.siteUrl}
                 skill={frontmatter?.skill}

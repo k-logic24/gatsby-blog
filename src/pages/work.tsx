@@ -22,9 +22,7 @@ export const pageQuery = graphql`
           githubUrl
           thumb {
             childImageSharp {
-              fluid(maxWidth: 600) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(layout: FULL_WIDTH)
             }
           }
           skill

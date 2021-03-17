@@ -23,7 +23,7 @@ const Fv: React.FC<AppProps['fv']> = ({
     }
   `)
   const src = assetName || 'default.jpg'
-  const fvSrc = allImageSharp.nodes.find(n => n.fluid.originalName === src)
+  const fvSrc = allImageSharp.nodes.find((n: any) => n.fluid.originalName === src)
     ?.fluid
 
   return (

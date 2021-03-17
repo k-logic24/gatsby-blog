@@ -36,7 +36,7 @@ const Main: React.FC<BlogPageProps> = ({ data, pageContext }) => {
                 <Item
                   key={post.fields!.slug!}
                   title={title}
-                  src={post?.frontmatter?.hero?.childImageSharp?.fluid}
+                  src={post?.frontmatter?.hero?.childImageSharp?.gatsbyImageData}
                   slug={post.fields?.slug}
                   date={post.frontmatter?.date}
                   tags={post.frontmatter?.tags}
